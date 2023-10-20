@@ -1,0 +1,90 @@
+[gd_scene load_steps=8 format=3 uid="uid://yj6ie0ukakwk"]
+
+[ext_resource type="Texture2D" uid="uid://6b8odl1d0wmt" path="res://minigames/juegoPlataformas/road.png" id="1_ki76e"]
+[ext_resource type="Texture2D" uid="uid://b0rsdimvvv85s" path="res://minigames/juegoPlataformas/player256.png" id="1_sie1i"]
+[ext_resource type="Texture2D" uid="uid://0hsqyx43s610" path="res://minigames/juegoPlataformas/car256.png" id="2_7iufm"]
+[ext_resource type="Script" path="res://minigames/juegoPlataformas/playerBehaviour.gd" id="3_kve2t"]
+[ext_resource type="Script" path="res://minigames/juegoPlataformas/carBehaviour.gd" id="5_tlg8t"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_kwq60"]
+radius = 60.0
+height = 228.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_icvbs"]
+size = Vector2(96.2733, 191.304)
+
+[node name="plataformasJuego" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="background" type="Sprite2D" parent="."]
+texture = ExtResource("1_ki76e")
+
+[node name="screenColliders" type="Node2D" parent="."]
+
+[node name="right" type="Button" parent="screenColliders"]
+modulate = Color(0, 0, 0, 1)
+offset_left = 35.0
+offset_top = -641.0
+offset_right = 360.0
+offset_bottom = 638.0
+
+[node name="left" type="Button" parent="screenColliders"]
+modulate = Color(0, 0, 0, 1)
+offset_left = -360.0
+offset_top = -641.0
+offset_right = -35.0
+offset_bottom = 638.0
+
+[node name="player" type="CharacterBody2D" parent="."]
+script = ExtResource("3_kve2t")
+
+[node name="playerSprite" type="Sprite2D" parent="player"]
+texture = ExtResource("1_sie1i")
+
+[node name="colision" type="CollisionShape2D" parent="player"]
+shape = SubResource("CapsuleShape2D_kwq60")
+
+[node name="carSpawner" type="Node2D" parent="."]
+
+[node name="car" type="Area2D" parent="carSpawner"]
+position = Vector2(0, -800)
+script = ExtResource("5_tlg8t")
+
+[node name="carSprite" type="Sprite2D" parent="carSpawner/car"]
+scale = Vector2(1.61, 1.61)
+texture = ExtResource("2_7iufm")
+
+[node name="colision" type="CollisionShape2D" parent="carSpawner/car"]
+scale = Vector2(1.61, 1.61)
+shape = SubResource("RectangleShape2D_icvbs")
+
+[node name="car2" type="Area2D" parent="carSpawner"]
+position = Vector2(0, -1700)
+script = ExtResource("5_tlg8t")
+
+[node name="carSprite" type="Sprite2D" parent="carSpawner/car2"]
+scale = Vector2(1.61, 1.61)
+texture = ExtResource("2_7iufm")
+
+[node name="colision" type="CollisionShape2D" parent="carSpawner/car2"]
+scale = Vector2(1.61, 1.61)
+shape = SubResource("RectangleShape2D_icvbs")
+
+[node name="car3" type="Area2D" parent="carSpawner"]
+position = Vector2(0, -2600)
+script = ExtResource("5_tlg8t")
+
+[node name="carSprite" type="Sprite2D" parent="carSpawner/car3"]
+scale = Vector2(1.61, 1.61)
+texture = ExtResource("2_7iufm")
+
+[node name="colision" type="CollisionShape2D" parent="carSpawner/car3"]
+scale = Vector2(1.61, 1.61)
+shape = SubResource("RectangleShape2D_icvbs")
+
+[connection signal="button_down" from="screenColliders/right" to="player" method="_on_right_button_down"]
+[connection signal="button_down" from="screenColliders/left" to="player" method="_on_left_button_down"]
+[connection signal="body_entered" from="carSpawner/car" to="player" method="_on_car_body_entered"]
+[connection signal="body_entered" from="carSpawner/car2" to="player" method="_on_car_2_body_entered"]
+[connection signal="body_entered" from="carSpawner/car3" to="player" method="_on_car_3_body_entered"]
