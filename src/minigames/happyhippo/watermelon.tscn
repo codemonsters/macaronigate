@@ -1,18 +1,23 @@
-[gd_scene load_steps=3 format=3 uid="uid://bvpnrwu51kssf"]
+[gd_scene load_steps=4 format=3 uid="uid://bvpnrwu51kssf"]
 
 [ext_resource type="Texture2D" uid="uid://d3iy22ovvttfm" path="res://minigames/happyhippo/watermelon.png" id="1_vwwm7"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_8s2lm"]
+bounce = 0.04
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_vjtlj"]
 radius = 36.5
 
 [node name="watermelon" type="Node2D"]
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="RigidBody2D" type="RigidBody2D" parent="."]
+mass = 3.5
+physics_material_override = SubResource("PhysicsMaterial_8s2lm")
+
+[node name="Sprite2D" type="Sprite2D" parent="RigidBody2D"]
 scale = Vector2(0.3, 0.3)
 texture = ExtResource("1_vwwm7")
 offset = Vector2(0, -2)
-
-[node name="RigidBody2D" type="RigidBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
 shape = SubResource("CircleShape2D_vjtlj")
