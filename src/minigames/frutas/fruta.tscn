@@ -1,0 +1,40 @@
+[gd_scene load_steps=6 format=3 uid="uid://cfgluxwxqvwab"]
+
+[ext_resource type="Texture2D" uid="uid://bear6oenx0cn6" path="res://minigames/frutas/Fruit+.png" id="1_3v7w0"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qcvme"]
+atlas = ExtResource("1_3v7w0")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uh420"]
+atlas = ExtResource("1_3v7w0")
+region = Rect2(0, 80, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xaw81"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qcvme")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uh420")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_gx7bt"]
+radius = 61.0
+
+[node name="fruta" type="RigidBody2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(8, 8)
+sprite_frames = SubResource("SpriteFrames_xaw81")
+frame_progress = 0.185262
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 4)
+shape = SubResource("CircleShape2D_gx7bt")
