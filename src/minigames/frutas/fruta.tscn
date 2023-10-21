@@ -28,6 +28,7 @@ animations = [{
 radius = 61.0
 
 [node name="fruta" type="RigidBody2D"]
+mass = 0.3
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1

@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://ft08gk816ihy"]
+[gd_scene load_steps=8 format=3 uid="uid://ft08gk816ihy"]
 
 [ext_resource type="Script" path="res://minigames/frutas/main.gd" id="1_tld6u"]
 [ext_resource type="PackedScene" uid="uid://cfgluxwxqvwab" path="res://minigames/frutas/fruta.tscn" id="2_ussx5"]
@@ -9,7 +9,21 @@ _data = {
 }
 point_count = 4
 
-[node name="main" type="Node2D"]
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_o0w5u"]
+a = Vector2(2.08165e-12, 2.08165e-12)
+b = Vector2(1280, 2.08165e-12)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_u0r1r"]
+b = Vector2(-1280, 2.08165e-12)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_33t3u"]
+a = Vector2(2.08165e-12, 2.08165e-12)
+b = Vector2(720, 2.08165e-12)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_8w6no"]
+b = Vector2(-720, 2.08165e-12)
+
+[node name="Main" type="Node2D"]
 script = ExtResource("1_tld6u")
 fruta_scene = ExtResource("2_ussx5")
 
@@ -32,5 +46,41 @@ text = "Cut the fruit!"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Path2D" type="Path2D" parent="."]
+[node name="SpawnPath" type="Path2D" parent="."]
 curve = SubResource("Curve2D_jqhvf")
+
+[node name="SpawnLocation" type="PathFollow2D" parent="SpawnPath"]
+position = Vector2(0, 288)
+rotation = 1.5708
+
+[node name="FrutaTimer" type="Timer" parent="."]
+wait_time = 0.5
+
+[node name="Walls" type="StaticBody2D" parent="."]
+
+[node name="Left" type="CollisionShape2D" parent="Walls"]
+rotation = 1.5708
+shape = SubResource("SegmentShape2D_o0w5u")
+disabled = true
+one_way_collision = true
+
+[node name="Right" type="CollisionShape2D" parent="Walls"]
+position = Vector2(720, 2.08165e-12)
+rotation = -1.5708
+shape = SubResource("SegmentShape2D_u0r1r")
+disabled = true
+one_way_collision = true
+
+[node name="Down" type="CollisionShape2D" parent="Walls"]
+position = Vector2(2.08165e-12, 1280)
+shape = SubResource("SegmentShape2D_33t3u")
+one_way_collision = true
+
+[node name="Up" type="CollisionShape2D" parent="Walls"]
+position = Vector2(2.08165e-12, 2.08165e-12)
+rotation = 3.14159
+shape = SubResource("SegmentShape2D_8w6no")
+disabled = true
+one_way_collision = true
+
+[connection signal="timeout" from="FrutaTimer" to="." method="_on_fruta_timer_timeout"]
