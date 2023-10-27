@@ -7,11 +7,11 @@ func _ready():
 	color = rng.randi_range(0, 2)
 	
 	if color == 0:
-		get_child(0).modulate = Color(0.941176, 0.9722549, 1, 1)
+		get_child(0).modulate = Color(0.5, 0.9722549, 1, 1)
 	
 	elif color == 1:
 		get_child(0).modulate = Color(0.941176, 1, 0.941176, 1)
 		
 	else:
-		get_child(0).modulate = Color(1, 0.647059, 0, 1)
+		get_child(0).modulate = Color(1, 0.5, 0, 1)
 	
