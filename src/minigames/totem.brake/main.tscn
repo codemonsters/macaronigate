@@ -1,0 +1,28 @@
+[gd_scene load_steps=2 format=3 uid="uid://d7pds6ys2gwo"]
+
+[ext_resource type="Script" path="res://minigames/totem.brake/Block_Spawner.gd" id="1_qcm1e"]
+
+[node name="main" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Block_Spawner" type="Node2D" parent="."]
+script = ExtResource("1_qcm1e")
+
+[node name="Button" type="Button" parent="."]
+offset_left = -283.0
+offset_top = 290.0
+offset_right = -161.0
+offset_bottom = 420.0
+
+[node name="Button3" type="Button" parent="."]
+offset_left = -61.0
+offset_top = 292.0
+offset_right = 61.0
+offset_bottom = 422.0
+
+[node name="Button2" type="Button" parent="."]
+offset_left = 165.0
+offset_top = 294.0
+offset_right = 287.0
+offset_bottom = 424.0

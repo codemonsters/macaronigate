@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b0rsdimvvv85s"
-path="res://.godot/imported/player256.png-51dfb0dc70d0b2e1aa893df847745b9b.ctex"
+uid="uid://0hsqyx43s610"
+path="res://.godot/imported/car256.png-5e8f425ebe556a003062ce5d117ead85.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://minigames/juegoPlataformas/player256.png"
-dest_files=["res://.godot/imported/player256.png-51dfb0dc70d0b2e1aa893df847745b9b.ctex"]
+source_file="res://minigames/esquivar.coches/car256.png"
+dest_files=["res://.godot/imported/car256.png-5e8f425ebe556a003062ce5d117ead85.ctex"]
 
 [params]
 

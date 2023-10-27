@@ -16,4 +16,4 @@ func _ready():
 
 
 func _process(delta):
-	position.y = position.y + 15
+	position.y = position.y + (750*delta)

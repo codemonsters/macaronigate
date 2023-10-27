@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://6b8odl1d0wmt"
-path="res://.godot/imported/road.png-dce8a93375c6764608ab015fdb6049a4.ctex"
+uid="uid://b0rsdimvvv85s"
+path="res://.godot/imported/player256.png-5edfb2347d343fbcb204a269b2f653d7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://minigames/juegoPlataformas/road.png"
-dest_files=["res://.godot/imported/road.png-dce8a93375c6764608ab015fdb6049a4.ctex"]
+source_file="res://minigames/esquivar.coches/player256.png"
+dest_files=["res://.godot/imported/player256.png-5edfb2347d343fbcb204a269b2f653d7.ctex"]
 
 [params]
 
