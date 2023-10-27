@@ -12,7 +12,6 @@ func _ready():
 func _process(delta):
 	pass
 
-
 func _on_fruta_timer_timeout():
 	var fruta = fruta_scene.instantiate()
 	var fruta_spawn_location = get_node("SpawnPath/SpawnLocation")
@@ -20,10 +19,18 @@ func _on_fruta_timer_timeout():
 	
 	fruta.position = fruta_spawn_location.position
 	fruta.rotation = randf_range(-PI / 4, PI / 4)
-	fruta.angular_velocity = randf_range(0.5, 2)
+	fruta.angular_velocity = randf_range(-50, 50)
 	
-	var velocity_x = (720 / 2 - fruta_spawn_location.position.x) * 0.7
-	var velocity_y = randf_range(-1000, -1700)
+	var velocity_x = (720 / 2 - fruta_spawn_location.position.x) * 1.5
+	var velocity_y = randf_range(500, 800)
 	fruta.linear_velocity = Vector2(velocity_x, velocity_y)
 	
-	add_child(fruta) # Replace with function body.
+	add_child(fruta)
+	# print("fruta")
+
+#func _input(event):
+#	if event is InputEventMouseButton:
+#		if event.is_pressed():
+#			if event.position 
+#			print("Object clicked")
+	
