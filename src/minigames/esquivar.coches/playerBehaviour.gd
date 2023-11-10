@@ -6,6 +6,8 @@ var win = false
 
 var lose = false
 
+var tamaño = true
+
 func _ready():
 	position = Vector2(-190, 417)
 
@@ -29,12 +31,29 @@ func _process(delta):
 		
 	elif lose == true:
 		if posicion_jugador == 0:
-			position.x += 3000*delta
-			rotation += 90*delta
+			if tamaño:
+				$playerSprite.scale += Vector2(10*delta, 10*delta)
+				rotation += 25*delta
+				if $playerSprite.scale > Vector2(5, 5):
+					tamaño = false
+			else:
+				$playerSprite.scale += Vector2(-10*delta, -10*delta)
+				rotation += -25*delta
+			position.x += 750*delta
+			if $playerSprite.scale < Vector2.ZERO:
+				queue_free()
 		elif posicion_jugador == 1:
-			position.x += -3000*delta
-			rotation += -90*delta
-
+			if tamaño:
+				$playerSprite.scale += Vector2(10*delta, 10*delta)
+				rotation += -25*delta
+				if $playerSprite.scale > Vector2(5, 5):
+					tamaño = false
+			else:
+				$playerSprite.scale += Vector2(-10*delta, -10*delta)
+				rotation += 25*delta
+			position.x += -700*delta
+			if $playerSprite.scale < Vector2.ZERO:
+				queue_free()
 
 func _on_car_body_entered(body):
 	lose = true
