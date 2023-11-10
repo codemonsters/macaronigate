@@ -1,11 +1,13 @@
-[gd_scene load_steps=10 format=3 uid="uid://yj6ie0ukakwk"]
+[gd_scene load_steps=12 format=3 uid="uid://yj6ie0ukakwk"]
 
 [ext_resource type="Texture2D" uid="uid://6b8odl1d0wmt" path="res://minigames/esquivar.coches/road.png" id="1_i6m4e"]
 [ext_resource type="Script" path="res://minigames/esquivar.coches/playerBehaviour.gd" id="2_tsx8v"]
 [ext_resource type="Texture2D" uid="uid://b0rsdimvvv85s" path="res://minigames/esquivar.coches/player256.png" id="3_kba2b"]
+[ext_resource type="AudioStream" uid="uid://c0su4vf6a1y2a" path="res://minigames/esquivar.coches/slide.wav" id="4_eo362"]
 [ext_resource type="Script" path="res://minigames/esquivar.coches/carBehaviour.gd" id="4_tyom8"]
 [ext_resource type="Texture2D" uid="uid://0hsqyx43s610" path="res://minigames/esquivar.coches/car256.png" id="5_ifvt7"]
 [ext_resource type="Script" path="res://minigames/esquivar.coches/CollisionShape2D.gd" id="6_bocib"]
+[ext_resource type="AudioStream" uid="uid://bxyqefjys66bc" path="res://minigames/esquivar.coches/monsterwarecochesfinal_FINAL.ogg" id="8_4hd04"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_kwq60"]
 radius = 60.0
@@ -48,6 +50,10 @@ texture = ExtResource("3_kba2b")
 
 [node name="colision" type="CollisionShape2D" parent="player"]
 shape = SubResource("CapsuleShape2D_kwq60")
+
+[node name="slidePlayer" type="AudioStreamPlayer2D" parent="player"]
+stream = ExtResource("4_eo362")
+volume_db = -3.962
 
 [node name="carSpawner" type="Node2D" parent="."]
 
@@ -103,6 +109,19 @@ position = Vector2(-14, 0)
 scale = Vector2(1.61, 1.61)
 shape = SubResource("RectangleShape2D_icvbs")
 
+[node name="car6" type="Area2D" parent="carSpawner"]
+position = Vector2(0, -5378)
+script = ExtResource("4_tyom8")
+
+[node name="carSprite" type="Sprite2D" parent="carSpawner/car6"]
+scale = Vector2(1.61, 1.61)
+texture = ExtResource("5_ifvt7")
+
+[node name="colision" type="CollisionShape2D" parent="carSpawner/car6"]
+position = Vector2(-16, 0)
+scale = Vector2(1.61, 1.61)
+shape = SubResource("RectangleShape2D_icvbs")
+
 [node name="car5" type="Area2D" parent="carSpawner"]
 position = Vector2(0, -4409)
 script = ExtResource("4_tyom8")
@@ -119,10 +138,15 @@ shape = SubResource("RectangleShape2D_icvbs")
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="Victory" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(-0.5, -5400)
+position = Vector2(-0.5, -6456)
 shape = SubResource("RectangleShape2D_ei8as")
 debug_color = Color(0, 0.584314, 0.784314, 0.419608)
 script = ExtResource("6_bocib")
+
+[node name="musicPlayer" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8_4hd04")
+volume_db = 1.875
+autoplay = true
 
 [connection signal="button_down" from="screenColliders/right" to="player" method="_on_right_button_down"]
 [connection signal="button_down" from="screenColliders/left" to="player" method="_on_left_button_down"]
@@ -130,5 +154,6 @@ script = ExtResource("6_bocib")
 [connection signal="body_entered" from="carSpawner/car2" to="player" method="_on_car_2_body_entered"]
 [connection signal="body_entered" from="carSpawner/car3" to="player" method="_on_car_3_body_entered"]
 [connection signal="body_entered" from="carSpawner/car4" to="player" method="_on_car_3_body_entered"]
+[connection signal="body_entered" from="carSpawner/car6" to="player" method="_on_car_3_body_entered"]
 [connection signal="body_entered" from="carSpawner/car5" to="player" method="_on_car_3_body_entered"]
 [connection signal="body_entered" from="Area2D" to="player" method="_on_area_2d_body_entered"]
