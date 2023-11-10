@@ -7,12 +7,12 @@ func _ready():
 	
 	#tween_title.tween_property($TitleSprite, "position:y", 300, 0.4).set_trans(Tween.TRANS_LINEAR).set_ease(Tween.EASE_IN)
 	#tween_title.tween_property($TitleSprite, "position:y", 250, 1).set_trans(Tween.TRANS_SINE)
-	$TitleAnimationPlayer.play("In")
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
+	$DissolveRect.get_node("AnimationPlayer").play("fade_in")
 
 
 func _on_play_button_pressed():
 	get_tree().change_scene("res://minigames/happyhippo/main.tscn")
+
+
+func _on_fade_in_animation_finished(anim_name):
+	$TitleSprite.get_node("AnimationPlayer").play("in")
