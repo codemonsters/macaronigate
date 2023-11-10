@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://de70q21ybr5wf"]
+[gd_scene load_steps=9 format=3 uid="uid://de70q21ybr5wf"]
 
 [ext_resource type="Script" path="res://menu.gd" id="1_8vc63"]
 [ext_resource type="Texture2D" uid="uid://y6psapq64eu0" path="res://images/menu_background.png" id="2_y4d3w"]
@@ -6,7 +6,8 @@
 [ext_resource type="Texture2D" uid="uid://dju5xil834p46" path="res://images/menu_play.png" id="4_5m1tx"]
 
 [sub_resource type="Animation" id="Animation_i2ct6"]
-resource_name = "In"
+resource_name = "in"
+length = 0.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -14,15 +15,36 @@ tracks/0/path = NodePath(".:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(-1, 1),
 "update": 0,
-"values": [Vector2(360, -50), Vector2(360, 500)]
+"values": [Vector2(360, -50), Vector2(360, 600)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_8fol2"]
 _data = {
-"In": SubResource("Animation_i2ct6")
+"in": SubResource("Animation_i2ct6")
+}
+
+[sub_resource type="Animation" id="Animation_8q8eo"]
+resource_name = "fade_in"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("DissolveRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_rpvuq"]
+_data = {
+"fade_in": SubResource("Animation_8q8eo")
 }
 
 [node name="Menu" type="Node2D"]
@@ -34,17 +56,29 @@ offset_bottom = 40.0
 texture = ExtResource("2_y4d3w")
 
 [node name="TitleSprite" type="Sprite2D" parent="."]
-position = Vector2(360, 500)
+position = Vector2(360, -50)
 texture = ExtResource("3_7jjsm")
 
-[node name="PlayButton" type="TouchScreenButton" parent="."]
-position = Vector2(262, 900)
-texture_normal = ExtResource("4_5m1tx")
-
-[node name="TitleAnimationPlayer" type="AnimationPlayer" parent="."]
-root_node = NodePath("../TitleSprite")
+[node name="AnimationPlayer" type="AnimationPlayer" parent="TitleSprite"]
 libraries = {
 "": SubResource("AnimationLibrary_8fol2")
 }
 
+[node name="PlayButton" type="TouchScreenButton" parent="."]
+position = Vector2(262, 787)
+texture_normal = ExtResource("4_5m1tx")
+
+[node name="DissolveRect" type="ColorRect" parent="."]
+offset_right = 720.0
+offset_bottom = 1280.0
+color = Color(0, 0, 0, 0.2)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="DissolveRect"]
+root_node = NodePath("../..")
+libraries = {
+"": SubResource("AnimationLibrary_rpvuq")
+}
+
+[connection signal="animation_finished" from="TitleSprite/AnimationPlayer" to="." method="_on_title_enter_animation_finished"]
 [connection signal="pressed" from="PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="animation_finished" from="DissolveRect/AnimationPlayer" to="." method="_on_fade_in_animation_finished"]
