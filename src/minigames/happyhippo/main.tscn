@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://minigames/happyhippo/main.gd" id="1_mca63"]
 [ext_resource type="PackedScene" uid="uid://bvpnrwu51kssf" path="res://minigames/happyhippo/watermelon.tscn" id="1_wyqtf"]
-[ext_resource type="PackedScene" uid="uid://bljusdppoko6h" path="res://minigames/happyhippo/madera.tscn" id="3_q75wp"]
+[ext_resource type="Texture2D" uid="uid://1o8c4wcmaskf" path="res://minigames/happyhippo/Happyhippo.png" id="4_gi4xr"]
 
 [node name="main" type="Node2D"]
 script = ExtResource("1_mca63")
@@ -10,5 +10,7 @@ script = ExtResource("1_mca63")
 [node name="watermelon" parent="." instance=ExtResource("1_wyqtf")]
 position = Vector2(360, 50)
 
-[node name="madera" parent="." instance=ExtResource("3_q75wp")]
-position = Vector2(400, 500)
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(360, 1000)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("4_gi4xr")
