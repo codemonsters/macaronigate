@@ -1,11 +1,13 @@
-[gd_scene load_steps=10 format=3 uid="uid://d7pds6ys2gwo"]
+[gd_scene load_steps=12 format=3 uid="uid://d7pds6ys2gwo"]
 
 [ext_resource type="Script" path="res://minigames/totem.break/Block_Spawner.gd" id="1_qcm1e"]
 [ext_resource type="Texture2D" uid="uid://hcnx7vd5075l" path="res://placeholder.png" id="2_5dash"]
 [ext_resource type="Texture2D" uid="uid://d1usuxrhmspu7" path="res://minigames/totem.break/bordeFondo1.png" id="3_b83ca"]
 [ext_resource type="Texture2D" uid="uid://dufjnxx66v8ip" path="res://minigames/totem.break/bordeBoton1.png" id="3_bvj3h"]
+[ext_resource type="AudioStream" uid="uid://c5eysmu77p1m" path="res://minigames/totem.break/totemFall.wav" id="3_rn2o5"]
 [ext_resource type="Texture2D" uid="uid://bfvoj3kniecg4" path="res://minigames/totem.break/bordeBoton2.png" id="4_8e408"]
 [ext_resource type="Texture2D" uid="uid://dd4culyc0401v" path="res://minigames/totem.break/bordeFondo2.png" id="4_qeps6"]
+[ext_resource type="AudioStream" uid="uid://17dmo6nbtm46" path="res://minigames/totem.break/click.wav" id="4_tdstx"]
 [ext_resource type="Script" path="res://minigames/totem.break/animacionBasica.gd" id="5_lthdy"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_b35wq"]
@@ -48,6 +50,14 @@ texture = ExtResource("2_5dash")
 [node name="Block_Spawner" type="Node2D" parent="."]
 script = ExtResource("1_qcm1e")
 
+[node name="totemFalling" type="AudioStreamPlayer2D" parent="Block_Spawner"]
+stream = ExtResource("3_rn2o5")
+volume_db = 0.18
+
+[node name="buttonClick" type="AudioStreamPlayer2D" parent="Block_Spawner"]
+stream = ExtResource("4_tdstx")
+volume_db = -9.905
+
 [node name="fondoBotones" type="Sprite2D" parent="."]
 modulate = Color(0.52549, 0.52549, 0.52549, 1)
 position = Vector2(0, 432)
@@ -55,8 +65,9 @@ scale = Vector2(1.9668, 1)
 texture = ExtResource("2_5dash")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(2.99999, 491)
-scale = Vector2(1.57429, 1.06)
+position = Vector2(3, 472.93)
+rotation = 3.14159
+scale = Vector2(1.919, 0.952)
 sprite_frames = SubResource("SpriteFrames_b35wq")
 frame_progress = 0.213962
 script = ExtResource("5_lthdy")
