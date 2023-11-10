@@ -1,0 +1,114 @@
+[gd_scene load_steps=10 format=3 uid="uid://d7pds6ys2gwo"]
+
+[ext_resource type="Script" path="res://minigames/totem.break/Block_Spawner.gd" id="1_qcm1e"]
+[ext_resource type="Texture2D" uid="uid://hcnx7vd5075l" path="res://placeholder.png" id="2_5dash"]
+[ext_resource type="Texture2D" uid="uid://d1usuxrhmspu7" path="res://minigames/totem.break/bordeFondo1.png" id="3_b83ca"]
+[ext_resource type="Texture2D" uid="uid://dufjnxx66v8ip" path="res://minigames/totem.break/bordeBoton1.png" id="3_bvj3h"]
+[ext_resource type="Texture2D" uid="uid://bfvoj3kniecg4" path="res://minigames/totem.break/bordeBoton2.png" id="4_8e408"]
+[ext_resource type="Texture2D" uid="uid://dd4culyc0401v" path="res://minigames/totem.break/bordeFondo2.png" id="4_qeps6"]
+[ext_resource type="Script" path="res://minigames/totem.break/animacionBasica.gd" id="5_lthdy"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_b35wq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_b83ca")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_qeps6")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_eblgm"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_bvj3h")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_8e408")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="main" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="fondo" type="Sprite2D" parent="."]
+position = Vector2(2, 42)
+scale = Vector2(1.9668, 3.03906)
+texture = ExtResource("2_5dash")
+
+[node name="Block_Spawner" type="Node2D" parent="."]
+script = ExtResource("1_qcm1e")
+
+[node name="fondoBotones" type="Sprite2D" parent="."]
+modulate = Color(0.52549, 0.52549, 0.52549, 1)
+position = Vector2(0, 432)
+scale = Vector2(1.9668, 1)
+texture = ExtResource("2_5dash")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(2.99999, 491)
+scale = Vector2(1.57429, 1.06)
+sprite_frames = SubResource("SpriteFrames_b35wq")
+frame_progress = 0.213962
+script = ExtResource("5_lthdy")
+
+[node name="moradoBoton" type="Button" parent="."]
+modulate = Color(0.501961, 0, 1, 1)
+offset_left = -289.0
+offset_top = 282.0
+offset_right = 231.0
+offset_bottom = 802.0
+scale = Vector2(0.3, 0.3)
+icon = ExtResource("2_5dash")
+
+[node name="bordeBoton" type="AnimatedSprite2D" parent="moradoBoton"]
+position = Vector2(284.167, 252.5)
+scale = Vector2(2.41536, 2.35026)
+sprite_frames = SubResource("SpriteFrames_eblgm")
+frame_progress = 0.389588
+script = ExtResource("5_lthdy")
+
+[node name="rosaBoton" type="Button" parent="."]
+modulate = Color(1, 0.501961, 1, 1)
+offset_left = -76.0
+offset_top = 282.0
+offset_right = 444.0
+offset_bottom = 802.0
+scale = Vector2(0.3, 0.3)
+icon = ExtResource("2_5dash")
+
+[node name="bordeBoton" type="AnimatedSprite2D" parent="rosaBoton"]
+position = Vector2(267.5, 252.5)
+scale = Vector2(2.41536, 2.35026)
+sprite_frames = SubResource("SpriteFrames_eblgm")
+frame_progress = 0.0493107
+script = ExtResource("5_lthdy")
+
+[node name="naranjaBoton" type="Button" parent="."]
+modulate = Color(1, 0.501961, 0, 1)
+offset_left = 140.0
+offset_top = 282.0
+offset_right = 660.0
+offset_bottom = 802.0
+scale = Vector2(0.3, 0.3)
+icon = ExtResource("2_5dash")
+
+[node name="bordeBoton" type="AnimatedSprite2D" parent="naranjaBoton"]
+position = Vector2(267.5, 252.5)
+scale = Vector2(2.41536, 2.35026)
+sprite_frames = SubResource("SpriteFrames_eblgm")
+frame_progress = 0.146533
+script = ExtResource("5_lthdy")
+
+[connection signal="button_down" from="moradoBoton" to="Block_Spawner" method="_on_morado_boton_button_down"]
+[connection signal="button_down" from="rosaBoton" to="Block_Spawner" method="_on_rosa_boton_button_down"]
+[connection signal="button_down" from="naranjaBoton" to="Block_Spawner" method="_on_naranja_boton_button_down"]
