@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://b2kxxdnujr2t5"]
+
+[ext_resource type="Texture2D" uid="uid://dsmvey3cidscp" path="res://minigames/happyhippo/plank.png" id="1_0waup"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h84as"]
+size = Vector2(1192, 680)
+
+[node name="pared" type="Node2D"]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+scale = Vector2(0.01, 0.1)
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
+texture = ExtResource("1_0waup")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("RectangleShape2D_h84as")
