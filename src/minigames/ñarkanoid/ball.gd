@@ -8,7 +8,7 @@ var direction = Vector2.DOWN
 
 @onready var _initial_pos = position
 
-
+	
 func _process(delta):
 	_speed += delta * 2
 	position += _speed * delta * direction

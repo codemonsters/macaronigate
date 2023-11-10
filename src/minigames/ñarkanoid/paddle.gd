@@ -3,7 +3,8 @@ extends Area2D
 
 const MOVE_SPEED = 100
 var velocity = 100
-@export var speed = 400
+var movement = Vector2()
+@export var speed = 3
 
 var _ball_dir
 var _left
@@ -24,17 +25,20 @@ func _ready():
 
 func _process(delta):
 	# Move up and down based on input.
-	var input = Input.get_action_strength(_right) - Input.get_action_strength(_left)
+	#var input = Input.get_action_strength(_right) - Input.get_action_strength(_left)
 	#position.x = clamp(position.y + input * MOVE_SPEED * delta, 16, _screen_size_x - 16)
-	#position.x = position.x + velocity
-	print(position)
-	print(velocity)
+
 	get_input()
+	
+	position.x = position.x + velocity.x
+	position.y = position.y
 
 func _on_area_entered(area):
+	print("estoy aqui")
 	if area.name == "Ball":
 		# Assign new direction.
 		area.direction = Vector2(_ball_dir, randf() * 2 - 1).normalized()
+	
 		
 func get_input():
 	var input_direction = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
