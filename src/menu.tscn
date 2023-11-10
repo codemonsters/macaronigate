@@ -1,3 +1,50 @@
-[gd_scene format=3 uid="uid://de70q21ybr5wf"]
+[gd_scene load_steps=7 format=3 uid="uid://de70q21ybr5wf"]
 
-[node name="Node2D" type="Node2D"]
+[ext_resource type="Script" path="res://menu.gd" id="1_8vc63"]
+[ext_resource type="Texture2D" uid="uid://y6psapq64eu0" path="res://images/menu_background.png" id="2_y4d3w"]
+[ext_resource type="Texture2D" uid="uid://bvxgpovbkro1m" path="res://images/menu_title.png" id="3_7jjsm"]
+[ext_resource type="Texture2D" uid="uid://dju5xil834p46" path="res://images/menu_play.png" id="4_5m1tx"]
+
+[sub_resource type="Animation" id="Animation_i2ct6"]
+resource_name = "In"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(360, -50), Vector2(360, 500)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_8fol2"]
+_data = {
+"In": SubResource("Animation_i2ct6")
+}
+
+[node name="Menu" type="Node2D"]
+script = ExtResource("1_8vc63")
+
+[node name="BackgroundImageRect" type="TextureRect" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("2_y4d3w")
+
+[node name="TitleSprite" type="Sprite2D" parent="."]
+position = Vector2(360, 500)
+texture = ExtResource("3_7jjsm")
+
+[node name="PlayButton" type="TouchScreenButton" parent="."]
+position = Vector2(262, 900)
+texture_normal = ExtResource("4_5m1tx")
+
+[node name="TitleAnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../TitleSprite")
+libraries = {
+"": SubResource("AnimationLibrary_8fol2")
+}
+
+[connection signal="pressed" from="PlayButton" to="." method="_on_play_button_pressed"]
