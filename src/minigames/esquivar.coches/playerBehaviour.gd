@@ -14,8 +14,10 @@ func _ready():
 func _input(event):
 	if Input.is_key_pressed(KEY_RIGHT):
 		posicion_jugador = 1
+		$slidePlayer.play()
 	elif Input.is_key_pressed(KEY_LEFT):
 		posicion_jugador = 0
+		$slidePlayer.play()
 		
 func _process(delta):
 	if !win && !lose:
@@ -70,10 +72,12 @@ func _on_car_3_body_entered(body):
 
 func _on_right_button_down():
 	posicion_jugador = 1
+	$slidePlayer.play()
 
 
 func _on_left_button_down():
 	posicion_jugador = 0
+	$slidePlayer.play()
 
 
 func _on_area_2d_body_entered(body):
