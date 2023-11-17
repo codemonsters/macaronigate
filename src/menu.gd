@@ -9,4 +9,5 @@ func _ready():
 
 
 func _on_play_button_pressed():
-	get_tree().change_scene("res://minigames/happyhippo/main.tscn")
+	print("PRESSED!")
+	Globals.comenzar_partida()
