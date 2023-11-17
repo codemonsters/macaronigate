@@ -40,16 +40,16 @@ texture = ExtResource("1_n471p")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="paddle"]
 shape = SubResource("RectangleShape2D_2nfva")
 
-[node name="ball" type="Area2D" parent="."]
+[node name="Ball" type="Area2D" parent="."]
 position = Vector2(360, 500)
 script = ExtResource("2_lpgwx")
 
-[node name="Sprite2D" type="Sprite2D" parent="ball"]
+[node name="Sprite2D" type="Sprite2D" parent="Ball"]
 position = Vector2(0, -3.8147e-06)
 scale = Vector2(-3.07794, 3.34267)
 texture = ExtResource("3_3rh8q")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ball"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ball"]
 shape = SubResource("RectangleShape2D_tyiv3")
 
 [node name="Camera2D" type="Camera2D" parent="."]
