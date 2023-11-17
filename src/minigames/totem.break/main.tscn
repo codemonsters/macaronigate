@@ -52,11 +52,13 @@ script = ExtResource("1_qcm1e")
 
 [node name="totemFalling" type="AudioStreamPlayer2D" parent="Block_Spawner"]
 stream = ExtResource("3_rn2o5")
-volume_db = 0.18
+volume_db = -5.714
+pitch_scale = 0.7
 
 [node name="buttonClick" type="AudioStreamPlayer2D" parent="Block_Spawner"]
 stream = ExtResource("4_tdstx")
-volume_db = -9.905
+volume_db = -12.716
+pitch_scale = 0.71
 
 [node name="fondoBotones" type="Sprite2D" parent="."]
 modulate = Color(0.52549, 0.52549, 0.52549, 1)

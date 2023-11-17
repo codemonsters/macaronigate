@@ -22,6 +22,10 @@ window/size/viewport_height=1280
 window/stretch/mode="viewport"
 window/handheld/orientation=1
 
+[filesystem]
+
+import/fbx/enabled=false
+
 [rendering]
 
 renderer/rendering_method="mobile"
