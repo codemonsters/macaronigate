@@ -2,6 +2,9 @@ extends Node2D
 
 var block = preload("res://minigames/totem.break/Block.tscn")
 var array = []
+var stun = false
+signal stun_start
+signal stun_end
 
 func _ready():
 	for i in range(0, 20):
@@ -25,15 +28,25 @@ func _on_naranja_boton_button_down():
 
 func comprobarInput(colorBoton):
 	get_child(1).play()
-	if (!array.is_empty()):
+	if (!array.is_empty() and !stun):
 		if (array[0].get_child(0, 0).get_color() == colorBoton):
 			get_child(0).play()
 			array[0].queue_free()
 			array.remove_at(0)
 			bajarBloques()
-
+		else:
+			$Timer.start()
+			stun = true
+			stun_start.emit()
+			
+			
 func bajarBloques():
 	var tween = get_tree().create_tween()
 	
 	for i in array:
 		tween.tween_property(i, "position", Vector2(0, i.position.y + 205), 0.01)
+
+
+func _on_timer_timeout():
+	stun = false
+	stun_end.emit()

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bvxgpovbkro1m"
-path="res://.godot/imported/menu_title.png-0a104f922a2f2d6053dbd607a135a96a.ctex"
+uid="uid://b4341h4anxscw"
+path="res://.godot/imported/tornillo.png-e586e188942fc0a6f604d41260bdcf2d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://images/menu_title.png"
-dest_files=["res://.godot/imported/menu_title.png-0a104f922a2f2d6053dbd607a135a96a.ctex"]
+source_file="res://minigames/totem.break/tornillo.png"
+dest_files=["res://.godot/imported/tornillo.png-e586e188942fc0a6f604d41260bdcf2d.ctex"]
 
 [params]
 
