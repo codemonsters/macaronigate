@@ -1,11 +1,14 @@
-[gd_scene load_steps=13 format=3 uid="uid://cymepr70rmtp3"]
+[gd_scene load_steps=17 format=3 uid="uid://cymepr70rmtp3"]
 
 [ext_resource type="PackedScene" uid="uid://1judl13luwqw" path="res://minigames/ladronesDeDiamantes/wall.blend" id="1_ctb5u"]
+[ext_resource type="Script" path="res://minigames/ladronesDeDiamantes/luzScript.gd" id="1_icj6y"]
+[ext_resource type="Script" path="res://minigames/ladronesDeDiamantes/Camara.gd" id="1_utla1"]
 [ext_resource type="Texture2D" uid="uid://bx5hawlcgxlyu" path="res://minigames/ladronesDeDiamantes/woodCleanTexture.jpeg" id="2_55cm0"]
 [ext_resource type="Texture2D" uid="uid://2af1wwcg11rh" path="res://minigames/ladronesDeDiamantes/BakedWall2.png" id="3_tnyit"]
 [ext_resource type="PackedScene" uid="uid://dh6xws4eraqh5" path="res://minigames/ladronesDeDiamantes/pilar.blend" id="4_6t7kh"]
 [ext_resource type="PackedScene" uid="uid://byoe0sh12ykuq" path="res://minigames/ladronesDeDiamantes/ruby.blend" id="5_2xf8d"]
 [ext_resource type="PackedScene" uid="uid://ns2ye0tk3eu2" path="res://minigames/ladronesDeDiamantes/painting.blend" id="6_n55t2"]
+[ext_resource type="Script" path="res://minigames/ladronesDeDiamantes/rubyScript.gd" id="8_kita4"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_t6b7i"]
 resource_name = "wood2"
@@ -83,19 +86,21 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_rjypq")
 
+[sub_resource type="SphereShape3D" id="SphereShape3D_5bddy"]
+radius = 0.961398
+
 [node name="main" type="Node3D"]
 
 [node name="luzFoco" type="SpotLight3D" parent="."]
 transform = Transform3D(0.497976, 0.771658, 0.395681, 0.312881, -0.585421, 0.747922, 0.80878, -0.248646, -0.532963, 23.152, 49.7066, -29.8456)
 light_color = Color(0.247059, 0.458824, 0.839216, 1)
-light_energy = 9.859
-light_indirect_energy = 8.665
+light_energy = 8.727
+light_indirect_energy = 7.21
 light_volumetric_fog_energy = 7.626
 light_specular = 0.823
 shadow_enabled = true
 shadow_bias = 0.0
 shadow_normal_bias = 0.242
-shadow_opacity = 0.91
 shadow_blur = 5.025
 distance_fade_enabled = true
 distance_fade_begin = 453.74
@@ -118,10 +123,29 @@ shadow_normal_bias = 0.0
 shadow_transmittance_bias = 5.221
 shadow_blur = 6.065
 spot_range = 19.756
-spot_angle = 13.5664
+spot_angle = 11.77
+
+[node name="luzPolicia" type="SpotLight3D" parent="."]
+transform = Transform3D(0.989191, -0.0891461, 0.116418, -0.0954005, 0.211655, 0.972677, -0.111351, -0.97327, 0.200863, 1.65989, 19.8733, 2.07678)
+light_energy = 16.0
+light_indirect_energy = 11.343
+light_specular = 5.51
+distance_fade_begin = 2770.67
+distance_fade_length = 382.36
+spot_range = 36.5092
+spot_attenuation = 1.23114
+spot_angle = 11.5841
+spot_angle_attenuation = 0.517633
+script = ExtResource("1_icj6y")
+
+[node name="TimerStartEnd" type="Timer" parent="luzPolicia"]
+wait_time = 1.5
+one_shot = true
+autostart = true
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(-4.37114e-08, -0.258819, 0.965926, 0, 0.965926, 0.258819, -1, 1.13133e-08, -4.2222e-08, 15.8376, 13.9342, 0)
+script = ExtResource("1_utla1")
 
 [node name="environment" type="Node3D" parent="."]
 
@@ -183,6 +207,12 @@ transform = Transform3D(1.6, 0, 0, 0, 1.6, 0, 0, 0, 1.6, 0, 4.21, 0)
 
 [node name="ruby" parent="." instance=ExtResource("5_2xf8d")]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 10.4951, 0)
+script = ExtResource("8_kita4")
+
+[node name="Area3D" type="Area3D" parent="ruby"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ruby/Area3D"]
+shape = SubResource("SphereShape3D_5bddy")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.661312, 0.00392755, 0.750101, 0, 0.999986, -0.00523596, -0.750111, -0.00346261, -0.661303, 14.1111, 11.815, 0.574895)
@@ -193,6 +223,11 @@ light_volumetric_fog_energy = 1.715
 
 [node name="painting" parent="." instance=ExtResource("6_n55t2")]
 transform = Transform3D(-3.11816e-08, 0.713353, 0, -0.713353, -3.11816e-08, 0, 0, 0, 0.713353, -7.35301, 14.5114, 6.67228)
+
+[connection signal="game_lose" from="luzPolicia" to="Camera3D" method="_on_game_lose"]
+[connection signal="game_win" from="luzPolicia" to="ruby" method="_on_game_win"]
+[connection signal="timeout" from="luzPolicia/TimerStartEnd" to="luzPolicia" method="_on_timer_timeout"]
+[connection signal="input_event" from="ruby/Area3D" to="luzPolicia" method="_on_area_3d_input_event"]
 
 [editable path="environment/topRightWall"]
 [editable path="environment/topMiddleWall"]
