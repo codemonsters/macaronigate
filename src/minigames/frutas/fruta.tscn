@@ -32,6 +32,7 @@ radius = 61.0
 input_pickable = true
 mass = 0.3
 gravity_scale = 0.7
+contact_monitor = true
 script = ExtResource("1_i7gur")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -44,4 +45,5 @@ frame_progress = 0.185262
 position = Vector2(0, 4)
 shape = SubResource("CircleShape2D_gx7bt")
 
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
