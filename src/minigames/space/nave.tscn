@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://bubwpbei0x08l"]
+
+[ext_resource type="Texture2D" uid="uid://cj6u52d3gjt6d" path="res://minigames/space/nave.png" id="1_mc8mc"]
+
+[node name="Nave" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("1_mc8mc")
