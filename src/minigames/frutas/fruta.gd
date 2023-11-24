@@ -22,3 +22,8 @@ func _on_mouse_entered():
 
 #func _on_mouse_exited():
 #	print("Mouse exited")
+
+
+func _on_body_entered(body):
+	print(body)
+

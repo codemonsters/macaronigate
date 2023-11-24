@@ -9,19 +9,19 @@ _data = {
 }
 point_count = 4
 
-[sub_resource type="SegmentShape2D" id="SegmentShape2D_o0w5u"]
-a = Vector2(2.08165e-12, 2.08165e-12)
-b = Vector2(1280, 2.08165e-12)
-
-[sub_resource type="SegmentShape2D" id="SegmentShape2D_u0r1r"]
-b = Vector2(-1280, 2.08165e-12)
-
-[sub_resource type="SegmentShape2D" id="SegmentShape2D_33t3u"]
-a = Vector2(2.08165e-12, 2.08165e-12)
-b = Vector2(720, 2.08165e-12)
-
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_8w6no"]
 b = Vector2(-720, 2.08165e-12)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_33t3u"]
+a = Vector2(-120, 0)
+b = Vector2(840, 0)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_u0r1r"]
+b = Vector2(-1400, 0)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_o0w5u"]
+a = Vector2(2.08165e-12, 2.08165e-12)
+b = Vector2(1400, 0)
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_tld6u")
@@ -60,25 +60,6 @@ wait_time = 0.5
 
 [node name="Walls" type="StaticBody2D" parent="."]
 
-[node name="Left" type="CollisionShape2D" parent="Walls"]
-rotation = 1.5708
-shape = SubResource("SegmentShape2D_o0w5u")
-disabled = true
-one_way_collision = true
-
-[node name="Right" type="CollisionShape2D" parent="Walls"]
-position = Vector2(720, 2.08165e-12)
-rotation = -1.5708
-shape = SubResource("SegmentShape2D_u0r1r")
-disabled = true
-one_way_collision = true
-
-[node name="Down" type="CollisionShape2D" parent="Walls"]
-position = Vector2(2.08165e-12, 1280)
-shape = SubResource("SegmentShape2D_33t3u")
-disabled = true
-one_way_collision = true
-
 [node name="Up" type="CollisionShape2D" parent="Walls"]
 position = Vector2(2.08165e-12, 2.08165e-12)
 rotation = 3.14159
@@ -86,4 +67,21 @@ shape = SubResource("SegmentShape2D_8w6no")
 disabled = true
 one_way_collision = true
 
+[node name="Killbox" type="Area2D" parent="."]
+
+[node name="Down" type="CollisionShape2D" parent="Killbox"]
+position = Vector2(0, 1400)
+shape = SubResource("SegmentShape2D_33t3u")
+
+[node name="Right" type="CollisionShape2D" parent="Killbox"]
+position = Vector2(840, 0)
+rotation = -1.5708
+shape = SubResource("SegmentShape2D_u0r1r")
+
+[node name="Left" type="CollisionShape2D" parent="Killbox"]
+position = Vector2(-120, 0)
+rotation = 1.5708
+shape = SubResource("SegmentShape2D_o0w5u")
+
 [connection signal="timeout" from="FrutaTimer" to="." method="_on_fruta_timer_timeout"]
+[connection signal="body_entered" from="Killbox" to="." method="_on_killbox_body_entered"]
