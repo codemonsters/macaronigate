@@ -55,13 +55,13 @@ func _on_fruta_timer_timeout():
 #	else:
 #		print("no hit")
 
-func _on_killbox_body_entered(body):
-	game_over.emit()
-	$FrutaTimer.stop()
+# func _on_killbox_body_entered(body):
+# 	game_over.emit()
+# 	$FrutaTimer.stop()
 	
-	for obj in get_children():
-		if obj.is_in_group("needDelete"):
-			remove_child(obj)
-			obj.remove_from_group("needDelete")
-			obj.queue_free()
+# 	for obj in get_children():
+# 		if obj.is_in_group("needDelete"):
+# 			remove_child(obj)
+# 			obj.remove_from_group("needDelete")
+# 			obj.queue_free()
 
