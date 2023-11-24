@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bql32xj13i1bl"
-path="res://.godot/imported/title1.png-81e94313e73c0a05b02e1fd39ae50666.ctex"
+uid="uid://cgx8f4qdq23il"
+path="res://.godot/imported/PLAGA_GOD.png-3b672db3e315ef5698e6d628ddd1e1da.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://images/new_files/title1.png"
-dest_files=["res://.godot/imported/title1.png-81e94313e73c0a05b02e1fd39ae50666.ctex"]
+source_file="res://minigames/totem.break/PLAGA_GOD.png"
+dest_files=["res://.godot/imported/PLAGA_GOD.png-3b672db3e315ef5698e6d628ddd1e1da.ctex"]
 
 [params]
 
