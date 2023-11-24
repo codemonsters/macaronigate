@@ -24,6 +24,7 @@ func _ready():
 
 
 func _process(delta):
+#	_on_CollidingArea_body_entered(Ball)
 	# Move up and down based on input.
 	#var input = Input.get_action_strength(_right) - Input.get_action_strength(_left)
 	#position.x = clamp(position.y + input * MOVE_SPEED * delta, 16, _screen_size_x - 16)
@@ -43,3 +44,8 @@ func _on_area_entered(area):
 func get_input():
 	var input_direction = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
 	velocity = input_direction * speed
+	
+#func _on_CollidingArea_body_entered(body):
+	# Check if the colliding body is an Area2D
+#	if body is Area2D:
+		# You can implement additional logic here if neede
