@@ -1,70 +1,23 @@
-[gd_scene load_steps=10 format=3 uid="uid://i0gw72hw4eun"]
+[gd_scene load_steps=5 format=3 uid="uid://d1xpsnaqcgana"]
 
-[ext_resource type="Script" path="res://minigames/ñarkanoid/paddle.gd" id="1_a1mcn"]
-[ext_resource type="Texture2D" uid="uid://dsybuwbmbyjgl" path="res://minigames/ñarkanoid/paddle.png" id="1_n471p"]
-[ext_resource type="Script" path="res://minigames/ñarkanoid/ball.gd" id="2_lpgwx"]
-[ext_resource type="Texture2D" uid="uid://seogutvpq1ae" path="res://minigames/ñarkanoid/ball.png" id="3_3rh8q"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_2nfva"]
-size = Vector2(128, 32)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_tyiv3"]
-size = Vector2(22, 23)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_bqk85"]
-size = Vector2(15, 1280)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_c8c73"]
-size = Vector2(720, 15)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_xe158"]
-size = Vector2(15, 1280)
+[ext_resource type="Script" path="res://minigames/ñarkanoid/main.gd" id="1_742ob"]
+[ext_resource type="PackedScene" uid="uid://c1lc53oruu41p" path="res://minigames/ñarkanoid/paddle.tscn" id="2_c7miq"]
+[ext_resource type="PackedScene" uid="uid://guf6iegr8h74" path="res://minigames/ñarkanoid/ball.tscn" id="3_36e8n"]
+[ext_resource type="PackedScene" uid="uid://cixnu552immil" path="res://minigames/ñarkanoid/block.tscn" id="4_7ygdk"]
 
 [node name="main" type="Node2D"]
+script = ExtResource("1_742ob")
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="background" type="ColorRect" parent="."]
 offset_right = 720.0
 offset_bottom = 1280.0
 color = Color(0.141176, 0.152941, 0.164706, 1)
 
-[node name="paddle" type="Area2D" parent="."]
-position = Vector2(360, 1100)
-script = ExtResource("1_a1mcn")
+[node name="Paddle" parent="." instance=ExtResource("2_c7miq")]
+position = Vector2(360, 1000)
 
-[node name="Sprite2D" type="Sprite2D" parent="paddle"]
-modulate = Color(0, 1, 1, 1)
-rotation = 1.5708
-scale = Vector2(4, 4)
-texture = ExtResource("1_n471p")
+[node name="ball" parent="." instance=ExtResource("3_36e8n")]
+position = Vector2(360, 100)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="paddle"]
-shape = SubResource("RectangleShape2D_2nfva")
-
-[node name="Ball" type="Area2D" parent="."]
-position = Vector2(360, 500)
-script = ExtResource("2_lpgwx")
-
-[node name="Sprite2D" type="Sprite2D" parent="Ball"]
-position = Vector2(0, -3.8147e-06)
-scale = Vector2(-3.07794, 3.34267)
-texture = ExtResource("3_3rh8q")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Ball"]
-shape = SubResource("RectangleShape2D_tyiv3")
-
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(360, 640)
-
-[node name="borderCollisions" type="Area2D" parent="."]
-
-[node name="leftCollision" type="CollisionShape2D" parent="borderCollisions"]
-position = Vector2(-7.5, 640)
-shape = SubResource("RectangleShape2D_bqk85")
-
-[node name="topCollisions" type="CollisionShape2D" parent="borderCollisions"]
-position = Vector2(360, -7.5)
-shape = SubResource("RectangleShape2D_c8c73")
-
-[node name="rightCollisions" type="CollisionShape2D" parent="borderCollisions"]
-position = Vector2(727.5, 640)
-shape = SubResource("RectangleShape2D_xe158")
+[node name="Block" parent="." instance=ExtResource("4_7ygdk")]
+position = Vector2(360, 32)

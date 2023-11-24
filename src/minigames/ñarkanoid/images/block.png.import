@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://seogutvpq1ae"
-path="res://.godot/imported/ball.png-6f8ccc66e5f79b94e9a2f4983fe4eb33.ctex"
+uid="uid://btnb6v66tpop0"
+path="res://.godot/imported/block.png-b39765678a127127ecb788ab08463bc7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://minigames/ñarkanoid/ball.png"
-dest_files=["res://.godot/imported/ball.png-6f8ccc66e5f79b94e9a2f4983fe4eb33.ctex"]
+source_file="res://minigames/ñarkanoid/images/block.png"
+dest_files=["res://.godot/imported/block.png-b39765678a127127ecb788ab08463bc7.ctex"]
 
 [params]
 

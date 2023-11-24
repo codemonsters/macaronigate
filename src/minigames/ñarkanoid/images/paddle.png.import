@@ -1,0 +1,14 @@
+[remap]
+
+importer="image"
+type="Image"
+uid="uid://dsybuwbmbyjgl"
+path="res://.godot/imported/paddle.png-e5c228b4d71c4f035a18100d990cdcdb.image"
+
+[deps]
+
+source_file="res://minigames/ñarkanoid/images/paddle.png"
+dest_files=["res://.godot/imported/paddle.png-e5c228b4d71c4f035a18100d990cdcdb.image"]
+
+[params]
+

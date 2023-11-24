@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://cixnu552immil"]
+
+[ext_resource type="Texture2D" uid="uid://btnb6v66tpop0" path="res://minigames/ñarkanoid/images/block.png" id="1_cbjoo"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_csqsf"]
+size = Vector2(256, 32)
+
+[node name="Block" type="CharacterBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_cbjoo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_csqsf")

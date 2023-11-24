@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://guf6iegr8h74"]
+
+[ext_resource type="Texture2D" uid="uid://dgr0wieptjtp" path="res://minigames/ñarkanoid/images/ball.png" id="1_h1sck"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_q6js8"]
+bounce = 1.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_46abf"]
+size = Vector2(32, 32)
+
+[node name="ball" type="RigidBody2D"]
+physics_material_override = SubResource("PhysicsMaterial_q6js8")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_h1sck")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_46abf")
