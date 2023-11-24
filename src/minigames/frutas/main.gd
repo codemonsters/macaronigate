@@ -34,6 +34,7 @@ func _on_game_timer_timeout():
 		game_over_func()
 
 func game_over_func():
+	$ColorRect/Label.set_text("Cut the fruit!")
 	game_over.emit()
 	$FrutaTimer.stop()
 	$GameTimer.stop()
@@ -42,3 +43,8 @@ func game_over_func():
 			remove_child(obj)
 			obj.remove_from_group("needDelete")
 			obj.queue_free()
+	await get_tree().create_timer(1).timeout
+	game_seconds = 9
+	$FrutaTimer.start()
+	$GameTimer.start()
+	
