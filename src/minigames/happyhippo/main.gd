@@ -1,5 +1,8 @@
 extends Node2D
-#Sonido hipopótamo: Mummy Zombie - Mike Koenig en soundbible.com/1059-Mummy-Zombie.html
+
+# Sonido hipopótamo: Mummy Zombie - Mike Koenig en soundbible.com/1059-Mummy-Zombie.html
+# Imágen de fondo (sabana): https://get.pxhere.com/photo/landscape-tree-nature-marsh-swamp-meadow-prairie-lake-green-pasture-soil-savanna-waterway-plain-watering-hole-grassland-wetland-bog-floodplain-plateau-habitat-ecosystem-lone-tree-steppe-nature-reserve-namibia-etosha-natural-environment-geographical-feature-land-lot-632302.jpg
+
 var madera = preload("res://minigames/happyhippo/madera.tscn")
 var pared = preload("res://minigames/happyhippo/pared.tscn")
 var separacion = 100
@@ -43,3 +46,9 @@ func _process(delta):
 		angulo = -3.14/2
 	direction = Vector2(sin(angulo),cos(angulo))
 	PhysicsServer2D.area_set_param(get_world_2d().space, PhysicsServer2D.AREA_PARAM_GRAVITY_VECTOR, direction)
+	
+	#TODO ESTO ES LO HECHO EN EL 1/12/2023
+	
+	#var input_direction = Input.get_vector("left", "right", "up", "down") Flechas de movimiento
+	#PhysicsServer2D.area_set_param(get_world_2d().space, PhysicsServer2D.AREA_PARAM_GRAVITY_VECTOR, direction)  Cambio gravedad
+	
