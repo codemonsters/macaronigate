@@ -1,16 +1,21 @@
-[gd_scene load_steps=4 format=3 uid="uid://dipwvh3mnxwrp"]
+[gd_scene load_steps=5 format=3 uid="uid://dipwvh3mnxwrp"]
 
 [ext_resource type="Script" path="res://minigames/happyhippo/main.gd" id="1_mca63"]
 [ext_resource type="PackedScene" uid="uid://bvpnrwu51kssf" path="res://minigames/happyhippo/watermelon.tscn" id="1_wyqtf"]
+[ext_resource type="Texture2D" uid="uid://b135iipjs4ds2" path="res://minigames/happyhippo/savanna.jpg" id="4_eibs5"]
 [ext_resource type="Texture2D" uid="uid://1o8c4wcmaskf" path="res://minigames/happyhippo/Happyhippo.png" id="4_gi4xr"]
 
 [node name="main" type="Node2D"]
 script = ExtResource("1_mca63")
 
+[node name="background" type="Sprite2D" parent="."]
+position = Vector2(360, 640)
+texture = ExtResource("4_eibs5")
+
 [node name="watermelon" parent="." instance=ExtResource("1_wyqtf")]
 position = Vector2(360, 50)
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="hippo" type="Sprite2D" parent="."]
 position = Vector2(360, 1225)
 scale = Vector2(0.3, 0.3)
 texture = ExtResource("4_gi4xr")
