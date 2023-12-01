@@ -1,0 +1,21 @@
+[gd_scene load_steps=2 format=3 uid="uid://bg4csm2v0xfph"]
+
+[ext_resource type="Script" path="res://game.gd" id="1_7b3rm"]
+
+[node name="game" type="Node2D"]
+script = ExtResource("1_7b3rm")
+
+[node name="HUD" type="CanvasLayer" parent="."]
+
+[node name="Label" type="Label" parent="HUD"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -276.0
+offset_right = 277.0
+offset_bottom = 179.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 90
+text = "Game name!"
+horizontal_alignment = 1
+vertical_alignment = 1

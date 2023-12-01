@@ -4,10 +4,11 @@ extends Node
 # (todo lo que es independiente de los minijuegos, del menú, etc)
 #
 # Este script es cargado automáticamente desde los settings del proyecto
+#var minigames = ["frutas", "happyhippo"] #, "esquivar.coches", "ladronesDeDiamantes", "space", "totem.break", "ñarkanoid"]
 
-func _ready():
-	pass # Replace with function body.
-
+#func _ready():
+#	for minigame in minigames:
+#		pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -15,4 +16,4 @@ func _process(delta):
 
 func comenzar_partida():
 	print("Comienza la partida (TODO: inicializar variables y cargar el primer minijuego)")
-	get_tree().change_scene_to_file("res://minigames/happyhippo/main.tscn")
+	get_tree().change_scene_to_file("res://minigames/game.tscn")
