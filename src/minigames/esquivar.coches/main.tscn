@@ -1,13 +1,13 @@
 [gd_scene load_steps=12 format=3 uid="uid://yj6ie0ukakwk"]
 
-[ext_resource type="Texture2D" uid="uid://6b8odl1d0wmt" path="res://minigames/esquivar.coches/road.png" id="1_i6m4e"]
-[ext_resource type="Script" path="res://minigames/esquivar.coches/playerBehaviour.gd" id="2_tsx8v"]
-[ext_resource type="Texture2D" uid="uid://b0rsdimvvv85s" path="res://minigames/esquivar.coches/player256.png" id="3_kba2b"]
-[ext_resource type="AudioStream" uid="uid://c0su4vf6a1y2a" path="res://minigames/esquivar.coches/slide.wav" id="4_eo362"]
-[ext_resource type="Script" path="res://minigames/esquivar.coches/carBehaviour.gd" id="4_tyom8"]
-[ext_resource type="Texture2D" uid="uid://0hsqyx43s610" path="res://minigames/esquivar.coches/car256.png" id="5_ifvt7"]
-[ext_resource type="Script" path="res://minigames/esquivar.coches/CollisionShape2D.gd" id="6_bocib"]
-[ext_resource type="AudioStream" uid="uid://bxyqefjys66bc" path="res://minigames/esquivar.coches/monsterwarecochesfinal_FINAL.ogg" id="8_4hd04"]
+[ext_resource type="Texture2D" uid="uid://6b8odl1d0wmt" path="res://minigames/esquivar.coches/road.png" id="1_gv78o"]
+[ext_resource type="Script" path="res://minigames/esquivar.coches/playerBehaviour.gd" id="2_l5ipx"]
+[ext_resource type="Texture2D" uid="uid://b0rsdimvvv85s" path="res://minigames/esquivar.coches/player256.png" id="3_nkybd"]
+[ext_resource type="AudioStream" uid="uid://c0su4vf6a1y2a" path="res://minigames/esquivar.coches/slide.wav" id="4_n5250"]
+[ext_resource type="Script" path="res://minigames/esquivar.coches/carBehaviour.gd" id="5_sfcyr"]
+[ext_resource type="Texture2D" uid="uid://0hsqyx43s610" path="res://minigames/esquivar.coches/car256.png" id="6_unngc"]
+[ext_resource type="Script" path="res://minigames/esquivar.coches/CollisionShape2D.gd" id="7_fkuc0"]
+[ext_resource type="AudioStream" uid="uid://bxyqefjys66bc" path="res://minigames/esquivar.coches/monsterwarecochesfinal_FINAL.ogg" id="8_4lffk"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_kwq60"]
 radius = 60.0
@@ -19,12 +19,12 @@ size = Vector2(96.2733, 191.304)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ei8as"]
 size = Vector2(809, 374)
 
-[node name="plataformasJuego" type="Node2D"]
+[node name="main" type="Node2D"]
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
 [node name="background" type="Sprite2D" parent="."]
-texture = ExtResource("1_i6m4e")
+texture = ExtResource("1_gv78o")
 
 [node name="screenColliders" type="Node2D" parent="."]
 
@@ -43,27 +43,27 @@ offset_right = -35.0
 offset_bottom = 638.0
 
 [node name="player" type="CharacterBody2D" parent="."]
-script = ExtResource("2_tsx8v")
+script = ExtResource("2_l5ipx")
 
 [node name="playerSprite" type="Sprite2D" parent="player"]
-texture = ExtResource("3_kba2b")
+texture = ExtResource("3_nkybd")
 
 [node name="colision" type="CollisionShape2D" parent="player"]
 shape = SubResource("CapsuleShape2D_kwq60")
 
 [node name="slidePlayer" type="AudioStreamPlayer2D" parent="player"]
-stream = ExtResource("4_eo362")
+stream = ExtResource("4_n5250")
 volume_db = -3.962
 
 [node name="carSpawner" type="Node2D" parent="."]
 
 [node name="car" type="Area2D" parent="carSpawner"]
 position = Vector2(0, -800)
-script = ExtResource("4_tyom8")
+script = ExtResource("5_sfcyr")
 
 [node name="carSprite" type="Sprite2D" parent="carSpawner/car"]
 scale = Vector2(1.61, 1.61)
-texture = ExtResource("5_ifvt7")
+texture = ExtResource("6_unngc")
 
 [node name="colision" type="CollisionShape2D" parent="carSpawner/car"]
 position = Vector2(-15, 0)
@@ -72,11 +72,11 @@ shape = SubResource("RectangleShape2D_icvbs")
 
 [node name="car2" type="Area2D" parent="carSpawner"]
 position = Vector2(0, -1700)
-script = ExtResource("4_tyom8")
+script = ExtResource("5_sfcyr")
 
 [node name="carSprite" type="Sprite2D" parent="carSpawner/car2"]
 scale = Vector2(1.61, 1.61)
-texture = ExtResource("5_ifvt7")
+texture = ExtResource("6_unngc")
 
 [node name="colision" type="CollisionShape2D" parent="carSpawner/car2"]
 position = Vector2(-14, 0)
@@ -85,11 +85,11 @@ shape = SubResource("RectangleShape2D_icvbs")
 
 [node name="car3" type="Area2D" parent="carSpawner"]
 position = Vector2(0, -2600)
-script = ExtResource("4_tyom8")
+script = ExtResource("5_sfcyr")
 
 [node name="carSprite" type="Sprite2D" parent="carSpawner/car3"]
 scale = Vector2(1.61, 1.61)
-texture = ExtResource("5_ifvt7")
+texture = ExtResource("6_unngc")
 
 [node name="colision" type="CollisionShape2D" parent="carSpawner/car3"]
 position = Vector2(-14, 0)
@@ -98,11 +98,11 @@ shape = SubResource("RectangleShape2D_icvbs")
 
 [node name="car4" type="Area2D" parent="carSpawner"]
 position = Vector2(0, -3497)
-script = ExtResource("4_tyom8")
+script = ExtResource("5_sfcyr")
 
 [node name="carSprite" type="Sprite2D" parent="carSpawner/car4"]
 scale = Vector2(1.61, 1.61)
-texture = ExtResource("5_ifvt7")
+texture = ExtResource("6_unngc")
 
 [node name="colision" type="CollisionShape2D" parent="carSpawner/car4"]
 position = Vector2(-14, 0)
@@ -111,11 +111,11 @@ shape = SubResource("RectangleShape2D_icvbs")
 
 [node name="car6" type="Area2D" parent="carSpawner"]
 position = Vector2(0, -5378)
-script = ExtResource("4_tyom8")
+script = ExtResource("5_sfcyr")
 
 [node name="carSprite" type="Sprite2D" parent="carSpawner/car6"]
 scale = Vector2(1.61, 1.61)
-texture = ExtResource("5_ifvt7")
+texture = ExtResource("6_unngc")
 
 [node name="colision" type="CollisionShape2D" parent="carSpawner/car6"]
 position = Vector2(-16, 0)
@@ -124,11 +124,11 @@ shape = SubResource("RectangleShape2D_icvbs")
 
 [node name="car5" type="Area2D" parent="carSpawner"]
 position = Vector2(0, -4409)
-script = ExtResource("4_tyom8")
+script = ExtResource("5_sfcyr")
 
 [node name="carSprite" type="Sprite2D" parent="carSpawner/car5"]
 scale = Vector2(1.61, 1.61)
-texture = ExtResource("5_ifvt7")
+texture = ExtResource("6_unngc")
 
 [node name="colision" type="CollisionShape2D" parent="carSpawner/car5"]
 position = Vector2(-16, 0)
@@ -141,10 +141,10 @@ shape = SubResource("RectangleShape2D_icvbs")
 position = Vector2(-0.5, -6456)
 shape = SubResource("RectangleShape2D_ei8as")
 debug_color = Color(0, 0.584314, 0.784314, 0.419608)
-script = ExtResource("6_bocib")
+script = ExtResource("7_fkuc0")
 
 [node name="musicPlayer" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("8_4hd04")
+stream = ExtResource("8_4lffk")
 volume_db = 1.875
 autoplay = true
 

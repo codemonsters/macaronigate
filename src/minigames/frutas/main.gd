@@ -1,11 +1,22 @@
 extends Node2D
 signal game_over
+signal game_cleared
 
 # Juan https://ninjikin.itch.io/fruit
 
 @export var fruta_scene: PackedScene
 var fruta_num = 0
-var game_seconds = 9
+var game_seconds = 5
+var hud
+var in_game
+
+func _ready():
+	hud = get_node("../HUD/Label")
+	hud.set_text("Cut the fruit!")
+	hud.show()
+	game_over.connect(Callable(get_parent(), "on_game_over"))
+	game_cleared.connect(Callable(get_parent(), "on_game_cleared"))
+	in_game = true
 
 func _on_fruta_timer_timeout():
 	var fruta = fruta_scene.instantiate()
@@ -24,27 +35,31 @@ func _on_fruta_timer_timeout():
 	fruta.add_to_group("needDelete")
 
 func _on_killbox_body_entered(body):
-	if body.get_node("AnimatedSprite2D").get_frame() == 0:
-		game_over_func()
+	if body.get_node("AnimatedSprite2D").get_frame() == 0 and in_game == true:
+		stop_game()
+		emit_signal("game_over")
 
 func _on_game_timer_timeout():
 	game_seconds -= 1
-	$ColorRect/Label.set_text(str(game_seconds))
+	hud.set_text(str(game_seconds))
 	if game_seconds <= 0:
-		game_over_func()
+		stop_game()
+		emit_signal("game_cleared")
+#		game_over_func()
 
-func game_over_func():
-	$ColorRect/Label.set_text("Cut the fruit!")
-	game_over.emit()
+#func game_over_func():
+#	hud.set_text("Cut the fruit!")
+#	for obj in get_children():
+#		if obj.is_in_group("needDelete"):
+#			remove_child(obj)
+#			obj.remove_from_group("needDelete")
+#			obj.queue_free()
+#	await get_tree().create_timer(1).timeout
+#	game_seconds = 9
+#	$FrutaTimer.start()
+#	$GameTimer.start()
+	
+func stop_game():
 	$FrutaTimer.stop()
 	$GameTimer.stop()
-	for obj in get_children():
-		if obj.is_in_group("needDelete"):
-			remove_child(obj)
-			obj.remove_from_group("needDelete")
-			obj.queue_free()
-	await get_tree().create_timer(1).timeout
-	game_seconds = 9
-	$FrutaTimer.start()
-	$GameTimer.start()
-	
+	in_game = false
