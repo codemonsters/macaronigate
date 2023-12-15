@@ -1,5 +1,11 @@
 extends CharacterBody2D
 
+# AVISO: Cambié el nombre de la escena principal a "main"
+# Señales para decirle a game.tscn si se ha terminado el juego
+signal game_over
+signal game_cleared
+var hud
+
 var posicion_jugador = 0
 
 var win = false
@@ -10,6 +16,13 @@ var tamaño = true
 
 func _ready():
 	position = Vector2(-190, 417)
+	
+	# Inicializar el HUD y conectar las señales con las funciones correspondientes
+	hud = get_node("../../HUD/Label")
+	hud.set_text("Don't crash!")
+	hud.show()
+	game_over.connect(Callable(get_parent().get_parent(), "on_game_over"))
+	game_cleared.connect(Callable(get_parent().get_parent(), "on_game_cleared"))
 
 func _input(event):
 	if Input.is_key_pressed(KEY_RIGHT):
@@ -32,6 +45,7 @@ func _process(delta):
 		position.y = position.y + (-750*delta)
 		
 	elif lose == true:
+		emit_signal("game_over")
 		if posicion_jugador == 0:
 			if tamaño:
 				$playerSprite.scale += Vector2(10*delta, 10*delta)
@@ -82,3 +96,4 @@ func _on_left_button_down():
 
 func _on_area_2d_body_entered(body):
 	win = true
+	emit_signal("game_cleared")

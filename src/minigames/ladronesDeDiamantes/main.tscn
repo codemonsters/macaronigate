@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://cymepr70rmtp3"]
+[gd_scene load_steps=21 format=3 uid="uid://cymepr70rmtp3"]
 
 [ext_resource type="PackedScene" uid="uid://1judl13luwqw" path="res://minigames/ladronesDeDiamantes/wall.blend" id="1_ctb5u"]
 [ext_resource type="Script" path="res://minigames/ladronesDeDiamantes/luzScript.gd" id="1_icj6y"]
@@ -9,6 +9,8 @@
 [ext_resource type="PackedScene" uid="uid://byoe0sh12ykuq" path="res://minigames/ladronesDeDiamantes/ruby.blend" id="5_2xf8d"]
 [ext_resource type="PackedScene" uid="uid://ns2ye0tk3eu2" path="res://minigames/ladronesDeDiamantes/painting.blend" id="6_n55t2"]
 [ext_resource type="Script" path="res://minigames/ladronesDeDiamantes/rubyScript.gd" id="8_kita4"]
+[ext_resource type="PackedScene" uid="uid://c1ji0uongj7tq" path="res://minigames/ladronesDeDiamantes/cushion.blend" id="10_odjru"]
+[ext_resource type="Texture2D" uid="uid://drp2nkv8o51r8" path="res://minigames/ladronesDeDiamantes/police.png" id="11_djfeq"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_t6b7i"]
 resource_name = "wood2"
@@ -88,6 +90,11 @@ shadow_mesh = SubResource("ArrayMesh_rjypq")
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_5bddy"]
 radius = 0.961398
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1hu57"]
+albedo_texture = ExtResource("11_djfeq")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_3yblf"]
 
 [node name="main" type="Node3D"]
 
@@ -206,7 +213,7 @@ mesh = SubResource("ArrayMesh_k8dbj")
 transform = Transform3D(1.6, 0, 0, 0, 1.6, 0, 0, 0, 1.6, 0, 4.21, 0)
 
 [node name="ruby" parent="." instance=ExtResource("5_2xf8d")]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 10.4951, 0)
+transform = Transform3D(2, 0, 0, 0, 1.7791, 0.913668, 0, -0.913668, 1.7791, 0.207692, 10.1377, 0.200641)
 script = ExtResource("8_kita4")
 
 [node name="Area3D" type="Area3D" parent="ruby"]
@@ -223,6 +230,15 @@ light_volumetric_fog_energy = 1.715
 
 [node name="painting" parent="." instance=ExtResource("6_n55t2")]
 transform = Transform3D(-3.11816e-08, 0.713353, 0, -0.713353, -3.11816e-08, 0, 0, 0, 0.713353, -7.35301, 14.5114, 6.67228)
+
+[node name="cushion" parent="." instance=ExtResource("10_odjru")]
+transform = Transform3D(0.370458, 0, 0.104815, 0, 0.385, 0, -0.104815, 0, 0.370458, 0.220515, 9.42968, 0.143883)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(-3.78759e-07, 8.665, -3.78759e-07, 0, -3.78759e-07, -8.665, -8.665, -3.78759e-07, 1.65561e-14, -6.36838, 7.5204, -5.98097)
+material_override = SubResource("StandardMaterial3D_1hu57")
+lod_bias = 0.001
+mesh = SubResource("PlaneMesh_3yblf")
 
 [connection signal="game_lose" from="luzPolicia" to="Camera3D" method="_on_game_lose"]
 [connection signal="game_win" from="luzPolicia" to="ruby" method="_on_game_win"]
