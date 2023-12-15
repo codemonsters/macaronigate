@@ -24,8 +24,8 @@ func on_game_timeout():
 ```
 Now, according to your game logic, you can send ```game_over``` and/or ```game_cleared```as appropriate.
 ```gdscript
-send_signal(game_over)
-send_signal(game_cleared)
+emit_signal("game_over")
+emit_signal("game_cleared")
 ```
 For developing, inside ```game.gd```, set ```launch_minigame_directly``` to the name of your minigame's subfolder, and then start the project normally using F5
 ```gdscript

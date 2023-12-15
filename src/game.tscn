@@ -8,6 +8,7 @@ script = ExtResource("1_7b3rm")
 [node name="HUD" type="CanvasLayer" parent="."]
 
 [node name="Label" type="Label" parent="HUD"]
+visible = false
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
