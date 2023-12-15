@@ -1,9 +1,10 @@
 extends Node2D
 
-# For developing, set "launch_minigame_directly" to the name of the
+# IMPORTANT: See README
+# For developing, set "launch_minigame_directly" to the name of your
 # corresponding minigame subfolder, and then start the project normally using F5
 #var launch_minigame_directly = "esquivar.coches"
-var launch_minigame_directly = null
+var launch_minigame_directly = "frutas"
 
 signal game_timeout
 
@@ -32,6 +33,7 @@ func load_game(game_n):
 	add_child(scene)
 
 func on_game_cleared():
+	$Timer.stop()
 	$HUD/Label.set_text("Game cleared!")
 	await get_tree().create_timer(2).timeout
 	

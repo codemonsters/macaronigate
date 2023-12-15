@@ -4,9 +4,6 @@ extends CharacterBody2D
 # Señales para decirle a game.tscn si se ha terminado el juego
 signal game_over
 signal game_cleared
-# TODO: Añadir a nuevo script en main
-@export var info = "Don't crash!"
-@export var needs_timer = false
 
 var posicion_jugador = 0
 var win = false

@@ -1,5 +1,6 @@
-[gd_scene load_steps=12 format=3 uid="uid://yj6ie0ukakwk"]
+[gd_scene load_steps=13 format=3 uid="uid://yj6ie0ukakwk"]
 
+[ext_resource type="Script" path="res://minigames/esquivar.coches/main.gd" id="1_g4jic"]
 [ext_resource type="Texture2D" uid="uid://6b8odl1d0wmt" path="res://minigames/esquivar.coches/road.png" id="1_gv78o"]
 [ext_resource type="Script" path="res://minigames/esquivar.coches/playerBehaviour.gd" id="2_l5ipx"]
 [ext_resource type="Texture2D" uid="uid://b0rsdimvvv85s" path="res://minigames/esquivar.coches/player256.png" id="3_nkybd"]
@@ -20,6 +21,7 @@ size = Vector2(96.2733, 191.304)
 size = Vector2(809, 374)
 
 [node name="main" type="Node2D"]
+script = ExtResource("1_g4jic")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 

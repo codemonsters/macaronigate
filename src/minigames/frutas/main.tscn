@@ -70,9 +70,5 @@ position = Vector2(-120, 0)
 rotation = 1.5708
 shape = SubResource("SegmentShape2D_o0w5u")
 
-[node name="GameTimer" type="Timer" parent="."]
-autostart = true
-
 [connection signal="timeout" from="FrutaTimer" to="." method="_on_fruta_timer_timeout"]
 [connection signal="body_entered" from="Killbox" to="." method="_on_killbox_body_entered"]
-[connection signal="timeout" from="GameTimer" to="." method="_on_game_timer_timeout"]
