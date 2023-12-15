@@ -4,23 +4,19 @@ extends CharacterBody2D
 # Señales para decirle a game.tscn si se ha terminado el juego
 signal game_over
 signal game_cleared
-var hud
+# TODO: Añadir a nuevo script en main
+@export var info = "Don't crash!"
+@export var needs_timer = false
 
 var posicion_jugador = 0
-
 var win = false
-
 var lose = false
-
 var tamaño = true
 
 func _ready():
 	position = Vector2(-190, 417)
 	
 	# Inicializar el HUD y conectar las señales con las funciones correspondientes
-	hud = get_node("../../HUD/Label")
-	hud.set_text("Don't crash!")
-	hud.show()
 	game_over.connect(Callable(get_parent().get_parent(), "on_game_over"))
 	game_cleared.connect(Callable(get_parent().get_parent(), "on_game_cleared"))
 

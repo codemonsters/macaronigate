@@ -6,14 +6,18 @@ signal game_cleared
 
 @export var fruta_scene: PackedScene
 var fruta_num = 0
-var game_seconds = 5
+@export var info = "Cut the fruit!"
+@export var needs_timer = true
+# @export var timer_steps = 1
+@export var timer_seconds = 5
 var hud
 var in_game
 
+
 func _ready():
-	hud = get_node("../HUD/Label")
-	hud.set_text("Cut the fruit!")
-	hud.show()
+	# hud = get_node("../HUD/Label")
+	# hud.set_text("Cut the fruit!")
+	# hud.show()
 	game_over.connect(Callable(get_parent(), "on_game_over"))
 	game_cleared.connect(Callable(get_parent(), "on_game_cleared"))
 	in_game = true
@@ -39,12 +43,12 @@ func _on_killbox_body_entered(body):
 		stop_game()
 		emit_signal("game_over")
 
-func _on_game_timer_timeout():
-	game_seconds -= 1
-	hud.set_text(str(game_seconds))
-	if game_seconds <= 0:
-		stop_game()
-		emit_signal("game_cleared")
+# func _on_game_timer_timeout():
+# 	game_seconds -= 1
+# 	hud.set_text(str(game_seconds))
+# 	if game_seconds <= 0:
+# 		stop_game()
+# 		emit_signal("game_cleared")
 #		game_over_func()
 
 #func game_over_func():
@@ -63,3 +67,8 @@ func stop_game():
 	$FrutaTimer.stop()
 	$GameTimer.stop()
 	in_game = false
+
+func on_game_timeout():
+	print("Timeout!")
+	stop_game()
+	# emit_signal("game_cleared")

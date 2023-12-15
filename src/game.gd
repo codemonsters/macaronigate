@@ -5,15 +5,15 @@ extends Node2D
 #var launch_minigame_directly = "esquivar.coches"
 var launch_minigame_directly = null
 
+signal game_timeout
+
 # Array with the name of the minigames that will be played
 var minigames = ["frutas", "esquivar.coches"]
 var current_game_number = 0
+var current_game_seconds_left = 0
 
 func _ready():
 	load_game(0)
-
-func _process(delta):
-	pass
 	
 func load_game(game_n):
 	var scene
@@ -22,12 +22,14 @@ func load_game(game_n):
 	else:
 		scene = load("res://minigames/" + minigames[game_n] + "/main.tscn").instantiate()
 	scene.add_to_group("current_game")
-	add_child(scene)
 
-#func instance_scene(scene_name):
-#	var scene = load("res://minigames/" + scene_name + "/main.tscn").instantiate()
-##	var instance = scene.instantiate()
-#	add_child(scene)
+	$HUD/Label.set_text(scene.info)
+	if scene.needs_timer == true:
+		game_timeout.connect(Callable(scene, "on_game_timeout"))
+		current_game_seconds_left = scene.timer_seconds
+		$Timer.start()
+
+	add_child(scene)
 
 func on_game_cleared():
 	$HUD/Label.set_text("Game cleared!")
@@ -54,6 +56,15 @@ func on_all_games_cleared():
 	get_tree().change_scene_to_file("res://menu.tscn")
 
 func on_game_over():
+	$Timer.stop()
 	$HUD/Label.set_text("Game over!")
 	await get_tree().create_timer(2).timeout
 	get_tree().change_scene_to_file("res://menu.tscn")
+
+func _on_timer_timeout():
+	current_game_seconds_left -= 1
+	$HUD/Label.set_text(str(current_game_seconds_left))
+	if current_game_seconds_left <= 0:
+		$Timer.stop()
+		emit_signal("game_timeout")
+		on_game_cleared()
