@@ -1,5 +1,8 @@
 extends Node2D
-#Sonido hipopótamo: Mummy Zombie - Mike Koenig en soundbible.com/1059-Mummy-Zombie.html
+
+# Sonido hipopótamo: Mummy Zombie - Mike Koenig en soundbible.com/1059-Mummy-Zombie.html
+# Imágen de fondo (sabana): https://get.pxhere.com/photo/landscape-tree-nature-marsh-swamp-meadow-prairie-lake-green-pasture-soil-savanna-waterway-plain-watering-hole-grassland-wetland-bog-floodplain-plateau-habitat-ecosystem-lone-tree-steppe-nature-reserve-namibia-etosha-natural-environment-geographical-feature-land-lot-632302.jpg
+
 var madera = preload("res://minigames/happyhippo/madera.tscn")
 var pared = preload("res://minigames/happyhippo/pared.tscn")
 var separacion = 100
@@ -9,6 +12,7 @@ var direction = Vector2(0,1)
 var angulo = 0
 var filas = 6
 var madera_anterior
+
 
 
 # Called when the node enters the scene tree for the first time.
@@ -33,13 +37,27 @@ func _ready():
 				pared2.position=madera2.position+Vector2(53,-50)
 			madera_anterior = madera2.position.x
 
+func _input(event):
+	if Input.is_key_pressed(KEY_RIGHT):
+		angulo = .3
+	if Input.is_key_pressed(KEY_LEFT):
+		angulo = -.3
+	if Input.is_key_pressed(KEY_UP):
+		jump()
+
+func jump():
+	pass #TODO Programar salto
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	angulo += Input.get_gyroscope().x*delta
 	if angulo > 3.14/2:
-		angulo = 3.14/2
+		direction = Vector2(sin(3.14/2),cos(3.14/2))
 	elif angulo < -3.14/2:
-		angulo = -3.14/2
-	direction = Vector2(sin(angulo),cos(angulo))
+		direction = Vector2(sin(-3.14/2),cos(-3.14/2))
+	else:
+		direction = Vector2(sin(angulo),cos(angulo))
 	PhysicsServer2D.area_set_param(get_world_2d().space, PhysicsServer2D.AREA_PARAM_GRAVITY_VECTOR, direction)
+	
+	
+	
