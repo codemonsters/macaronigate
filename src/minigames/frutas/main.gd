@@ -8,7 +8,7 @@ var fruta_num = 0
 var in_game
 
 # Required variables
-@export var info = "Cut the fruit!"
+@export var game_brief = "Cut the fruit!"
 @export var needs_timer = true
 @export var timer_seconds = 5
 
