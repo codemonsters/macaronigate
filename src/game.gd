@@ -35,7 +35,7 @@ func load_game(game_n = 0):
 		scene = load("res://minigames/" + minigames[game_n] + "/main.tscn").instantiate()
 	scene.add_to_group("current_game")
 
-	$HUD/Label.set_text(scene.info)
+	$HUD/Label.set_text(scene.game_brief)
 	$HUD/Label.show()
 	if scene.needs_timer == true:
 		game_timeout.connect(Callable(scene, "on_game_timeout"))

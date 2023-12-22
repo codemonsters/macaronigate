@@ -38,7 +38,6 @@ func _process(delta):
 		position.y = position.y + (-750*delta)
 		
 	elif lose == true:
-		emit_signal("game_over")
 		if posicion_jugador == 0:
 			if tamaño:
 				$playerSprite.scale += Vector2(10*delta, 10*delta)
@@ -65,16 +64,9 @@ func _process(delta):
 				queue_free()
 
 func _on_car_body_entered(body):
-	lose = true
-
-
-func _on_car_2_body_entered(body):
-	lose = true
-
-
-func _on_car_3_body_entered(body):
-	lose = true
-
+	if not lose:
+		lose = true
+		emit_signal("game_over")
 
 
 func _on_right_button_down():

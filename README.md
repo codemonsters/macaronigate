@@ -1,6 +1,5 @@
-# laboratorio-23-24
-
-## Game integration
+# Macarronigate
+## Minigame integration
 Sample main script (attached to main.tscn inside the minigame subfolder)
 ```gdscript
 extends Node2D
@@ -9,7 +8,7 @@ signal game_over
 signal game_cleared
 
 # Required variables
-@export var info = "Brief Game Explanation/Title!"
+@export var game_brief = "Brief Game Explanation/Title!"
 @export var needs_timer = true # False if your game doesn't need a countdown timer
 @export var timer_seconds = 5 # Only set if needs_timer = true
 
