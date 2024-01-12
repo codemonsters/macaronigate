@@ -1,5 +1,8 @@
 extends Node2D
 
+var paddle_moving_left = false
+var paddle_moving_right = false
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -8,11 +11,25 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	pass
+	if paddle_moving_left and not paddle_moving_right:
+		$Paddle.position += Vector2(-300, 0)*delta
+	elif not paddle_moving_left and paddle_moving_right:
+		$Paddle.position += Vector2(300, 0)*delta
+	else:
+		print("...")
+	$ball.position = $ball.get_position()
 	
 func _input(event):
 	if event is InputEventScreenTouch:
-		if event.is_pressed():
-			print("ha sido presseada")
-		if event is InputEventScreenTouch and event.pressed == true:
-			print(event.position)
+		#if event.is_pressed():
+		if event.pressed == true:
+			print("ha sido presseada en " + str(event.position[0]) + " y ancho de viewport = " +  str(get_viewport().get_visible_rect().size[0]))
+			if event.position[0] < get_viewport().get_visible_rect().size[0] / 2:
+				paddle_moving_left = true
+				paddle_moving_right = false
+			else:
+				paddle_moving_left = false
+				paddle_moving_right = true
+		else:
+			paddle_moving_left = false
+			paddle_moving_right = false
