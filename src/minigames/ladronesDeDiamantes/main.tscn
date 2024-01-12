@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://cymepr70rmtp3"]
+[gd_scene load_steps=26 format=3 uid="uid://cymepr70rmtp3"]
 
 [ext_resource type="PackedScene" uid="uid://1judl13luwqw" path="res://minigames/ladronesDeDiamantes/wall.blend" id="1_ctb5u"]
 [ext_resource type="Script" path="res://minigames/ladronesDeDiamantes/luzScript.gd" id="1_icj6y"]
@@ -14,6 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://drp2nkv8o51r8" path="res://minigames/ladronesDeDiamantes/police.png" id="11_djfeq"]
 [ext_resource type="PackedScene" uid="uid://kby538m18v1s" path="res://minigames/ladronesDeDiamantes/car.blend" id="13_r2vwk"]
 [ext_resource type="Script" path="res://minigames/ladronesDeDiamantes/lightmanager.gd" id="14_nmcb0"]
+[ext_resource type="Texture2D" uid="uid://bo22peipr21a1" path="res://minigames/ladronesDeDiamantes/1000points.png" id="15_11o5p"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_t6b7i"]
 resource_name = "wood2"
@@ -158,8 +159,8 @@ spot_angle = 12.1081
 spot_angle_attenuation = 2.21914
 
 [node name="luzCuadro" type="SpotLight3D" parent="."]
-transform = Transform3D(0.225431, -0.24265, 0.943558, 0.0563861, 0.970114, 0.236008, -0.972626, 0, 0.232376, 8.50176, 17.7006, 10.185)
-light_color = Color(0.627451, 1, 0.988235, 1)
+transform = Transform3D(0.225431, -0.24265, 0.943558, 0.0563861, 0.970114, 0.236008, -0.972626, 1.11074e-07, 0.232376, 8.48585, 18.5006, 10.6596)
+light_color = Color(0.760784, 0.741176, 1, 1)
 light_energy = 10.666
 light_indirect_energy = 1.025
 light_volumetric_fog_energy = 1.323
@@ -169,8 +170,8 @@ shadow_bias = 1.313
 shadow_normal_bias = 0.0
 shadow_transmittance_bias = 5.221
 shadow_blur = 6.065
-spot_range = 19.756
-spot_angle = 15.2333
+spot_range = 19.5501
+spot_angle = 12.9477
 
 [node name="luzPolicia" type="SpotLight3D" parent="."]
 transform = Transform3D(0.989191, -0.0891461, 0.116418, -0.0954005, 0.211655, 0.972677, -0.111351, -0.97327, 0.200863, 1.65989, 19.8733, 2.07678)
@@ -186,8 +187,12 @@ spot_angle_attenuation = 0.517633
 script = ExtResource("1_icj6y")
 
 [node name="TimerStartEnd" type="Timer" parent="luzPolicia"]
-wait_time = 1.5
+wait_time = 0.7
 one_shot = true
+autostart = true
+
+[node name="TimerFlickers" type="Timer" parent="luzPolicia"]
+wait_time = 0.75
 autostart = true
 
 [node name="Camera3D" type="Camera3D" parent="."]
@@ -195,7 +200,7 @@ transform = Transform3D(-4.37114e-08, -0.258819, 0.965926, 0, 0.965926, 0.258819
 script = ExtResource("1_utla1")
 
 [node name="policia" type="Sprite3D" parent="."]
-transform = Transform3D(-5.68248e-08, 0, 1, 0, 1.5, 0, -1.3, 0, -4.37114e-08, -1.42706, 8.62807, -18.4833)
+transform = Transform3D(-5.68248e-08, 0, 1, 0, 1.5, 0, -1.3, 0, -4.37114e-08, -0.148451, 8.62807, -17.4314)
 modulate = Color(0.584314, 0.584314, 0.584314, 1)
 billboard = 1
 shaded = true
@@ -230,7 +235,7 @@ visible = false
 mesh = SubResource("ArrayMesh_xfdj8")
 
 [node name="Cube_001" parent="environment/topRightWall" index="2"]
-transform = Transform3D(0.303171, 0, 0, 0, 7.47143, 0, 0, 0, 7.78536, -7.677, 27.87, 0)
+transform = Transform3D(0.303171, 0, 0, 0, 7.47143, 0, 0, 0, 7.78536, -7.677, 30.717, 0)
 mesh = SubResource("ArrayMesh_k8dbj")
 
 [node name="Plane2" type="MeshInstance3D" parent="environment/topRightWall"]
@@ -239,12 +244,12 @@ mesh = SubResource("ArrayMesh_tj5ee")
 skeleton = NodePath("")
 
 [node name="Cube_002" type="MeshInstance3D" parent="environment/topRightWall"]
-transform = Transform3D(0.303171, 0, 0, 0, 7.47143, 0, 0, 0, 7.78536, -7.677, 27.87, -15.5135)
+transform = Transform3D(0.303171, 0, 0, 0, 7.47143, 0, 0, 0, 7.78536, -7.677, 30.6624, -15.5135)
 mesh = SubResource("ArrayMesh_k8dbj")
 skeleton = NodePath("")
 
 [node name="Cube_003" type="MeshInstance3D" parent="environment/topRightWall"]
-transform = Transform3D(-1.3252e-08, 0, -7.78536, 0, 7.47143, 0, 0.303171, 0, -3.40309e-07, 0, 27.7, -23.25)
+transform = Transform3D(-1.3252e-08, 0, -7.78536, 0, 7.47143, 0, 0.303171, 0, -3.40309e-07, 0, 30.6186, -23.25)
 mesh = SubResource("ArrayMesh_k8dbj")
 skeleton = NodePath("")
 
@@ -260,7 +265,7 @@ visible = false
 mesh = SubResource("ArrayMesh_xfdj8")
 
 [node name="Cube_001" parent="environment/topMiddleWall" index="2"]
-transform = Transform3D(0.303171, 0, 0, 0, 7.47143, 0, 0, 0, 7.78536, -7.677, 27.87, 0.12)
+transform = Transform3D(0.303171, 0, 0, 0, 7.47143, 0, 0, 0, 7.78536, -7.67514, 30.7278, 0.120043)
 mesh = SubResource("ArrayMesh_k8dbj")
 
 [node name="topLeftWall" parent="environment" instance=ExtResource("1_ctb5u")]
@@ -275,7 +280,7 @@ visible = false
 mesh = SubResource("ArrayMesh_xfdj8")
 
 [node name="Cube_001" parent="environment/topLeftWall" index="2"]
-transform = Transform3D(0.303171, 0, 0, 0, 7.47143, 0, 0, 0, 7.78536, -7.677, 27.86, 15.65)
+transform = Transform3D(0.303171, 0, 0, 0, 7.47143, 0, 0, 0, 7.78536, -7.677, 30.7034, 15.65)
 mesh = SubResource("ArrayMesh_k8dbj")
 
 [node name="pilar" parent="." instance=ExtResource("4_6t7kh")]
@@ -304,7 +309,17 @@ transform = Transform3D(-3.11816e-08, 0.713353, 0, -0.713353, -3.11816e-08, 0, 0
 transform = Transform3D(0.370458, 0, 0.104815, 0, 0.385, 0, -0.104815, 0, 0.370458, 0.220515, 9.42968, 0.143883)
 
 [node name="car" parent="." instance=ExtResource("13_r2vwk")]
-transform = Transform3D(-0.513353, 0, -0.475887, 0, 0.7, 0, 0.475887, 0, -0.513353, 12.7141, 1.80996, -19.0852)
+transform = Transform3D(-0.513353, 0, -0.475887, 0, 0.7, 0, 0.475887, 0, -0.513353, 13.3095, 2.80996, -20.7068)
+
+[node name="azul" type="SpotLight3D" parent="."]
+transform = Transform3D(0.296917, 0.954753, 0.0169426, -0.814075, 0.243814, 0.527102, 0.499122, -0.170298, 0.849633, 3.89932, 34.8226, 15.9175)
+light_color = Color(0.262745, 0.239216, 0.388235, 1)
+light_energy = 600.0
+light_specular = 1.19
+distance_fade_begin = 81.37
+distance_fade_length = 787.95
+spot_range = 104.122
+spot_angle = 15.6989
 
 [node name="lightmanager" type="Node3D" parent="."]
 script = ExtResource("14_nmcb0")
@@ -339,9 +354,14 @@ wait_time = 0.4
 one_shot = true
 autostart = true
 
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 7.62621, 15.86, -0.0903099)
+texture = ExtResource("15_11o5p")
+
 [connection signal="game_lose" from="luzPolicia" to="Camera3D" method="_on_game_lose"]
 [connection signal="game_win" from="luzPolicia" to="ruby" method="_on_game_win"]
 [connection signal="timeout" from="luzPolicia/TimerStartEnd" to="luzPolicia" method="_on_timer_timeout"]
+[connection signal="timeout" from="luzPolicia/TimerFlickers" to="luzPolicia" method="_on_timer_flickers_timeout"]
 [connection signal="input_event" from="ruby/Area3D" to="luzPolicia" method="_on_area_3d_input_event"]
 [connection signal="timeout" from="lightmanager/blueLightTimer" to="lightmanager" method="_on_blue_light_timer_timeout"]
 [connection signal="timeout" from="lightmanager/redLightTimer" to="lightmanager" method="_on_red_light_timer_timeout"]

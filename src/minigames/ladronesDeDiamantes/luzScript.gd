@@ -3,6 +3,8 @@ extends SpotLight3D
 var start = false
 var light_on = true
 var game_ended = false
+var flickering = false
+var flicker_time = 0.1
 
 signal game_win
 signal game_lose
@@ -13,7 +15,7 @@ func _ready():
 
 func _on_timer_timeout():
 	if (!start):
-		$TimerStartEnd.wait_time = RandomNumberGenerator.new().randf_range(3, 5)
+		$TimerStartEnd.wait_time = RandomNumberGenerator.new().randf_range(2.5, 5)
 		start = true
 		$TimerStartEnd.start()
 	else:
@@ -31,3 +33,17 @@ func _on_area_3d_input_event(camera, event, position, normal, shape_idx):
 					game_lose.emit()
 				else:
 					game_win.emit()
+
+
+func _on_timer_flickers_timeout():
+	if light_on:
+		if flickering:
+			$TimerFlickers.wait_time = RandomNumberGenerator.new().randf_range(0.2, 0.4)
+			light_energy = 0
+		else:
+			$TimerFlickers.wait_time = RandomNumberGenerator.new().randf_range(0.1, flicker_time)
+			light_energy = 16
+		flickering = !flickering
+		flicker_time += 0.05
+	else:
+		$TimerFlickers.stop()
