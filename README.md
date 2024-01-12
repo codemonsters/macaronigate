@@ -1,4 +1,4 @@
-# Macarronigate
+# Macarronigate (o Vitello Rubato???)
 ## Minigame integration
 Sample main script (attached to main.tscn inside the minigame subfolder)
 ```gdscript
