@@ -9,6 +9,7 @@ bounce = 0.2
 radius = 36.5
 
 [node name="watermelon" type="Node2D"]
+scale = Vector2(0.5, 0.5)
 
 [node name="RigidBody2D" type="RigidBody2D" parent="."]
 mass = 3.5

@@ -13,7 +13,8 @@ position = Vector2(360, 640)
 texture = ExtResource("4_eibs5")
 
 [node name="watermelon" parent="." instance=ExtResource("1_wyqtf")]
-position = Vector2(350, 50)
+position = Vector2(361, 50)
+scale = Vector2(1, 1)
 
 [node name="hippo" type="Sprite2D" parent="."]
 position = Vector2(360, 1225)

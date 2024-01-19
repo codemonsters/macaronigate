@@ -18,6 +18,7 @@ var madera_anterior
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	randomize()
+	PhysicsServer2D.area_set_param(get_world_2d().space, PhysicsServer2D.AREA_PARAM_GRAVITY_VECTOR, Vector2(0,1))
 	num_plataformas = 720/(118+separacion)
 	num_plataformas = round(num_plataformas)
 	distancia = (720 - (118*num_plataformas+separacion*(num_plataformas-1)))/2
@@ -46,14 +47,17 @@ func _input(event):
 		jump()
 
 func jump():
-	pass #TODO Programar salto
+	if angulo == 3.14:
+		angulo = 0
+	else:
+		angulo = 3.14
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	angulo += Input.get_gyroscope().x*delta
-	if angulo > 3.14/2:
+	if angulo > 3.14/2 and angulo != 3.14:
 		direction = Vector2(sin(3.14/2),cos(3.14/2))
-	elif angulo < -3.14/2:
+	elif angulo < -3.14/2 and angulo != 3.14:
 		direction = Vector2(sin(-3.14/2),cos(-3.14/2))
 	else:
 		direction = Vector2(sin(angulo),cos(angulo))
