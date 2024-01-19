@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://crbxi1ix8oft1"
-path="res://.godot/imported/teroris_poero_sun_doa.jpg-3412f31c2caf9813aadc6fab7e174499.ctex"
+uid="uid://cxkecx6yfcg76"
+path="res://.godot/imported/pipe.png-0ed0a2bc9b8f9c9129d06157ac082dad.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://minigames/flapuie biuegtwt/teroris_poero_sun_doa.jpg"
-dest_files=["res://.godot/imported/teroris_poero_sun_doa.jpg-3412f31c2caf9813aadc6fab7e174499.ctex"]
+source_file="res://minigames/flapuie biuegtwt/images/pipe.png"
+dest_files=["res://.godot/imported/pipe.png-0ed0a2bc9b8f9c9129d06157ac082dad.ctex"]
 
 [params]
 

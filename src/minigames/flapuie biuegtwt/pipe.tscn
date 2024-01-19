@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://x5fi1tf4twnr"]
+
+[ext_resource type="Texture2D" uid="uid://cxkecx6yfcg76" path="res://minigames/flapuie biuegtwt/images/pipe.png" id="1_3qvum"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_eh011"]
+size = Vector2(194, 976.5)
+
+[node name="Pipe" type="StaticBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_3qvum")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 3.25)
+shape = SubResource("RectangleShape2D_eh011")
