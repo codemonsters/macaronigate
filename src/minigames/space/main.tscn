@@ -1,7 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://duhe4f22qm1gf"]
+[gd_scene load_steps=7 format=3 uid="uid://duhe4f22qm1gf"]
 
 [ext_resource type="Script" path="res://minigames/space/main.gd" id="1_lgk42"]
 [ext_resource type="PackedScene" uid="uid://bubwpbei0x08l" path="res://minigames/space/nave.tscn" id="2_ri1rc"]
+[ext_resource type="Script" path="res://minigames/space/nave.gd" id="3_6el3u"]
+[ext_resource type="PackedScene" uid="uid://dwy7f6xeikbp3" path="res://minigames/space/meteor.tscn" id="4_h6o43"]
+[ext_resource type="Script" path="res://minigames/space/meteor.gd" id="5_re075"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_oknn5"]
+size = Vector2(600, 740)
 
 [node name="main" type="Node2D"]
 script = ExtResource("1_lgk42")
@@ -14,3 +20,20 @@ color = Color(0.00784314, 0, 0.0823529, 1)
 
 [node name="Nave" parent="." instance=ExtResource("2_ri1rc")]
 position = Vector2(360, 1000)
+script = ExtResource("3_6el3u")
+
+[node name="meteor" parent="." instance=ExtResource("4_h6o43")]
+position = Vector2(360, 200)
+script = ExtResource("5_re075")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(360, 430)
+shape = SubResource("RectangleShape2D_oknn5")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 1.5
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
