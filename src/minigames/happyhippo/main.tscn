@@ -1,9 +1,21 @@
-[gd_scene load_steps=5 format=3 uid="uid://dipwvh3mnxwrp"]
+[gd_scene load_steps=9 format=3 uid="uid://dipwvh3mnxwrp"]
 
 [ext_resource type="Script" path="res://minigames/happyhippo/main.gd" id="1_mca63"]
 [ext_resource type="PackedScene" uid="uid://bvpnrwu51kssf" path="res://minigames/happyhippo/watermelon.tscn" id="1_wyqtf"]
 [ext_resource type="Texture2D" uid="uid://b135iipjs4ds2" path="res://minigames/happyhippo/savanna.jpg" id="4_eibs5"]
 [ext_resource type="Texture2D" uid="uid://1o8c4wcmaskf" path="res://minigames/happyhippo/Happyhippo.png" id="4_gi4xr"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ym0m6"]
+size = Vector2(20, 1920)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qikh2"]
+size = Vector2(20, 1920)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xo5kg"]
+size = Vector2(1080, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7c6o3"]
+size = Vector2(1080, 20)
 
 [node name="main" type="Node2D"]
 script = ExtResource("1_mca63")
@@ -20,3 +32,32 @@ scale = Vector2(1, 1)
 position = Vector2(360, 1225)
 scale = Vector2(0.3, 0.3)
 texture = ExtResource("4_gi4xr")
+
+[node name="LimiteIzquierda" type="Area2D" parent="."]
+position = Vector2(-190, 640)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LimiteIzquierda"]
+shape = SubResource("RectangleShape2D_ym0m6")
+
+[node name="LimiteDerecha" type="Area2D" parent="."]
+position = Vector2(910, 640)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LimiteDerecha"]
+shape = SubResource("RectangleShape2D_qikh2")
+
+[node name="LimiteArriba" type="Area2D" parent="."]
+position = Vector2(360, -330)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LimiteArriba"]
+shape = SubResource("RectangleShape2D_xo5kg")
+
+[node name="LimiteAbajo" type="Area2D" parent="."]
+position = Vector2(360, 1610)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LimiteAbajo"]
+shape = SubResource("RectangleShape2D_7c6o3")
+
+[node name="Hipopotamo" type="Area2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Hipopotamo"]
+polygon = PackedVector2Array(282, 1174, 285, 1152, 312, 1137, 320, 1145, 323, 1149, 327, 1162, 325, 1164, 325, 1173, 323, 1178, 327, 1186, 335, 1193, 349, 1198, 362, 1202, 375, 1200, 385, 1200, 387, 1195, 391, 1196, 390, 1183, 394, 1182, 402, 1191, 414, 1184, 418, 1189, 416, 1192, 422, 1192, 423, 1203, 422, 1214, 419, 1217, 418, 1221, 416, 1226, 412, 1231)
