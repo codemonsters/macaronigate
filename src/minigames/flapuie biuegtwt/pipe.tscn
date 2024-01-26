@@ -1,11 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://x5fi1tf4twnr"]
+[gd_scene load_steps=4 format=3 uid="uid://x5fi1tf4twnr"]
 
 [ext_resource type="Texture2D" uid="uid://cxkecx6yfcg76" path="res://minigames/flapuie biuegtwt/images/pipe.png" id="1_3qvum"]
+[ext_resource type="Script" path="res://minigames/flapuie biuegtwt/pipe.gd" id="1_yex2t"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_eh011"]
 size = Vector2(194, 976.5)
 
 [node name="Pipe" type="StaticBody2D"]
+script = ExtResource("1_yex2t")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_3qvum")
