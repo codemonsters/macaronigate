@@ -1,9 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://dwy7f6xeikbp3"]
 
 [ext_resource type="Script" path="res://minigames/space/meteor.gd" id="1_yceyp"]
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_rrlef"]
-load_path = "res://.godot/imported/bola-de-basquete-logo-83316C58C5-seeklogo.com.png-3221bee152db862b54656493c7e57388.ctex"
+[ext_resource type="Texture2D" uid="uid://c11evym2rgak4" path="res://minigames/space/3df0c312d89ed5b.png" id="2_qkcsp"]
 
 [node name="meteor" type="Node2D"]
 script = ExtResource("1_yceyp")
@@ -13,8 +11,8 @@ can_sleep = false
 freeze = true
 
 [node name="Sprite2D" type="Sprite2D" parent="RigidBody2D"]
-scale = Vector2(0.3, 0.3)
-texture = SubResource("CompressedTexture2D_rrlef")
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("2_qkcsp")
 
 [node name="Button" type="Button" parent="RigidBody2D"]
 modulate = Color(1, 1, 1, 0)
