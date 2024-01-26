@@ -9,8 +9,8 @@ signal game_cleared
 @export var game_brief = "Happy Hippo"
 @export var needs_timer = false # False if your game doesn't need a countdown timer
 
-var madera = preload("res://minigames/happyhippo/madera.tscn")
-var pared = preload("res://minigames/happyhippo/pared.tscn")
+var madera = preload("res://minigames/willinghippo/madera.tscn")
+var pared = preload("res://minigames/willinghippo/pared.tscn")
 var separacion = 100
 var num_plataformas
 var distancia

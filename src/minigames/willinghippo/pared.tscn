@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://b2kxxdnujr2t5"]
 
-[ext_resource type="Texture2D" uid="uid://dsmvey3cidscp" path="res://minigames/happyhippo/plank.png" id="1_0waup"]
+[ext_resource type="Texture2D" uid="uid://dsmvey3cidscp" path="res://minigames/willinghippo/plank.png" id="1_0waup"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h84as"]
 size = Vector2(1192, 680)

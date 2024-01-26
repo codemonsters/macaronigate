@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://bvpnrwu51kssf"]
 
-[ext_resource type="Texture2D" uid="uid://d3iy22ovvttfm" path="res://minigames/happyhippo/watermelon.png" id="1_vwwm7"]
+[ext_resource type="Texture2D" uid="uid://d3iy22ovvttfm" path="res://minigames/willinghippo/watermelon.png" id="1_vwwm7"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_bccc3"]
 bounce = 0.2

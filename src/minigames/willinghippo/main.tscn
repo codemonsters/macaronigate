@@ -1,9 +1,9 @@
 [gd_scene load_steps=9 format=3 uid="uid://dipwvh3mnxwrp"]
 
-[ext_resource type="Script" path="res://minigames/happyhippo/main.gd" id="1_mca63"]
-[ext_resource type="PackedScene" uid="uid://bvpnrwu51kssf" path="res://minigames/happyhippo/watermelon.tscn" id="1_wyqtf"]
-[ext_resource type="Texture2D" uid="uid://b135iipjs4ds2" path="res://minigames/happyhippo/savanna.jpg" id="4_eibs5"]
-[ext_resource type="Texture2D" uid="uid://1o8c4wcmaskf" path="res://minigames/happyhippo/Happyhippo.png" id="4_gi4xr"]
+[ext_resource type="Script" path="res://minigames/willinghippo/main.gd" id="1_mca63"]
+[ext_resource type="PackedScene" uid="uid://bvpnrwu51kssf" path="res://minigames/willinghippo/watermelon.tscn" id="1_wyqtf"]
+[ext_resource type="Texture2D" uid="uid://b135iipjs4ds2" path="res://minigames/willinghippo/savanna.jpg" id="4_eibs5"]
+[ext_resource type="Texture2D" uid="uid://1o8c4wcmaskf" path="res://minigames/willinghippo/Happyhippo.png" id="4_gi4xr"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ym0m6"]
 size = Vector2(20, 1920)

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://1o8c4wcmaskf"
-path="res://.godot/imported/Happyhippo.png-3159b7b6265a08166cfb569457d228d5.ctex"
+uid="uid://d3iy22ovvttfm"
+path="res://.godot/imported/watermelon.png-077bac14d11d64c3c5c858c20d997eab.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://minigames/happyhippo/Happyhippo.png"
-dest_files=["res://.godot/imported/Happyhippo.png-3159b7b6265a08166cfb569457d228d5.ctex"]
+source_file="res://minigames/willinghippo/watermelon.png"
+dest_files=["res://.godot/imported/watermelon.png-077bac14d11d64c3c5c858c20d997eab.ctex"]
 
 [params]
 
