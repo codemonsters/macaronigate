@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://cymepr70rmtp3"]
+[gd_scene load_steps=27 format=3 uid="uid://cymepr70rmtp3"]
 
 [ext_resource type="PackedScene" uid="uid://1judl13luwqw" path="res://minigames/ladronesDeDiamantes/wall.blend" id="1_ctb5u"]
 [ext_resource type="Script" path="res://minigames/ladronesDeDiamantes/luzScript.gd" id="1_icj6y"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://djxvxptl66eng" path="res://minigames/ladronesDeDiamantes/FloorBaked.png" id="5_v4bkd"]
 [ext_resource type="PackedScene" uid="uid://ns2ye0tk3eu2" path="res://minigames/ladronesDeDiamantes/painting.blend" id="6_n55t2"]
 [ext_resource type="Script" path="res://minigames/ladronesDeDiamantes/rubyScript.gd" id="8_kita4"]
+[ext_resource type="Script" path="res://minigames/ladronesDeDiamantes/1000Points.gd" id="10_nq8wq"]
 [ext_resource type="PackedScene" uid="uid://c1ji0uongj7tq" path="res://minigames/ladronesDeDiamantes/cushion.blend" id="10_odjru"]
 [ext_resource type="Texture2D" uid="uid://drp2nkv8o51r8" path="res://minigames/ladronesDeDiamantes/police.png" id="11_djfeq"]
 [ext_resource type="PackedScene" uid="uid://kby538m18v1s" path="res://minigames/ladronesDeDiamantes/car.blend" id="13_r2vwk"]
@@ -286,6 +287,11 @@ mesh = SubResource("ArrayMesh_k8dbj")
 [node name="pilar" parent="." instance=ExtResource("4_6t7kh")]
 transform = Transform3D(1.6, 0, 0, 0, 1.6, 0, 0, 0, 1.6, 0, 4.21, 0)
 
+[node name="1000Points" type="Sprite3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.24633, 12.1678, -1.4853)
+texture = ExtResource("15_11o5p")
+script = ExtResource("10_nq8wq")
+
 [node name="ruby" parent="." instance=ExtResource("5_2xf8d")]
 transform = Transform3D(2, 0, 0, 0, 1.7791, 0.913668, 0, -0.913668, 1.7791, 0.207692, 10.1377, 0.200641)
 script = ExtResource("8_kita4")
@@ -353,10 +359,6 @@ autostart = true
 wait_time = 0.4
 one_shot = true
 autostart = true
-
-[node name="Sprite3D" type="Sprite3D" parent="."]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 7.62621, 15.86, -0.0903099)
-texture = ExtResource("15_11o5p")
 
 [connection signal="game_lose" from="luzPolicia" to="Camera3D" method="_on_game_lose"]
 [connection signal="game_win" from="luzPolicia" to="ruby" method="_on_game_win"]

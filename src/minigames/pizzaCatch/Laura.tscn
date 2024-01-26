@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://blxvhxtb84y12"]
+
+[ext_resource type="Texture2D" uid="uid://daveyuuvd2sv4" path="res://minigames/pizzaCatch/Laura.png" id="1_7nf57"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_va3jc"]
+radius = 52.0
+
+[node name="Laura" type="Node2D"]
+
+[node name="RigidBody2D" type="RigidBody2D" parent="."]
+gravity_scale = 0.7
+
+[node name="Sprite2D" type="Sprite2D" parent="RigidBody2D"]
+scale = Vector2(0.07, 0.07)
+texture = ExtResource("1_7nf57")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
+shape = SubResource("CircleShape2D_va3jc")

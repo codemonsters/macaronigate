@@ -17,7 +17,24 @@ func _process(delta):
 		$Paddle.position += Vector2(300, 0)*delta
 	else:
 		print("...")
+		print($ball.get_position()[0])
 	$ball.position = $ball.get_position()
+	
+	if $ball.get_position()[0] >= 720:
+		print("se escapa")
+		$ball.set_axis_velocity(Vector2(-1000, 0))
+	
+	if $ball.get_position()[0] <= 0:
+		print("se escapa")
+		$ball.set_axis_velocity(Vector2(1000, 0))
+	
+	if $ball.get_position()[1] >= 1280:
+		print("se escapa")
+		$ball.set_axis_velocity(Vector2(0, -1000))
+		
+	if $ball.get_position()[1] <= 0:
+		print("se escapa")
+		$ball.set_axis_velocity(Vector2(0, 1000))
 	
 func _input(event):
 	if event is InputEventScreenTouch:

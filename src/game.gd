@@ -4,6 +4,7 @@ extends Node2D
 # For developing, set "launch_minigame_directly" to the name of your
 # corresponding minigame subfolder, and then start the project normally using F5
 #var launch_minigame_directly = "esquivar.coches"
+#var launch_minigame_directly = "happyhippo"
 var launch_minigame_directly = null
 
 signal game_timeout
@@ -14,6 +15,7 @@ var current_game_number
 var current_game_seconds_left = 0
 
 func _ready():
+	minigames.shuffle()
 	current_game_number = 0
 	remove_childs_in_group("current_game")
 	if launch_minigame_directly == null:

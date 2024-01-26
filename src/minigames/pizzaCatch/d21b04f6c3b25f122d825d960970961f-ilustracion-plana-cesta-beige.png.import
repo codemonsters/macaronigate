@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://booqhvf14u1s8"
-path="res://.godot/imported/bola-de-basquete-logo-83316C58C5-seeklogo.com.png-3221bee152db862b54656493c7e57388.ctex"
+uid="uid://bhjrwxtnif7gg"
+path="res://.godot/imported/d21b04f6c3b25f122d825d960970961f-ilustracion-plana-cesta-beige.png-f1cf3123af8933501790d9653c803803.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://minigames/space/bola-de-basquete-logo-83316C58C5-seeklogo.com.png"
-dest_files=["res://.godot/imported/bola-de-basquete-logo-83316C58C5-seeklogo.com.png-3221bee152db862b54656493c7e57388.ctex"]
+source_file="res://minigames/pizzaCatch/d21b04f6c3b25f122d825d960970961f-ilustracion-plana-cesta-beige.png"
+dest_files=["res://.godot/imported/d21b04f6c3b25f122d825d960970961f-ilustracion-plana-cesta-beige.png-f1cf3123af8933501790d9653c803803.ctex"]
 
 [params]
 
