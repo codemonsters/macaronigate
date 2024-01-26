@@ -31,3 +31,6 @@ func on_meteor_pressed(node):
 	instances -= 1
 	remove_child(node)
 	node.queue_free()
+	
+func on_game_timeout():
+	$Timer.stop()
