@@ -12,7 +12,7 @@ func _ready():
 	game_over.connect(Callable(get_parent(), "on_game_over"))
 
 func _on_timer_timeout():
-	if instances > 2:
+	if instances > 4:
 		emit_signal("game_over")
 	else:
 		var meteor = meteor_scene.instantiate()
@@ -31,3 +31,6 @@ func on_meteor_pressed(node):
 	instances -= 1
 	remove_child(node)
 	node.queue_free()
+	
+func on_game_timeout():
+	$Timer.stop()

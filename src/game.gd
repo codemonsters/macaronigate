@@ -14,6 +14,7 @@ var current_game_number
 var current_game_seconds_left = 0
 
 func _ready():
+	minigames.shuffle()
 	current_game_number = 0
 	remove_childs_in_group("current_game")
 	if launch_minigame_directly == null:
