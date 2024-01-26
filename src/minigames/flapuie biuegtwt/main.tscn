@@ -1,13 +1,18 @@
-[gd_scene load_steps=2 format=3 uid="uid://deto0rrvkkw7u"]
+[gd_scene load_steps=3 format=3 uid="uid://deto0rrvkkw7u"]
 
 [ext_resource type="Script" path="res://minigames/flapuie biuegtwt/main.gd" id="1_jkedp"]
+[ext_resource type="PackedScene" uid="uid://cm488c5okjkb8" path="res://minigames/flapuie biuegtwt/bird.tscn" id="2_rq6ao"]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_jkedp")
 
 [node name="NewPipesTimer" type="Timer" parent="."]
+wait_time = 2.0
 autostart = true
 
 [node name="Pipes" type="Node" parent="."]
+
+[node name="Bird" parent="." instance=ExtResource("2_rq6ao")]
+position = Vector2(96, 153)
 
 [connection signal="timeout" from="NewPipesTimer" to="." method="_on_new_pipes_timer_timeout"]

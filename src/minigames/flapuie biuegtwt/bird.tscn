@@ -1,0 +1,51 @@
+[gd_scene load_steps=8 format=3 uid="uid://cm488c5okjkb8"]
+
+[ext_resource type="Script" path="res://minigames/flapuie biuegtwt/bird.gd" id="1_08dnw"]
+[ext_resource type="Texture2D" uid="uid://xgp0iha4q700" path="res://minigames/flapuie biuegtwt/images/bird/dead_01.png" id="1_oncep"]
+[ext_resource type="Texture2D" uid="uid://dr0fu3c7l6faj" path="res://minigames/flapuie biuegtwt/images/bird/dead_02.png" id="2_d8q45"]
+[ext_resource type="Texture2D" uid="uid://dagr5nsyt8iy6" path="res://minigames/flapuie biuegtwt/images/bird/flying_01.png" id="3_legut"]
+[ext_resource type="Texture2D" uid="uid://d2l12u2g722fx" path="res://minigames/flapuie biuegtwt/images/bird/flying_02.png" id="4_1tcqw"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7q3o3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_oncep")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_d8q45")
+}],
+"loop": true,
+"name": &"dead",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_legut")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_1tcqw")
+}],
+"loop": true,
+"name": &"flying",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_g1ld5"]
+radius = 41.8449
+height = 83.6899
+
+[node name="Bird" type="RigidBody2D"]
+scale = Vector2(0.971284, 1.01224)
+script = ExtResource("1_08dnw")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.206119, 0.205178)
+sprite_frames = SubResource("SpriteFrames_7q3o3")
+animation = &"flying"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(8.23652, -9.87906)
+rotation = 1.5708
+scale = Vector2(1.01518, 1.27778)
+shape = SubResource("CapsuleShape2D_g1ld5")
