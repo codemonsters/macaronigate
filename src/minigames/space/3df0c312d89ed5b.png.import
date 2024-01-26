@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://booqhvf14u1s8"
-path="res://.godot/imported/bola-de-basquete-logo-83316C58C5-seeklogo.com.png-3221bee152db862b54656493c7e57388.ctex"
+uid="uid://c11evym2rgak4"
+path="res://.godot/imported/3df0c312d89ed5b.png-4d089b805c45f844e12d0eb835983d16.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://minigames/space/bola-de-basquete-logo-83316C58C5-seeklogo.com.png"
-dest_files=["res://.godot/imported/bola-de-basquete-logo-83316C58C5-seeklogo.com.png-3221bee152db862b54656493c7e57388.ctex"]
+source_file="res://minigames/space/3df0c312d89ed5b.png"
+dest_files=["res://.godot/imported/3df0c312d89ed5b.png-4d089b805c45f844e12d0eb835983d16.ctex"]
 
 [params]
 
