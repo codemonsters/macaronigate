@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://be58n7lis21wr"]
+
+[ext_resource type="Script" path="res://minigames/pizzaCatch/Carlos.gd" id="1_8iejd"]
+[ext_resource type="Texture2D" uid="uid://bhjrwxtnif7gg" path="res://minigames/pizzaCatch/d21b04f6c3b25f122d825d960970961f-ilustracion-plana-cesta-beige.png" id="2_67cfy"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kweeu"]
+size = Vector2(160, 80)
+
+[node name="Carlos" type="Node2D"]
+script = ExtResource("1_8iejd")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("2_67cfy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_kweeu")
