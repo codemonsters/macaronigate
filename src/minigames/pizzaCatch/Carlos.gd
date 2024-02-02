@@ -9,9 +9,9 @@ func _ready():
 func _process(delta):
 	var velocity = Vector2.ZERO # The player's movement vector.
 	if Input.is_action_pressed("move_right"):
-			velocity.x += 1
+			velocity.x += 1.3
 	if Input.is_action_pressed("move_left"):
-			velocity.x -= 1
+			velocity.x -= 1.3
 
 	if velocity.length() > 0:
 		velocity = velocity.normalized() * 400
