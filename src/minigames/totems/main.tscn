@@ -1,17 +1,18 @@
-[gd_scene load_steps=15 format=3 uid="uid://d7pds6ys2gwo"]
+[gd_scene load_steps=16 format=3 uid="uid://d7pds6ys2gwo"]
 
-[ext_resource type="Script" path="res://minigames/totem.break/Block_Spawner.gd" id="1_qcm1e"]
-[ext_resource type="Texture2D" uid="uid://bc601x3174vxd" path="res://minigames/totem.break/fondo.png" id="1_uv2t7"]
+[ext_resource type="Script" path="res://minigames/totems/main.gd" id="1_qcm1e"]
+[ext_resource type="Texture2D" uid="uid://bc601x3174vxd" path="res://minigames/totems/fondo.png" id="1_uv2t7"]
 [ext_resource type="Texture2D" uid="uid://hcnx7vd5075l" path="res://placeholder.png" id="2_5dash"]
-[ext_resource type="Texture2D" uid="uid://d1usuxrhmspu7" path="res://minigames/totem.break/bordeFondo1.png" id="3_b83ca"]
-[ext_resource type="Texture2D" uid="uid://dufjnxx66v8ip" path="res://minigames/totem.break/bordeBoton1.png" id="3_bvj3h"]
-[ext_resource type="AudioStream" uid="uid://c5eysmu77p1m" path="res://minigames/totem.break/totemFall.wav" id="3_rn2o5"]
-[ext_resource type="Texture2D" uid="uid://bfvoj3kniecg4" path="res://minigames/totem.break/bordeBoton2.png" id="4_8e408"]
-[ext_resource type="Texture2D" uid="uid://dd4culyc0401v" path="res://minigames/totem.break/bordeFondo2.png" id="4_qeps6"]
-[ext_resource type="AudioStream" uid="uid://17dmo6nbtm46" path="res://minigames/totem.break/click.wav" id="4_tdstx"]
-[ext_resource type="Script" path="res://minigames/totem.break/animacionBasica.gd" id="5_lthdy"]
-[ext_resource type="Texture2D" uid="uid://b4341h4anxscw" path="res://minigames/totem.break/tornillo.png" id="5_x2jwd"]
-[ext_resource type="Texture2D" uid="uid://cgx8f4qdq23il" path="res://minigames/totem.break/PLAGA_GOD.png" id="11_gt51w"]
+[ext_resource type="Script" path="res://minigames/totems/BlockSpawner.gd" id="3_4x1id"]
+[ext_resource type="Texture2D" uid="uid://d1usuxrhmspu7" path="res://minigames/totems/bordeFondo1.png" id="3_b83ca"]
+[ext_resource type="Texture2D" uid="uid://dufjnxx66v8ip" path="res://minigames/totems/bordeBoton1.png" id="3_bvj3h"]
+[ext_resource type="AudioStream" uid="uid://c5eysmu77p1m" path="res://minigames/totems/totemFall.wav" id="3_rn2o5"]
+[ext_resource type="Texture2D" uid="uid://bfvoj3kniecg4" path="res://minigames/totems/bordeBoton2.png" id="4_8e408"]
+[ext_resource type="Texture2D" uid="uid://dd4culyc0401v" path="res://minigames/totems/bordeFondo2.png" id="4_qeps6"]
+[ext_resource type="AudioStream" uid="uid://17dmo6nbtm46" path="res://minigames/totems/click.wav" id="4_tdstx"]
+[ext_resource type="Script" path="res://minigames/totems/animacionBasica.gd" id="5_lthdy"]
+[ext_resource type="Texture2D" uid="uid://b4341h4anxscw" path="res://minigames/totems/tornillo.png" id="5_x2jwd"]
+[ext_resource type="Texture2D" uid="uid://cgx8f4qdq23il" path="res://minigames/totems/PLAGA_GOD.png" id="11_gt51w"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_b35wq"]
 animations = [{
@@ -42,6 +43,7 @@ animations = [{
 }]
 
 [node name="main" type="Node2D"]
+script = ExtResource("1_qcm1e")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
@@ -51,7 +53,7 @@ scale = Vector2(1.9668, 3.03906)
 texture = ExtResource("1_uv2t7")
 
 [node name="Block_Spawner" type="Node2D" parent="."]
-script = ExtResource("1_qcm1e")
+script = ExtResource("3_4x1id")
 
 [node name="totemFalling" type="AudioStreamPlayer2D" parent="Block_Spawner"]
 stream = ExtResource("3_rn2o5")
@@ -154,6 +156,7 @@ position = Vector2(25, 571)
 scale = Vector2(1, 0.730469)
 texture = ExtResource("11_gt51w")
 
+[connection signal="chain_timeout" from="." to="Block_Spawner" method="_on_main_chain_timeout"]
 [connection signal="stun_end" from="Block_Spawner" to="BordeGrande" method="_on_block_spawner_stun_end"]
 [connection signal="stun_end" from="Block_Spawner" to="moradoBoton/bordeBoton" method="_on_block_spawner_stun_end"]
 [connection signal="stun_end" from="Block_Spawner" to="rosaBoton/bordeBoton" method="_on_block_spawner_stun_end"]

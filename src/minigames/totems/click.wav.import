@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://17dmo6nbtm46"
-path="res://.godot/imported/click.wav-065acd8f4a6d05cb0cf36add216cb3f5.sample"
+path="res://.godot/imported/click.wav-f637f8ff95a14d2281618c2f3afbee9a.sample"
 
 [deps]
 
-source_file="res://minigames/totem.break/click.wav"
-dest_files=["res://.godot/imported/click.wav-065acd8f4a6d05cb0cf36add216cb3f5.sample"]
+source_file="res://minigames/totems/click.wav"
+dest_files=["res://.godot/imported/click.wav-f637f8ff95a14d2281618c2f3afbee9a.sample"]
 
 [params]
 

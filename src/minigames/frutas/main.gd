@@ -1,5 +1,6 @@
 extends Node2D
 signal game_over
+signal game_cleared
 
 # Juan https://ninjikin.itch.io/fruit
 
@@ -14,6 +15,7 @@ var in_game
 
 func _ready():
 	game_over.connect(Callable(get_parent(), "on_game_over"))
+	game_cleared.connect(Callable(get_parent(), "on_game_cleared"))
 	in_game = true
 
 func _on_fruta_timer_timeout():
@@ -40,3 +42,4 @@ func _on_killbox_body_entered(body):
 func on_game_timeout():
 	$FrutaTimer.stop()
 	in_game = false
+	game_cleared.emit()
