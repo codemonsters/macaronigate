@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dd4culyc0401v"
-path="res://.godot/imported/bordeFondo2.png-ea54d65a44332ffe9f5e4952dc7e46ae.ctex"
+uid="uid://bc601x3174vxd"
+path="res://.godot/imported/fondo.png-7d908993986b74490e4feb5c625955b0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://minigames/totem.break/bordeFondo2.png"
-dest_files=["res://.godot/imported/bordeFondo2.png-ea54d65a44332ffe9f5e4952dc7e46ae.ctex"]
+source_file="res://minigames/totems/fondo.png"
+dest_files=["res://.godot/imported/fondo.png-7d908993986b74490e4feb5c625955b0.ctex"]
 
 [params]
 

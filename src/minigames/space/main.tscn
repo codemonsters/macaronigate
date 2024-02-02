@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://duhe4f22qm1gf"]
+[gd_scene load_steps=6 format=3 uid="uid://duhe4f22qm1gf"]
 
 [ext_resource type="Script" path="res://minigames/space/main.gd" id="1_lgk42"]
 [ext_resource type="PackedScene" uid="uid://bubwpbei0x08l" path="res://minigames/space/nave.tscn" id="2_ri1rc"]
 [ext_resource type="Script" path="res://minigames/space/nave.gd" id="3_6el3u"]
+[ext_resource type="AudioStream" uid="uid://ftfjw0dd8eba" path="res://minigames/space/GrenadeExplosion.mp3" id="4_jnn7m"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_oknn5"]
 size = Vector2(600, 624)
@@ -29,5 +30,8 @@ shape = SubResource("RectangleShape2D_oknn5")
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.55
 autostart = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_jnn7m")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

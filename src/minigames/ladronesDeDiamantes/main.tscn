@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://cymepr70rmtp3"]
+[gd_scene load_steps=28 format=3 uid="uid://cymepr70rmtp3"]
 
 [ext_resource type="PackedScene" uid="uid://1judl13luwqw" path="res://minigames/ladronesDeDiamantes/wall.blend" id="1_ctb5u"]
 [ext_resource type="Script" path="res://minigames/ladronesDeDiamantes/luzScript.gd" id="1_icj6y"]
@@ -16,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://kby538m18v1s" path="res://minigames/ladronesDeDiamantes/car.blend" id="13_r2vwk"]
 [ext_resource type="Script" path="res://minigames/ladronesDeDiamantes/lightmanager.gd" id="14_nmcb0"]
 [ext_resource type="Texture2D" uid="uid://bo22peipr21a1" path="res://minigames/ladronesDeDiamantes/1000points.png" id="15_11o5p"]
+[ext_resource type="AudioStream" uid="uid://dptak3yl60ba2" path="res://minigames/ladronesDeDiamantes/thievessongFinal.ogg" id="17_vid4b"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_t6b7i"]
 resource_name = "wood2"
@@ -359,6 +360,11 @@ autostart = true
 wait_time = 0.4
 one_shot = true
 autostart = true
+
+[node name="MusicPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("17_vid4b")
+volume_db = 2.811
+autoplay = true
 
 [connection signal="game_lose" from="luzPolicia" to="Camera3D" method="_on_game_lose"]
 [connection signal="game_win" from="luzPolicia" to="ruby" method="_on_game_win"]

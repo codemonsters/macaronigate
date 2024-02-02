@@ -10,7 +10,7 @@ var launch_minigame_directly = null
 signal game_timeout
 
 # Array with the name of the minigames that will be played
-var minigames = ["frutas", "esquivar.coches", "boton", "space", "willinghippo"]
+var minigames = ["frutas", "esquivar.coches", "boton", "space", "pizzaCatch", "willinghippo", "totems"]
 var current_game_number
 var current_game_seconds_left = 0
 
@@ -78,7 +78,6 @@ func _on_timer_timeout():
 	if current_game_seconds_left <= 0:
 		$Timer.stop()
 		emit_signal("game_timeout")
-		on_game_cleared()
 
 func on_play_button_pressed():
 	remove_childs_in_group("menu")

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b4341h4anxscw"
-path="res://.godot/imported/tornillo.png-e586e188942fc0a6f604d41260bdcf2d.ctex"
+uid="uid://cgx8f4qdq23il"
+path="res://.godot/imported/PLAGA_GOD.png-a23695ce58e360bf87571e071eef1cc7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://minigames/totem.break/tornillo.png"
-dest_files=["res://.godot/imported/tornillo.png-e586e188942fc0a6f604d41260bdcf2d.ctex"]
+source_file="res://minigames/totems/PLAGA_GOD.png"
+dest_files=["res://.godot/imported/PLAGA_GOD.png-a23695ce58e360bf87571e071eef1cc7.ctex"]
 
 [params]
 

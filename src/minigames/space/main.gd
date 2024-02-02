@@ -2,6 +2,7 @@ extends Node2D
 var instances = 0
 var meteor_scene = load("res://minigames/space/meteor.tscn")
 signal game_over
+signal game_cleared
 
 @export var game_brief = "Destroy!"
 @export var needs_timer = true # False if your game doesn't need a countdown timer
@@ -10,6 +11,7 @@ signal game_over
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	game_over.connect(Callable(get_parent(), "on_game_over"))
+	game_cleared.connect(Callable(get_parent(), "on_game_cleared"))
 
 func _on_timer_timeout():
 	if instances > 4:
@@ -31,6 +33,8 @@ func on_meteor_pressed(node):
 	instances -= 1
 	remove_child(node)
 	node.queue_free()
+	$AudioStreamPlayer.play()
 	
 func on_game_timeout():
+	game_cleared.emit()
 	$Timer.stop()

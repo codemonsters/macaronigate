@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://d22tvnmdq52dk"]
 
-[ext_resource type="Script" path="res://minigames/totem.break/CharacterBody2D.gd" id="1_f4kft"]
+[ext_resource type="Script" path="res://minigames/totems/CharacterBody2D.gd" id="1_f4kft"]
 [ext_resource type="Texture2D" uid="uid://hcnx7vd5075l" path="res://placeholder.png" id="2_cyygm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5nv87"]

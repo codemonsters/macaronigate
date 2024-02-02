@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://c5eysmu77p1m"
-path="res://.godot/imported/totemFall.wav-c7e36917afe4eb7e6239fe22e9dbae73.sample"
+path="res://.godot/imported/totemFall.wav-d30f5e660fa2c3bdd2a3d74d8cf79ce3.sample"
 
 [deps]
 
-source_file="res://minigames/totem.break/totemFall.wav"
-dest_files=["res://.godot/imported/totemFall.wav-c7e36917afe4eb7e6239fe22e9dbae73.sample"]
+source_file="res://minigames/totems/totemFall.wav"
+dest_files=["res://.godot/imported/totemFall.wav-d30f5e660fa2c3bdd2a3d74d8cf79ce3.sample"]
 
 [params]
 

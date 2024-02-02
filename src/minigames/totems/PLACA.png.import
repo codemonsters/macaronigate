@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bc601x3174vxd"
-path="res://.godot/imported/fondo.png-844b998a166f4bde12bf34358907a5f3.ctex"
+uid="uid://bkqixt30ynfkw"
+path="res://.godot/imported/PLACA.png-b685ea1a0ed4176692c52dc5b05f463c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://minigames/totem.break/fondo.png"
-dest_files=["res://.godot/imported/fondo.png-844b998a166f4bde12bf34358907a5f3.ctex"]
+source_file="res://minigames/totems/PLACA.png"
+dest_files=["res://.godot/imported/PLACA.png-b685ea1a0ed4176692c52dc5b05f463c.ctex"]
 
 [params]
 

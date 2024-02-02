@@ -1,9 +1,15 @@
 extends Node2D
 var laura_scene = load("res://minigames/pizzaCatch/Laura.tscn")
+signal game_over
+var in_game = true
+
+@export var game_brief = "Catch the pizza!"
+@export var needs_timer = true # False if your game doesn't need a countdown timer
+@export var timer_seconds = 10 # Only set if needs_timer = true
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	game_over.connect(Callable(get_parent(), "on_game_over"))
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -18,3 +24,17 @@ func _on_timer_timeout():
 	laura.position = laura_spawn_location.position
 	
 	add_child(laura)
+	
+func on_pizza_catched(node):
+	remove_child(node)
+	node.queue_free()
+
+
+func _on_area_2d_body_entered(body):
+	if in_game == true:
+		emit_signal("game_over")
+		$Timer.stop()
+	
+func on_game_timeout():
+	$Timer.stop()
+	in_game = false
