@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://dgr0wieptjtp" path="res://minigames/ñarkanoid/images/ball.png" id="1_h1sck"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_q6js8"]
+friction = 0.0
 bounce = 1.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_46abf"]
