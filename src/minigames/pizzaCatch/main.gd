@@ -1,6 +1,7 @@
 extends Node2D
 var laura_scene = load("res://minigames/pizzaCatch/Laura.tscn")
 signal game_over
+signal game_cleared
 var in_game = true
 
 @export var game_brief = "Catch the pizza!"
@@ -10,6 +11,7 @@ var in_game = true
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	game_over.connect(Callable(get_parent(), "on_game_over"))
+	game_cleared.connect(Callable(get_parent(), "on_game_cleared"))
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -26,7 +28,6 @@ func _on_timer_timeout():
 	add_child(laura)
 	
 func on_pizza_catched(node):
-	remove_child(node)
 	node.queue_free()
 
 
@@ -36,5 +37,6 @@ func _on_area_2d_body_entered(body):
 		$Timer.stop()
 	
 func on_game_timeout():
+	emit_signal("game_cleared")
 	$Timer.stop()
 	in_game = false

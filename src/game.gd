@@ -84,8 +84,15 @@ func on_play_button_pressed():
 	load_game()
 
 func remove_childs_in_group(group):
-	for obj in get_children():
+	for obj in get_children():	
 		if obj.is_in_group(group):
-			remove_child(obj)
-			obj.remove_from_group(group)
+			destroy_children(obj) # Añadí esta función porque si no, algunas colisionShapes no se eliminaban, rompiendo otros juegos y el menu
 			obj.queue_free()
+	
+func destroy_children(parent):
+	for child in parent.get_children():
+		if child.get_child_count() == 0:
+			child.queue_free()
+		else:
+			destroy_children(child)
+	

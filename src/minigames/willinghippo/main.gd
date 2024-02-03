@@ -18,13 +18,13 @@ var direction = Vector2(0,1)
 var angulo = 0
 var filas = 6
 var madera_anterior
-var win = false
+
+var game_in_progress = true # Añadí esta variable porque el juego estaba emitiendo "game_cleared" demasiadas veces
 
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	win = false
 	game_over.connect(Callable(get_parent(), "on_game_over"))
 	game_cleared.connect(Callable(get_parent(), "on_game_cleared"))
 	randomize()
@@ -72,11 +72,13 @@ func _process(delta):
 	else:
 		direction = Vector2(sin(angulo),cos(angulo))
 	PhysicsServer2D.area_set_param(get_world_2d().space, PhysicsServer2D.AREA_PARAM_GRAVITY_VECTOR, direction)
-	if $Hipopotamo.overlaps_body($watermelon/RigidBody2D):
-		win = true
-		emit_signal("game_cleared")
-	if ($LimiteIzquierda.overlaps_body($watermelon/RigidBody2D) or $LimiteDerecha.overlaps_body($watermelon/RigidBody2D) or $LimiteArriba.overlaps_body($watermelon/RigidBody2D) or $LimiteAbajo.overlaps_body($watermelon/RigidBody2D)) and win==false:
-		emit_signal("game_over")
+	if (game_in_progress):
+		if $Hipopotamo.overlaps_body($watermelon/RigidBody2D):
+			emit_signal("game_cleared")
+			game_in_progress = false
+		if ($LimiteIzquierda.overlaps_body($watermelon/RigidBody2D) or $LimiteDerecha.overlaps_body($watermelon/RigidBody2D) or $LimiteArriba.overlaps_body($watermelon/RigidBody2D) or $LimiteAbajo.overlaps_body($watermelon/RigidBody2D)):
+			emit_signal("game_over")
+			game_in_progress = false
 	
 	
 	

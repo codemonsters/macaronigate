@@ -33,5 +33,6 @@ autostart = true
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_jnn7m")
+volume_db = -13.116
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
