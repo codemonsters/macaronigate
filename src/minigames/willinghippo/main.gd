@@ -6,7 +6,7 @@ signal game_cleared
 # Sonido hipopótamo: Mummy Zombie - Mike Koenig en soundbible.com/1059-Mummy-Zombie.html
 # Imágen de fondo (sabana): https://get.pxhere.com/photo/landscape-tree-nature-marsh-swamp-meadow-prairie-lake-green-pasture-soil-savanna-waterway-plain-watering-hole-grassland-wetland-bog-floodplain-plateau-habitat-ecosystem-lone-tree-steppe-nature-reserve-namibia-etosha-natural-environment-geographical-feature-land-lot-632302.jpg
 
-@export var game_brief = "Happy Hippo"
+@export var game_brief = "Willing Hippo"
 @export var needs_timer = false # False if your game doesn't need a countdown timer
 
 var madera = preload("res://minigames/willinghippo/madera.tscn")
@@ -74,9 +74,11 @@ func _process(delta):
 	PhysicsServer2D.area_set_param(get_world_2d().space, PhysicsServer2D.AREA_PARAM_GRAVITY_VECTOR, direction)
 	if (game_in_progress):
 		if $Hipopotamo.overlaps_body($watermelon/RigidBody2D):
+			PhysicsServer2D.area_set_param(get_world_2d().space, PhysicsServer2D.AREA_PARAM_GRAVITY_VECTOR, Vector2(0,1))
 			emit_signal("game_cleared")
 			game_in_progress = false
 		if ($LimiteIzquierda.overlaps_body($watermelon/RigidBody2D) or $LimiteDerecha.overlaps_body($watermelon/RigidBody2D) or $LimiteArriba.overlaps_body($watermelon/RigidBody2D) or $LimiteAbajo.overlaps_body($watermelon/RigidBody2D)):
+			PhysicsServer2D.area_set_param(get_world_2d().space, PhysicsServer2D.AREA_PARAM_GRAVITY_VECTOR, Vector2(0,1))
 			emit_signal("game_over")
 			game_in_progress = false
 	
