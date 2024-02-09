@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bfdgr0dfjfnmt"
-path="res://.godot/imported/thif.png-146f0e627913bac8d6a3a92ce96ad099.ctex"
+uid="uid://d6ccg888oue3"
+path="res://.godot/imported/palo.png-192d0d53198c331b9cb9c355f15d1683.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://intro/images/thif.png"
-dest_files=["res://.godot/imported/thif.png-146f0e627913bac8d6a3a92ce96ad099.ctex"]
+source_file="res://intro_game/images/palo.png"
+dest_files=["res://.godot/imported/palo.png-192d0d53198c331b9cb9c355f15d1683.ctex"]
 
 [params]
 

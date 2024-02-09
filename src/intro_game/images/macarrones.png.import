@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d6ccg888oue3"
-path="res://.godot/imported/palo.png-dd922384aedda7cb1f46c45cfa881f27.ctex"
+uid="uid://6ugdmtchm01e"
+path="res://.godot/imported/macarrones.png-212d24749cb36e5471123d14ed296096.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://intro/images/palo.png"
-dest_files=["res://.godot/imported/palo.png-dd922384aedda7cb1f46c45cfa881f27.ctex"]
+source_file="res://intro_game/images/macarrones.png"
+dest_files=["res://.godot/imported/macarrones.png-212d24749cb36e5471123d14ed296096.ctex"]
 
 [params]
 

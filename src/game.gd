@@ -29,6 +29,11 @@ func load_menu():
 	menu.add_to_group("menu")
 	add_child(menu)
 
+func load_game_intro():
+	var scene = load("res://intro_game/main.tscn").instantiate()
+	add_child(scene)
+	
+	
 func load_game(game_n = 0):
 	var scene
 	if launch_minigame_directly != null:
@@ -79,9 +84,16 @@ func _on_timer_timeout():
 		$Timer.stop()
 		emit_signal("game_timeout")
 
+
+func on_game_intro_finished():
+	$"IntroAnimation".queue_free()
+	load_game()
+	
+	
 func on_play_button_pressed():
 	remove_childs_in_group("menu")
-	load_game()
+	load_game_intro()
+
 
 func remove_childs_in_group(group):
 	for obj in get_children():	

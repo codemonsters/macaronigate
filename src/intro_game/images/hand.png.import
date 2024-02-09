@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b6b7724pdus8j"
-path="res://.godot/imported/chef.png-ae685d3757f94ec9d1b7ebeddb1a67e5.ctex"
+uid="uid://cauwntvvye8m3"
+path="res://.godot/imported/hand.png-811f99836a6696ebff0aed1a9ac1c838.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://intro/images/chef.png"
-dest_files=["res://.godot/imported/chef.png-ae685d3757f94ec9d1b7ebeddb1a67e5.ctex"]
+source_file="res://intro_game/images/hand.png"
+dest_files=["res://.godot/imported/hand.png-811f99836a6696ebff0aed1a9ac1c838.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://6ugdmtchm01e"
-path="res://.godot/imported/macarrones.png-5523ed46721d65332a7ceafbbcd77673.ctex"
+uid="uid://bfdgr0dfjfnmt"
+path="res://.godot/imported/thif.png-a85e16df6d6b181e8db4de3506f32606.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://intro/images/macarrones.png"
-dest_files=["res://.godot/imported/macarrones.png-5523ed46721d65332a7ceafbbcd77673.ctex"]
+source_file="res://intro_game/images/thif.png"
+dest_files=["res://.godot/imported/thif.png-a85e16df6d6b181e8db4de3506f32606.ctex"]
 
 [params]
 

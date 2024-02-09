@@ -1,14 +1,15 @@
-[gd_scene load_steps=13 format=3 uid="uid://2vaye23jw03v"]
+[gd_scene load_steps=14 format=3 uid="uid://2vaye23jw03v"]
 
-[ext_resource type="Texture2D" uid="uid://dqp0f10xdsmii" path="res://intro/images/street.jpg" id="1_k2eu4"]
-[ext_resource type="Texture2D" uid="uid://b6b7724pdus8j" path="res://intro/images/chef.png" id="2_qikef"]
-[ext_resource type="Texture2D" uid="uid://cauwntvvye8m3" path="res://intro/images/hand.png" id="3_e5vrj"]
+[ext_resource type="Texture2D" uid="uid://dqp0f10xdsmii" path="res://intro_game/images/street.jpg" id="1_k2eu4"]
+[ext_resource type="Script" path="res://intro_game/main.gd" id="1_ykv00"]
+[ext_resource type="Texture2D" uid="uid://b6b7724pdus8j" path="res://intro_game/images/chef.png" id="2_qikef"]
+[ext_resource type="Texture2D" uid="uid://cauwntvvye8m3" path="res://intro_game/images/hand.png" id="3_e5vrj"]
 [ext_resource type="Texture2D" uid="uid://hcnx7vd5075l" path="res://placeholder.png" id="3_fq5kh"]
-[ext_resource type="Texture2D" uid="uid://6ugdmtchm01e" path="res://intro/images/macarrones.png" id="4_l5sxp"]
-[ext_resource type="Texture2D" uid="uid://d6ccg888oue3" path="res://intro/images/palo.png" id="5_34r83"]
-[ext_resource type="Texture2D" uid="uid://bfdgr0dfjfnmt" path="res://intro/images/thif.png" id="5_lathc"]
-[ext_resource type="Script" path="res://intro/AnimationPlayerController.gd" id="8_mutgd"]
-[ext_resource type="AudioStream" uid="uid://cn6ry2vkr3li6" path="res://intro/animationMusic.ogg" id="9_676ux"]
+[ext_resource type="Texture2D" uid="uid://6ugdmtchm01e" path="res://intro_game/images/macarrones.png" id="4_l5sxp"]
+[ext_resource type="Texture2D" uid="uid://d6ccg888oue3" path="res://intro_game/images/palo.png" id="5_34r83"]
+[ext_resource type="Texture2D" uid="uid://bfdgr0dfjfnmt" path="res://intro_game/images/thif.png" id="5_lathc"]
+[ext_resource type="Script" path="res://intro_game/AnimationPlayerController.gd" id="8_mutgd"]
+[ext_resource type="AudioStream" uid="uid://cn6ry2vkr3li6" path="res://intro_game/animationMusic.ogg" id="9_676ux"]
 
 [sub_resource type="Animation" id="Animation_e1pb5"]
 resource_name = "thiefWalking1"
@@ -73,6 +74,7 @@ _data = {
 }
 
 [node name="IntroAnimation" type="Node2D"]
+script = ExtResource("1_ykv00")
 
 [node name="Street" type="Sprite2D" parent="."]
 position = Vector2(360, 711.75)
