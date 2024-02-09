@@ -1,4 +1,5 @@
-# Macarronigate (o Vitello Rubato???)
+# Macarronigate: Il Spantosso Caso del Vitello Rubato
+
 ## Minigame integration
 Sample main script (attached to main.tscn inside the minigame subfolder)
 ```gdscript
