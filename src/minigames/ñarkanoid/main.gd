@@ -9,7 +9,7 @@ signal game_cleared
 
 var paddle_moving_left = false
 var paddle_moving_right = false
-
+var playing = true	# false cuando la partida ha finalizado
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -17,44 +17,49 @@ func _ready():
 	game_cleared.connect(Callable(get_parent(), "on_game_cleared"))
 
 	PhysicsServer2D.area_set_param(get_world_2d().space, PhysicsServer2D.AREA_PARAM_GRAVITY_VECTOR, Vector2(0, 0))	# Establecemos la dirección de la gravedad
-	$ball.set_axis_velocity(Vector2(0, 1000));
+	$ball.set_axis_velocity(Vector2(randi_range(-300, 300), -1000));
 
 
 func _physics_process(delta):
-	$ball.linear_velocity = $ball.linear_velocity.normalized() * 50000 * delta
+	if playing:
+		$ball.linear_velocity = $ball.linear_velocity.normalized() * 50000 * delta
+	else:
+		$ball.linear_velocity = Vector2(0, 0)
 	
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	# movimiento horizontal del juegador
-	if paddle_moving_left and not paddle_moving_right:
-		$Paddle.position += Vector2(-300, 0) * delta
-	elif not paddle_moving_left and paddle_moving_right:
-		$Paddle.position += Vector2(300, 0) * delta
-	
-	$Block.position.x = $ball.position.x	# la posición horizontal del bloque superior se corresponde siempre con el de la bola
-	
+	if playing:
+		# movimiento horizontal del juegador
+		if paddle_moving_left and not paddle_moving_right:
+			$Paddle.position += Vector2(-300, 0) * delta
+		elif not paddle_moving_left and paddle_moving_right:
+			$Paddle.position += Vector2(300, 0) * delta
+		
+		$Block.position.x = $ball.position.x	# la posición horizontal del bloque superior se corresponde siempre con el de la bola
+			
 	
 func _input(event):
-	if event is InputEventScreenTouch:
-		if event.pressed == true:
-			if event.position[0] < get_viewport().get_visible_rect().size[0] / 2:
-				paddle_moving_left = true
-				paddle_moving_right = false
+	if playing:
+		if event is InputEventScreenTouch:
+			if event.pressed == true:
+				if event.position[0] < get_viewport().get_visible_rect().size[0] / 2:
+					paddle_moving_left = true
+					paddle_moving_right = false
+				else:
+					paddle_moving_left = false
+					paddle_moving_right = true
 			else:
 				paddle_moving_left = false
-				paddle_moving_right = true
-		else:
+				paddle_moving_right = false
+		elif event.is_action_pressed("move_left"):
+			paddle_moving_left = true
+		elif event.is_action_released("move_left"):
 			paddle_moving_left = false
+		elif event.is_action_pressed("move_right"):
+			paddle_moving_right = true
+		elif event.is_action_released("move_right"):
 			paddle_moving_right = false
-	elif event.is_action_pressed("move_left"):
-		paddle_moving_left = true
-	elif event.is_action_released("move_left"):
-		paddle_moving_left = false
-	elif event.is_action_pressed("move_right"):
-		paddle_moving_right = true
-	elif event.is_action_released("move_right"):
-		paddle_moving_right = false
 
 
 func _on_floor_body_entered(body):
@@ -62,4 +67,5 @@ func _on_floor_body_entered(body):
 		emit_signal("game_over")
 
 func on_game_timeout():
+	playing = false
 	emit_signal("game_cleared")

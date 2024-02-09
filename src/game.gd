@@ -5,8 +5,7 @@ extends Node2D
 # corresponding minigame subfolder, and then start the project normally using F5
 #var launch_minigame_directly = "esquivar.coches"
 #var launch_minigame_directly = "happyhippo"
-#var launch_minigame_directly = "null"
-var launch_minigame_directly = "ñarkanoid"
+var launch_minigame_directly = null
 
 signal game_timeout
 

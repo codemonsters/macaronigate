@@ -23,7 +23,7 @@ color = Color(0.141176, 0.152941, 0.164706, 1)
 position = Vector2(360, 1000)
 
 [node name="ball" parent="." instance=ExtResource("3_36e8n")]
-position = Vector2(360, 100)
+position = Vector2(360, 500)
 
 [node name="Block" parent="." instance=ExtResource("4_7ygdk")]
 position = Vector2(360, 32)
