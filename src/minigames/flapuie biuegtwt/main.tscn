@@ -7,7 +7,7 @@
 script = ExtResource("1_jkedp")
 
 [node name="NewPipesTimer" type="Timer" parent="."]
-wait_time = 2.0
+wait_time = 3.0
 autostart = true
 
 [node name="Pipes" type="Node" parent="."]
@@ -15,4 +15,12 @@ autostart = true
 [node name="Bird" parent="." instance=ExtResource("2_rq6ao")]
 position = Vector2(96, 153)
 
+[node name="Button" type="Button" parent="."]
+modulate = Color(0, 0, 0, 1)
+show_behind_parent = true
+offset_right = 730.0
+offset_bottom = 1354.0
+action_mode = 0
+
 [connection signal="timeout" from="NewPipesTimer" to="." method="_on_new_pipes_timer_timeout"]
+[connection signal="pressed" from="Button" to="Bird" method="_on_button_pressed"]
