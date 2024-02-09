@@ -4,7 +4,7 @@
 Sample main script (attached to main.tscn inside the minigame subfolder)
 ```gdscript
 extends Node2D
-# Declare the signals your game requires (if you use the game.gd timer, you don't need the "game_cleared" signal)
+# Declare the required signals
 signal game_over
 signal game_cleared
 
@@ -14,15 +14,15 @@ signal game_cleared
 @export var timer_seconds = 5 # Only set if needs_timer = true
 
 func _ready():
-  # Connect the appropriate signals to the funtions in game.gd
-  game_over.connect(Callable(get_parent(), "on_game_over"))
-  game_cleared.connect(Callable(get_parent(), "on_game_cleared"))
+    # Connect the appropriate signals to the funtions in game.gd
+    game_over.connect(Callable(get_parent(), "on_game_over"))
+    game_cleared.connect(Callable(get_parent(), "on_game_cleared"))
 
-# When the game timer times out, the "on_game_timeout" function is triggered on your script
+# When the game timer (if enabled) times out, the "on_game_timeout" function is triggered on your script
 func on_game_timeout():
-  pass
+    emit_signal("game_cleared") # In this example the game is cleared if the player survived
 ```
-Now, according to your game logic, you can send ```game_over``` and/or ```game_cleared```as appropriate.
+Now, according to your game logic, you can send ```game_over``` and ```game_cleared```as appropriate.
 ```gdscript
 emit_signal("game_over")
 emit_signal("game_cleared")
