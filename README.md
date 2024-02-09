@@ -20,12 +20,12 @@ func _ready():
 
 # When the game timer (if enabled) times out, the "on_game_timeout" function is triggered on your script
 func on_game_timeout():
-    emit_signal("game_cleared") # In this example the game is cleared if the player survived
+    game_cleared.emit() # In this example the game is cleared if the player survived
 ```
 Now, according to your game logic, you can send ```game_over``` and ```game_cleared```as appropriate.
 ```gdscript
-emit_signal("game_over")
-emit_signal("game_cleared")
+game_over.emit()
+game_cleared.emit()
 ```
 For developing, inside ```game.gd```, set ```launch_minigame_directly``` to the name of your minigame's subfolder, and then start the project normally using F5
 ```gdscript
