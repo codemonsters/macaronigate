@@ -22,7 +22,7 @@ func _ready():
 func on_game_timeout():
     emit_signal("game_cleared") # In this example the game is cleared if the player survived
 ```
-Now, according to your game logic, you can send ```game_over``` and/or ```game_cleared```as appropriate.
+Now, according to your game logic, you can send ```game_over``` and ```game_cleared```as appropriate.
 ```gdscript
 emit_signal("game_over")
 emit_signal("game_cleared")
