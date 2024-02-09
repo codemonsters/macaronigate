@@ -10,10 +10,10 @@
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_oncep")
+"texture": ExtResource("2_d8q45")
 }, {
 "duration": 1.0,
-"texture": ExtResource("2_d8q45")
+"texture": ExtResource("1_oncep")
 }],
 "loop": true,
 "name": &"dead",
@@ -21,13 +21,21 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("3_legut")
+"texture": ExtResource("4_1tcqw")
 }, {
 "duration": 1.0,
-"texture": ExtResource("4_1tcqw")
+"texture": ExtResource("3_legut")
 }],
 "loop": true,
 "name": &"flying",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_legut")
+}],
+"loop": true,
+"name": &"reposo",
 "speed": 5.0
 }]
 

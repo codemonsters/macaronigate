@@ -10,7 +10,7 @@ var launch_minigame_directly = null
 signal game_timeout
 
 # Array with the name of the minigames that will be played
-var minigames = ["frutas", "esquivar.coches", "boton", "space", "pizzaCatch", "willinghippo", "totems"]
+var minigames = ["frutas", "esquivar.coches", "boton", "space", "pizzaCatch", "willinghippo", "totems", "flapuie biuegtwt"]
 var current_game_number
 var current_game_seconds_left = 0
 
