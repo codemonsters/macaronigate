@@ -131,4 +131,20 @@ libraries = {
 "": SubResource("AnimationLibrary_rpvuq")
 }
 
+[node name="GamePicker" type="ItemList" parent="."]
+offset_left = 260.0
+offset_top = 1000.0
+offset_right = 460.0
+offset_bottom = 1200.0
+
+[node name="PickerToggle" type="Button" parent="."]
+visible = false
+offset_left = 310.0
+offset_top = 1000.0
+offset_right = 410.0
+offset_bottom = 1050.0
+text = "Pick"
+
 [connection signal="pressed" from="PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="item_clicked" from="GamePicker" to="." method="_on_game_picker_item_clicked"]
+[connection signal="pressed" from="PickerToggle" to="." method="_on_picker_toggle_pressed"]
