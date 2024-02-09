@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://mv5gqwk2ocqm"]
+[gd_scene load_steps=4 format=3 uid="uid://mv5gqwk2ocqm"]
 
-[ext_resource type="Script" path="res://minigames/boton/main.gd" id="1_fgjis"]
-[ext_resource type="Texture2D" uid="uid://bcgcqlk4kgb1k" path="res://minigames/boton/red-button-isolate-backbround-3d-render-png.webp" id="2_e55be"]
+[ext_resource type="Script" path="res://minigames/boton no/main.gd" id="1_fgjis"]
+[ext_resource type="Texture2D" uid="uid://bcgcqlk4kgb1k" path="res://minigames/boton no/red-button-isolate-backbround-3d-render-png.webp" id="2_e55be"]
+[ext_resource type="AudioStream" uid="uid://ioxvhawerqkn" path="res://minigames/boton no/Don t Touch.mp3" id="3_ij1te"]
 
 [node name="Boton" type="Node2D"]
 position = Vector2(360, 640)
@@ -26,5 +27,9 @@ offset_right = 104.0
 offset_bottom = 48.0
 action_mode = 0
 flat = true
+
+[node name="NoTouch" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_ij1te")
+volume_db = -2.0
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

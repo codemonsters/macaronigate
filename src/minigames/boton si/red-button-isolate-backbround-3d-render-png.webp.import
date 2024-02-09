@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://djgyfvoiujedm"
-path="res://.godot/imported/red-button-isolate-backbround-3d-render-png.webp-393549012740ed1eda15e7aeaca3e7c4.ctex"
+uid="uid://cdoox1cmylg8s"
+path="res://.godot/imported/red-button-isolate-backbround-3d-render-png.webp-e59ee3f693187b352962d3e988d83c5c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://minigames/boton/red-button-isolate-backbround-3d-render-png.webp"
-dest_files=["res://.godot/imported/red-button-isolate-backbround-3d-render-png.webp-393549012740ed1eda15e7aeaca3e7c4.ctex"]
+source_file="res://minigames/boton si/red-button-isolate-backbround-3d-render-png.webp"
+dest_files=["res://.godot/imported/red-button-isolate-backbround-3d-render-png.webp-e59ee3f693187b352962d3e988d83c5c.ctex"]
 
 [params]
 
