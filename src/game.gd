@@ -92,8 +92,10 @@ func on_game_intro_finished():
 	
 func on_play_button_pressed():
 	remove_childs_in_group("menu")
-	load_game_intro()
-
+	if launch_minigame_directly == null:
+		load_game_intro()
+	else:
+		load_game()
 
 func remove_childs_in_group(group):
 	for obj in get_children():	
