@@ -11,35 +11,46 @@ signal game_timeout
 
 # Array with the name of the minigames that will be played
 var minigames = ["boton si", "boton no", "esquivar.coches", "frutas", "ñarkanoid", "pizzaCatch", "space", "totems", "willinghippo"]
+var minigames_shuffled
 var current_game_number
 var current_game_seconds_left = 0
 
 func _ready():
-	minigames.shuffle()
+	minigames_shuffled = minigames.duplicate()
+	#if launch_minigame_directly == null:
+	minigames_shuffled.shuffle()
+	print("Shuffled order: " + str(minigames_shuffled))
 	current_game_number = 0
 	remove_childs_in_group("current_game")
-	if launch_minigame_directly == null:
-		load_menu()
-	else:
-		load_game()
+	load_menu()
+	# if launch_minigame_directly == null:
+	# 	load_menu()
+	# else:
+	# 	load_game()
 	
 func load_menu():
+	#print("Loading menu...")
 	$HUD/Label.hide()
 	var menu = load("res://menu.tscn").instantiate()
 	menu.add_to_group("menu")
 	add_child(menu)
 
 func load_game_intro():
+	#print("Loading game intro...")
 	var scene = load("res://intro_game/main.tscn").instantiate()
 	add_child(scene)
 	
-	
 func load_game(game_n = 0):
+	if launch_minigame_directly != null:
+		print("Loading game directly... " + launch_minigame_directly)
+	else:
+		print("Loading game " + str(game_n + 1) + " of " + str(minigames_shuffled.size()) + "... " + minigames_shuffled[game_n])
+		
 	var scene
 	if launch_minigame_directly != null:
 		scene = load("res://minigames/" + launch_minigame_directly + "/main.tscn").instantiate()
 	else:
-		scene = load("res://minigames/" + minigames[game_n] + "/main.tscn").instantiate()
+		scene = load("res://minigames/" + minigames_shuffled[game_n] + "/main.tscn").instantiate()
 	scene.add_to_group("current_game")
 
 	$HUD/Label.set_text(scene.game_brief)
@@ -52,12 +63,13 @@ func load_game(game_n = 0):
 	add_child(scene)
 
 func on_game_cleared():
+	print("game_cleared signal received")
 	$Timer.stop()
 	$HUD/Label.set_text("Game cleared!")
 	await get_tree().create_timer(2).timeout
 	
 	if launch_minigame_directly == null:
-		if current_game_number < minigames.size() - 1:
+		if current_game_number < minigames_shuffled.size() - 1:
 			current_game_number += 1
 			remove_childs_in_group("current_game")
 			load_game(current_game_number)
@@ -72,6 +84,7 @@ func on_all_games_cleared():
 	_ready()
 
 func on_game_over():
+	print("game_over signal received")
 	$Timer.stop()
 	$HUD/Label.set_text("Game over!")
 	await get_tree().create_timer(2).timeout

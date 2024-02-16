@@ -16,6 +16,7 @@ func _ready():
 
 func _on_timer_timeout():
 	if instances > 4:
+		$Timer.stop()
 		emit_signal("game_over")
 	else:
 		var meteor = meteor_scene.instantiate()

@@ -13,16 +13,34 @@ func _ready():
 	$Title.get_node("AnimatedSprite2D").play("default")
 	$PlayButton.get_node("AnimatedSprite2D").play("default")
 
+	# print(game.launch_minigame_directly)
 	for item in game.minigames:
 		$GamePicker.add_item(item)
+	if game.launch_minigame_directly != null:
+		$PickerToggle.set_text("Selected: " + game.launch_minigame_directly)
+		$GamePicker.show()
 
 func _on_play_button_pressed():
 	play_button_pressed.emit()
 
 func _on_picker_toggle_pressed():
-	$GamePicker.show()
-	$PickerToggle.hide()
+	if $GamePicker.is_visible():
+		$GamePicker.hide()
+		# print(game.launch_minigame_directly)
+		# print(game.minigames)
+		game.launch_minigame_directly = null
+		$PickerToggle.set_text("Pick Game")
+	else:
+		# $GamePicker.clear()
+		# for item in game.minigames:
+		# 	$GamePicker.add_item(item)
+		$GamePicker.show()
 
-func _on_game_picker_item_clicked(index, at_position, mouse_button_index):
+# func _on_game_picker_item_clicked(index, at_position, mouse_button_index):
+# 	game.launch_minigame_directly = game.minigames[index]
+# 	play_button_pressed.emit()
+
+func _on_game_picker_item_selected(index):
 	game.launch_minigame_directly = game.minigames[index]
-	play_button_pressed.emit()
+	$PickerToggle.set_text("Selected: " + game.minigames[index])
+

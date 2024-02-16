@@ -13,6 +13,8 @@ func _ready():
 # Connect the appropriate signals to the funtions in game.gd
 	game_over.connect(Callable(get_parent(), "on_game_over"))
 	game_cleared.connect(Callable(get_parent(), "on_game_cleared"))
+	
+	$TouchIt.play()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

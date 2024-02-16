@@ -36,8 +36,9 @@ func _on_fruta_timer_timeout():
 
 func _on_killbox_body_entered(body):
 	if body.get_node("AnimatedSprite2D").get_frame() == 0 and in_game == true:
-		on_game_timeout()
-		emit_signal("game_over")
+		$FrutaTimer.stop()
+		in_game = false
+		game_over.emit()
 
 func on_game_timeout():
 	$FrutaTimer.stop()
