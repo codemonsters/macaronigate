@@ -7,7 +7,9 @@ signal game_cleared
 # Imágen de fondo (sabana): https://get.pxhere.com/photo/landscape-tree-nature-marsh-swamp-meadow-prairie-lake-green-pasture-soil-savanna-waterway-plain-watering-hole-grassland-wetland-bog-floodplain-plateau-habitat-ecosystem-lone-tree-steppe-nature-reserve-namibia-etosha-natural-environment-geographical-feature-land-lot-632302.jpg
 
 @export var game_brief = "Willing Hippo"
-@export var needs_timer = false # False if your game doesn't need a countdown timer
+@export var needs_timer = true # False if your game doesn't need a countdown timer
+@export var timer_seconds = 10 # Only set if needs_timer = truen timer
+@export var factor_gravedad = 1.75
 
 var madera = preload("res://minigames/willinghippo/madera.tscn")
 var pared = preload("res://minigames/willinghippo/pared.tscn")
@@ -41,11 +43,11 @@ func _ready():
 			elif x == 0:
 				madera2.position=Vector2((distancia)*((y+1)%2)+59,200+150*y)
 			else:
-				madera2.position=Vector2(2*59+separacion+(randi() % 41 - 40)+madera_anterior,200+150*y)
+				madera2.position=Vector2(2*59+separacion+(randi() % 36 - 35)+madera_anterior,200+150*y)
 			if randi()%3 == 0 and y > 0:
 				var pared2 = pared.instantiate()
 				add_child(pared2)
-				pared2.position=madera2.position+Vector2(53,-50)
+				pared2.position=madera2.position+Vector2(53,-48)
 			madera_anterior = madera2.position.x
 
 func _input(event):
@@ -66,21 +68,25 @@ func jump():
 func _process(delta):
 	angulo += Input.get_gyroscope().x*delta
 	if angulo > 3.14/2 and angulo != 3.14:
-		direction = Vector2(sin(3.14/2),cos(3.14/2))
+		direction = factor_gravedad * Vector2(sin(3.14/2),cos(3.14/2))
 	elif angulo < -3.14/2 and angulo != 3.14:
-		direction = Vector2(sin(-3.14/2),cos(-3.14/2))
+		direction = factor_gravedad * Vector2(sin(-3.14/2),cos(-3.14/2))
 	else:
-		direction = Vector2(sin(angulo),cos(angulo))
+		direction = factor_gravedad * Vector2(sin(angulo),cos(angulo))
 	PhysicsServer2D.area_set_param(get_world_2d().space, PhysicsServer2D.AREA_PARAM_GRAVITY_VECTOR, direction)
 	if (game_in_progress):
 		if $Hipopotamo.overlaps_body($watermelon/RigidBody2D):
+			game_cleared.emit()
 			PhysicsServer2D.area_set_param(get_world_2d().space, PhysicsServer2D.AREA_PARAM_GRAVITY_VECTOR, Vector2(0,1))
-			emit_signal("game_cleared")
 			game_in_progress = false
 		if ($LimiteIzquierda.overlaps_body($watermelon/RigidBody2D) or $LimiteDerecha.overlaps_body($watermelon/RigidBody2D) or $LimiteArriba.overlaps_body($watermelon/RigidBody2D) or $LimiteAbajo.overlaps_body($watermelon/RigidBody2D)):
+			game_over.emit()
 			PhysicsServer2D.area_set_param(get_world_2d().space, PhysicsServer2D.AREA_PARAM_GRAVITY_VECTOR, Vector2(0,1))
-			emit_signal("game_over")
 			game_in_progress = false
+func on_game_timeout():
+	game_over.emit()
+	PhysicsServer2D.area_set_param(get_world_2d().space, PhysicsServer2D.AREA_PARAM_GRAVITY_VECTOR, Vector2(0,1))
+	game_in_progress = false
 	
 	
 	
