@@ -5,8 +5,8 @@ var game
 
 func _ready():
 	game = get_parent()
-	play_button_pressed.connect(Callable(game, "on_play_button_pressed"))
-	game_picker_pressed.connect(Callable(game, "on_game_picker_pressed"))
+	#play_button_pressed.connect(Callable(game, "on_play_button_pressed"))
+	#game_picker_pressed.connect(Callable(game, "on_game_picker_pressed"))
 
 	PhysicsServer2D.area_set_param(get_world_2d().space, PhysicsServer2D.AREA_PARAM_GRAVITY_VECTOR, Vector2(0, 1))	# Establecemos la dirección de la gravedad hacia abajo (lo normal)
 	$DissolveRect.get_node("AnimationPlayer").play("fade_in")
@@ -21,7 +21,7 @@ func _ready():
 		$GamePicker.show()
 
 func _on_play_button_pressed():
-	play_button_pressed.emit()
+	game.on_play_button_pressed()
 
 func _on_picker_toggle_pressed():
 	if $GamePicker.is_visible():
@@ -43,4 +43,3 @@ func _on_picker_toggle_pressed():
 func _on_game_picker_item_selected(index):
 	game.launch_minigame_directly = game.minigames[index]
 	$PickerToggle.set_text("Selected: " + game.minigames[index])
-

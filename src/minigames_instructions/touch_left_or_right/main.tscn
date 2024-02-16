@@ -1,0 +1,40 @@
+[gd_scene load_steps=6 format=3 uid="uid://dmp01pjmnnsk"]
+
+[ext_resource type="Texture2D" uid="uid://dk476btqll2om" path="res://minigames_instructions/touch_left_or_right/glow_circle.png" id="1_3ivea"]
+[ext_resource type="Texture2D" uid="uid://b6t6gc2wldxc4" path="res://minigames_instructions/touch_left_or_right/thumb_left.png" id="1_6pgyq"]
+[ext_resource type="Texture2D" uid="uid://co1b3gnh77i1y" path="res://minigames_instructions/touch_left_or_right/thumb_right.png" id="2_g4ny4"]
+
+[sub_resource type="Animation" id="Animation_a2k1d"]
+resource_name = "main"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_hubg1"]
+_data = {
+"main": SubResource("Animation_a2k1d")
+}
+
+[node name="Main" type="Node2D"]
+
+[node name="GlowCircleLeft" type="Sprite2D" parent="."]
+position = Vector2(171, 726)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("1_3ivea")
+
+[node name="ThumbLeft" type="Sprite2D" parent="."]
+position = Vector2(68, 1021)
+scale = Vector2(2, 2)
+texture = ExtResource("1_6pgyq")
+
+[node name="GlowCircleRight" type="Sprite2D" parent="."]
+position = Vector2(560, 753)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("1_3ivea")
+
+[node name="ThumbRight" type="Sprite2D" parent="."]
+position = Vector2(674, 1048)
+scale = Vector2(2, 2)
+texture = ExtResource("2_g4ny4")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_hubg1")
+}

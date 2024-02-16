@@ -13,3 +13,6 @@ func _process(delta):
 func _input(event):
 	if event is InputEventScreenTouch and event.pressed == true:
 		get_parent().on_game_intro_finished()
+
+func _on_animation_player_animation_finished(anim_name):
+	get_parent().on_game_intro_finished()
