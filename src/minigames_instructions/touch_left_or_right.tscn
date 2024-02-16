@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://b8xrprmadxgj2"]
+
+[sub_resource type="Animation" id="Animation_fi58d"]
+resource_name = "main"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_jk1d5"]
+_data = {
+"main": SubResource("Animation_fi58d")
+}
+
+[node name="TouchLeftOrRight" type="Node2D"]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_jk1d5")
+}
