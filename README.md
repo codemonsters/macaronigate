@@ -27,7 +27,8 @@ Now, according to your game logic, you can send ```game_over``` and ```game_clea
 game_over.emit()
 game_cleared.emit()
 ```
-For developing, inside ```game.gd```, set ```launch_minigame_directly``` to the name of your minigame's subfolder, and then start the project normally using F5
+For developing, inside the menu click "Pick Game" and pick your game.
+Alternatively, inside ```game.gd```, set ```launch_minigame_directly``` to the name of your minigame's subfolder, and then start the project normally using F5
 ```gdscript
 # game.gd example:
 var launch_minigame_directly = null # The game will start normally to the menu

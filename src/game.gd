@@ -1,7 +1,8 @@
 extends Node2D
 
 # IMPORTANT: See README
-# For developing, set "launch_minigame_directly" to the name of your
+# For developing, inside the menu click "Pick Game" and pick your game
+# Alternatively, you can set "launch_minigame_directly" to the name of your
 # corresponding minigame subfolder, and then start the project normally using F5
 #var launch_minigame_directly = "esquivar.coches"
 #var launch_minigame_directly = null
@@ -14,19 +15,15 @@ var minigames = ["boton si", "boton no", "esquivar.coches", "frutas", "ñarkanoi
 var minigames_shuffled
 var current_game_number
 var current_game_seconds_left = 0
+var signal_inhibit = false
 
 func _ready():
 	minigames_shuffled = minigames.duplicate()
-	#if launch_minigame_directly == null:
 	minigames_shuffled.shuffle()
 	print("Shuffled order: " + str(minigames_shuffled))
 	current_game_number = 0
 	remove_childs_in_group("current_game")
 	load_menu()
-	# if launch_minigame_directly == null:
-	# 	load_menu()
-	# else:
-	# 	load_game()
 	
 func load_menu():
 	#print("Loading menu...")
@@ -61,22 +58,28 @@ func load_game(game_n = 0):
 		$Timer.start()
 
 	add_child(scene)
+	signal_inhibit = false
 
 func on_game_cleared():
 	print("game_cleared signal received")
-	$Timer.stop()
-	$HUD/Label.set_text("Game cleared!")
-	await get_tree().create_timer(2).timeout
-	
-	if launch_minigame_directly == null:
-		if current_game_number < minigames_shuffled.size() - 1:
-			current_game_number += 1
-			remove_childs_in_group("current_game")
-			load_game(current_game_number)
-		else:
-			on_all_games_cleared()
+	if signal_inhibit == true:
+		print("Signal inhibited!")
+		#assert(false, "Signal inhibited! Make sure the game does not send signals after game ends!")
 	else:
-		_ready()
+		signal_inhibit = true
+		$Timer.stop()
+		$HUD/Label.set_text("Game cleared!")
+		await get_tree().create_timer(2).timeout
+		
+		if launch_minigame_directly == null:
+			if current_game_number < minigames_shuffled.size() - 1:
+				current_game_number += 1
+				remove_childs_in_group("current_game")
+				load_game(current_game_number)
+			else:
+				on_all_games_cleared()
+		else:
+			_ready()
 
 func on_all_games_cleared():
 	$HUD/Label.set_text("All cleared!")
@@ -85,10 +88,15 @@ func on_all_games_cleared():
 
 func on_game_over():
 	print("game_over signal received")
-	$Timer.stop()
-	$HUD/Label.set_text("Game over!")
-	await get_tree().create_timer(2).timeout
-	_ready()
+	if signal_inhibit == true:
+		print("Signal inhibited!")
+		#assert(false, "Signal inhibited! Make sure the game does not send signals after game ends!")
+	else:
+		signal_inhibit = true
+		$Timer.stop()
+		$HUD/Label.set_text("Game over!")
+		await get_tree().create_timer(2).timeout
+		_ready()
 
 func _on_timer_timeout():
 	current_game_seconds_left -= 1
@@ -97,11 +105,9 @@ func _on_timer_timeout():
 		$Timer.stop()
 		emit_signal("game_timeout")
 
-
 func on_game_intro_finished():
 	$"IntroAnimation".queue_free()
 	load_game()
-	
 	
 func on_play_button_pressed():
 	remove_childs_in_group("menu")
@@ -113,7 +119,7 @@ func on_play_button_pressed():
 func remove_childs_in_group(group):
 	for obj in get_children():	
 		if obj.is_in_group(group):
-			destroy_children(obj) # Añadí esta función porque si no, algunas colisionShapes no se eliminaban, rompiendo otros juegos y el menu
+			destroy_children(obj)
 			obj.queue_free()
 	
 func destroy_children(parent):
