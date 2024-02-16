@@ -16,3 +16,6 @@ func _input(event):
 
 func _on_animation_player_animation_finished(anim_name):
 	get_parent().on_game_intro_finished()
+
+func on_game_start():
+	$AnimationPlayer.play("walking1")

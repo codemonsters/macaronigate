@@ -9,6 +9,7 @@ extends Node2D
 var launch_minigame_directly = null
 
 signal game_timeout
+signal game_start
 
 # Array with the name of the minigames that will be played
 var minigames = ["boton si", "boton no", "esquivar.coches", "frutas", "ñarkanoid", "pizzaCatch", "space", "totems", "willinghippo"]
@@ -18,6 +19,8 @@ var current_game_seconds_left = 0
 var signal_inhibit = false
 
 func _ready():
+	#$AnimationPlayer.play("fade_out_black")
+	#await $AnimationPlayer.animation_finished
 	minigames_shuffled = minigames.duplicate()
 	minigames_shuffled.shuffle()
 	print("Shuffled order: " + str(minigames_shuffled))
@@ -27,6 +30,7 @@ func _ready():
 	
 func load_menu():
 	#print("Loading menu...")
+	$AnimationPlayer.play("fade_out_black")
 	$HUD/Label.hide()
 	var menu = load("res://menu.tscn").instantiate()
 	menu.add_to_group("menu")
@@ -35,7 +39,11 @@ func load_menu():
 func load_game_intro():
 	#print("Loading game intro...")
 	var scene = load("res://intro_game/main.tscn").instantiate()
+	game_start.connect(Callable(scene, "on_game_start"))
 	add_child(scene)
+	$AnimationPlayer.play("fade_out_black")
+	await $AnimationPlayer.animation_finished
+	game_start.emit()
 	
 func load_game(game_n = 0):
 	if launch_minigame_directly != null:
@@ -58,6 +66,9 @@ func load_game(game_n = 0):
 		$Timer.start()
 
 	add_child(scene)
+	$AnimationPlayer.play("fade_out_black")
+	await $AnimationPlayer.animation_finished
+	game_start.emit()
 	signal_inhibit = false
 
 func on_game_cleared():
@@ -106,10 +117,16 @@ func _on_timer_timeout():
 		emit_signal("game_timeout")
 
 func on_game_intro_finished():
+	$AnimationPlayer.play("fade_in_black")
+	await $AnimationPlayer.animation_finished
+	game_start.emit()
 	$"IntroAnimation".queue_free()
 	load_game()
 	
 func on_play_button_pressed():
+	$AnimationPlayer.play("fade_in_black")
+	await $AnimationPlayer.animation_finished
+	#$ColorRect.hide()
 	remove_childs_in_group("menu")
 	if launch_minigame_directly == null:
 		load_game_intro()

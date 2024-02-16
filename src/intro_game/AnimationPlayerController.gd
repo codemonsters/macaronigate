@@ -5,6 +5,3 @@ extends AnimationPlayer
 func _ready():
 	assigned_animation = "walking1"
 	current_animation = "walking1"
-
-
-

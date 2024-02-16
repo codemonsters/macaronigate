@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://2vaye23jw03v"]
+[gd_scene load_steps=12 format=3 uid="uid://2vaye23jw03v"]
 
 [ext_resource type="Texture2D" uid="uid://dqp0f10xdsmii" path="res://intro_game/images/street.jpg" id="1_k2eu4"]
 [ext_resource type="Script" path="res://intro_game/main.gd" id="1_ykv00"]
@@ -8,8 +8,12 @@
 [ext_resource type="Texture2D" uid="uid://6ugdmtchm01e" path="res://intro_game/images/macarrones.png" id="4_l5sxp"]
 [ext_resource type="Texture2D" uid="uid://d6ccg888oue3" path="res://intro_game/images/palo.png" id="5_34r83"]
 [ext_resource type="Texture2D" uid="uid://bfdgr0dfjfnmt" path="res://intro_game/images/thif.png" id="5_lathc"]
+<<<<<<< Updated upstream
 [ext_resource type="Script" path="res://intro_game/AnimationPlayerController.gd" id="8_mutgd"]
 [ext_resource type="AudioStream" uid="uid://bpuvnhrkv7dhv" path="res://intro_game/animacionFINAL.ogg" id="10_muiyr"]
+=======
+[ext_resource type="AudioStream" uid="uid://cn6ry2vkr3li6" path="res://intro_game/animationMusic.ogg" id="9_676ux"]
+>>>>>>> Stashed changes
 
 [sub_resource type="Animation" id="Animation_g01ms"]
 resource_name = "walking1"
@@ -128,7 +132,6 @@ texture = ExtResource("3_fq5kh")
 libraries = {
 "": SubResource("AnimationLibrary_f0pwi")
 }
-script = ExtResource("8_mutgd")
 
 [node name="MusicPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("10_muiyr")
