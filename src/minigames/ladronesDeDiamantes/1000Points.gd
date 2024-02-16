@@ -1,11 +1,11 @@
 extends Sprite3D
 
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
+func _on_game_win():
+	var tween = get_tree().create_tween().set_trans(Tween.TRANS_EXPO)
+	
+	tween.set_parallel(true)
+	
+	tween.tween_property(self, "modulate", Color(255, 255, 255, 255), 0.8).set_trans(Tween.TRANS_LINEAR)
+	tween.tween_property(self, "position", Vector3(position.x, 13, position.z), 1)
+	

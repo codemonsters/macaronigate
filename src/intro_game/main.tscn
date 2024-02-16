@@ -9,7 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://d6ccg888oue3" path="res://intro_game/images/palo.png" id="5_34r83"]
 [ext_resource type="Texture2D" uid="uid://bfdgr0dfjfnmt" path="res://intro_game/images/thif.png" id="5_lathc"]
 [ext_resource type="Script" path="res://intro_game/AnimationPlayerController.gd" id="8_mutgd"]
-[ext_resource type="AudioStream" uid="uid://cn6ry2vkr3li6" path="res://intro_game/animationMusic.ogg" id="9_676ux"]
+[ext_resource type="AudioStream" uid="uid://bpuvnhrkv7dhv" path="res://intro_game/animacionFINAL.ogg" id="10_muiyr"]
 
 [sub_resource type="Animation" id="Animation_g01ms"]
 resource_name = "walking1"
@@ -131,8 +131,8 @@ libraries = {
 script = ExtResource("8_mutgd")
 
 [node name="MusicPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("9_676ux")
-volume_db = -6.559
+stream = ExtResource("10_muiyr")
+volume_db = -3.748
 autoplay = true
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

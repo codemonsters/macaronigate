@@ -15,7 +15,7 @@ func _ready():
 	game_over.connect(Callable(get_parent().get_parent(), "on_game_over"))
 	game_cleared.connect(Callable(get_parent().get_parent(), "on_game_cleared"))
 
-	for i in range(0, 20):
+	for i in range(0, 35):
 		array.append(block.instantiate())
 		array [i].position.y = -205*i + 75
 		
