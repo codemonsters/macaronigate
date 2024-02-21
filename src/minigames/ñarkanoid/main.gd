@@ -3,7 +3,8 @@ extends Node2D
 signal game_over
 signal game_cleared
 
-@export var game_brief = "Para la bola!!!"
+@export var game_brief = "Stop the ball!!!"
+@export var game_controls = "touch_left_or_right"
 @export var needs_timer = true # False if your game doesn't need a countdown timer
 @export var timer_seconds = 5 # Only set if needs_timer = true
 
@@ -37,7 +38,7 @@ func _process(delta):
 			$Paddle.position += Vector2(300, 0) * delta
 		
 		$Block.position.x = $ball.position.x	# la posición horizontal del bloque superior se corresponde siempre con el de la bola
-			
+		
 	
 func _input(event):
 	if playing:
