@@ -41,7 +41,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Thif:position")
+tracks/2/path = NodePath("Thief:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -53,7 +53,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Palo:position")
+tracks/3/path = NodePath("Macarroni:position")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -77,8 +77,7 @@ scale = Vector2(0.636667, 0.902963)
 texture = ExtResource("1_k2eu4")
 
 [node name="Chef" type="Sprite2D" parent="."]
-position = Vector2(-140.7, 880.95)
-rotation = 0.0623953
+position = Vector2(-232, 887)
 texture = ExtResource("2_qikef")
 
 [node name="Hand" type="Sprite2D" parent="Chef"]
@@ -86,40 +85,40 @@ position = Vector2(101, 224)
 scale = Vector2(1.6, 1.6)
 texture = ExtResource("3_e5vrj")
 
-[node name="Thif" type="Sprite2D" parent="."]
+[node name="Thief" type="Sprite2D" parent="."]
 position = Vector2(1076, 848)
 texture = ExtResource("5_lathc")
 
-[node name="Hand" type="Sprite2D" parent="Thif"]
+[node name="Hand" type="Sprite2D" parent="Thief"]
 position = Vector2(-102, 224)
 scale = Vector2(-1.6, 1.6)
 texture = ExtResource("3_e5vrj")
 
-[node name="Palo" type="Sprite2D" parent="."]
-position = Vector2(-59.0526, 1021.37)
+[node name="Macarroni" type="Sprite2D" parent="."]
+position = Vector2(-154, 1026)
 scale = Vector2(0.290293, 0.601478)
 texture = ExtResource("5_34r83")
 
-[node name="Hand" type="Sprite2D" parent="Palo"]
+[node name="Hand" type="Sprite2D" parent="Macarroni"]
 position = Vector2(-413.375, 81.4659)
 rotation = 3.14159
 scale = Vector2(5.51167, -2.66011)
 texture = ExtResource("3_e5vrj")
 
-[node name="Macarrones" type="Sprite2D" parent="Palo"]
+[node name="Macarrones" type="Sprite2D" parent="Macarroni"]
 position = Vector2(3.44482, -309.238)
 scale = Vector2(0.344479, 0.166257)
 texture = ExtResource("4_l5sxp")
 
-[node name="bottomFrame" type="Sprite2D" parent="."]
-modulate = Color(0, 0, 0, 1)
-position = Vector2(394.5, 1263)
-scale = Vector2(1.83789, 1)
-texture = ExtResource("3_fq5kh")
-
 [node name="topFrame" type="Sprite2D" parent="."]
 modulate = Color(0, 0, 0, 1)
 position = Vector2(394.5, 153)
+scale = Vector2(1.83789, 1)
+texture = ExtResource("3_fq5kh")
+
+[node name="bottomFrame" type="Sprite2D" parent="."]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(394.5, 1263)
 scale = Vector2(1.83789, 1)
 texture = ExtResource("3_fq5kh")
 
