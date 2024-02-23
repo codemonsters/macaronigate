@@ -6,17 +6,21 @@ signal game_cleared
 
 @export var fruta_scene: PackedScene
 var fruta_num = 0
-var in_game
+var in_game = false
 
 # Required variables
 @export var game_brief = "Cut the fruit!"
 @export var needs_timer = true
 @export var timer_seconds = 5
+@export var instruction_type = "touch_left_or_right"
 
 func _ready():
 	game_over.connect(Callable(get_parent(), "on_game_over"))
 	game_cleared.connect(Callable(get_parent(), "on_game_cleared"))
+	
+func on_game_start():
 	in_game = true
+	$FrutaTimer.start()
 
 func _on_fruta_timer_timeout():
 	var fruta = fruta_scene.instantiate()

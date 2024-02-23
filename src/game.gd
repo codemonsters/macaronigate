@@ -60,16 +60,31 @@ func load_game(game_n = 0):
 
 	$HUD/Label.set_text(scene.game_brief)
 	$HUD/Label.show()
-	if scene.needs_timer == true:
+	if scene.needs_timer:
+		game_start.connect(Callable(scene, "on_game_start"))
 		game_timeout.connect(Callable(scene, "on_game_timeout"))
 		current_game_seconds_left = scene.timer_seconds
-		$Timer.start()
 
 	add_child(scene)
 	$AnimationPlayer.play("fade_out_black")
 	await $AnimationPlayer.animation_finished
+	
+	if scene.get("instruction_type") != null:
+		print("res://minigames_instructions/" + scene.instruction_type + "/main.tscn")
+		var instructions = load("res://minigames_instructions/" + scene.instruction_type + "/main.tscn").instantiate()
+		instructions.add_to_group("game_instructions")
+		add_child(instructions)
+		#print(get_node("Main/AnimationPlayer"))
+		#get_tree.get_nodes_in_group("game_instructions")
+		#for index in range(get_child_count()):
+			#print(get_child(index).get_groups())
+			
+		await instructions.get_node("AnimationPlayer").animation_finished
+		remove_childs_in_group("game_instructions")
+	
 	game_start.emit()
 	signal_inhibit = false
+	if scene.needs_timer: $Timer.start()
 
 func on_game_cleared():
 	print("game_cleared signal received")
@@ -80,7 +95,9 @@ func on_game_cleared():
 		signal_inhibit = true
 		$Timer.stop()
 		$HUD/Label.set_text("Game cleared!")
-		await get_tree().create_timer(2).timeout
+		await get_tree().create_timer(1).timeout
+		$AnimationPlayer.play("fade_in_black")
+		await $AnimationPlayer.animation_finished
 		
 		if launch_minigame_directly == null:
 			if current_game_number < minigames_shuffled.size() - 1:
@@ -106,7 +123,9 @@ func on_game_over():
 		signal_inhibit = true
 		$Timer.stop()
 		$HUD/Label.set_text("Game over!")
-		await get_tree().create_timer(2).timeout
+		await get_tree().create_timer(1).timeout
+		$AnimationPlayer.play("fade_in_black")
+		await $AnimationPlayer.animation_finished
 		_ready()
 
 func _on_timer_timeout():

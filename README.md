@@ -18,6 +18,10 @@ func _ready():
     game_over.connect(Callable(get_parent(), "on_game_over"))
     game_cleared.connect(Callable(get_parent(), "on_game_cleared"))
 
+# Your minigame shouldn't start until the "on_game_start" function is triggered on your script
+func on_game_start():
+	$YourTimer.start() # For example, you can start your enemy spawn timer here
+
 # When the game timer (if enabled) times out, the "on_game_timeout" function is triggered on your script
 func on_game_timeout():
     game_cleared.emit() # In this example the game is cleared if the player survived
