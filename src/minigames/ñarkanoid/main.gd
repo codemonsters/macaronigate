@@ -11,12 +11,14 @@ signal game_cleared
 var paddle_moving_left = false
 var paddle_moving_right = false
 var playing = true	# false cuando la partida ha finalizado
+var previous_gravity_vector
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	game_over.connect(Callable(get_parent(), "on_game_over"))
 	game_cleared.connect(Callable(get_parent(), "on_game_cleared"))
-
+	
+	previous_gravity_vector = PhysicsServer2D.area_get_param(get_world_2d().space, PhysicsServer2D.AREA_PARAM_GRAVITY_VECTOR)
 	PhysicsServer2D.area_set_param(get_world_2d().space, PhysicsServer2D.AREA_PARAM_GRAVITY_VECTOR, Vector2(0, 0))	# Establecemos la dirección de la gravedad
 	$ball.set_axis_velocity(Vector2(randi_range(-300, 300), -1000));
 
@@ -69,4 +71,5 @@ func _on_floor_body_entered(body):
 
 func on_game_timeout():
 	playing = false
+	PhysicsServer2D.area_set_param(get_world_2d().space, PhysicsServer2D.AREA_PARAM_GRAVITY_VECTOR, previous_gravity_vector)
 	emit_signal("game_cleared")

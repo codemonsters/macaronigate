@@ -5,8 +5,9 @@ extends Node2D
 # Alternatively, you can set "launch_minigame_directly" to the name of your
 # corresponding minigame subfolder, and then start the project normally using F5
 #var launch_minigame_directly = "esquivar.coches"
-#var launch_minigame_directly = null
 var launch_minigame_directly = null
+var minigames_order_override = null
+#var minigames_order_override = ["ñarkanoid", "pizzaCatch"]
 
 signal game_timeout
 signal game_start
@@ -21,8 +22,12 @@ var signal_inhibit = false
 func _ready():
 	#$AnimationPlayer.play("fade_out_black")
 	#await $AnimationPlayer.animation_finished
-	minigames_shuffled = minigames.duplicate()
-	minigames_shuffled.shuffle()
+	if minigames_order_override == null:
+		minigames_shuffled = minigames.duplicate()
+		minigames_shuffled.shuffle()
+	else:
+		minigames_shuffled = minigames_order_override.duplicate()
+	
 	print("Shuffled order: " + str(minigames_shuffled))
 	current_game_number = 0
 	remove_childs_in_group("current_game")
@@ -70,7 +75,6 @@ func load_game(game_n = 0):
 	await $AnimationPlayer.animation_finished
 	
 	if scene.get("instruction_type") != null:
-		print("res://minigames_instructions/" + scene.instruction_type + "/main.tscn")
 		var instructions = load("res://minigames_instructions/" + scene.instruction_type + "/main.tscn").instantiate()
 		instructions.add_to_group("game_instructions")
 		add_child(instructions)
@@ -123,7 +127,7 @@ func on_game_over():
 		signal_inhibit = true
 		$Timer.stop()
 		$HUD/Label.set_text("Game over!")
-		await get_tree().create_timer(1).timeout
+		await get_tree().create_timer(2).timeout
 		$AnimationPlayer.play("fade_in_black")
 		await $AnimationPlayer.animation_finished
 		_ready()
