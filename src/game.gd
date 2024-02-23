@@ -12,7 +12,7 @@ signal game_timeout
 signal game_start
 
 # Array with the name of the minigames that will be played
-var minigames = ["boton si", "boton no", "esquivar.coches", "frutas", "ñarkanoid", "pizzaCatch", "space", "totems", "willinghippo"]
+var minigames = ["boton si", "boton no", "ladronesDeDiamantes", "esquivar.coches", "frutas", "ñarkanoid", "pizzaCatch", "space", "totems", "willinghippo"]
 var minigames_shuffled
 var current_game_number
 var current_game_seconds_left = 0
