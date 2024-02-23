@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://bmfc6v7m3kb7o"]
+
+[ext_resource type="Texture2D" uid="uid://qf2wfj3ac40c" path="res://minigames/panelDeBotones/redSwitchOFF.png" id="1_ca05f"]
+[ext_resource type="Script" path="res://minigames/panelDeBotones/redSwitch.gd" id="2_llp4h"]
+
+[node name="RedSwitch" type="Node2D"]
+
+[node name="switch" type="Sprite2D" parent="."]
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("1_ca05f")
+script = ExtResource("2_llp4h")
+
+[node name="Button" type="Button" parent="."]
+modulate = Color(1, 1, 1, 0)
+self_modulate = Color(1, 1, 1, 0)
+offset_left = -65.0
+offset_top = -99.0
+offset_right = 64.0
+offset_bottom = 97.0
+
+[connection signal="pressed" from="Button" to="switch" method="_on_pressed"]
