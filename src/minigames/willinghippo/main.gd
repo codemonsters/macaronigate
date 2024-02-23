@@ -10,6 +10,7 @@ signal game_cleared
 @export var needs_timer = true # False if your game doesn't need a countdown timer
 @export var timer_seconds = 10 # Only set if needs_timer = truen timer
 @export var factor_gravedad = 1.75
+@export var shake_threshold = 100
 
 var madera = preload("res://minigames/willinghippo/madera.tscn")
 var pared = preload("res://minigames/willinghippo/pared.tscn")
@@ -17,6 +18,8 @@ var separacion = 100
 var num_plataformas
 var distancia
 var direction = Vector2(0,1)
+var aceleracion = Vector3(0,0,0)
+var modulo_a = 0
 var angulo = 0
 var filas = 6
 var madera_anterior
@@ -67,12 +70,16 @@ func jump():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	angulo += Input.get_gyroscope().x*delta
+	aceleracion += Input.get_accelerometer()*delta
+	modulo_a = sqrt(aceleracion.x**2 + aceleracion.y**2 + aceleracion.z**2)
 	if angulo > 3.14/2 and angulo != 3.14:
 		direction = factor_gravedad * Vector2(sin(3.14/2),cos(3.14/2))
 	elif angulo < -3.14/2 and angulo != 3.14:
 		direction = factor_gravedad * Vector2(sin(-3.14/2),cos(-3.14/2))
 	else:
 		direction = factor_gravedad * Vector2(sin(angulo),cos(angulo))
+	if modulo_a > shake_threshold:
+		jump()
 	PhysicsServer2D.area_set_param(get_world_2d().space, PhysicsServer2D.AREA_PARAM_GRAVITY_VECTOR, direction)
 	if (game_in_progress):
 		if $Hipopotamo.overlaps_body($watermelon/RigidBody2D):
