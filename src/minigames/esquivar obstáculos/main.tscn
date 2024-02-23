@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://8okscw02p0dw"]
+
+[ext_resource type="Script" path="res://minigames/esquivar obstáculos/main.gd" id="1_j2gs8"]
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_j2gs8")

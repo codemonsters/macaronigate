@@ -23,16 +23,16 @@ func _on_timer_timeout():
 		light_energy = 0
 
 
-func _on_area_3d_input_event(camera, event, position, normal, shape_idx):
+func _on_area_3d_input_event(_camera, event, _position, _normal, _shape_idx):
 	if !game_ended and start:
 		if event is InputEventMouseButton:
 			if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
-				if light_on:
+				if light_energy == 0:
+					game_win.emit()
+				else:
 					game_ended = true
 					$TimerStartEnd.stop()
 					game_lose.emit()
-				else:
-					game_win.emit()
 
 
 func _on_timer_flickers_timeout():

@@ -20,7 +20,7 @@ func _process(delta):
 	pass
 
 func on_game_timeout():
-	emit_signal("game_over")
+	game_over.emit()
 
 func _on_button_pressed():
 	game_cleared.emit()

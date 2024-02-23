@@ -27,11 +27,6 @@ texture = ExtResource("4_eibs5")
 [node name="watermelon" parent="." instance=ExtResource("1_wyqtf")]
 position = Vector2(361, 50)
 
-[node name="hippo" type="Sprite2D" parent="."]
-position = Vector2(360, 1225)
-scale = Vector2(0.3, 0.3)
-texture = ExtResource("4_gi4xr")
-
 [node name="LimiteIzquierda" type="Area2D" parent="."]
 position = Vector2(-190, 640)
 
@@ -55,6 +50,16 @@ position = Vector2(360, 1610)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LimiteAbajo"]
 shape = SubResource("RectangleShape2D_7c6o3")
+
+[node name="hippo" type="StaticBody2D" parent="."]
+
+[node name="hippo" type="Sprite2D" parent="hippo"]
+position = Vector2(360, 1225)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("4_gi4xr")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="hippo"]
+polygon = PackedVector2Array(409, 1232, 406, 1230, 401, 1235, 397, 1240, 393, 1247, 392, 1250, 389, 1253, 388, 1258, 390, 1267, 393, 1272, 392, 1276, 384, 1278, 365, 1283, 353, 1285, 340, 1287, 325, 1289, 311, 1286, 290, 1282, 274, 1278, 273, 1274, 277, 1262, 283, 1243, 288, 1237, 294, 1223, 299, 1216, 300, 1204, 296, 1188, 292, 1181, 287, 1178, 289, 1188, 292, 1195, 293, 1202, 293, 1208, 285, 1212, 283, 1220, 286, 1224, 283, 1229, 282, 1234, 280, 1237, 278, 1246, 273, 1257, 269, 1272, 267, 1279, 270, 1280, 270, 1283, 323, 1296, 375, 1287, 378, 1285, 390, 1282, 396, 1278, 398, 1272, 396, 1267, 391, 1259, 393, 1254, 396, 1253, 398, 1246, 401, 1241)
 
 [node name="Hipopotamo" type="Area2D" parent="."]
 
