@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://d1xrh6063iwnk"]
+
+[ext_resource type="Texture2D" uid="uid://bykuvtpy44hb5" path="res://minigames/pulsar_mucho/realistic-red-balloon-illustration-on-isolated-background-png.png" id="1_482h7"]
+[ext_resource type="Texture2D" uid="uid://ui6a3rxwgutt" path="res://minigames/pulsar_mucho/2538.jpg" id="1_purib"]
+[ext_resource type="Script" path="res://minigames/pulsar_mucho/Sprite2D.gd" id="2_h8744"]
+
+[node name="Main" type="Node2D"]
+
+[node name="fondo" type="Sprite2D" parent="."]
+position = Vector2(369, 553)
+scale = Vector2(0.304846, 0.336816)
+texture = ExtResource("1_purib")
+
+[node name="glovo" type="Sprite2D" parent="."]
+position = Vector2(360, 617.5)
+scale = Vector2(0.1, 0.097)
+texture = ExtResource("1_482h7")
+script = ExtResource("2_h8744")
+
+[node name="Button" type="Button" parent="."]
+modulate = Color(1, 1, 1, 0)
+self_modulate = Color(1, 1, 1, 0)
+offset_top = 2.0
+offset_right = 714.0
+offset_bottom = 1277.0
+
+[connection signal="pressed" from="Button" to="glovo" method="_on_button_pressed"]
