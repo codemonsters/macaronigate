@@ -1,4 +1,4 @@
-# Macarronigate: Il Spantosso Caso del Vitello Rubato
+# Macarronigate (Il Assurdo Caso del Vitello Rubato)
 
 ## Minigame integration
 Sample main script (attached to main.tscn inside the minigame subfolder)
