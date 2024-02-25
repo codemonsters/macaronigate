@@ -4,8 +4,9 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://b72a0t3jqgoj8"
 path.s3tc="res://.godot/imported/cushion_felt.jpg-2a6d66b83e929c524c236ea4b77c05f0.s3tc.ctex"
+path.etc2="res://.godot/imported/cushion_felt.jpg-2a6d66b83e929c524c236ea4b77c05f0.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={}
@@ -13,7 +14,7 @@ generator_parameters={}
 [deps]
 
 source_file="res://minigames/ladronesDeDiamantes/glTFmodels/cushion_felt.jpg"
-dest_files=["res://.godot/imported/cushion_felt.jpg-2a6d66b83e929c524c236ea4b77c05f0.s3tc.ctex"]
+dest_files=["res://.godot/imported/cushion_felt.jpg-2a6d66b83e929c524c236ea4b77c05f0.s3tc.ctex", "res://.godot/imported/cushion_felt.jpg-2a6d66b83e929c524c236ea4b77c05f0.etc2.ctex"]
 
 [params]
 

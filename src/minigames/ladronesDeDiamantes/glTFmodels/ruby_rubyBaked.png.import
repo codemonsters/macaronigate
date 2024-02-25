@@ -4,8 +4,9 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://dsc8681vg4re0"
 path.s3tc="res://.godot/imported/ruby_rubyBaked.png-48a3375f4360a994dd3217b03ddad55c.s3tc.ctex"
+path.etc2="res://.godot/imported/ruby_rubyBaked.png-48a3375f4360a994dd3217b03ddad55c.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={}
@@ -13,7 +14,7 @@ generator_parameters={}
 [deps]
 
 source_file="res://minigames/ladronesDeDiamantes/glTFmodels/ruby_rubyBaked.png"
-dest_files=["res://.godot/imported/ruby_rubyBaked.png-48a3375f4360a994dd3217b03ddad55c.s3tc.ctex"]
+dest_files=["res://.godot/imported/ruby_rubyBaked.png-48a3375f4360a994dd3217b03ddad55c.s3tc.ctex", "res://.godot/imported/ruby_rubyBaked.png-48a3375f4360a994dd3217b03ddad55c.etc2.ctex"]
 
 [params]
 

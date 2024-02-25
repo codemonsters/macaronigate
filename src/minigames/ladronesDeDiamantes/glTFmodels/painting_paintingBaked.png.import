@@ -4,8 +4,9 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://deq0do6mcs0uq"
 path.s3tc="res://.godot/imported/painting_paintingBaked.png-7050bec5cf698ca9e6ea042c24580744.s3tc.ctex"
+path.etc2="res://.godot/imported/painting_paintingBaked.png-7050bec5cf698ca9e6ea042c24580744.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={}
@@ -13,7 +14,7 @@ generator_parameters={}
 [deps]
 
 source_file="res://minigames/ladronesDeDiamantes/glTFmodels/painting_paintingBaked.png"
-dest_files=["res://.godot/imported/painting_paintingBaked.png-7050bec5cf698ca9e6ea042c24580744.s3tc.ctex"]
+dest_files=["res://.godot/imported/painting_paintingBaked.png-7050bec5cf698ca9e6ea042c24580744.s3tc.ctex", "res://.godot/imported/painting_paintingBaked.png-7050bec5cf698ca9e6ea042c24580744.etc2.ctex"]
 
 [params]
 

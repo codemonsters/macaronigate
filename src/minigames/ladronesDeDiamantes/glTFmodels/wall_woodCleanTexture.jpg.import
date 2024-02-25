@@ -4,8 +4,9 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://btb0jiwitlxxd"
 path.s3tc="res://.godot/imported/wall_woodCleanTexture.jpg-c33a716274420e479c05d937956f04f3.s3tc.ctex"
+path.etc2="res://.godot/imported/wall_woodCleanTexture.jpg-c33a716274420e479c05d937956f04f3.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={}
@@ -13,7 +14,7 @@ generator_parameters={}
 [deps]
 
 source_file="res://minigames/ladronesDeDiamantes/glTFmodels/wall_woodCleanTexture.jpg"
-dest_files=["res://.godot/imported/wall_woodCleanTexture.jpg-c33a716274420e479c05d937956f04f3.s3tc.ctex"]
+dest_files=["res://.godot/imported/wall_woodCleanTexture.jpg-c33a716274420e479c05d937956f04f3.s3tc.ctex", "res://.godot/imported/wall_woodCleanTexture.jpg-c33a716274420e479c05d937956f04f3.etc2.ctex"]
 
 [params]
 

@@ -34,11 +34,7 @@ game_cleared.emit()
 or developing, inside the menu click "Pick Game" and pick your game.
 Alternatively, inside ```game.gd```, set ```launch_minigame_directly``` to the name of your minigame's subfolder, and then start the project normally using F5
 ```gdscript
-# game.gd example:
-var launch_minigame_directly = null # The game will start normally to the menu
-var launch_minigame_directly = "esquivar.coches" # The minigame inside "esquivar.coches" will be directly launched
-# Don't forget to change the flag back before comitting!
-
+# game.gd explanation:
 # Array with the name of the minigames that will be played
 var minigames = ["frutas", "esquivar.coches"]
 ```

@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://bx5hawlcgxlyu"
 path.s3tc="res://.godot/imported/woodCleanTexture.jpeg-eff67534289952176007da2eb3598a6e.s3tc.ctex"
+path.etc2="res://.godot/imported/woodCleanTexture.jpeg-eff67534289952176007da2eb3598a6e.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://minigames/ladronesDeDiamantes/woodCleanTexture.jpeg"
-dest_files=["res://.godot/imported/woodCleanTexture.jpeg-eff67534289952176007da2eb3598a6e.s3tc.ctex"]
+dest_files=["res://.godot/imported/woodCleanTexture.jpeg-eff67534289952176007da2eb3598a6e.s3tc.ctex", "res://.godot/imported/woodCleanTexture.jpeg-eff67534289952176007da2eb3598a6e.etc2.ctex"]
 
 [params]
 

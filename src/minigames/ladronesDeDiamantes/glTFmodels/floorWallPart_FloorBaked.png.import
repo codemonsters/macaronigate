@@ -4,8 +4,9 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://3at1pmb8jjsm"
 path.s3tc="res://.godot/imported/floorWallPart_FloorBaked.png-ca1fc97e3d34d7bb749a830064b081df.s3tc.ctex"
+path.etc2="res://.godot/imported/floorWallPart_FloorBaked.png-ca1fc97e3d34d7bb749a830064b081df.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={}
@@ -13,7 +14,7 @@ generator_parameters={}
 [deps]
 
 source_file="res://minigames/ladronesDeDiamantes/glTFmodels/floorWallPart_FloorBaked.png"
-dest_files=["res://.godot/imported/floorWallPart_FloorBaked.png-ca1fc97e3d34d7bb749a830064b081df.s3tc.ctex"]
+dest_files=["res://.godot/imported/floorWallPart_FloorBaked.png-ca1fc97e3d34d7bb749a830064b081df.s3tc.ctex", "res://.godot/imported/floorWallPart_FloorBaked.png-ca1fc97e3d34d7bb749a830064b081df.etc2.ctex"]
 
 [params]
 

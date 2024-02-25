@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://bib3bq0wpk5va"
 path.s3tc="res://.godot/imported/rubyBaked.png-2fe29038fede1cefd41748f4fa23c721.s3tc.ctex"
+path.etc2="res://.godot/imported/rubyBaked.png-2fe29038fede1cefd41748f4fa23c721.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://minigames/ladronesDeDiamantes/rubyBaked.png"
-dest_files=["res://.godot/imported/rubyBaked.png-2fe29038fede1cefd41748f4fa23c721.s3tc.ctex"]
+dest_files=["res://.godot/imported/rubyBaked.png-2fe29038fede1cefd41748f4fa23c721.s3tc.ctex", "res://.godot/imported/rubyBaked.png-2fe29038fede1cefd41748f4fa23c721.etc2.ctex"]
 
 [params]
 
