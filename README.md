@@ -1,5 +1,7 @@
 # Macarronigate (Il Assurdo Caso del Vitello Rubato)
 
+You can try out the [web version](https://tyo.ovh/experiments/macarronigate/) (testing build not up-to-date)
+
 ## Minigame integration
 Sample main script (attached to main.tscn inside the minigame subfolder)
 ```gdscript
