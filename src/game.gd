@@ -16,8 +16,8 @@ signal game_start
 var minigames = [
 	"boton si", "boton no", "ladronesDeDiamantes", "esquivar.coches",
 	"frutas", "ñarkanoid", "pizzaCatch", "space", "totems", "willinghippo", 
-	"flapuie biuegtwt",
-	#"panelDeBotones", "pulsar_mucho"
+	"flapuie biuegtwt", "pulsar_mucho"
+	#"panelDeBotones", 
 	]
 var minigames_shuffled
 var current_game_number
