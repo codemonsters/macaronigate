@@ -39,4 +39,7 @@ Alternatively, inside ```game.gd```, set ```launch_minigame_directly``` to the n
 # game.gd explanation:
 # Array with the name of the minigames that will be played
 var minigames = ["frutas", "esquivar.coches"]
+# If you want to launch specific minigames in a specific order
+# var minigames_order_override = ["ñarkanoid", "pizzaCatch"]
+var minigames_order_override = null
 ```
