@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://coj8blwa1ssw8"
-path="res://.godot/imported/Copyright.png-97f35cb295731efe9d65b9a229166927.ctex"
+uid="uid://blsxkmgrjrefs"
+path="res://.godot/imported/start_button_03.png-9a108f74579deb7d6e4f19e5b9c89b29.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://menu/images/Copyright.png"
-dest_files=["res://.godot/imported/Copyright.png-97f35cb295731efe9d65b9a229166927.ctex"]
+source_file="res://menu/images/start_button_03.png"
+dest_files=["res://.godot/imported/start_button_03.png-9a108f74579deb7d6e4f19e5b9c89b29.ctex"]
 
 [params]
 

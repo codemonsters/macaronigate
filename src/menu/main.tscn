@@ -1,0 +1,58 @@
+[gd_scene load_steps=9 format=3 uid="uid://bfncwgh2sfxni"]
+
+[ext_resource type="Texture2D" uid="uid://drtxapnhgdl60" path="res://menu/images/Title.png" id="1_wht1s"]
+[ext_resource type="Texture2D" uid="uid://bjbe3fa6srgvk" path="res://menu/images/start_button_01.png" id="2_2u7dg"]
+[ext_resource type="Texture2D" uid="uid://c5gilxrtabs6q" path="res://menu/images/start_button_02.png" id="3_4kb6n"]
+[ext_resource type="Texture2D" uid="uid://blsxkmgrjrefs" path="res://menu/images/start_button_03.png" id="4_ud5u0"]
+[ext_resource type="Texture2D" uid="uid://dgerce2rid8gc" path="res://menu/images/start_button_04.png" id="5_y88i2"]
+[ext_resource type="Texture2D" uid="uid://coj8blwa1ssw8" path="res://menu/images/copyright.png" id="6_jr4tu"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_pv0lc"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_2u7dg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_4kb6n")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_ud5u0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_y88i2")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wpwav"]
+size = Vector2(212, 89)
+
+[node name="Menu" type="Node2D"]
+
+[node name="Title" type="AnimatableBody2D" parent="."]
+position = Vector2(360, 450)
+
+[node name="Sprite2D" type="Sprite2D" parent="Title"]
+texture = ExtResource("1_wht1s")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Title"]
+polygon = PackedVector2Array(-261, -76, -142, -61, -120, -71, 0, -69, 86, -58, 165, -57, 182, -53, 273, -57, 274, 22, 199, 26, 193, 53, 61, 72, -5, 75, -156, 59, -144, 25, -275, 27, -273, 1, -267, -25)
+
+[node name="PlayButton" type="TouchScreenButton" parent="."]
+position = Vector2(361, 750)
+
+[node name="AnimatableBody2D" type="AnimatableBody2D" parent="PlayButton"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="PlayButton/AnimatableBody2D"]
+sprite_frames = SubResource("SpriteFrames_pv0lc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayButton/AnimatableBody2D"]
+position = Vector2(2, -1.5)
+shape = SubResource("RectangleShape2D_wpwav")
+
+[node name="Copyright" type="Sprite2D" parent="."]
+position = Vector2(360, 1200)
+texture = ExtResource("6_jr4tu")
