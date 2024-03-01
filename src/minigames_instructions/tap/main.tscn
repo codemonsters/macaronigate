@@ -1,0 +1,55 @@
+[gd_scene load_steps=5 format=3 uid="uid://ehdv71ims2r5"]
+
+[ext_resource type="Texture2D" uid="uid://b6t6gc2wldxc4" path="res://minigames_instructions/touch_left_or_right/thumb_left.png" id="2_k4drt"]
+[ext_resource type="Texture2D" uid="uid://co1b3gnh77i1y" path="res://minigames_instructions/touch_left_or_right/thumb_right.png" id="3_at1vs"]
+
+[sub_resource type="Animation" id="Animation_a2k1d"]
+resource_name = "main"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ThumbLeft:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1, 1.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(2, 2), Vector2(2, 1.8), Vector2(2, 2), Vector2(2, 1.8), Vector2(2, 2), Vector2(2, 1.8), Vector2(2, 2)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ThumbRight:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(2, 2), Vector2(2, 2), Vector2(2, 1.8), Vector2(2, 2), Vector2(2, 1.8), Vector2(2, 2), Vector2(2, 1.8), Vector2(2, 2)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_hubg1"]
+_data = {
+"main": SubResource("Animation_a2k1d")
+}
+
+[node name="Main" type="Node2D"]
+
+[node name="ThumbLeft" type="Sprite2D" parent="."]
+position = Vector2(68, 1021)
+scale = Vector2(2, 2)
+texture = ExtResource("2_k4drt")
+
+[node name="ThumbRight" type="Sprite2D" parent="."]
+position = Vector2(674, 1048)
+scale = Vector2(2, 2)
+texture = ExtResource("3_at1vs")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_hubg1")
+}
+autoplay = "main"

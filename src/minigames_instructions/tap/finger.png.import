@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bjbe3fa6srgvk"
-path="res://.godot/imported/StartButton_0001.png-3ab60453e0fedbdc4d5b07aeeeb821e2.ctex"
+uid="uid://b544nd35ycty0"
+path="res://.godot/imported/finger.png-26c5ce59d4d288d4175a3b6f97a39687.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://menu/images/StartButton_0001.png"
-dest_files=["res://.godot/imported/StartButton_0001.png-3ab60453e0fedbdc4d5b07aeeeb821e2.ctex"]
+source_file="res://minigames_instructions/tap/finger.png"
+dest_files=["res://.godot/imported/finger.png-26c5ce59d4d288d4175a3b6f97a39687.ctex"]
 
 [params]
 
