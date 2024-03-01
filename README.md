@@ -1,4 +1,4 @@
-# Macarronigate (Il Assurdo Caso del Vitello Rubato)
+# Macaronigate (Il Assurdo Caso del Vitello Rubato)
 
 You can try out the [web version](https://tyo.ovh/experiments/macarronigate/) (testing build not up-to-date)
 
