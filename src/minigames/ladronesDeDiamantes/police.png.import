@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://drp2nkv8o51r8"
 path.s3tc="res://.godot/imported/police.png-978b9e4c41588e58061fcab1573f9f35.s3tc.ctex"
+path.etc2="res://.godot/imported/police.png-978b9e4c41588e58061fcab1573f9f35.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://minigames/ladronesDeDiamantes/police.png"
-dest_files=["res://.godot/imported/police.png-978b9e4c41588e58061fcab1573f9f35.s3tc.ctex"]
+dest_files=["res://.godot/imported/police.png-978b9e4c41588e58061fcab1573f9f35.s3tc.ctex", "res://.godot/imported/police.png-978b9e4c41588e58061fcab1573f9f35.etc2.ctex"]
 
 [params]
 

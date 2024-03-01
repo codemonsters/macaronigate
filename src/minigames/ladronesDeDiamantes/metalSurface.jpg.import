@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://cauo2ekeq6tlx"
 path.s3tc="res://.godot/imported/metalSurface.jpg-95645d5f36f7bfef29678ba6c4c5e12e.s3tc.ctex"
+path.etc2="res://.godot/imported/metalSurface.jpg-95645d5f36f7bfef29678ba6c4c5e12e.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://minigames/ladronesDeDiamantes/metalSurface.jpg"
-dest_files=["res://.godot/imported/metalSurface.jpg-95645d5f36f7bfef29678ba6c4c5e12e.s3tc.ctex"]
+dest_files=["res://.godot/imported/metalSurface.jpg-95645d5f36f7bfef29678ba6c4c5e12e.s3tc.ctex", "res://.godot/imported/metalSurface.jpg-95645d5f36f7bfef29678ba6c4c5e12e.etc2.ctex"]
 
 [params]
 

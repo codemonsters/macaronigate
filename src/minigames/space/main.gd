@@ -12,9 +12,11 @@ signal game_cleared
 func _ready():
 	game_over.connect(Callable(get_parent(), "on_game_over"))
 	game_cleared.connect(Callable(get_parent(), "on_game_cleared"))
+	$Destroy.play()
 
 func _on_timer_timeout():
 	if instances > 4:
+		$Timer.stop()
 		emit_signal("game_over")
 	else:
 		var meteor = meteor_scene.instantiate()
@@ -33,7 +35,7 @@ func on_meteor_pressed(node):
 	instances -= 1
 	remove_child(node)
 	node.queue_free()
-	$AudioStreamPlayer.play()
+	$MeteorTouched.play()
 	
 func on_game_timeout():
 	game_cleared.emit()

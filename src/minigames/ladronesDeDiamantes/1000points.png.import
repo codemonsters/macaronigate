@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://bo22peipr21a1"
 path.s3tc="res://.godot/imported/1000points.png-0056ddb22298001239a55df34eff3a1d.s3tc.ctex"
+path.etc2="res://.godot/imported/1000points.png-0056ddb22298001239a55df34eff3a1d.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://minigames/ladronesDeDiamantes/1000points.png"
-dest_files=["res://.godot/imported/1000points.png-0056ddb22298001239a55df34eff3a1d.s3tc.ctex"]
+dest_files=["res://.godot/imported/1000points.png-0056ddb22298001239a55df34eff3a1d.s3tc.ctex", "res://.godot/imported/1000points.png-0056ddb22298001239a55df34eff3a1d.etc2.ctex"]
 
 [params]
 

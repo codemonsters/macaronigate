@@ -1,9 +1,12 @@
-# Macarronigate (o Vitello Rubato???)
+# Macarronigate (Il Assurdo Caso del Vitello Rubato)
+
+You can try out the [web version](https://tyo.ovh/experiments/macarronigate/) (testing build not up-to-date)
+
 ## Minigame integration
 Sample main script (attached to main.tscn inside the minigame subfolder)
 ```gdscript
 extends Node2D
-# Declare the signals your game requires (if you use the game.gd timer, you don't need the "game_cleared" signal)
+# Declare the required signals
 signal game_over
 signal game_cleared
 
@@ -13,26 +16,27 @@ signal game_cleared
 @export var timer_seconds = 5 # Only set if needs_timer = true
 
 func _ready():
-  # Connect the appropriate signals to the funtions in game.gd
-  game_over.connect(Callable(get_parent(), "on_game_over"))
-  game_cleared.connect(Callable(get_parent(), "on_game_cleared"))
+    # Connect the appropriate signals to the funtions in game.gd
+    game_over.connect(Callable(get_parent(), "on_game_over"))
+    game_cleared.connect(Callable(get_parent(), "on_game_cleared"))
 
-# When the game timer times out, the "on_game_timeout" function is triggered on your script
+# Your minigame shouldn't start until the "on_game_start" function is triggered on your script
+func on_game_start():
+	$YourTimer.start() # For example, you can start your enemy spawn timer here
+
+# When the game timer (if enabled) times out, the "on_game_timeout" function is triggered on your script
 func on_game_timeout():
-  pass
+    game_cleared.emit() # In this example the game is cleared if the player survived
 ```
-Now, according to your game logic, you can send ```game_over``` and/or ```game_cleared```as appropriate.
+Now, according to your game logic, you can send ```game_over``` and ```game_cleared``` as appropriate.
 ```gdscript
-emit_signal("game_over")
-emit_signal("game_cleared")
+game_over.emit()
+game_cleared.emit()
 ```
-For developing, inside ```game.gd```, set ```launch_minigame_directly``` to the name of your minigame's subfolder, and then start the project normally using F5
+or developing, inside the menu click "Pick Game" and pick your game.
+Alternatively, inside ```game.gd```, set ```launch_minigame_directly``` to the name of your minigame's subfolder, and then start the project normally using F5
 ```gdscript
-# game.gd example:
-var launch_minigame_directly = null # The game will start normally to the menu
-var launch_minigame_directly = "esquivar.coches" # The minigame inside "esquivar.coches" will be directly launched
-# Don't forget to change the flag back before comitting!
-
+# game.gd explanation:
 # Array with the name of the minigames that will be played
 var minigames = ["frutas", "esquivar.coches"]
 ```

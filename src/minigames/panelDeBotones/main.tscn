@@ -1,0 +1,54 @@
+[gd_scene load_steps=4 format=3 uid="uid://m673pxu8ckv5"]
+
+[ext_resource type="PackedScene" uid="uid://dhofeoedr1dwv" path="res://minigames/panelDeBotones/switch.tscn" id="1_ld8v5"]
+[ext_resource type="Script" path="res://minigames/panelDeBotones/elementsManager.gd" id="1_xisre"]
+[ext_resource type="PackedScene" uid="uid://bmfc6v7m3kb7o" path="res://minigames/panelDeBotones/redSwitch.tscn" id="3_1560i"]
+
+[node name="Main" type="Node2D"]
+position = Vector2(101, 202)
+
+[node name="elementsManager" type="Node2D" parent="."]
+script = ExtResource("1_xisre")
+
+[node name="smallSwitches" type="Node2D" parent="."]
+
+[node name="switch1" parent="smallSwitches" instance=ExtResource("1_ld8v5")]
+
+[node name="switch2" parent="smallSwitches" instance=ExtResource("1_ld8v5")]
+position = Vector2(120, 0)
+
+[node name="switch3" parent="smallSwitches" instance=ExtResource("1_ld8v5")]
+position = Vector2(240, 0)
+
+[node name="switch4" parent="smallSwitches" instance=ExtResource("1_ld8v5")]
+position = Vector2(240, 196)
+
+[node name="switch5" parent="smallSwitches" instance=ExtResource("1_ld8v5")]
+position = Vector2(120, 196)
+
+[node name="switch6" parent="smallSwitches" instance=ExtResource("1_ld8v5")]
+position = Vector2(0, 196)
+
+[node name="switch7" parent="smallSwitches" instance=ExtResource("1_ld8v5")]
+position = Vector2(0, 392)
+
+[node name="switch8" parent="smallSwitches" instance=ExtResource("1_ld8v5")]
+position = Vector2(120, 392)
+
+[node name="switch9" parent="smallSwitches" instance=ExtResource("1_ld8v5")]
+position = Vector2(240, 392)
+
+[node name="RedSwitch" parent="smallSwitches" instance=ExtResource("3_1560i")]
+position = Vector2(172, 760)
+
+[node name="RedSwitch4" parent="smallSwitches" instance=ExtResource("3_1560i")]
+position = Vector2(60, 760)
+
+[node name="RedSwitch5" parent="smallSwitches" instance=ExtResource("3_1560i")]
+position = Vector2(172, 583)
+
+[node name="RedSwitch2" parent="smallSwitches" instance=ExtResource("3_1560i")]
+position = Vector2(120, 976)
+
+[node name="RedSwitch3" parent="smallSwitches" instance=ExtResource("3_1560i")]
+position = Vector2(61, 583)

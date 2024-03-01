@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://de70q21ybr5wf"]
+[gd_scene load_steps=21 format=3 uid="uid://de70q21ybr5wf"]
 
 [ext_resource type="Script" path="res://menu.gd" id="1_8vc63"]
 [ext_resource type="Texture2D" uid="uid://bxwcxwvlj8kfc" path="res://images/menu_background.png" id="2_y4d3w"]
@@ -10,6 +10,8 @@
 [ext_resource type="Texture2D" uid="uid://bibh3b6jlo46g" path="res://images/menu_play_02.png" id="8_diwk2"]
 [ext_resource type="Texture2D" uid="uid://dngw6u1snbrdy" path="res://images/menu_play_03.png" id="9_ujlwf"]
 [ext_resource type="Texture2D" uid="uid://dy53385it6r7d" path="res://images/menu_play_04.png" id="10_jsi2j"]
+[ext_resource type="AudioStream" uid="uid://b2buv2s5f21i" path="res://menuSongFull.ogg" id="11_ohyo6"]
+[ext_resource type="Script" path="res://MenuMusicManager.gd" id="12_3q6ko"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_epduy"]
 bounce = 0.5
@@ -131,4 +133,25 @@ libraries = {
 "": SubResource("AnimationLibrary_rpvuq")
 }
 
+[node name="GamePicker" type="ItemList" parent="."]
+visible = false
+offset_left = 260.0
+offset_top = 1050.0
+offset_right = 460.0
+offset_bottom = 1250.0
+
+[node name="PickerToggle" type="Button" parent="."]
+offset_left = 260.0
+offset_top = 1000.0
+offset_right = 460.0
+offset_bottom = 1040.0
+text = "Pick Game"
+
+[node name="MusicManager" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_ohyo6")
+autoplay = true
+script = ExtResource("12_3q6ko")
+
 [connection signal="pressed" from="PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="item_selected" from="GamePicker" to="." method="_on_game_picker_item_selected"]
+[connection signal="pressed" from="PickerToggle" to="." method="_on_picker_toggle_pressed"]

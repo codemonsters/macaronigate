@@ -43,7 +43,6 @@ rotation = -1.5708
 
 [node name="FrutaTimer" type="Timer" parent="."]
 wait_time = 0.5
-autostart = true
 
 [node name="Walls" type="StaticBody2D" parent="."]
 

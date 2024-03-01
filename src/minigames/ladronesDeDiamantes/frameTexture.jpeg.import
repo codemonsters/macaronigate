@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://crcw04yytli63"
 path.s3tc="res://.godot/imported/frameTexture.jpeg-be67e349ba985164ac31f5c33802729d.s3tc.ctex"
+path.etc2="res://.godot/imported/frameTexture.jpeg-be67e349ba985164ac31f5c33802729d.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://minigames/ladronesDeDiamantes/frameTexture.jpeg"
-dest_files=["res://.godot/imported/frameTexture.jpeg-be67e349ba985164ac31f5c33802729d.s3tc.ctex"]
+dest_files=["res://.godot/imported/frameTexture.jpeg-be67e349ba985164ac31f5c33802729d.s3tc.ctex", "res://.godot/imported/frameTexture.jpeg-be67e349ba985164ac31f5c33802729d.etc2.ctex"]
 
 [params]
 

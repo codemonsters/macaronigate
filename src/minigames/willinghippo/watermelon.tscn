@@ -1,5 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://bvpnrwu51kssf"]
+[gd_scene load_steps=5 format=3 uid="uid://bvpnrwu51kssf"]
 
+[ext_resource type="Script" path="res://minigames/willinghippo/watermelon.gd" id="1_si1nv"]
 [ext_resource type="Texture2D" uid="uid://d3iy22ovvttfm" path="res://minigames/willinghippo/watermelon.png" id="1_vwwm7"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_bccc3"]
@@ -9,16 +10,17 @@ bounce = 0.2
 radius = 36.5
 
 [node name="watermelon" type="Node2D"]
-scale = Vector2(0.5, 0.5)
 
 [node name="RigidBody2D" type="RigidBody2D" parent="."]
 mass = 3.5
 physics_material_override = SubResource("PhysicsMaterial_bccc3")
+script = ExtResource("1_si1nv")
 
 [node name="Sprite2D" type="Sprite2D" parent="RigidBody2D"]
-scale = Vector2(0.3, 0.3)
+scale = Vector2(0.25, 0.25)
 texture = ExtResource("1_vwwm7")
 offset = Vector2(0, -2)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
+scale = Vector2(0.833, 0.833)
 shape = SubResource("CircleShape2D_vjtlj")

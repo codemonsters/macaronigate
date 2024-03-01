@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://ds61y3hiqlo40"
 path.s3tc="res://.godot/imported/felt.jpg-3218a22d20bc2ecffe7ec3f50914fbba.s3tc.ctex"
+path.etc2="res://.godot/imported/felt.jpg-3218a22d20bc2ecffe7ec3f50914fbba.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://minigames/ladronesDeDiamantes/felt.jpg"
-dest_files=["res://.godot/imported/felt.jpg-3218a22d20bc2ecffe7ec3f50914fbba.s3tc.ctex"]
+dest_files=["res://.godot/imported/felt.jpg-3218a22d20bc2ecffe7ec3f50914fbba.s3tc.ctex", "res://.godot/imported/felt.jpg-3218a22d20bc2ecffe7ec3f50914fbba.etc2.ctex"]
 
 [params]
 
