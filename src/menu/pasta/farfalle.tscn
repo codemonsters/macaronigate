@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://b488kpl6jloe3"]
+
+[ext_resource type="Texture2D" uid="uid://f7d5gp16gm7w" path="res://menu/pasta/farfalle.png" id="1_mnu31"]
+
+[node name="Farfalle" type="RigidBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("1_mnu31")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-32, -32, 1, -11, 32, -33, 43, 1, 34, 33, -2, 7, -27, 33, -42, 1)

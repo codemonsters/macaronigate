@@ -1,5 +1,6 @@
-[gd_scene load_steps=9 format=3 uid="uid://bfncwgh2sfxni"]
+[gd_scene load_steps=12 format=3 uid="uid://bfncwgh2sfxni"]
 
+[ext_resource type="Script" path="res://menu/main.gd" id="1_1774w"]
 [ext_resource type="Texture2D" uid="uid://drtxapnhgdl60" path="res://menu/images/Title.png" id="1_wht1s"]
 [ext_resource type="Texture2D" uid="uid://bjbe3fa6srgvk" path="res://menu/images/start_button_01.png" id="2_2u7dg"]
 [ext_resource type="Texture2D" uid="uid://c5gilxrtabs6q" path="res://menu/images/start_button_02.png" id="3_4kb6n"]
@@ -30,7 +31,14 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wpwav"]
 size = Vector2(212, 89)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jn1mb"]
+size = Vector2(40, 1880)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0csc8"]
+size = Vector2(760, 40)
+
 [node name="Menu" type="Node2D"]
+script = ExtResource("1_1774w")
 
 [node name="Title" type="AnimatableBody2D" parent="."]
 position = Vector2(360, 450)
@@ -48,6 +56,7 @@ position = Vector2(361, 750)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="PlayButton/AnimatableBody2D"]
 sprite_frames = SubResource("SpriteFrames_pv0lc")
+frame_progress = 0.255004
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayButton/AnimatableBody2D"]
 position = Vector2(2, -1.5)
@@ -56,3 +65,30 @@ shape = SubResource("RectangleShape2D_wpwav")
 [node name="Copyright" type="Sprite2D" parent="."]
 position = Vector2(360, 1200)
 texture = ExtResource("6_jr4tu")
+
+[node name="PastaConstructorTimer" type="Timer" parent="."]
+autostart = true
+
+[node name="PastaContainer" type="Node2D" parent="."]
+
+[node name="WorldLimits" type="Node" parent="."]
+
+[node name="LeftWall" type="StaticBody2D" parent="WorldLimits"]
+position = Vector2(-40, 640)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WorldLimits/LeftWall"]
+shape = SubResource("RectangleShape2D_jn1mb")
+
+[node name="RightWall" type="StaticBody2D" parent="WorldLimits"]
+position = Vector2(760, 640)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WorldLimits/RightWall"]
+shape = SubResource("RectangleShape2D_jn1mb")
+
+[node name="Wall" type="StaticBody2D" parent="WorldLimits"]
+position = Vector2(360, 1300)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WorldLimits/Wall"]
+shape = SubResource("RectangleShape2D_0csc8")
+
+[connection signal="timeout" from="PastaConstructorTimer" to="." method="_on_pasta_constructor_timer_timeout"]
