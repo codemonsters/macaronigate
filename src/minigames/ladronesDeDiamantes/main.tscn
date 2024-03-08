@@ -1,9 +1,11 @@
-[gd_scene load_steps=19 format=3 uid="uid://cymepr70rmtp3"]
+[gd_scene load_steps=21 format=3 uid="uid://cymepr70rmtp3"]
 
 [ext_resource type="Script" path="res://minigames/ladronesDeDiamantes/luzScript.gd" id="1_icj6y"]
 [ext_resource type="Script" path="res://minigames/ladronesDeDiamantes/main.gd" id="1_t77jm"]
 [ext_resource type="Script" path="res://minigames/ladronesDeDiamantes/Camara.gd" id="1_utla1"]
+[ext_resource type="Texture2D" uid="uid://dtf5ko1b25wmo" path="res://minigames/ladronesDeDiamantes/handpolice.png" id="5_am4e6"]
 [ext_resource type="PackedScene" uid="uid://cuyqt8jjymntk" path="res://minigames/ladronesDeDiamantes/glTFmodels/wall.glb" id="5_u4j5q"]
+[ext_resource type="Script" path="res://minigames/ladronesDeDiamantes/policiamano.gd" id="6_vj3er"]
 [ext_resource type="PackedScene" uid="uid://xas08oea2tlk" path="res://minigames/ladronesDeDiamantes/glTFmodels/floorWallPart.glb" id="7_mtwf4"]
 [ext_resource type="Script" path="res://minigames/ladronesDeDiamantes/rubyScript.gd" id="8_kita4"]
 [ext_resource type="Script" path="res://minigames/ladronesDeDiamantes/1000Points.gd" id="10_nq8wq"]
@@ -85,12 +87,23 @@ wait_time = 0.75
 autostart = true
 
 [node name="policia" type="Sprite3D" parent="."]
-transform = Transform3D(-5.68248e-08, 0, 1, 0, 1.5, 0, -1.3, 0, -4.37114e-08, -0.148451, 8.62807, -17.4314)
+transform = Transform3D(-5.68248e-08, 0, 1, 0, 1.5, 0, -1.3, 0, -4.37114e-08, 0.851549, 8.62807, -18.4314)
 modulate = Color(0.584314, 0.584314, 0.584314, 1)
 billboard = 1
 shaded = true
 alpha_scissor_threshold = 0.46
 texture = ExtResource("11_djfeq")
+
+[node name="policiamano" type="Sprite3D" parent="."]
+transform = Transform3D(1.18578, 0.184204, 0, -0.184204, 1.18578, 0, 0, 0, 1.2, 4.73764, 8.3194, -17.3628)
+billboard = 1
+shaded = true
+texture = ExtResource("5_am4e6")
+script = ExtResource("6_vj3er")
+
+[node name="timer" type="Timer" parent="policiamano"]
+wait_time = 2.0
+autostart = true
 
 [node name="environment" type="Node3D" parent="."]
 
@@ -168,7 +181,7 @@ transform = Transform3D(-3.11662e-08, 0.713, 0, -0.713, -3.11662e-08, 0, 0, 0, 0
 transform = Transform3D(0.370454, 0, 0.104828, 0, 0.385, 0, -0.104828, 0, 0.370454, 0.221, 9.43, 0.144)
 
 [node name="newcar" parent="." instance=ExtResource("15_i3ddo")]
-transform = Transform3D(-0.513611, 0, -0.475609, 0, 0.7, 0, 0.475609, 0, -0.513611, 13.309, 2.81, -20.707)
+transform = Transform3D(-0.513611, 0, -0.475609, 0, 0.7, 0, 0.475609, 0, -0.513611, 11.6568, 2.81, -22.0679)
 
 [node name="azul" type="SpotLight3D" parent="."]
 transform = Transform3D(0.296917, 0.954753, 0.0169426, -0.814075, 0.243814, 0.527102, 0.499122, -0.170298, 0.849633, 3.89932, 34.8226, 15.9175)
@@ -225,6 +238,7 @@ autoplay = true
 [connection signal="game_win" from="luzPolicia" to="ruby" method="_on_game_win"]
 [connection signal="timeout" from="luzPolicia/TimerStartEnd" to="luzPolicia" method="_on_timer_timeout"]
 [connection signal="timeout" from="luzPolicia/TimerFlickers" to="luzPolicia" method="_on_timer_flickers_timeout"]
+[connection signal="timeout" from="policiamano/timer" to="policiamano" method="_on_timer_timeout"]
 [connection signal="input_event" from="ruby/Area3D" to="luzPolicia" method="_on_area_3d_input_event"]
 [connection signal="timeout" from="lightmanager/blueLightTimer" to="lightmanager" method="_on_blue_light_timer_timeout"]
 [connection signal="timeout" from="lightmanager/redLightTimer" to="lightmanager" method="_on_red_light_timer_timeout"]
