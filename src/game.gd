@@ -4,21 +4,23 @@ extends Node2D
 # For developing, inside the menu click "Pick Game" and pick your game
 # Alternatively, you can set "launch_minigame_directly" to the name of your
 # corresponding minigame subfolder, and then start the project normally using F5
-#var launch_minigame_directly = "esquivar.coches"
+# var launch_minigame_directly = "esquivar.coches"
 var launch_minigame_directly = null
+# If you want to launch specific minigames in a specific order
+# var minigames_order_override = ["ñarkanoid", "pizzaCatch"]
 var minigames_order_override = null
-#var minigames_order_override = ["ñarkanoid", "pizzaCatch"]
 
 signal game_timeout
 signal game_start
 
 # Array with the name of the minigames that will be played
 var minigames = [
-	"boton si", "boton no", "ladronesDeDiamantes", "esquivar.coches",
-	"frutas", "ñarkanoid", "pizzaCatch", "space", "totems", "willinghippo", 
-	"flapuie biuegtwt", "pulsar_mucho"
-	#"panelDeBotones", 
+	"boton no", "boton si", "esquivar.coches",
+	"flapuie biuegtwt", "frutas", "ladronesDeDiamantes",
+	"ñarkanoid", "pizzaCatch", "space", "totems", "willinghippo",
+	#"panelDeBotones", "pulsar_mucho"
 	]
+
 var minigames_shuffled
 var current_game_number
 var current_game_seconds_left = 0
@@ -70,8 +72,10 @@ func load_game(game_n = 0):
 
 	$HUD/Label.set_text(scene.game_brief)
 	$HUD/Label.show()
+	
+	game_start.connect(Callable(scene, "on_game_start"))
 	if scene.needs_timer:
-		game_start.connect(Callable(scene, "on_game_start"))
+		# game_start.connect(Callable(scene, "on_game_start"))
 		game_timeout.connect(Callable(scene, "on_game_timeout"))
 		current_game_seconds_left = scene.timer_seconds
 
@@ -87,7 +91,7 @@ func load_game(game_n = 0):
 		#get_tree.get_nodes_in_group("game_instructions")
 		#for index in range(get_child_count()):
 			#print(get_child(index).get_groups())
-			
+		
 		await instructions.get_node("AnimationPlayer").animation_finished
 		remove_childs_in_group("game_instructions")
 	
