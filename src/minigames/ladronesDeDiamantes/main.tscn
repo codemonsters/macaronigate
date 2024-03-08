@@ -95,7 +95,7 @@ alpha_scissor_threshold = 0.46
 texture = ExtResource("11_djfeq")
 
 [node name="policiamano" type="Sprite3D" parent="."]
-transform = Transform3D(1.18578, 0.184204, 0, -0.184204, 1.18578, 0, 0, 0, 1.2, 4.73764, 8.3194, -17.3628)
+transform = Transform3D(1.38341, 0.214905, 0, -0.214905, 1.38341, 0, 0, 0, 1.4, 2.43039, 8.3194, -18.7751)
 billboard = 1
 shaded = true
 texture = ExtResource("5_am4e6")
@@ -197,7 +197,7 @@ spot_angle = 15.6989
 script = ExtResource("14_nmcb0")
 
 [node name="azulpolicia" type="SpotLight3D" parent="lightmanager"]
-transform = Transform3D(0.886567, 1.71741e-07, 0.4626, -0.300195, 0.760848, 0.57532, -0.351968, -0.64893, 0.674543, 21.5842, 27.755, 2.08682)
+transform = Transform3D(0.899008, 0.0215458, 0.437402, -0.28151, 0.793524, 0.539511, -0.335464, -0.608158, 0.719449, 20.9564, 27.755, 2.08682)
 light_color = Color(0.168627, 0.192157, 0.529412, 1)
 light_energy = 600.0
 light_specular = 1.19
@@ -207,14 +207,14 @@ spot_range = 58.5791
 spot_angle = 25.529
 
 [node name="rojopolicia" type="SpotLight3D" parent="lightmanager"]
-transform = Transform3D(0.391986, -0.451461, 0.80158, -0.300195, 0.760848, 0.57532, -0.869615, -0.466148, 0.162715, 33.0008, 27.8699, -20.3141)
+transform = Transform3D(0.488696, -0.395296, 0.777764, -0.300195, 0.760848, 0.57532, -0.819182, -0.514638, 0.253158, 33.0008, 27.8699, -17.3191)
 light_color = Color(0.870588, 0.337255, 0.360784, 1)
 light_energy = 100.0
 light_specular = 1.19
 distance_fade_begin = 81.37
 distance_fade_length = 787.95
-spot_range = 102.087
-spot_angle = 20.6211
+spot_range = 87.1641
+spot_angle = 21.7431
 
 [node name="blueLightTimer" type="Timer" parent="lightmanager"]
 wait_time = 0.8
