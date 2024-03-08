@@ -1,7 +1,10 @@
 extends Area2D
 
+var main
 
 func _ready():
+	main = get_parent().get_parent()
+	
 	var rng = RandomNumberGenerator.new()
 	
 	var factor = null
@@ -16,4 +19,5 @@ func _ready():
 
 
 func _process(delta):
-	position.y = position.y + (1000*delta)
+	if (main.in_game == true):
+		position.y = position.y + (1000 * delta)
