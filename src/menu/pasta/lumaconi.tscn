@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://dxhbafq8rdwub"]
+
+[ext_resource type="Texture2D" uid="uid://cc4xcnktek4kc" path="res://menu/pasta/lumaconi.png" id="1_o6sa8"]
+
+[node name="Farfalle" type="RigidBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.18, 0.18)
+texture = ExtResource("1_o6sa8")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2(-1, 5)
+polygon = PackedVector2Array(11, -22, 16, -18, 21, 4, 19, 11, 10, 9, -6, 11, -13, 10, -18, 6, -19, -4, -13, -11, 4, -17)

@@ -62,14 +62,9 @@ frame_progress = 0.255004
 position = Vector2(2, -1.5)
 shape = SubResource("RectangleShape2D_wpwav")
 
-[node name="Copyright" type="Sprite2D" parent="."]
-position = Vector2(360, 1200)
-texture = ExtResource("6_jr4tu")
-
 [node name="PastaConstructorTimer" type="Timer" parent="."]
+wait_time = 0.5
 autostart = true
-
-[node name="PastaContainer" type="Node2D" parent="."]
 
 [node name="WorldLimits" type="Node" parent="."]
 
@@ -90,5 +85,11 @@ position = Vector2(360, 1300)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WorldLimits/Wall"]
 shape = SubResource("RectangleShape2D_0csc8")
+
+[node name="PastaContainer" type="Node2D" parent="."]
+
+[node name="Copyright" type="Sprite2D" parent="."]
+position = Vector2(360, 1200)
+texture = ExtResource("6_jr4tu")
 
 [connection signal="timeout" from="PastaConstructorTimer" to="." method="_on_pasta_constructor_timer_timeout"]

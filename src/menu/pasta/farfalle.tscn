@@ -5,8 +5,9 @@
 [node name="Farfalle" type="RigidBody2D"]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.25, 0.25)
+scale = Vector2(0.18, 0.18)
 texture = ExtResource("1_mnu31")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
-polygon = PackedVector2Array(-32, -32, 1, -11, 32, -33, 43, 1, 34, 33, -2, 7, -27, 33, -42, 1)
+position = Vector2(-1, 5)
+polygon = PackedVector2Array(-21, -28, 1, -11, 23, -27, 32, -4, 25, 19, 1, 1, -19, 19, -28, -4)
