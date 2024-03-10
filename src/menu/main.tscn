@@ -1,9 +1,10 @@
-[gd_scene load_steps=12 format=3 uid="uid://bfncwgh2sfxni"]
+[gd_scene load_steps=13 format=3 uid="uid://bfncwgh2sfxni"]
 
 [ext_resource type="Script" path="res://menu/main.gd" id="1_1774w"]
 [ext_resource type="Texture2D" uid="uid://drtxapnhgdl60" path="res://menu/images/Title.png" id="1_wht1s"]
 [ext_resource type="Texture2D" uid="uid://bjbe3fa6srgvk" path="res://menu/images/start_button_01.png" id="2_2u7dg"]
 [ext_resource type="Texture2D" uid="uid://c5gilxrtabs6q" path="res://menu/images/start_button_02.png" id="3_4kb6n"]
+[ext_resource type="Texture2D" uid="uid://bfpjp1o3pkee4" path="res://menu/images/narrow-alley-in-town-in-italy-victoria-emerson-19560864.jpg" id="3_o3mgv"]
 [ext_resource type="Texture2D" uid="uid://blsxkmgrjrefs" path="res://menu/images/start_button_03.png" id="4_ud5u0"]
 [ext_resource type="Texture2D" uid="uid://dgerce2rid8gc" path="res://menu/images/start_button_04.png" id="5_y88i2"]
 [ext_resource type="Texture2D" uid="uid://coj8blwa1ssw8" path="res://menu/images/copyright.png" id="6_jr4tu"]
@@ -40,6 +41,10 @@ size = Vector2(760, 40)
 [node name="Menu" type="Node2D"]
 script = ExtResource("1_1774w")
 
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(360, 640)
+texture = ExtResource("3_o3mgv")
+
 [node name="Title" type="AnimatableBody2D" parent="."]
 position = Vector2(360, 450)
 
@@ -72,12 +77,14 @@ autostart = true
 position = Vector2(-40, 640)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WorldLimits/LeftWall"]
+position = Vector2(19, 0)
 shape = SubResource("RectangleShape2D_jn1mb")
 
 [node name="RightWall" type="StaticBody2D" parent="WorldLimits"]
 position = Vector2(760, 640)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WorldLimits/RightWall"]
+position = Vector2(-20, 0)
 shape = SubResource("RectangleShape2D_jn1mb")
 
 [node name="Wall" type="StaticBody2D" parent="WorldLimits"]
