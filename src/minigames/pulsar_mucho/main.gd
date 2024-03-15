@@ -25,3 +25,4 @@ func _on_button_pressed():
 	if cliks == 65:
 		game_cleared.emit()
 		visible = false
+		emit_signal("mensaje1")

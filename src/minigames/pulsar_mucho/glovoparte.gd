@@ -24,6 +24,8 @@ func _on_button_pressed():
 		visible = true
 		position.x = 652
 		position.y = 304
+		linear_velocity.y = 0
+		
 		print(visible)
 		print(position)
 

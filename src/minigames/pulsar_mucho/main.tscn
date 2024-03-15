@@ -1,16 +1,11 @@
-[gd_scene load_steps=12 format=3 uid="uid://d1xrh6063iwnk"]
+[gd_scene load_steps=7 format=3 uid="uid://d1xrh6063iwnk"]
 
 [ext_resource type="Texture2D" uid="uid://cry7cgl83h0ro" path="res://minigames/pulsar_mucho/realistic-red-balloon-illustration-on-isolated-background-png.png" id="1_482h7"]
 [ext_resource type="Script" path="res://minigames/pulsar_mucho/main.gd" id="1_jkgmu"]
 [ext_resource type="Texture2D" uid="uid://ui6a3rxwgutt" path="res://minigames/pulsar_mucho/2538.jpg" id="1_purib"]
 [ext_resource type="Script" path="res://minigames/pulsar_mucho/Sprite2D.gd" id="2_h8744"]
 [ext_resource type="Texture2D" uid="uid://b6whcnpb327oq" path="res://minigames/pulsar_mucho/parte1.png" id="5_chuny"]
-[ext_resource type="Script" path="res://minigames/pulsar_mucho/glovoparte.gd" id="5_ni052"]
-[ext_resource type="Texture2D" uid="uid://de6gyctw21awa" path="res://minigames/pulsar_mucho/parte2.png" id="6_r50jh"]
-[ext_resource type="Script" path="res://minigames/pulsar_mucho/RigidBody2D2.gd" id="7_0wo4a"]
-[ext_resource type="Texture2D" uid="uid://ckviwxj6yne70" path="res://minigames/pulsar_mucho/parte3.png" id="7_m8r03"]
-[ext_resource type="Texture2D" uid="uid://pt412sx0vbru" path="res://minigames/pulsar_mucho/parte4.png" id="8_2sb4k"]
-[ext_resource type="Texture2D" uid="uid://bywaty0jrxayy" path="res://minigames/pulsar_mucho/parte5.png" id="9_2ks1k"]
+[ext_resource type="Script" path="res://minigames/pulsar_mucho/StaticBody2D.gd" id="5_ixdna"]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_jkgmu")
@@ -33,42 +28,12 @@ offset_top = 2.0
 offset_right = 714.0
 offset_bottom = 1277.0
 
-[node name="RigidBody2D" type="RigidBody2D" parent="."]
-script = ExtResource("5_ni052")
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+script = ExtResource("5_ixdna")
 
-[node name="Sprite2D" type="Sprite2D" parent="RigidBody2D"]
-position = Vector2(653, 303)
-scale = Vector2(0.405469, 0.384635)
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
+position = Vector2(665, 186)
+scale = Vector2(0.845312, 0.789583)
 texture = ExtResource("5_chuny")
 
-[node name="RigidBody2D2" type="RigidBody2D" parent="."]
-script = ExtResource("7_0wo4a")
-
-[node name="Sprite2D" type="Sprite2D" parent="RigidBody2D2"]
-position = Vector2(103, 796)
-scale = Vector2(0.404427, 0.335417)
-texture = ExtResource("6_r50jh")
-
-[node name="RigidBody2D3" type="RigidBody2D" parent="."]
-
-[node name="Sprite2D" type="Sprite2D" parent="RigidBody2D3"]
-position = Vector2(-234, 275)
-scale = Vector2(0.434896, 0.404687)
-texture = ExtResource("7_m8r03")
-
-[node name="RigidBody2D4" type="RigidBody2D" parent="."]
-
-[node name="Sprite2D" type="Sprite2D" parent="RigidBody2D4"]
-position = Vector2(-116, 827)
-scale = Vector2(0.392448, 0.343229)
-texture = ExtResource("8_2sb4k")
-
-[node name="RigidBody2D5" type="RigidBody2D" parent="."]
-
-[node name="Sprite2D" type="Sprite2D" parent="RigidBody2D5"]
-position = Vector2(830.75, 995)
-scale = Vector2(0.42526, 0.376042)
-texture = ExtResource("9_2ks1k")
-
 [connection signal="pressed" from="Button" to="glovo" method="_on_button_pressed"]
-[connection signal="pressed" from="Button" to="RigidBody2D" method="_on_button_pressed"]
