@@ -16,7 +16,7 @@ var pasta_num = 0	# number of pasta bodies instanciated
 func _ready():
 	pasta_num = 0
 	_on_pasta_constructor_timer_timeout()	# creates the first pasta without waiting for the timer to end
-	PhysicsServer2D.area_set_param(get_world_2d().space, PhysicsServer2D.AREA_PARAM_GRAVITY_VECTOR, Vector2(0, 0.1))	# Establecemos la dirección de la gravedad hacia abajo (lo normal)
+	PhysicsServer2D.area_set_param(get_world_2d().space, PhysicsServer2D.AREA_PARAM_GRAVITY_VECTOR, Vector2(0, 1))	# Establecemos la dirección de la gravedad hacia abajo (lo normal)
 
 	
 func _on_pasta_constructor_timer_timeout():
@@ -45,5 +45,3 @@ func _on_pasta_constructor_timer_timeout():
 	pasta.angular_velocity = randf_range(-10, 10)
 	$PastaContainer.add_child(pasta)
 	pasta_num += 1
-	print(pasta_num)
-	
