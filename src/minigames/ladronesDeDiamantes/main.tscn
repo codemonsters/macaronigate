@@ -1,8 +1,10 @@
-[gd_scene load_steps=21 format=3 uid="uid://cymepr70rmtp3"]
+[gd_scene load_steps=22 format=3 uid="uid://cymepr70rmtp3"]
 
 [ext_resource type="Script" path="res://minigames/ladronesDeDiamantes/luzScript.gd" id="1_icj6y"]
 [ext_resource type="Script" path="res://minigames/ladronesDeDiamantes/main.gd" id="1_t77jm"]
 [ext_resource type="Script" path="res://minigames/ladronesDeDiamantes/Camara.gd" id="1_utla1"]
+[ext_resource type="Texture2D" uid="uid://hapo6jawwaml" path="res://minigames/ladronesDeDiamantes/buttonUnpressed.png" id="3_lltkq"]
+[ext_resource type="Script" path="res://minigames/ladronesDeDiamantes/buttonScript.gd" id="4_mp7h5"]
 [ext_resource type="Texture2D" uid="uid://dtf5ko1b25wmo" path="res://minigames/ladronesDeDiamantes/handpolice.png" id="5_am4e6"]
 [ext_resource type="PackedScene" uid="uid://cuyqt8jjymntk" path="res://minigames/ladronesDeDiamantes/glTFmodels/wall.glb" id="5_u4j5q"]
 [ext_resource type="Script" path="res://minigames/ladronesDeDiamantes/policiamano.gd" id="6_vj3er"]
@@ -20,15 +22,64 @@
 [ext_resource type="AudioStream" uid="uid://dptak3yl60ba2" path="res://minigames/ladronesDeDiamantes/thievessongFinal.ogg" id="17_vid4b"]
 [ext_resource type="PackedScene" uid="uid://btwffc2fgdc2r" path="res://minigames/ladronesDeDiamantes/glTFmodels/topWallPart.glb" id="20_lq3yf"]
 
-[sub_resource type="SphereShape3D" id="SphereShape3D_5bddy"]
-radius = 0.961398
-
 [node name="main" type="Node3D"]
 script = ExtResource("1_t77jm")
+
+[node name="BackBar" type="ColorRect" parent="."]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -207.0
+offset_top = -91.0
+offset_right = 205.0
+offset_bottom = -30.0
+grow_horizontal = 2
+grow_vertical = 0
+color = Color(0.886275, 0.988235, 0.858824, 1)
+
+[node name="ProgressBar" type="ColorRect" parent="."]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -202.0
+offset_top = -86.0
+offset_right = 198.0
+offset_bottom = -35.0
+grow_horizontal = 2
+grow_vertical = 0
+color = Color(0.447059, 0.756863, 0.352941, 1)
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(-4.37114e-08, -0.258819, 0.965926, 0, 0.965926, 0.258819, -1, 1.13133e-08, -4.2222e-08, 15.8376, 13.9342, 0)
 script = ExtResource("1_utla1")
+
+[node name="Steal" type="Button" parent="."]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -267.0
+offset_top = -342.0
+offset_right = 202.0
+offset_bottom = -120.999
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(1.145, 1.145)
+focus_mode = 0
+icon = ExtResource("3_lltkq")
+flat = true
+icon_alignment = 1
+expand_icon = true
+script = ExtResource("4_mp7h5")
+
+[node name="timer" type="Timer" parent="Steal"]
+wait_time = 2.0
+autostart = true
 
 [node name="luzFoco" type="SpotLight3D" parent="."]
 transform = Transform3D(0.497976, 0.771658, 0.395681, 0.312881, -0.585421, 0.747922, 0.80878, -0.248646, -0.532963, 23.152, 49.7066, -29.8456)
@@ -95,7 +146,8 @@ alpha_scissor_threshold = 0.46
 texture = ExtResource("11_djfeq")
 
 [node name="policiamano" type="Sprite3D" parent="."]
-transform = Transform3D(1.38341, 0.214905, 0, -0.214905, 1.38341, 0, 0, 0, 1.4, 2.43039, 8.3194, -18.7751)
+transform = Transform3D(1.38341, 0.214905, 0, -0.214905, 1.38341, 0, 0, 0, 1.4, 2.43039, 8.3194, -18.9932)
+modulate = Color(0.658824, 0.658824, 0.658824, 1)
 billboard = 1
 shaded = true
 texture = ExtResource("5_am4e6")
@@ -157,12 +209,6 @@ script = ExtResource("10_nq8wq")
 [node name="ruby" parent="." instance=ExtResource("11_j2qx0")]
 transform = Transform3D(2, 0, 0, 0, 1.77883, 0.914196, 0, -0.914196, 1.77883, 0.208, 10.138, 0.201)
 script = ExtResource("8_kita4")
-
-[node name="Area3D" type="Area3D" parent="ruby"]
-transform = Transform3D(1, 0, 0, 0, 0.999998, -0.000295818, 0, 0.000295818, 0.999998, -0.000154004, -5.10216e-05, -0.000228167)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="ruby/Area3D"]
-shape = SubResource("SphereShape3D_5bddy")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.661312, 0.00392755, 0.750101, 0, 0.999986, -0.00523596, -0.750111, -0.00346261, -0.661303, 14.1111, 11.815, 0.574895)
@@ -231,6 +277,11 @@ stream = ExtResource("17_vid4b")
 volume_db = 2.811
 autoplay = true
 
+[connection signal="game_over" from="." to="luzPolicia" method="_on_main_game_over"]
+[connection signal="button_down" from="Steal" to="luzPolicia" method="_on_steal_button_down"]
+[connection signal="button_down" from="Steal" to="Steal" method="_on_button_down"]
+[connection signal="button_up" from="Steal" to="luzPolicia" method="_on_steal_button_up"]
+[connection signal="button_up" from="Steal" to="Steal" method="_on_button_up"]
 [connection signal="game_lose" from="luzPolicia" to="." method="_on_game_lose"]
 [connection signal="game_lose" from="luzPolicia" to="Camera3D" method="_on_game_lose"]
 [connection signal="game_win" from="luzPolicia" to="." method="_on_game_win"]
@@ -239,6 +290,5 @@ autoplay = true
 [connection signal="timeout" from="luzPolicia/TimerStartEnd" to="luzPolicia" method="_on_timer_timeout"]
 [connection signal="timeout" from="luzPolicia/TimerFlickers" to="luzPolicia" method="_on_timer_flickers_timeout"]
 [connection signal="timeout" from="policiamano/timer" to="policiamano" method="_on_timer_timeout"]
-[connection signal="input_event" from="ruby/Area3D" to="luzPolicia" method="_on_area_3d_input_event"]
 [connection signal="timeout" from="lightmanager/blueLightTimer" to="lightmanager" method="_on_blue_light_timer_timeout"]
 [connection signal="timeout" from="lightmanager/redLightTimer" to="lightmanager" method="_on_red_light_timer_timeout"]
