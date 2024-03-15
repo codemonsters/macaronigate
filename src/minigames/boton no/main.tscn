@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://mv5gqwk2ocqm"]
 
 [ext_resource type="Script" path="res://minigames/boton no/main.gd" id="1_a3nue"]
-[ext_resource type="Texture2D" uid="uid://bcgcqlk4kgb1k" path="res://minigames/boton no/red-button-isolate-backbround-3d-render-png.webp" id="2_aki2k"]
+[ext_resource type="Texture2D" uid="uid://bcgcqlk4kgb1k" path="res://minigames/boton si/red-button-isolate-backbround-3d-render-png.webp" id="2_aki2k"]
 
 [node name="Boton" type="Node2D"]
 position = Vector2(360, 640)
