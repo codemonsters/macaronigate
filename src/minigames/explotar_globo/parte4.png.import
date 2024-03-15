@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ui6a3rxwgutt"
-path="res://.godot/imported/2538.jpg-2f25946cb0ac482dbcaee23b6f9b3044.ctex"
+uid="uid://pt412sx0vbru"
+path="res://.godot/imported/parte4.png-3daf20e83ebbb8bd9d7effbba1fbd418.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://minigames/pulsar_mucho/2538.jpg"
-dest_files=["res://.godot/imported/2538.jpg-2f25946cb0ac482dbcaee23b6f9b3044.ctex"]
+source_file="res://minigames/explotar_globo/parte4.png"
+dest_files=["res://.godot/imported/parte4.png-3daf20e83ebbb8bd9d7effbba1fbd418.ctex"]
 
 [params]
 

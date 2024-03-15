@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ckviwxj6yne70"
-path="res://.godot/imported/parte3.png-7767c9e961af56b28d617e09547f5df3.ctex"
+uid="uid://ckvgbmcn3hjsf"
+path="res://.godot/imported/realistic-red-balloon-illustration-on-isolated-background-png.png-54433012efdb143cde073f96eee7717f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://minigames/pulsar_mucho/parte3.png"
-dest_files=["res://.godot/imported/parte3.png-7767c9e961af56b28d617e09547f5df3.ctex"]
+source_file="res://minigames/explotar_globo/realistic-red-balloon-illustration-on-isolated-background-png.png"
+dest_files=["res://.godot/imported/realistic-red-balloon-illustration-on-isolated-background-png.png-54433012efdb143cde073f96eee7717f.ctex"]
 
 [params]
 
