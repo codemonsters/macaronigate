@@ -1,5 +1,7 @@
 extends Node2D
 
+# CREDITS: Imagen de la mano encontrada en https://www.freeimages.com/es/photo/hand-on-flat-surface-1632654
+
 signal game_over
 signal game_cleared
 
