@@ -1,0 +1,39 @@
+[gd_scene load_steps=7 format=3 uid="uid://d1xrh6063iwnk"]
+
+[ext_resource type="Texture2D" uid="uid://ckvgbmcn3hjsf" path="res://minigames/explotar_globo/realistic-red-balloon-illustration-on-isolated-background-png.png" id="1_482h7"]
+[ext_resource type="Script" path="res://minigames/explotar_globo/main.gd" id="1_jkgmu"]
+[ext_resource type="Texture2D" uid="uid://ui6a3rxwgutt" path="res://minigames/explotar_globo/2538.jpg" id="1_purib"]
+[ext_resource type="Script" path="res://minigames/explotar_globo/Sprite2D.gd" id="2_h8744"]
+[ext_resource type="Texture2D" uid="uid://b6whcnpb327oq" path="res://minigames/explotar_globo/parte1.png" id="5_chuny"]
+[ext_resource type="Script" path="res://minigames/explotar_globo/StaticBody2D.gd" id="5_ixdna"]
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_jkgmu")
+
+[node name="fondo" type="Sprite2D" parent="."]
+position = Vector2(369, 553)
+scale = Vector2(0.304846, 0.336816)
+texture = ExtResource("1_purib")
+
+[node name="glovo" type="Sprite2D" parent="."]
+position = Vector2(360, 617.5)
+scale = Vector2(0.1, 0.097)
+texture = ExtResource("1_482h7")
+script = ExtResource("2_h8744")
+
+[node name="Button" type="Button" parent="."]
+modulate = Color(1, 1, 1, 0)
+self_modulate = Color(1, 1, 1, 0)
+offset_top = 2.0
+offset_right = 714.0
+offset_bottom = 1277.0
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+script = ExtResource("5_ixdna")
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
+position = Vector2(665, 186)
+scale = Vector2(0.845312, 0.789583)
+texture = ExtResource("5_chuny")
+
+[connection signal="pressed" from="Button" to="glovo" method="_on_button_pressed"]

@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://minigames/panelDeBotones/elementsManager.gd" id="1_xisre"]
 [ext_resource type="PackedScene" uid="uid://bmfc6v7m3kb7o" path="res://minigames/panelDeBotones/redSwitch.tscn" id="3_1560i"]
 
-[node name="Main" type="Node2D"]
+[node name="Main2" type="Node2D"]
 position = Vector2(101, 202)
 
 [node name="elementsManager" type="Node2D" parent="."]

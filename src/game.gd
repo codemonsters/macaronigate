@@ -15,7 +15,7 @@ signal game_start
 
 # Array with the name of the minigames that will be played
 var minigames = [
-	"boton no", "boton si", "esquivar.coches",
+	"boton no", "boton si", "esquivar.coches", "explotar_globo",
 	"flapuie biuegtwt", "frutas", "ladronesDeDiamantes",
 	"ñarkanoid", "pizzaCatch", "space", "totems", "willinghippo",
 	#"panelDeBotones", "pulsar_mucho"

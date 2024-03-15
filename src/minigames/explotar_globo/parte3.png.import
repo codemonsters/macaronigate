@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://w1in4tfb7hr3"
-path="res://.godot/imported/bote_espaguetis.png-49a53b34665f9ce01dbbd3fda3974fb5.ctex"
+uid="uid://ckviwxj6yne70"
+path="res://.godot/imported/parte3.png-4031586304b1d3afa283aca4cf4a8651.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://minigames/bote_espaguetis.png"
-dest_files=["res://.godot/imported/bote_espaguetis.png-49a53b34665f9ce01dbbd3fda3974fb5.ctex"]
+source_file="res://minigames/explotar_globo/parte3.png"
+dest_files=["res://.godot/imported/parte3.png-4031586304b1d3afa283aca4cf4a8651.ctex"]
 
 [params]
 
