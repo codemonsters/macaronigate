@@ -1,0 +1,102 @@
+[gd_scene load_steps=6 format=3 uid="uid://6nmc2ubx4fss"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_3s3ag"]
+load_path = "res://.godot/imported/piece-of-cheese-cheese-icon-cheese-realistic-food-3d-rendering-free-png.png-0dc32e505f0d560be31bdca490b08121.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_46hk2"]
+load_path = "res://.godot/imported/raton2.jpg-72c7dc898aa7957fcde49e0bf7abd402.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_lay0b"]
+load_path = "res://.godot/imported/pngtree-wooden-table-background-image_2281245.jpg-ef352e3d928064f795877cad8dfffe73.ctex"
+
+[sub_resource type="GDScript" id="GDScript_jkv34"]
+script/source = "extends CharacterBody2D
+
+var velocidad = 500
+var veloity = Vector2()
+var mouse_position = null
+
+func fisics_process (delta):
+	
+	veloity = Vector2(0 , 0)
+	mouse_position = get_global_mouse_position()
+	
+	if Input.is_action_pressed(\"forward\"):
+		var direction = (mouse_position - position).normalized()
+		veloity = direction*velocidad
+		
+
+"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_pbmwp"]
+load_path = "res://.godot/imported/pala-espatula-de-cocina-32-x-75-cm-enamel-home-f173145.jpg-2d722ede78038bbc4f873d0f30916195.ctex"
+
+[node name="Main" type="Node2D"]
+
+[node name="Piece-of-cheese-cheese-icon-cheese-realistic-food-3d-rendering-free-png" type="Sprite2D" parent="."]
+position = Vector2(944, 930)
+scale = Vector2(0.103255, 0.117347)
+texture = SubResource("CompressedTexture2D_3s3ag")
+
+[node name="Raton3" type="Sprite2D" parent="."]
+position = Vector2(52.75, 48.5)
+scale = Vector2(0.128125, 0.11125)
+texture = SubResource("CompressedTexture2D_46hk2")
+
+[node name="Raton4" type="Sprite2D" parent="."]
+position = Vector2(674.25, 1224.5)
+scale = Vector2(0.120625, 0.11875)
+texture = SubResource("CompressedTexture2D_46hk2")
+
+[node name="Pngtree-wooden-table-background-image2281245" type="Sprite2D" parent="."]
+position = Vector2(1073, 250)
+scale = Vector2(0.722222, 0.6125)
+texture = SubResource("CompressedTexture2D_lay0b")
+
+[node name="Pngtree-wooden-table-background-image2281246" type="Sprite2D" parent="."]
+position = Vector2(1689, 354)
+scale = Vector2(0.461111, 1.36181)
+texture = SubResource("CompressedTexture2D_lay0b")
+
+[node name="Pngtree-wooden-table-background-image2281247" type="Sprite2D" parent="."]
+position = Vector2(1410, 399)
+scale = Vector2(0.534722, 0.540451)
+texture = SubResource("CompressedTexture2D_lay0b")
+
+[node name="Pngtree-wooden-table-background-image2281248" type="Sprite2D" parent="."]
+position = Vector2(1731, 986)
+scale = Vector2(1.01944, 0.628125)
+texture = SubResource("CompressedTexture2D_lay0b")
+
+[node name="Pngtree-wooden-table-background-image2281249" type="Sprite2D" parent="."]
+position = Vector2(103, 1051)
+scale = Vector2(0.225695, 0.127864)
+texture = SubResource("CompressedTexture2D_lay0b")
+
+[node name="ESPATULA" type="CharacterBody2D" parent="."]
+script = SubResource("GDScript_jkv34")
+
+[node name="Sprite2D" type="Sprite2D" parent="ESPATULA"]
+position = Vector2(1324, 686)
+scale = Vector2(0.325221, 0.321918)
+texture = SubResource("CompressedTexture2D_pbmwp")
+
+[node name="Pngtree-wooden-table-background-image2281250" type="Sprite2D" parent="."]
+position = Vector2(279, 638)
+scale = Vector2(0.225695, 0.127864)
+texture = SubResource("CompressedTexture2D_lay0b")
+
+[node name="Pngtree-wooden-table-background-image2281251" type="Sprite2D" parent="."]
+position = Vector2(636, 1026)
+scale = Vector2(0.225695, 0.127864)
+texture = SubResource("CompressedTexture2D_lay0b")
+
+[node name="Pngtree-wooden-table-background-image2281252" type="Sprite2D" parent="."]
+position = Vector2(637, 259)
+scale = Vector2(0.225695, 0.127864)
+texture = SubResource("CompressedTexture2D_lay0b")
+
+[node name="Pngtree-wooden-table-background-image2281253" type="Sprite2D" parent="."]
+position = Vector2(100, 259)
+scale = Vector2(0.225695, 0.127864)
+texture = SubResource("CompressedTexture2D_lay0b")
