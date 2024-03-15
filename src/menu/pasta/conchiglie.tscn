@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://7d8ukf0fl8tb" path="res://menu/pasta/penne.png" id="1_ww3h3"]
 
-[node name="Farfalle" type="RigidBody2D"]
+[node name="Conchiglie" type="RigidBody2D"]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.18, 0.18)
