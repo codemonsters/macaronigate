@@ -256,36 +256,42 @@ _data = {
 [node name="Main" type="Node2D"]
 
 [node name="GlowCircleLeft1" type="Sprite2D" parent="."]
+visible = false
 modulate = Color(1, 1, 1, 0)
 position = Vector2(171, 726)
 scale = Vector2(0.4, 0.4)
 texture = ExtResource("1_3ivea")
 
 [node name="GlowCircleLeft2" type="Sprite2D" parent="."]
+visible = false
 modulate = Color(1, 1, 1, 0)
 position = Vector2(171, 726)
 scale = Vector2(0.4, 0.4)
 texture = ExtResource("1_3ivea")
 
 [node name="GlowCircleLeft3" type="Sprite2D" parent="."]
+visible = false
 modulate = Color(1, 1, 1, 0)
 position = Vector2(171, 726)
 scale = Vector2(0.4, 0.4)
 texture = ExtResource("1_3ivea")
 
 [node name="GlowCircleRight1" type="Sprite2D" parent="."]
+visible = false
 modulate = Color(1, 1, 1, 0)
 position = Vector2(560, 753)
 scale = Vector2(0.4, 0.4)
 texture = ExtResource("1_3ivea")
 
 [node name="GlowCircleRight2" type="Sprite2D" parent="."]
+visible = false
 modulate = Color(1, 1, 1, 0)
 position = Vector2(560, 753)
 scale = Vector2(0.4, 0.4)
 texture = ExtResource("1_3ivea")
 
 [node name="GlowCircleRight3" type="Sprite2D" parent="."]
+visible = false
 modulate = Color(1, 1, 1, 0)
 position = Vector2(560, 753)
 scale = Vector2(0.4, 0.4)
