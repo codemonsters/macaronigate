@@ -1,10 +1,15 @@
 extends Node2D
+
 signal game_over
 signal game_cleared
-var cliks = 0 
-@export var game_brief = "¡click!"
+
+@export var clicks_needed = 3 	# número de clicks necesarios para que el globo explote
+@export var game_brief = "Blow up!"
 @export var needs_timer = true
 @export var timer_seconds = 10
+
+# TODO: Corregir esto para que cargue la escena (preferible usando una ruta relativa)
+var piece_01_factory = preload("res://piece_01.tscn")
 
 func _ready():
 	game_over.connect(Callable(get_parent(), "on_game_over"))
@@ -18,11 +23,19 @@ func _process(delta):
 
 
 func _on_button_pressed():
-	cliks += 1
-	scale.x += 0.01
-	scale.y += 0.01
+	$globo.scale.x += 0.01
+	$globo.scale.y += 0.01
 	
-	if cliks == 65:
+	clicks_needed -= 1	
+	print(clicks_needed)
+	if clicks_needed <= 0:
 		game_cleared.emit()
-		visible = false
-		emit_signal("mensaje1")
+		$globo.visible = false
+		$WhiteLightTimer.start()
+
+
+func _on_white_light_timer_timeout():
+	# TODO: Revisar esto
+	var piece = piece_01_factory.instantiate()
+	$PiecesContainer.add_child(piece)
+
