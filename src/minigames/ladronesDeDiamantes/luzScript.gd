@@ -44,6 +44,6 @@ func _on_timer_flickers_timeout():
 			$TimerFlickers.wait_time = RandomNumberGenerator.new().randf_range(0.1, flicker_time)
 			light_energy = 16
 		flickering = !flickering
-		flicker_time += 0.05
+		flicker_time += 0.01
 	else:
 		$TimerFlickers.stop()

@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://b1xmnuiyerfu7"]
+
+[ext_resource type="Texture2D" uid="uid://bkrriao221iyw" path="res://menu/pasta/fusilli.png" id="1_pn840"]
+
+[node name="Farfalle" type="RigidBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.18, 0.18)
+texture = ExtResource("1_pn840")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2(-1, 5)
+polygon = PackedVector2Array(36, -20, 36, -8, 39, -6, 33, -1, -16, 10, -30, 9, -29, 4, -37, -5)

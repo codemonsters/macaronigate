@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://dvyvm4ttxct2v"]
+
+[ext_resource type="Texture2D" uid="uid://h1x77q357l3n" path="res://minigames/esquivar obstáculos/Sarten.png" id="1_thgdt"]
+
+[node name="Sarten" type="Node2D"]
+
+[node name="AnimatableBody2D" type="AnimatableBody2D" parent="."]
+scale = Vector2(0.08, 0.08)
+
+[node name="Sprite2D" type="Sprite2D" parent="AnimatableBody2D"]
+texture = ExtResource("1_thgdt")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="AnimatableBody2D"]
+position = Vector2(0, 75)

@@ -1,8 +1,9 @@
-[gd_scene load_steps=17 format=3 uid="uid://d7pds6ys2gwo"]
+[gd_scene load_steps=19 format=3 uid="uid://d7pds6ys2gwo"]
 
 [ext_resource type="Script" path="res://minigames/totems/main.gd" id="1_qcm1e"]
 [ext_resource type="Texture2D" uid="uid://bc601x3174vxd" path="res://minigames/totems/fondo.png" id="1_uv2t7"]
 [ext_resource type="Texture2D" uid="uid://hcnx7vd5075l" path="res://placeholder.png" id="2_5dash"]
+[ext_resource type="Script" path="res://minigames/totems/Camera2D.gd" id="2_yj5lu"]
 [ext_resource type="Script" path="res://minigames/totems/BlockSpawner.gd" id="3_4x1id"]
 [ext_resource type="Texture2D" uid="uid://d1usuxrhmspu7" path="res://minigames/totems/bordeFondo1.png" id="3_b83ca"]
 [ext_resource type="Texture2D" uid="uid://dufjnxx66v8ip" path="res://minigames/totems/bordeBoton1.png" id="3_bvj3h"]
@@ -13,6 +14,7 @@
 [ext_resource type="Script" path="res://minigames/totems/animacionBasica.gd" id="5_lthdy"]
 [ext_resource type="Texture2D" uid="uid://b4341h4anxscw" path="res://minigames/totems/tornillo.png" id="5_x2jwd"]
 [ext_resource type="Texture2D" uid="uid://cgx8f4qdq23il" path="res://minigames/totems/PLAGA_GOD.png" id="11_gt51w"]
+[ext_resource type="Script" path="res://minigames/totems/botonVisualScript.gd" id="11_nik8q"]
 [ext_resource type="AudioStream" uid="uid://dm7m3cjd0d3n6" path="res://minigames/totems/bloquesTheme.ogg" id="14_2p84n"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_b35wq"]
@@ -47,6 +49,11 @@ animations = [{
 script = ExtResource("1_qcm1e")
 
 [node name="Camera2D" type="Camera2D" parent="."]
+script = ExtResource("2_yj5lu")
+
+[node name="shakeTimer" type="Timer" parent="Camera2D"]
+wait_time = 0.3
+one_shot = true
 
 [node name="fondo" type="Sprite2D" parent="."]
 position = Vector2(2, 42)
@@ -90,13 +97,14 @@ frame_progress = 0.213962
 script = ExtResource("5_lthdy")
 
 [node name="moradoBoton" type="Button" parent="."]
-modulate = Color(0.501961, 0, 1, 1)
+modulate = Color(0.376471, 0, 0.972549, 1)
 offset_left = -289.0
 offset_top = 282.0
 offset_right = 231.0
 offset_bottom = 802.0
 scale = Vector2(0.3, 0.3)
 icon = ExtResource("2_5dash")
+script = ExtResource("11_nik8q")
 
 [node name="bordeBoton" type="AnimatedSprite2D" parent="moradoBoton"]
 position = Vector2(284.167, 252.5)
@@ -113,6 +121,7 @@ offset_right = 444.0
 offset_bottom = 802.0
 scale = Vector2(0.3, 0.3)
 icon = ExtResource("2_5dash")
+script = ExtResource("11_nik8q")
 
 [node name="bordeBoton" type="AnimatedSprite2D" parent="rosaBoton"]
 position = Vector2(267.5, 252.5)
@@ -129,6 +138,7 @@ offset_right = 660.0
 offset_bottom = 802.0
 scale = Vector2(0.3, 0.3)
 icon = ExtResource("2_5dash")
+script = ExtResource("11_nik8q")
 
 [node name="bordeBoton" type="AnimatedSprite2D" parent="naranjaBoton"]
 position = Vector2(267.5, 252.5)
@@ -159,17 +169,25 @@ texture = ExtResource("11_gt51w")
 
 [node name="MusicPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("14_2p84n")
-volume_db = -2.811
+volume_db = -1.874
 autoplay = true
 
 [connection signal="chain_timeout" from="." to="Block_Spawner" method="_on_main_chain_timeout"]
+[connection signal="timeout" from="Camera2D/shakeTimer" to="Camera2D" method="_on_shake_timer_timeout"]
 [connection signal="stun_end" from="Block_Spawner" to="BordeGrande" method="_on_block_spawner_stun_end"]
+[connection signal="stun_end" from="Block_Spawner" to="moradoBoton" method="_on_stun_end"]
 [connection signal="stun_end" from="Block_Spawner" to="moradoBoton/bordeBoton" method="_on_block_spawner_stun_end"]
+[connection signal="stun_end" from="Block_Spawner" to="rosaBoton" method="_on_stun_end"]
 [connection signal="stun_end" from="Block_Spawner" to="rosaBoton/bordeBoton" method="_on_block_spawner_stun_end"]
+[connection signal="stun_end" from="Block_Spawner" to="naranjaBoton" method="_on_stun_end"]
 [connection signal="stun_end" from="Block_Spawner" to="naranjaBoton/bordeBoton" method="_on_block_spawner_stun_end"]
+[connection signal="stun_start" from="Block_Spawner" to="Camera2D" method="_on_stun_start"]
 [connection signal="stun_start" from="Block_Spawner" to="BordeGrande" method="_on_block_spawner_stun_start"]
+[connection signal="stun_start" from="Block_Spawner" to="moradoBoton" method="_on_stun_start"]
 [connection signal="stun_start" from="Block_Spawner" to="moradoBoton/bordeBoton" method="_on_block_spawner_stun_start"]
+[connection signal="stun_start" from="Block_Spawner" to="rosaBoton" method="_on_stun_start"]
 [connection signal="stun_start" from="Block_Spawner" to="rosaBoton/bordeBoton" method="_on_block_spawner_stun_start"]
+[connection signal="stun_start" from="Block_Spawner" to="naranjaBoton" method="_on_stun_start"]
 [connection signal="stun_start" from="Block_Spawner" to="naranjaBoton/bordeBoton" method="_on_block_spawner_stun_start"]
 [connection signal="timeout" from="Block_Spawner/Timer" to="Block_Spawner" method="_on_timer_timeout"]
 [connection signal="button_down" from="moradoBoton" to="Block_Spawner" method="_on_morado_boton_button_down"]

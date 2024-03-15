@@ -1,6 +1,34 @@
-[gd_scene load_steps=2 format=3 uid="uid://8okscw02p0dw"]
+[gd_scene load_steps=6 format=3 uid="uid://8okscw02p0dw"]
 
 [ext_resource type="Script" path="res://minigames/esquivar obstáculos/main.gd" id="1_j2gs8"]
+[ext_resource type="PackedScene" uid="uid://d32f23hyaxgw3" path="res://minigames/esquivar obstáculos/jugador.tscn" id="2_2d736"]
+[ext_resource type="Texture2D" uid="uid://chh8ejqmdghce" path="res://minigames/esquivar obstáculos/fondo_cocina.png" id="3_8a4ba"]
+[ext_resource type="Texture2D" uid="uid://bpp6rvvxv50p1" path="res://minigames/esquivar obstáculos/bote_espaguetis.png" id="3_a3lwu"]
+[ext_resource type="Texture2D" uid="uid://cgo8kerqymwer" path="res://minigames/esquivar obstáculos/Lumache.png" id="4_mdvyd"]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_j2gs8")
+
+[node name="Fondo cocina" type="Sprite2D" parent="."]
+position = Vector2(360, 640)
+scale = Vector2(3.14, 3.14)
+texture = ExtResource("3_8a4ba")
+
+[node name="Bote espaguetis" type="Sprite2D" parent="."]
+position = Vector2(316, 220)
+rotation = 1.5708
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("3_a3lwu")
+
+[node name="Lumache" type="Sprite2D" parent="."]
+position = Vector2(412, 790)
+scale = Vector2(0.22, 0.22)
+texture = ExtResource("4_mdvyd")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+
+[node name="Sprite2D3" type="Sprite2D" parent="."]
+
+[node name="Jugador" parent="." instance=ExtResource("2_2d736")]
+position = Vector2(360, 1000)
+scale = Vector2(0.75, 0.75)

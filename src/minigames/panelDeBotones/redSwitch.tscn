@@ -6,7 +6,7 @@
 [node name="RedSwitch" type="Node2D"]
 
 [node name="switch" type="Sprite2D" parent="."]
-scale = Vector2(0.8, 0.8)
+scale = Vector2(1.4, 1.4)
 texture = ExtResource("1_ca05f")
 script = ExtResource("2_llp4h")
 

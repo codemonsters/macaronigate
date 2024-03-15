@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://biv6u4a3gw200"]
+
+[ext_resource type="Texture2D" uid="uid://cmgn43ocbut8y" path="res://menu/pasta/macaroni.png" id="1_koryg"]
+
+[node name="Farfalle" type="RigidBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.18, 0.18)
+texture = ExtResource("1_koryg")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2(-1, 5)
+polygon = PackedVector2Array(28, -19, 26, -4, 14, 6, 2, 9, -11, 7, -22, -2, -26, -19, -7, -17, -3, -11, 5, -11, 8, -17)

@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://cma2mntphkox4"]
+
+[ext_resource type="Texture2D" uid="uid://7d8ukf0fl8tb" path="res://menu/pasta/penne.png" id="1_ww3h3"]
+
+[node name="Farfalle" type="RigidBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.18, 0.18)
+texture = ExtResource("1_ww3h3")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2(-1, 5)
+polygon = PackedVector2Array(-38, -12, 25, -12, 40, 3, -21, 2)
