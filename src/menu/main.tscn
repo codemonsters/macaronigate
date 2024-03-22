@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://bfncwgh2sfxni"]
+[gd_scene load_steps=15 format=3 uid="uid://bfncwgh2sfxni"]
 
 [ext_resource type="Script" path="res://menu/main.gd" id="1_1774w"]
 [ext_resource type="Texture2D" uid="uid://drtxapnhgdl60" path="res://menu/images/Title.png" id="1_wht1s"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://blsxkmgrjrefs" path="res://menu/images/start_button_03.png" id="4_ud5u0"]
 [ext_resource type="Texture2D" uid="uid://dgerce2rid8gc" path="res://menu/images/start_button_04.png" id="5_y88i2"]
 [ext_resource type="Texture2D" uid="uid://coj8blwa1ssw8" path="res://menu/images/copyright.png" id="6_jr4tu"]
+[ext_resource type="AudioStream" uid="uid://c8hb4kefw0nyv" path="res://menu/menuSongLoop.ogg" id="9_pix86"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ntw0s"]
 size = Vector2(212, 89)
@@ -121,6 +122,10 @@ offset_top = 900.0
 offset_right = 460.0
 offset_bottom = 940.0
 text = "Pick Game"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_pix86")
+autoplay = true
 
 [connection signal="pressed" from="PlayButton" to="." method="_on_play_button_pressed"]
 [connection signal="timeout" from="PastaConstructorTimer" to="." method="_on_pasta_constructor_timer_timeout"]
