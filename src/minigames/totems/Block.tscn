@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://d22tvnmdq52dk"]
 
 [ext_resource type="Script" path="res://minigames/totems/CharacterBody2D.gd" id="1_f4kft"]
-[ext_resource type="Texture2D" uid="uid://hcnx7vd5075l" path="res://placeholder.png" id="2_cyygm"]
+[ext_resource type="Texture2D" uid="uid://drri71vghfe1d" path="res://minigames/totems/white_square.png" id="2_4o3eo"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5nv87"]
 size = Vector2(509, 207.5)
@@ -14,7 +14,7 @@ script = ExtResource("1_f4kft")
 [node name="Sprite2D" type="Sprite2D" parent="Block"]
 position = Vector2(1.99997, -1.5)
 scale = Vector2(0.984375, 0.396484)
-texture = ExtResource("2_cyygm")
+texture = ExtResource("2_4o3eo")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Block"]
 position = Vector2(1, -1)

@@ -2,7 +2,6 @@
 
 [ext_resource type="Script" path="res://minigames/totems/main.gd" id="1_qcm1e"]
 [ext_resource type="Texture2D" uid="uid://bc601x3174vxd" path="res://minigames/totems/fondo.png" id="1_uv2t7"]
-[ext_resource type="Texture2D" uid="uid://hcnx7vd5075l" path="res://placeholder.png" id="2_5dash"]
 [ext_resource type="Script" path="res://minigames/totems/Camera2D.gd" id="2_yj5lu"]
 [ext_resource type="Script" path="res://minigames/totems/BlockSpawner.gd" id="3_4x1id"]
 [ext_resource type="Texture2D" uid="uid://d1usuxrhmspu7" path="res://minigames/totems/bordeFondo1.png" id="3_b83ca"]
@@ -13,6 +12,7 @@
 [ext_resource type="AudioStream" uid="uid://17dmo6nbtm46" path="res://minigames/totems/click.wav" id="4_tdstx"]
 [ext_resource type="Script" path="res://minigames/totems/animacionBasica.gd" id="5_lthdy"]
 [ext_resource type="Texture2D" uid="uid://b4341h4anxscw" path="res://minigames/totems/tornillo.png" id="5_x2jwd"]
+[ext_resource type="Texture2D" uid="uid://drri71vghfe1d" path="res://minigames/totems/white_square.png" id="7_ti7d8"]
 [ext_resource type="Texture2D" uid="uid://cgx8f4qdq23il" path="res://minigames/totems/PLAGA_GOD.png" id="11_gt51w"]
 [ext_resource type="Script" path="res://minigames/totems/botonVisualScript.gd" id="11_nik8q"]
 [ext_resource type="AudioStream" uid="uid://dm7m3cjd0d3n6" path="res://minigames/totems/bloquesTheme.ogg" id="14_2p84n"]
@@ -81,7 +81,7 @@ one_shot = true
 modulate = Color(0.52549, 0.52549, 0.52549, 1)
 position = Vector2(0, 432)
 scale = Vector2(1.9668, 1)
-texture = ExtResource("2_5dash")
+texture = ExtResource("7_ti7d8")
 
 [node name="tornillo" type="Sprite2D" parent="."]
 position = Vector2(324.5, 236)
@@ -103,7 +103,7 @@ offset_top = 282.0
 offset_right = 231.0
 offset_bottom = 802.0
 scale = Vector2(0.3, 0.3)
-icon = ExtResource("2_5dash")
+icon = ExtResource("7_ti7d8")
 script = ExtResource("11_nik8q")
 
 [node name="bordeBoton" type="AnimatedSprite2D" parent="moradoBoton"]
@@ -120,7 +120,7 @@ offset_top = 282.0
 offset_right = 444.0
 offset_bottom = 802.0
 scale = Vector2(0.3, 0.3)
-icon = ExtResource("2_5dash")
+icon = ExtResource("7_ti7d8")
 script = ExtResource("11_nik8q")
 
 [node name="bordeBoton" type="AnimatedSprite2D" parent="rosaBoton"]
@@ -137,7 +137,7 @@ offset_top = 282.0
 offset_right = 660.0
 offset_bottom = 802.0
 scale = Vector2(0.3, 0.3)
-icon = ExtResource("2_5dash")
+icon = ExtResource("7_ti7d8")
 script = ExtResource("11_nik8q")
 
 [node name="bordeBoton" type="AnimatedSprite2D" parent="naranjaBoton"]
