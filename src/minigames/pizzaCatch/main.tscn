@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://clnxg0filmhhm"]
+[gd_scene load_steps=6 format=3 uid="uid://clnxg0filmhhm"]
 
 [ext_resource type="Script" path="res://minigames/pizzaCatch/main.gd" id="1_etdbm"]
 [ext_resource type="PackedScene" uid="uid://be58n7lis21wr" path="res://minigames/pizzaCatch/Carlos.tscn" id="2_23qb4"]
+[ext_resource type="Texture2D" uid="uid://dtw2ab0r2ujn7" path="res://minigames/pizzaCatch/Untitled.png" id="3_ipyev"]
 
 [sub_resource type="Curve2D" id="Curve2D_a1jsm"]
 _data = {
@@ -15,13 +16,9 @@ b = Vector2(720, 0)
 [node name="Main" type="Node2D"]
 script = ExtResource("1_etdbm")
 
-[node name="ColorRect" type="ColorRect" parent="."]
-offset_right = 720.0
-offset_bottom = 1280.0
-color = Color(0.85098, 0.976471, 0.988235, 1)
-
 [node name="Carlos" parent="." instance=ExtResource("2_23qb4")]
-position = Vector2(360, 1050)
+top_level = true
+position = Vector2(360, 940)
 
 [node name="SpawnPath" type="Path2D" parent="."]
 scale = Vector2(1, 0.527778)
@@ -50,6 +47,12 @@ self_modulate = Color(1, 1, 1, 0)
 offset_left = 360.0
 offset_right = 720.0
 offset_bottom = 1280.0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+light_mask = 512
+visibility_layer = 512
+position = Vector2(360, 640)
+texture = ExtResource("3_ipyev")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
