@@ -14,6 +14,9 @@ func _ready():
 	game_cleared.connect(Callable(get_parent(), "on_game_cleared"))
 	$Destroy.play()
 
+func on_game_start():
+	$Timer.start()
+
 func _on_timer_timeout():
 	if instances > 4:
 		$Timer.stop()
