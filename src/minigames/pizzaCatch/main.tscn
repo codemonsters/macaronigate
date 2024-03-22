@@ -27,7 +27,6 @@ curve = SubResource("Curve2D_a1jsm")
 [node name="SpawnLocation" type="PathFollow2D" parent="SpawnPath"]
 
 [node name="Timer" type="Timer" parent="."]
-autostart = true
 
 [node name="Area2D" type="Area2D" parent="."]
 

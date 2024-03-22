@@ -16,8 +16,10 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
-	
-	
+
+func on_game_start():
+	$Timer.start()
+
 func _on_timer_timeout():
 	var laura = laura_scene.instantiate()
 	var laura_spawn_location = get_node("SpawnPath/SpawnLocation")
@@ -28,7 +30,6 @@ func _on_timer_timeout():
 	
 func on_pizza_catched(node):
 	node.queue_free()
-
 
 func _on_area_2d_body_entered(body):
 	if in_game == true:
