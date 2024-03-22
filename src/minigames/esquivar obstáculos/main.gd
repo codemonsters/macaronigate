@@ -13,6 +13,8 @@ var area_movimiento = preload("res://minigames/esquivar obstáculos/area_movimie
 var separacion = 100
 var num_plataformas
 var distancia
+var x = 0
+var jump = false
 var modulo_a = 0
 var filas = 6
 var marmol_anterior
@@ -45,15 +47,19 @@ func _ready():
 				area_movimiento2.position=Vector2(2*59+separacion+marmol_anterior,200+150*y)
 				print(2*59+separacion+marmol_anterior)
 			marmol_anterior = marmol2.position.x
-			#mouse_touch.connect(Callable(area_movimiento2, "on_area_movimiento_mouse_touch"))
-
-
+			mouse_touch.connect(Callable(area_movimiento2.get_node("Area2D"), "on_area_movimiento_mouse_touch"))
 
 func _process(delta):
-	pass
+	if jump:
+		$Jugador/CharacterBody2D.jump(delta)
+		if $Jugador/CharacterBody2D.position.x - x > 218 or $Jugador/CharacterBody2D.position.x - x < -218:
+			jump = false
+	else:
+		x = $Jugador/CharacterBody2D.position.x
+		$Jugador/CharacterBody2D.t = 0
 
 func on_area_movimiento_mouse_touch():
-	pass
+	jump = true
 
 func on_game_timeout():
 	game_cleared.emit()
