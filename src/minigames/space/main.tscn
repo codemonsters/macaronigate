@@ -30,7 +30,6 @@ shape = SubResource("RectangleShape2D_oknn5")
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.55
-autostart = true
 
 [node name="MeteorTouched" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_jnn7m")
