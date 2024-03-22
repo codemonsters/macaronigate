@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://bfncwgh2sfxni"]
+[gd_scene load_steps=14 format=3 uid="uid://bfncwgh2sfxni"]
 
 [ext_resource type="Script" path="res://menu/main.gd" id="1_1774w"]
 [ext_resource type="Texture2D" uid="uid://drtxapnhgdl60" path="res://menu/images/Title.png" id="1_wht1s"]
@@ -8,6 +8,9 @@
 [ext_resource type="Texture2D" uid="uid://blsxkmgrjrefs" path="res://menu/images/start_button_03.png" id="4_ud5u0"]
 [ext_resource type="Texture2D" uid="uid://dgerce2rid8gc" path="res://menu/images/start_button_04.png" id="5_y88i2"]
 [ext_resource type="Texture2D" uid="uid://coj8blwa1ssw8" path="res://menu/images/copyright.png" id="6_jr4tu"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ntw0s"]
+size = Vector2(212, 89)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_pv0lc"]
 animations = [{
@@ -61,6 +64,7 @@ polygon = PackedVector2Array(-261, -76, -142, -61, -120, -71, 0, -69, 86, -58, 1
 
 [node name="PlayButton" type="TouchScreenButton" parent="."]
 position = Vector2(361, 750)
+shape = SubResource("RectangleShape2D_ntw0s")
 
 [node name="AnimatableBody2D" type="AnimatableBody2D" parent="PlayButton"]
 
@@ -104,4 +108,21 @@ shape = SubResource("RectangleShape2D_0csc8")
 position = Vector2(360, 1200)
 texture = ExtResource("6_jr4tu")
 
+[node name="GamePicker" type="ItemList" parent="."]
+visible = false
+offset_left = 260.0
+offset_top = 950.0
+offset_right = 460.0
+offset_bottom = 1150.0
+
+[node name="PickerToggle" type="Button" parent="."]
+offset_left = 260.0
+offset_top = 900.0
+offset_right = 460.0
+offset_bottom = 940.0
+text = "Pick Game"
+
+[connection signal="pressed" from="PlayButton" to="." method="_on_play_button_pressed"]
 [connection signal="timeout" from="PastaConstructorTimer" to="." method="_on_pasta_constructor_timer_timeout"]
+[connection signal="item_selected" from="GamePicker" to="." method="_on_game_picker_item_selected"]
+[connection signal="pressed" from="PickerToggle" to="." method="_on_picker_toggle_pressed"]
