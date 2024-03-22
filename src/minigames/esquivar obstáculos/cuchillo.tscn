@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://cixd2ift3ysb1"]
+
+[ext_resource type="Texture2D" uid="uid://bsivv2wba0gt7" path="res://minigames/esquivar obstáculos/Cuchillo.png" id="1_7rig0"]
+
+[node name="Cuchillo" type="Node2D"]
+
+[node name="AnimatableBody2D" type="AnimatableBody2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="AnimatableBody2D"]
+scale = Vector2(0.35, 0.35)
+texture = ExtResource("1_7rig0")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="AnimatableBody2D"]
+scale = Vector2(-1.15101, 12.9264)
