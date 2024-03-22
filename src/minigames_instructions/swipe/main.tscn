@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://bwinkxm8ikilh"]
+
+[ext_resource type="Texture2D" uid="uid://b544nd35ycty0" path="res://minigames_instructions/tap/finger.png" id="1_hhw10"]
+
+[node name="Main" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(473, 875)
+rotation = 5.2674
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("1_hhw10")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]

@@ -142,24 +142,22 @@ libraries = {
 autoplay = "main"
 
 [node name="GlowCircle1" type="Sprite2D" parent="."]
-modulate = Color(1, 1, 1, 0)
-position = Vector2(200, 360)
-scale = Vector2(0.5, 0.5)
+position = Vector2(484, 368)
+scale = Vector2(0.01, 0.01)
 texture = ExtResource("1_iggf2")
 
 [node name="GlowCircle2" type="Sprite2D" parent="."]
-modulate = Color(1, 1, 1, 0)
 position = Vector2(219, 743)
-scale = Vector2(0.5, 0.5)
+scale = Vector2(0.001, 0.001)
 texture = ExtResource("1_iggf2")
 
 [node name="GlowCircle3" type="Sprite2D" parent="."]
 position = Vector2(568, 141)
-scale = Vector2(0.5, 0.5)
+scale = Vector2(0.001, 0.001)
 texture = ExtResource("1_iggf2")
 
 [node name="Finger" type="Sprite2D" parent="."]
-position = Vector2(924, 426)
+position = Vector2(823, 672)
 rotation = -0.90059
 scale = Vector2(0.4, 0.4)
 texture = ExtResource("2_dhtll")
