@@ -6,6 +6,7 @@ extends Node2D
 # corresponding minigame subfolder, and then start the project normally using F5
 # var launch_minigame_directly = "esquivar.coches"
 var launch_minigame_directly = null
+
 # If you want to launch specific minigames in a specific order
 # var minigames_order_override = ["ñarkanoid", "pizzaCatch"]
 var minigames_order_override = null
@@ -76,7 +77,6 @@ func load_game(game_n = 0):
 	
 	game_start.connect(Callable(scene, "on_game_start"))
 	if scene.needs_timer:
-		# game_start.connect(Callable(scene, "on_game_start"))
 		game_timeout.connect(Callable(scene, "on_game_timeout"))
 		current_game_seconds_left = scene.timer_seconds
 
@@ -88,10 +88,6 @@ func load_game(game_n = 0):
 		var instructions = load("res://minigames_instructions/" + scene.instruction_type + "/main.tscn").instantiate()
 		instructions.add_to_group("game_instructions")
 		add_child(instructions)
-		#print(get_node("Main/AnimationPlayer"))
-		#get_tree.get_nodes_in_group("game_instructions")
-		#for index in range(get_child_count()):
-			#print(get_child(index).get_groups())
 		
 		await instructions.get_node("AnimationPlayer").animation_finished
 		remove_childs_in_group("game_instructions")
@@ -158,13 +154,12 @@ func on_game_intro_finished():
 	
 func on_play_button_pressed():
 	if signal_inhibit == true:
-		print("Signal inhibited!")
+		print("Play button signal inhibited!")
 		#assert(false, "Signal inhibited! Make sure the game does not send signals after game ends!")
 	else:
 		signal_inhibit = true
 		$AnimationPlayer.play("fade_in_black")
 		await $AnimationPlayer.animation_finished
-		signal_inhibit = false
 		remove_childs_in_group("menu")
 		if launch_minigame_directly == null:
 			load_game_intro()
