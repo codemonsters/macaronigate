@@ -69,6 +69,7 @@ func _on_play_button_pressed():
 func _on_picker_toggle_pressed():
 	if $GamePicker.is_visible():
 		$GamePicker.hide()
+		$GamePicker.deselect_all();
 		game.launch_minigame_directly = null
 		$PickerToggle.set_text("Pick Game")
 	else:
