@@ -5,13 +5,18 @@ extends Node2D
 signal game_over
 signal game_cleared
 
-@export var clicks_needed = 3 	# número de clicks necesarios para que el globo explote
+var clicks_needed = 3 	# número de clicks necesarios para que el globo explote
 @export var game_brief = "Blow up!"
 @export var needs_timer = true
 @export var timer_seconds = 10
 
 # TODO: Corregir esto para que cargue la escena (preferible usando una ruta relativa)
-var piece_01_factory = preload("res://piece_01.tscn")
+var piece_01_factory = preload("res://minigames/explotar_globo/balloon_pieces/piece_01.tscn")
+var piece_02_factory = preload("res://minigames/explotar_globo/balloon_pieces/piece_02.tscn")
+var piece_03_factory = preload("res://minigames/explotar_globo/balloon_pieces/piece_03.tscn")
+var piece_04_factory = preload("res://minigames/explotar_globo/balloon_pieces/piece_04.tscn")
+var piece_05_factory = preload("res://minigames/explotar_globo/balloon_pieces/piece_05.tscn")
+
 
 func _ready():
 	game_over.connect(Callable(get_parent(), "on_game_over"))
@@ -28,7 +33,7 @@ func _on_button_pressed():
 	$globo.scale.x += 0.01
 	$globo.scale.y += 0.01
 	
-	clicks_needed -= 1	
+	clicks_needed -= 1
 	print(clicks_needed)
 	if clicks_needed <= 0:
 		game_cleared.emit()
@@ -37,7 +42,28 @@ func _on_button_pressed():
 
 
 func _on_white_light_timer_timeout():
-	# TODO: Revisar esto
-	var piece = piece_01_factory.instantiate()
-	$PiecesContainer.add_child(piece)
+	var piece
+	$sfx/celebration.play()
+	
+	for i in range(30):
+		var balloon_piece = randi_range(1, 5)
+		print(balloon_piece)
+		if balloon_piece == 1:
+			piece = piece_01_factory.instantiate()
+		elif balloon_piece == 2:
+			piece = piece_02_factory.instantiate()
+		elif balloon_piece == 3:
+			piece = piece_03_factory.instantiate()
+		elif balloon_piece == 4:
+			piece = piece_04_factory.instantiate()
+		else:
+			piece = piece_05_factory.instantiate()
+		
+		piece.position = $globo.position
+		piece.scale = Vector2(randf_range(-1, 1), randf_range(-1, 1))
+		piece.linear_velocity = Vector2.from_angle(randf_range(0, 2 * PI)) * 500 * Vector2(1, randf_range(-2.5, 0))
+		piece.angular_velocity = randi_range(-20, 20)
+		$PiecesContainer.add_child(piece)
+	
+	$WhiteLightTimer.stop()
 

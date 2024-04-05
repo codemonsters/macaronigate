@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b6whcnpb327oq"
-path="res://.godot/imported/parte1.png-b80148cad9c3671cd237cb0c47f5c31b.ctex"
+uid="uid://pt412sx0vbru"
+path="res://.godot/imported/piece_04.png-cfb1942dfa10418d4a054f9fbc68ba6d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://minigames/explotar_globo/balloon_pieces/parte1.png"
-dest_files=["res://.godot/imported/parte1.png-b80148cad9c3671cd237cb0c47f5c31b.ctex"]
+source_file="res://minigames/explotar_globo/balloon_pieces/piece_04.png"
+dest_files=["res://.godot/imported/piece_04.png-cfb1942dfa10418d4a054f9fbc68ba6d.ctex"]
 
 [params]
 

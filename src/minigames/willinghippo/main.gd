@@ -33,7 +33,7 @@ func _ready():
 	game_over.connect(Callable(get_parent(), "on_game_over"))
 	game_cleared.connect(Callable(get_parent(), "on_game_cleared"))
 	randomize()
-	PhysicsServer2D.area_set_param(get_world_2d().space, PhysicsServer2D.AREA_PARAM_GRAVITY_VECTOR, Vector2(0,1))
+	PhysicsServer2D.area_set_param(get_world_2d().space, PhysicsServer2D.AREA_PARAM_GRAVITY_VECTOR, Vector2(0,-1))
 	num_plataformas = 720/(118+separacion)
 	num_plataformas = round(num_plataformas)
 	distancia = (720 - (118*num_plataformas+separacion*(num_plataformas-1)))/2
@@ -80,20 +80,24 @@ func _process(delta):
 		direction = factor_gravedad * Vector2(sin(angulo),cos(angulo))
 	if modulo_a > shake_threshold:
 		jump()
-	PhysicsServer2D.area_set_param(get_world_2d().space, PhysicsServer2D.AREA_PARAM_GRAVITY_VECTOR, direction)
+		
+	
+	
+	
 	if (game_in_progress):
+		PhysicsServer2D.area_set_param(get_world_2d().space, PhysicsServer2D.AREA_PARAM_GRAVITY_VECTOR, direction)
 		if $Hipopotamo.overlaps_body($watermelon/RigidBody2D):
 			$hippo_mouth.rotate(-1)
 			game_cleared.emit()
-			PhysicsServer2D.area_set_param(get_world_2d().space, PhysicsServer2D.AREA_PARAM_GRAVITY_VECTOR, Vector2(0,1))
+			PhysicsServer2D.area_set_param(get_world_2d().space, PhysicsServer2D.AREA_PARAM_GRAVITY_VECTOR, Vector2(0,-1))
 			game_in_progress = false
 		if ($LimiteIzquierda.overlaps_body($watermelon/RigidBody2D) or $LimiteDerecha.overlaps_body($watermelon/RigidBody2D) or $LimiteArriba.overlaps_body($watermelon/RigidBody2D) or $LimiteAbajo.overlaps_body($watermelon/RigidBody2D)):
 			game_over.emit()
-			PhysicsServer2D.area_set_param(get_world_2d().space, PhysicsServer2D.AREA_PARAM_GRAVITY_VECTOR, Vector2(0,1))
+			PhysicsServer2D.area_set_param(get_world_2d().space, PhysicsServer2D.AREA_PARAM_GRAVITY_VECTOR, Vector2(0,-1))
 			game_in_progress = false
 func on_game_timeout():
 	game_over.emit()
-	PhysicsServer2D.area_set_param(get_world_2d().space, PhysicsServer2D.AREA_PARAM_GRAVITY_VECTOR, Vector2(0,1))
+	PhysicsServer2D.area_set_param(get_world_2d().space, PhysicsServer2D.AREA_PARAM_GRAVITY_VECTOR, Vector2(0,-1))
 	game_in_progress = false
 	
 	

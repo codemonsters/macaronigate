@@ -278,10 +278,10 @@ volume_db = 2.811
 autoplay = true
 
 [connection signal="game_over" from="." to="luzPolicia" method="_on_main_game_over"]
-[connection signal="button_down" from="Steal" to="luzPolicia" method="_on_steal_button_down"]
 [connection signal="button_down" from="Steal" to="Steal" method="_on_button_down"]
-[connection signal="button_up" from="Steal" to="luzPolicia" method="_on_steal_button_up"]
+[connection signal="button_down" from="Steal" to="luzPolicia" method="_on_steal_button_down"]
 [connection signal="button_up" from="Steal" to="Steal" method="_on_button_up"]
+[connection signal="button_up" from="Steal" to="luzPolicia" method="_on_steal_button_up"]
 [connection signal="game_lose" from="luzPolicia" to="." method="_on_game_lose"]
 [connection signal="game_lose" from="luzPolicia" to="Camera3D" method="_on_game_lose"]
 [connection signal="game_win" from="luzPolicia" to="." method="_on_game_win"]

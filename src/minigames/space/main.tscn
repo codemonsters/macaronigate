@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://duhe4f22qm1gf"]
+[gd_scene load_steps=8 format=3 uid="uid://duhe4f22qm1gf"]
 
 [ext_resource type="Script" path="res://minigames/space/main.gd" id="1_lgk42"]
 [ext_resource type="PackedScene" uid="uid://bubwpbei0x08l" path="res://minigames/space/nave.tscn" id="2_ri1rc"]
 [ext_resource type="Script" path="res://minigames/space/nave.gd" id="3_6el3u"]
 [ext_resource type="AudioStream" uid="uid://ftfjw0dd8eba" path="res://minigames/space/GrenadeExplosion.mp3" id="4_jnn7m"]
 [ext_resource type="AudioStream" uid="uid://c8bacv3r2dw02" path="res://minigames/space/Destroy.mp3" id="5_mew83"]
+[ext_resource type="AudioStream" uid="uid://dwfv7mt2uqdcj" path="res://minigames/space/spacemusicFINAL.ogg" id="6_8sg1f"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_oknn5"]
 size = Vector2(600, 624)
@@ -38,5 +39,10 @@ volume_db = -13.116
 [node name="Destroy" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_mew83")
 volume_db = -2.0
+
+[node name="MusicPlayer" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_8sg1f")
+volume_db = 16.866
+autoplay = true
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -169,7 +169,7 @@ texture = ExtResource("11_gt51w")
 
 [node name="MusicPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("14_2p84n")
-volume_db = -1.874
+volume_db = 2.811
 autoplay = true
 
 [connection signal="chain_timeout" from="." to="Block_Spawner" method="_on_main_chain_timeout"]

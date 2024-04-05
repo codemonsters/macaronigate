@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://cwaqgmpflqbb0"]
+
+[ext_resource type="Texture2D" uid="uid://ckviwxj6yne70" path="res://minigames/explotar_globo/balloon_pieces/piece_03.png" id="1_7elbr"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wgtdr"]
+
+[node name="Piece04" type="RigidBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-79, -43)
+scale = Vector2(0.12, 0.12)
+texture = ExtResource("1_7elbr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_wgtdr")
+disabled = true
