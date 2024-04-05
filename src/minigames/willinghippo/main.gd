@@ -83,7 +83,7 @@ func _process(delta):
 	PhysicsServer2D.area_set_param(get_world_2d().space, PhysicsServer2D.AREA_PARAM_GRAVITY_VECTOR, direction)
 	if (game_in_progress):
 		if $Hipopotamo.overlaps_body($watermelon/RigidBody2D):
-			$hippo_mouth.rotate(-1)
+			eat()
 			game_cleared.emit()
 			PhysicsServer2D.area_set_param(get_world_2d().space, PhysicsServer2D.AREA_PARAM_GRAVITY_VECTOR, Vector2(0,1))
 			game_in_progress = false
@@ -91,11 +91,14 @@ func _process(delta):
 			game_over.emit()
 			PhysicsServer2D.area_set_param(get_world_2d().space, PhysicsServer2D.AREA_PARAM_GRAVITY_VECTOR, Vector2(0,1))
 			game_in_progress = false
+
 func on_game_timeout():
 	game_over.emit()
 	PhysicsServer2D.area_set_param(get_world_2d().space, PhysicsServer2D.AREA_PARAM_GRAVITY_VECTOR, Vector2(0,1))
 	game_in_progress = false
 	
+func eat():
+	$hippo_mouth.rotate(-1)
 	
 	
 	

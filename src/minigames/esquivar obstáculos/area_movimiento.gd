@@ -1,6 +1,6 @@
 extends Area2D
 
-signal mouse_touch
+signal mouse_touch(event)
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -11,7 +11,6 @@ func _ready():
 func _process(delta):
 	pass
 
-
 func _unhandled_input(event):
 	if event is InputEventScreenTouch:
-		mouse_touch.emit()
+		mouse_touch.emit(event)
