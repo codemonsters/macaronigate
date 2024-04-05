@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://dmp01pjmnnsk"]
 
-[ext_resource type="Texture2D" uid="uid://dk476btqll2om" path="res://minigames_instructions/touch_left_or_right/glow_circle.png" id="1_3ivea"]
+[ext_resource type="Script" path="res://minigames_instructions/touch_left_or_right/main.gd" id="1_0nv3w"]
 [ext_resource type="Texture2D" uid="uid://b6t6gc2wldxc4" path="res://minigames_instructions/touch_left_or_right/thumb_left.png" id="1_6pgyq"]
 [ext_resource type="Texture2D" uid="uid://co1b3gnh77i1y" path="res://minigames_instructions/touch_left_or_right/thumb_right.png" id="2_g4ny4"]
 
@@ -31,221 +31,19 @@ tracks/1/keys = {
 "update": 0,
 "values": [Vector2(2, 2), Vector2(2, 2), Vector2(2, 1.8), Vector2(2, 2), Vector2(2, 1.8), Vector2(2, 2), Vector2(2, 1.8), Vector2(2, 2)]
 }
-tracks/2/type = "value"
+tracks/2/type = "method"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("GlowCircleLeft1:scale")
+tracks/2/path = NodePath(".")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0.2, 1.7),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(0.1, 0.1), Vector2(0.4, 0.4)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("GlowCircleLeft1:modulate")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.2, 1.7),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("GlowCircleRight1:scale")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0, 0.4, 1.9),
-"transitions": PackedFloat32Array(1, 0.5, 1),
-"update": 0,
-"values": [Vector2(0, 0), Vector2(0.1, 0.1), Vector2(0.4, 0.4)]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("GlowCircleRight1:modulate")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0, 0.4, 1.9),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
-}
-tracks/6/type = "value"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("GlowCircleLeft2:scale")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
-"times": PackedFloat32Array(0.6, 2.1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(0.1, 0.1), Vector2(0.4, 0.4)]
-}
-tracks/7/type = "value"
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/path = NodePath("GlowCircleLeft2:modulate")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/keys = {
-"times": PackedFloat32Array(0, 0.6, 2.1),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
-}
-tracks/8/type = "value"
-tracks/8/imported = false
-tracks/8/enabled = true
-tracks/8/path = NodePath("GlowCircleRight2:scale")
-tracks/8/interp = 1
-tracks/8/loop_wrap = true
-tracks/8/keys = {
-"times": PackedFloat32Array(0, 0.8, 2.2),
-"transitions": PackedFloat32Array(1, 0.5, 1),
-"update": 0,
-"values": [Vector2(1e-05, 1e-05), Vector2(0.1, 0.1), Vector2(0.4, 0.4)]
-}
-tracks/9/type = "value"
-tracks/9/imported = false
-tracks/9/enabled = true
-tracks/9/path = NodePath("GlowCircleRight2:modulate")
-tracks/9/interp = 1
-tracks/9/loop_wrap = true
-tracks/9/keys = {
-"times": PackedFloat32Array(0, 0.8, 2.2),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
-}
-tracks/10/type = "value"
-tracks/10/imported = false
-tracks/10/enabled = true
-tracks/10/path = NodePath("GlowCircleLeft3:scale")
-tracks/10/interp = 1
-tracks/10/loop_wrap = true
-tracks/10/keys = {
-"times": PackedFloat32Array(0, 1, 2.3),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector2(1e-05, 1e-05), Vector2(0.1, 0.1), Vector2(0.4, 0.4)]
-}
-tracks/11/type = "value"
-tracks/11/imported = false
-tracks/11/enabled = true
-tracks/11/path = NodePath("GlowCircleLeft3:modulate")
-tracks/11/interp = 1
-tracks/11/loop_wrap = true
-tracks/11/keys = {
-"times": PackedFloat32Array(0, 1, 2.3),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
-}
-tracks/12/type = "value"
-tracks/12/imported = false
-tracks/12/enabled = true
-tracks/12/path = NodePath("GlowCircleRight3:scale")
-tracks/12/interp = 1
-tracks/12/loop_wrap = true
-tracks/12/keys = {
-"times": PackedFloat32Array(0, 1.2, 2.4),
-"transitions": PackedFloat32Array(1, 0.5, 1),
-"update": 0,
-"values": [Vector2(1e-05, 1e-05), Vector2(0.1, 0.1), Vector2(0.4, 0.4)]
-}
-tracks/13/type = "value"
-tracks/13/imported = false
-tracks/13/enabled = true
-tracks/13/path = NodePath("GlowCircleRight3:modulate")
-tracks/13/interp = 1
-tracks/13/loop_wrap = true
-tracks/13/keys = {
-"times": PackedFloat32Array(0, 1.2, 2.4),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
-}
-tracks/14/type = "value"
-tracks/14/imported = false
-tracks/14/enabled = true
-tracks/14/path = NodePath("GlowCircleLeft1:visible")
-tracks/14/interp = 1
-tracks/14/loop_wrap = true
-tracks/14/keys = {
-"times": PackedFloat32Array(0, 0.2),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [false, true]
-}
-tracks/15/type = "value"
-tracks/15/imported = false
-tracks/15/enabled = true
-tracks/15/path = NodePath("GlowCircleRight1:visible")
-tracks/15/interp = 1
-tracks/15/loop_wrap = true
-tracks/15/keys = {
-"times": PackedFloat32Array(0, 0.4),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [false, true]
-}
-tracks/16/type = "value"
-tracks/16/imported = false
-tracks/16/enabled = true
-tracks/16/path = NodePath("GlowCircleLeft2:visible")
-tracks/16/interp = 1
-tracks/16/loop_wrap = true
-tracks/16/keys = {
-"times": PackedFloat32Array(0, 0.6),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [false, true]
-}
-tracks/17/type = "value"
-tracks/17/imported = false
-tracks/17/enabled = true
-tracks/17/path = NodePath("GlowCircleRight2:visible")
-tracks/17/interp = 1
-tracks/17/loop_wrap = true
-tracks/17/keys = {
-"times": PackedFloat32Array(0, 0.8),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [false, true]
-}
-tracks/18/type = "value"
-tracks/18/imported = false
-tracks/18/enabled = true
-tracks/18/path = NodePath("GlowCircleLeft3:visible")
-tracks/18/interp = 1
-tracks/18/loop_wrap = true
-tracks/18/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [false, true]
-}
-tracks/19/type = "value"
-tracks/19/imported = false
-tracks/19/enabled = true
-tracks/19/path = NodePath("GlowCircleRight3:visible")
-tracks/19/interp = 1
-tracks/19/loop_wrap = true
-tracks/19/keys = {
-"times": PackedFloat32Array(0, 1.2),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [false, true]
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [1, 3],
+"method": &"touch"
+}]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_hubg1"]
@@ -254,48 +52,19 @@ _data = {
 }
 
 [node name="Main" type="Node2D"]
+script = ExtResource("1_0nv3w")
 
-[node name="GlowCircleLeft1" type="Sprite2D" parent="."]
-visible = false
-modulate = Color(1, 1, 1, 0)
-position = Vector2(171, 726)
-scale = Vector2(0.4, 0.4)
-texture = ExtResource("1_3ivea")
+[node name="Waves" type="Node2D" parent="."]
 
-[node name="GlowCircleLeft2" type="Sprite2D" parent="."]
-visible = false
-modulate = Color(1, 1, 1, 0)
-position = Vector2(171, 726)
-scale = Vector2(0.4, 0.4)
-texture = ExtResource("1_3ivea")
+[node name="Posiciones puntos" type="Node2D" parent="."]
+z_index = 6
 
-[node name="GlowCircleLeft3" type="Sprite2D" parent="."]
-visible = false
-modulate = Color(1, 1, 1, 0)
-position = Vector2(171, 726)
-scale = Vector2(0.4, 0.4)
-texture = ExtResource("1_3ivea")
+[node name="WavePos1" type="Marker2D" parent="Posiciones puntos"]
+z_index = -1
+position = Vector2(176, 683)
 
-[node name="GlowCircleRight1" type="Sprite2D" parent="."]
-visible = false
-modulate = Color(1, 1, 1, 0)
-position = Vector2(560, 753)
-scale = Vector2(0.4, 0.4)
-texture = ExtResource("1_3ivea")
-
-[node name="GlowCircleRight2" type="Sprite2D" parent="."]
-visible = false
-modulate = Color(1, 1, 1, 0)
-position = Vector2(560, 753)
-scale = Vector2(0.4, 0.4)
-texture = ExtResource("1_3ivea")
-
-[node name="GlowCircleRight3" type="Sprite2D" parent="."]
-visible = false
-modulate = Color(1, 1, 1, 0)
-position = Vector2(560, 753)
-scale = Vector2(0.4, 0.4)
-texture = ExtResource("1_3ivea")
+[node name="WavePos2" type="Marker2D" parent="Posiciones puntos"]
+position = Vector2(559, 733)
 
 [node name="ThumbLeft" type="Sprite2D" parent="."]
 position = Vector2(68, 1021)

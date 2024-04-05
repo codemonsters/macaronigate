@@ -106,4 +106,6 @@ libraries = {
 "": SubResource("AnimationLibrary_8sdos")
 }
 
+[node name="Line2D" type="Line2D" parent="."]
+
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
