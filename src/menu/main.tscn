@@ -115,7 +115,6 @@ offset_left = 260.0
 offset_top = 950.0
 offset_right = 460.0
 offset_bottom = 1150.0
-allow_reselect = true
 
 [node name="PickerToggle" type="Button" parent="."]
 offset_left = 260.0

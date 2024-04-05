@@ -1,0 +1,64 @@
+[gd_scene load_steps=5 format=3 uid="uid://dqix446rt86vj"]
+
+[ext_resource type="Texture2D" uid="uid://dk476btqll2om" path="res://minigames_instructions/touch_left_or_right/glow_circle.png" id="1_wo504"]
+[ext_resource type="Script" path="res://minigames_instructions/Wave.gd" id="2_kmw3f"]
+
+[sub_resource type="Animation" id="Animation_qcv4w"]
+resource_name = "Wave"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.2, 1.7),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0.1, 0.1), Vector2(0.4, 0.4)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2, 1.7),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_xiu27"]
+_data = {
+"Wave": SubResource("Animation_qcv4w")
+}
+
+[node name="Wave" type="Sprite2D"]
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("1_wo504")
+script = ExtResource("2_kmw3f")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_xiu27")
+}
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

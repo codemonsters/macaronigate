@@ -1,3 +1,5 @@
+![Logo](https://github.com/codemonsters/macaronigate/blob/main/src/menu/images/Title.png)
+
 # Macaronigate (Il Assurdo Caso del Vitello Rubato)
 
 You can try out the [web version](https://tyo.ovh/experiments/macarronigate/) (testing build not up-to-date)
