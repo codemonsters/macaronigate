@@ -5,12 +5,13 @@ extends Node2D
 signal game_over
 signal game_cleared
 
-var clicks_needed = 3 	# número de clicks necesarios para que el globo explote
+var clicks_needed = randi_range(15, 25) 	# número de clicks necesarios para que el globo explote
 @export var game_brief = "Blow up!"
 @export var needs_timer = true
-@export var timer_seconds = 10
+@export var timer_seconds = 6
 
-# TODO: Corregir esto para que cargue la escena (preferible usando una ruta relativa)
+var balloon_popped = false
+
 var piece_01_factory = preload("res://minigames/explotar_globo/balloon_pieces/piece_01.tscn")
 var piece_02_factory = preload("res://minigames/explotar_globo/balloon_pieces/piece_02.tscn")
 var piece_03_factory = preload("res://minigames/explotar_globo/balloon_pieces/piece_03.tscn")
@@ -34,11 +35,12 @@ func _on_button_pressed():
 	$globo.scale.y += 0.01
 	
 	clicks_needed -= 1
-	print(clicks_needed)
-	if clicks_needed <= 0:
+
+	if clicks_needed <= 0 && !balloon_popped:
 		game_cleared.emit()
 		$globo.visible = false
 		$WhiteLightTimer.start()
+		balloon_popped = true
 
 
 func _on_white_light_timer_timeout():
