@@ -13,18 +13,23 @@ func _ready():
 # Connect the appropriate signals to the funtions in game.gd
 	game_over.connect(Callable(get_parent(), "on_game_over"))
 	game_cleared.connect(Callable(get_parent(), "on_game_cleared"))
-	$Button.disabled = true
+	$Colision.disabled = true
 	#$NoTouch.play()
+	$Boton.show()
+	$Boton2.hide()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
 
 func on_game_start():
-	$Button.disabled = false
+	$Colision.disabled = false
+
 
 func on_game_timeout():
 	game_cleared.emit()
 
 func _on_button_pressed():
 	game_over.emit()
+	$Boton.hide()
+	$Boton2.show()
