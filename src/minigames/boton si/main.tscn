@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://mv5gqwk2ocqm"]
+[gd_scene load_steps=4 format=3 uid="uid://mv5gqwk2ocqm"]
 
 [ext_resource type="Script" path="res://minigames/boton si/main.gd" id="1_fgjis"]
-[ext_resource type="Texture2D" uid="uid://bcgcqlk4kgb1k" path="res://minigames/boton si/red-button-isolate-backbround-3d-render-png.webp" id="2_e55be"]
+[ext_resource type="Texture2D" uid="uid://ma5uktaaw0bi" path="res://minigames/boton si/red-button-isolate-backbround-3d-render-png (3).webp" id="2_h1tdv"]
+[ext_resource type="Texture2D" uid="uid://fhisfqr5kgp5" path="res://minigames/boton no/red-button-isolate-backbround-3d-render-png (4).tres" id="3_rdqom"]
 
 [node name="Boton" type="Node2D"]
 position = Vector2(360, 640)
@@ -14,10 +15,10 @@ offset_right = 360.0
 offset_bottom = 640.0
 color = Color(0.784314, 0.784314, 0.784314, 1)
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_e55be")
+[node name="Boton" type="Sprite2D" parent="."]
+texture = ExtResource("2_h1tdv")
 
-[node name="Button" type="Button" parent="."]
+[node name="Colision" type="Button" parent="."]
 modulate = Color(1, 1, 1, 0)
 self_modulate = Color(1, 1, 1, 0)
 offset_left = -96.0
@@ -27,4 +28,7 @@ offset_bottom = 48.0
 action_mode = 0
 flat = true
 
-[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[node name="Boton2" type="Sprite2D" parent="."]
+texture = ExtResource("3_rdqom")
+
+[connection signal="pressed" from="Colision" to="." method="_on_button_pressed"]
