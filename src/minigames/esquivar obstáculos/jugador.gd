@@ -12,8 +12,8 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 func _physics_process(delta):
 	pass
 	
-func jump(delta):
+func jump(delta, direction):
 	t += delta
-	velocity.x = vx
+	velocity.x = vx*direction
 	velocity.y = vy + a*t
 	move_and_slide()

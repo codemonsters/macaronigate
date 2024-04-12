@@ -38,10 +38,13 @@ tracks/2/path = NodePath(".")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0.2, 0.4),
+"transitions": PackedFloat32Array(1, 1),
 "values": [{
 "args": [1, 3],
+"method": &"touch"
+}, {
+"args": [2, 3],
 "method": &"touch"
 }]
 }
@@ -52,16 +55,18 @@ _data = {
 }
 
 [node name="Main" type="Node2D"]
+position = Vector2(-2, 2)
 script = ExtResource("1_0nv3w")
 
 [node name="Waves" type="Node2D" parent="."]
 
 [node name="Posiciones puntos" type="Node2D" parent="."]
 z_index = 6
+position = Vector2(3, 0)
 
 [node name="WavePos1" type="Marker2D" parent="Posiciones puntos"]
 z_index = -1
-position = Vector2(176, 683)
+position = Vector2(199, 709)
 
 [node name="WavePos2" type="Marker2D" parent="Posiciones puntos"]
 position = Vector2(559, 733)
@@ -73,7 +78,7 @@ texture = ExtResource("1_6pgyq")
 
 [node name="ThumbRight" type="Sprite2D" parent="."]
 position = Vector2(674, 1048)
-scale = Vector2(2, 2)
+scale = Vector2(2, 1.8)
 texture = ExtResource("2_g4ny4")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
