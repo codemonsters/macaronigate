@@ -1,4 +1,4 @@
-![Logo](https://github.com/codemonsters/macaronigate/blob/main/src/menu/images/Title.png)
+![Logo](./src/menu/images/Title.png)
 
 # Macaronigate (Il Assurdo Caso del Vitello Rubato)
 
