@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://ba7ixm7tnv8ch"
+path="res://.godot/imported/Sonido_proyectil.mp3-1251ea173a1bd6241770062c6a02eab2.mp3str"
+
+[deps]
+
+source_file="res://minigames/esquivar obstáculos/Sonido_proyectil.mp3"
+dest_files=["res://.godot/imported/Sonido_proyectil.mp3-1251ea173a1bd6241770062c6a02eab2.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
