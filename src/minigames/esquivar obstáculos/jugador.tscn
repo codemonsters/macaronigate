@@ -3,8 +3,9 @@
 [ext_resource type="Script" path="res://minigames/esquivar obstáculos/jugador.gd" id="1_ubpp8"]
 [ext_resource type="Texture2D" uid="uid://cytx4jpmyt5sp" path="res://minigames/esquivar obstáculos/MonstruoCodeMonsters.png" id="1_wugnj"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_6cmqo"]
-size = Vector2(100, 196)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_mff1g"]
+radius = 41.0
+height = 194.0
 
 [node name="Jugador" type="Node2D"]
 
@@ -15,5 +16,4 @@ script = ExtResource("1_ubpp8")
 texture = ExtResource("1_wugnj")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
-position = Vector2(0, 3)
-shape = SubResource("RectangleShape2D_6cmqo")
+shape = SubResource("CapsuleShape2D_mff1g")
