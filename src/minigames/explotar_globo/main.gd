@@ -10,7 +10,10 @@ var clicks_needed = randi_range(15, 25) 	# número de clicks necesarios para que
 @export var needs_timer = true
 @export var timer_seconds = 6
 
-var balloon_popped = false
+var balloon_popped
+var playing
+var click_count
+var tween
 
 var piece_01_factory = preload("res://minigames/explotar_globo/balloon_pieces/piece_01.tscn")
 var piece_02_factory = preload("res://minigames/explotar_globo/balloon_pieces/piece_02.tscn")
@@ -22,21 +25,35 @@ var piece_05_factory = preload("res://minigames/explotar_globo/balloon_pieces/pi
 func _ready():
 	game_over.connect(Callable(get_parent(), "on_game_over"))
 	game_cleared.connect(Callable(get_parent(), "on_game_cleared")) 
+	balloon_popped = false
+	playing = false
+	click_count = 0
+	
+	$splashColorRect.visible = false
 
 func on_game_timeout():
+	playing = false
+	$sfx/lose.play()
 	game_over.emit()
 
-func _process(delta):
-	pass
+func on_game_start():
+	playing = true
 
 
 func _on_button_pressed():
-	$globo.scale.x += 0.01
-	$globo.scale.y += 0.01
+	if !playing:
+		return
 	
-	clicks_needed -= 1
-
-	if clicks_needed <= 0 && !balloon_popped:
+	$globo.scale.x += 0.03
+	$globo.scale.y += 0.03
+	
+	click_count += 1
+	
+	if !balloon_popped:
+		$sfx/blowing.pitch_scale = 0.8 + (float(click_count) / float(clicks_needed))
+		$sfx/blowing.play()
+	
+	if click_count >= clicks_needed && !balloon_popped:
 		game_cleared.emit()
 		$globo.visible = false
 		$WhiteLightTimer.start()
@@ -46,6 +63,11 @@ func _on_button_pressed():
 func _on_white_light_timer_timeout():
 	var piece
 	$sfx/celebration.play()
+	
+	tween = get_tree().create_tween().set_trans(Tween.TRANS_EXPO)
+	$splashColorRect.color = Color(1, 1, 1, 1)
+	$splashColorRect.visible = true
+	tween.tween_property($splashColorRect, "color", Color(1, 1, 1, 0), 0.5)
 	
 	for i in range(30):
 		var balloon_piece = randi_range(1, 5)

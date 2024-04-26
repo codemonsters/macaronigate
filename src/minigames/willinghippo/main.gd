@@ -80,25 +80,21 @@ func _process(delta):
 		direction = factor_gravedad * Vector2(sin(angulo),cos(angulo))
 	if modulo_a > shake_threshold:
 		jump()
-		
-	
-	
-	
 	if (game_in_progress):
 		PhysicsServer2D.area_set_param(get_world_2d().space, PhysicsServer2D.AREA_PARAM_GRAVITY_VECTOR, direction)
 		if $Hipopotamo.overlaps_body($watermelon/RigidBody2D):
 			eat()
 			game_cleared.emit()
-			PhysicsServer2D.area_set_param(get_world_2d().space, PhysicsServer2D.AREA_PARAM_GRAVITY_VECTOR, Vector2(0,-1))
+			PhysicsServer2D.area_set_param(get_world_2d().space, PhysicsServer2D.AREA_PARAM_GRAVITY_VECTOR, Vector2(0,1))
 			game_in_progress = false
 		if ($LimiteIzquierda.overlaps_body($watermelon/RigidBody2D) or $LimiteDerecha.overlaps_body($watermelon/RigidBody2D) or $LimiteArriba.overlaps_body($watermelon/RigidBody2D) or $LimiteAbajo.overlaps_body($watermelon/RigidBody2D)):
 			game_over.emit()
-			PhysicsServer2D.area_set_param(get_world_2d().space, PhysicsServer2D.AREA_PARAM_GRAVITY_VECTOR, Vector2(0,-1))
+			PhysicsServer2D.area_set_param(get_world_2d().space, PhysicsServer2D.AREA_PARAM_GRAVITY_VECTOR, Vector2(0,1))
 			game_in_progress = false
 
 func on_game_timeout():
 	game_over.emit()
-	PhysicsServer2D.area_set_param(get_world_2d().space, PhysicsServer2D.AREA_PARAM_GRAVITY_VECTOR, Vector2(0,-1))
+	PhysicsServer2D.area_set_param(get_world_2d().space, PhysicsServer2D.AREA_PARAM_GRAVITY_VECTOR, Vector2(0,1))
 	game_in_progress = false
 	
 func eat():
