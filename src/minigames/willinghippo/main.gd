@@ -3,8 +3,11 @@ extends Node2D
 signal game_over
 signal game_cleared
 
-# Sonido hipopótamo: Mummy Zombie - Mike Koenig en soundbible.com/1059-Mummy-Zombie.html
 # Imágen de fondo (sabana): https://get.pxhere.com/photo/landscape-tree-nature-marsh-swamp-meadow-prairie-lake-green-pasture-soil-savanna-waterway-plain-watering-hole-grassland-wetland-bog-floodplain-plateau-habitat-ecosystem-lone-tree-steppe-nature-reserve-namibia-etosha-natural-environment-geographical-feature-land-lot-632302.jpg
+# Sonido hipopótamo: Mummy Zombie - Mike Koenig en soundbible.com/1059-Mummy-Zombie.html
+# Sonido agua: Water Churning - Mark Diangelo en soundbible.com/1790-Water-Churning.html
+# Sonido sandía siendo comida: Neck Breaking - Mike Koening en soundbible.com/404-Neck-Breaking.html
+# Sonido perder: Flush Toilet 2 - Mike Koening en soundbible.com/2114-Flush-Toilet--2.html
 
 @export var game_brief = "Willing Hippo"
 @export var needs_timer = true # False if your game doesn't need a countdown timer

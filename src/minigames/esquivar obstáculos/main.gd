@@ -4,13 +4,24 @@ signal game_over
 signal game_cleared
 signal mouse_touch(event)
 
+# Sonido marmol: Rockslide small - Sound Explorer en soundbible.com/1987-Rockslide-Small.html
+# Sonido perder: Sad Trombone - Joe Lamb en soundbible.com/1830-Sad-Trombone.html
+# Sonido proyectil: Throw knife - Anonymous en soundbible.com/1607-Throw-Knife.html
+# Sonido salto: Boing cartoonish - (no tiene nombre) en soundbible.com/266-Boing-Cartoonish.html 
+
 @export var game_brief = "esquivar obstáculos"
 @export var needs_timer = true 
 @export var timer_seconds = 10
 
 var marmol = preload("res://minigames/esquivar obstáculos/marmol.tscn")
 var area_movimiento = preload("res://minigames/esquivar obstáculos/area_movimiento.tscn")
+var cuchara = preload("res://minigames/esquivar obstáculos/cuchara.tscn")
+var cuchillo = preload("res://minigames/esquivar obstáculos/cuchillo.tscn")
+var tenedor = preload("res://minigames/esquivar obstáculos/tenedor.tscn")
+var sarten = preload("res://minigames/esquivar obstáculos/sarten.tscn")
+var obstaculos = Array([cuchara, cuchillo, tenedor, sarten])
 var separacion = 100
+var i = 0
 var num_plataformas
 var distancia
 var player_pos = Vector2(0, 0)
@@ -53,20 +64,20 @@ func _process(delta):
 	if jump:
 		if abs(num_plataforma.x - posicion_jugador.x) == 1 and num_plataforma.y - posicion_jugador.y == 0:
 				$Jugador/CharacterBody2D.jump(delta, Vector2(num_plataforma.x - posicion_jugador.x, 0))
-				if abs($Jugador/CharacterBody2D.position.x - player_pos.x) > 218 and abs($Jugador/CharacterBody2D.position.y - player_pos.y) > 150:
+				if abs($Jugador/CharacterBody2D.position.x - player_pos.x) > 436:
 					jump = false
 					posicion_jugador = num_plataforma
 					num_plataforma = Vector2(0, 0)
 		elif int(posicion_jugador.y)%2 == 0:
 			if num_plataforma.x - posicion_jugador.x == 0 and abs(num_plataforma.y - posicion_jugador.y) == 1:
 				$Jugador/CharacterBody2D.jump(delta, Vector2(1, posicion_jugador.y - num_plataforma.y))
-				if abs($Jugador/CharacterBody2D.position.x - player_pos.x) > 218 and abs($Jugador/CharacterBody2D.position.y - player_pos.y) > 150:
+				if abs($Jugador/CharacterBody2D.position.x - player_pos.x) > 218 and abs($Jugador/CharacterBody2D.position.y - player_pos.y) > 250:
 					jump = false
 					posicion_jugador = num_plataforma
 					num_plataforma = Vector2(0, 0)
 			elif num_plataforma.x - posicion_jugador.x == -1 and abs(num_plataforma.y - posicion_jugador.y) == 1:
 				$Jugador/CharacterBody2D.jump(delta, Vector2(-1, posicion_jugador.y - num_plataforma.y))
-				if abs($Jugador/CharacterBody2D.position.x - player_pos.x) > 218 and abs($Jugador/CharacterBody2D.position.y - player_pos.y) > 150:
+				if abs($Jugador/CharacterBody2D.position.x - player_pos.x) > 218 and abs($Jugador/CharacterBody2D.position.y - player_pos.y) > 250:
 					jump = false
 					posicion_jugador = num_plataforma
 					num_plataforma = Vector2(0, 0)
@@ -75,13 +86,13 @@ func _process(delta):
 		else:
 			if num_plataforma.x - posicion_jugador.x == 1 and abs(num_plataforma.y - posicion_jugador.y) == 1:
 				$Jugador/CharacterBody2D.jump(delta, Vector2(1, posicion_jugador.y - num_plataforma.y))
-				if abs($Jugador/CharacterBody2D.position.x - player_pos.x) > 218 and abs($Jugador/CharacterBody2D.position.y - player_pos.y) > 150:
+				if abs($Jugador/CharacterBody2D.position.x - player_pos.x) > 218 and abs($Jugador/CharacterBody2D.position.y - player_pos.y) > 250:
 					jump = false
 					posicion_jugador = num_plataforma
 					num_plataforma = Vector2(0, 0)
 			elif num_plataforma.x - posicion_jugador.x == 0 and abs(num_plataforma.y - posicion_jugador.y) == 1:
 				$Jugador/CharacterBody2D.jump(delta, Vector2(-1, posicion_jugador.y - num_plataforma.y))
-				if abs($Jugador/CharacterBody2D.position.x - player_pos.x) > 218 and abs($Jugador/CharacterBody2D.position.y - player_pos.y) > 150:
+				if abs($Jugador/CharacterBody2D.position.x - player_pos.x) > 218 and abs($Jugador/CharacterBody2D.position.y - player_pos.y) > 250:
 					jump = false
 					posicion_jugador = num_plataforma
 					num_plataforma = Vector2(0, 0)
@@ -90,6 +101,12 @@ func _process(delta):
 	else:
 		player_pos = $Jugador/CharacterBody2D.position
 		$Jugador/CharacterBody2D.t = 0
+	#i = randi_range(0, len(obstaculos)-1)
+	#var obstaculo = obstaculos[i].instantiate()
+	#add_child(obstaculo)
+	#TODO Arreglar
+
+	
 
 func on_area_movimiento_mouse_touch(event):
 	if not jump:
