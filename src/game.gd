@@ -27,6 +27,8 @@ var current_game_number
 var current_game_seconds_left = 0
 var signal_inhibit = false
 
+var elevator
+
 func _ready():
 	#$AnimationPlayer.play("fade_out_black")
 	#await $AnimationPlayer.animation_finished
@@ -96,6 +98,17 @@ func load_game(game_n = 0):
 	signal_inhibit = false
 	if scene.needs_timer: $Timer.start()
 
+# Carga elevator.tscn, y esta despues llamará a load_game(). 
+func enter_elevator():
+	elevator = load("res://elevator/main.tscn").instantiate()
+	$elevatorPlaceholder.add_child(elevator)
+
+func on_elevator_exit():
+	elevator.queue_free()
+	load_game(current_game_number)
+
+
+
 func on_game_cleared():
 	print("game_cleared signal received")
 	if signal_inhibit == true:
@@ -113,7 +126,8 @@ func on_game_cleared():
 			if current_game_number < minigames_shuffled.size() - 1:
 				current_game_number += 1
 				remove_childs_in_group("current_game")
-				load_game(current_game_number)
+				enter_elevator() 
+				#load_game(current_game_number)
 			else:
 				on_all_games_cleared()
 		else:
