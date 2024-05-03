@@ -4,6 +4,11 @@ signal game_over
 signal game_cleared
 signal mouse_touch(event)
 
+# Sonido marmol: Rockslide small - Sound Explorer en soundbible.com/1987-Rockslide-Small.html
+# Sonido perder: Sad Trombone - Joe Lamb en soundbible.com/1830-Sad-Trombone.html
+# Sonido proyectil: Throw knife - Anonymous en soundbible.com/1607-Throw-Knife.html
+# Sonido salto: Boing cartoonish - (no tiene nombre) en soundbible.com/266-Boing-Cartoonish.html 
+
 @export var game_brief = "esquivar obstáculos"
 @export var needs_timer = true 
 @export var timer_seconds = 10
