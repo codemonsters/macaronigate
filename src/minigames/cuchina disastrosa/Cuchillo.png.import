@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cgo8kerqymwer"
-path="res://.godot/imported/Lumache.png-36c0293797c2197b4e45e71ed74706a8.ctex"
+uid="uid://bsivv2wba0gt7"
+path="res://.godot/imported/Cuchillo.png-e7b719086042c69ff92d278956fbec0a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://minigames/esquivar obstáculos/Lumache.png"
-dest_files=["res://.godot/imported/Lumache.png-36c0293797c2197b4e45e71ed74706a8.ctex"]
+source_file="res://minigames/cuchina disastrosa/Cuchillo.png"
+dest_files=["res://.godot/imported/Cuchillo.png-e7b719086042c69ff92d278956fbec0a.ctex"]
 
 [params]
 

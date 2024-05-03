@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bumgm56aoscsk"
-path="res://.godot/imported/marmol.png-409ac7d1db3de17efad2e62b1ea2e6c2.ctex"
+uid="uid://h1x77q357l3n"
+path="res://.godot/imported/Sarten.png-aa563ff38e7ef5ff300be0b788babf1c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://minigames/esquivar obstáculos/marmol.png"
-dest_files=["res://.godot/imported/marmol.png-409ac7d1db3de17efad2e62b1ea2e6c2.ctex"]
+source_file="res://minigames/cuchina disastrosa/Sarten.png"
+dest_files=["res://.godot/imported/Sarten.png-aa563ff38e7ef5ff300be0b788babf1c.ctex"]
 
 [params]
 

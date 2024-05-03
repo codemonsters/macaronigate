@@ -4,16 +4,21 @@ signal game_over
 signal game_cleared
 signal mouse_touch(event)
 
-@export var game_brief = "esquivar obstáculos"
+# Sonido marmol: Rockslide small - Sound Explorer en soundbible.com/1987-Rockslide-Small.html
+# Sonido perder: Sad Trombone - Joe Lamb en soundbible.com/1830-Sad-Trombone.html
+# Sonido proyectil: Throw knife - Anonymous en soundbible.com/1607-Throw-Knife.html
+# Sonido salto: Boing cartoonish - (no tiene nombre) en soundbible.com/266-Boing-Cartoonish.html 
+
+@export var game_brief = "cuchina disastrosa"
 @export var needs_timer = true 
 @export var timer_seconds = 10
 
-var marmol = preload("res://minigames/esquivar obstáculos/marmol.tscn")
-var area_movimiento = preload("res://minigames/esquivar obstáculos/area_movimiento.tscn")
-var cuchara = preload("res://minigames/esquivar obstáculos/cuchara.tscn")
-var cuchillo = preload("res://minigames/esquivar obstáculos/cuchillo.tscn")
-var tenedor = preload("res://minigames/esquivar obstáculos/tenedor.tscn")
-var sarten = preload("res://minigames/esquivar obstáculos/sarten.tscn")
+var marmol = preload("res://minigames/cuchina disastrosa/marmol.tscn")
+var area_movimiento = preload("res://minigames/cuchina disastrosa/area_movimiento.tscn")
+var cuchara = preload("res://minigames/cuchina disastrosa/cuchara.tscn")
+var cuchillo = preload("res://minigames/cuchina disastrosa/cuchillo.tscn")
+var tenedor = preload("res://minigames/cuchina disastrosa/tenedor.tscn")
+var sarten = preload("res://minigames/cuchina disastrosa/sarten.tscn")
 var obstaculos = Array([cuchara, cuchillo, tenedor, sarten])
 var separacion = 100
 var i = 0

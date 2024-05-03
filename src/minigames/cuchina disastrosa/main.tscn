@@ -1,13 +1,13 @@
 [gd_scene load_steps=9 format=3 uid="uid://8okscw02p0dw"]
 
-[ext_resource type="Script" path="res://minigames/esquivar obstáculos/main.gd" id="1_j2gs8"]
-[ext_resource type="PackedScene" uid="uid://d32f23hyaxgw3" path="res://minigames/esquivar obstáculos/jugador.tscn" id="2_2d736"]
-[ext_resource type="Texture2D" uid="uid://chh8ejqmdghce" path="res://minigames/esquivar obstáculos/fondo_cocina.png" id="3_8a4ba"]
-[ext_resource type="Texture2D" uid="uid://bpp6rvvxv50p1" path="res://minigames/esquivar obstáculos/bote_espaguetis.png" id="3_a3lwu"]
-[ext_resource type="Texture2D" uid="uid://cgo8kerqymwer" path="res://minigames/esquivar obstáculos/Lumache.png" id="4_mdvyd"]
-[ext_resource type="Texture2D" uid="uid://dbt66x3an2t4q" path="res://minigames/esquivar obstáculos/Lasaña.png" id="5_11y35"]
-[ext_resource type="Texture2D" uid="uid://cakyfkoxfc7vj" path="res://minigames/esquivar obstáculos/Macarrones.png" id="6_30325"]
-[ext_resource type="Texture2D" uid="uid://cwekshbx6xtcn" path="res://minigames/esquivar obstáculos/ravioli.png" id="7_vrsy1"]
+[ext_resource type="Script" path="res://minigames/cuchina disastrosa/main.gd" id="1_j2gs8"]
+[ext_resource type="PackedScene" uid="uid://d32f23hyaxgw3" path="res://minigames/cuchina disastrosa/jugador.tscn" id="2_2d736"]
+[ext_resource type="Texture2D" uid="uid://chh8ejqmdghce" path="res://minigames/cuchina disastrosa/fondo_cocina.png" id="3_8a4ba"]
+[ext_resource type="Texture2D" uid="uid://bpp6rvvxv50p1" path="res://minigames/cuchina disastrosa/bote_espaguetis.png" id="3_a3lwu"]
+[ext_resource type="Texture2D" uid="uid://cgo8kerqymwer" path="res://minigames/cuchina disastrosa/Lumache.png" id="4_mdvyd"]
+[ext_resource type="Texture2D" uid="uid://dbt66x3an2t4q" path="res://minigames/cuchina disastrosa/Lasaña.png" id="5_11y35"]
+[ext_resource type="Texture2D" uid="uid://cakyfkoxfc7vj" path="res://minigames/cuchina disastrosa/Macarrones.png" id="6_30325"]
+[ext_resource type="Texture2D" uid="uid://cwekshbx6xtcn" path="res://minigames/cuchina disastrosa/ravioli.png" id="7_vrsy1"]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_j2gs8")

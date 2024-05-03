@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://d32f23hyaxgw3"]
 
-[ext_resource type="Script" path="res://minigames/esquivar obstáculos/jugador.gd" id="1_ubpp8"]
-[ext_resource type="Texture2D" uid="uid://cytx4jpmyt5sp" path="res://minigames/esquivar obstáculos/MonstruoCodeMonsters.png" id="1_wugnj"]
+[ext_resource type="Script" path="res://minigames/cuchina disastrosa/jugador.gd" id="1_ubpp8"]
+[ext_resource type="Texture2D" uid="uid://cytx4jpmyt5sp" path="res://minigames/cuchina disastrosa/MonstruoCodeMonsters.png" id="1_wugnj"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_mff1g"]
 radius = 41.0

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://chh8ejqmdghce"
-path="res://.godot/imported/fondo_cocina.png-351cabd95eeea4769f2c0d9169faa920.ctex"
+uid="uid://cvq8e648e0i46"
+path="res://.godot/imported/Cuchara.png-da181755f188fd0d6e56a37192e7b028.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://minigames/esquivar obstáculos/fondo_cocina.png"
-dest_files=["res://.godot/imported/fondo_cocina.png-351cabd95eeea4769f2c0d9169faa920.ctex"]
+source_file="res://minigames/cuchina disastrosa/Cuchara.png"
+dest_files=["res://.godot/imported/Cuchara.png-da181755f188fd0d6e56a37192e7b028.ctex"]
 
 [params]
 

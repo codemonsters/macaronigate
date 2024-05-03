@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bsivv2wba0gt7"
-path="res://.godot/imported/Cuchillo.png-38e64ada92b39d7b6379ea2e39f3c38e.ctex"
+uid="uid://cakyfkoxfc7vj"
+path="res://.godot/imported/Macarrones.png-1465ffd2fd6e1ee69cb7b99a5c6d2b18.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://minigames/esquivar obstáculos/Cuchillo.png"
-dest_files=["res://.godot/imported/Cuchillo.png-38e64ada92b39d7b6379ea2e39f3c38e.ctex"]
+source_file="res://minigames/cuchina disastrosa/Macarrones.png"
+dest_files=["res://.godot/imported/Macarrones.png-1465ffd2fd6e1ee69cb7b99a5c6d2b18.ctex"]
 
 [params]
 

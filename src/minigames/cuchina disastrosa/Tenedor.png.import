@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://h1x77q357l3n"
-path="res://.godot/imported/Sarten.png-c61e07ed3df90810677bfaf373f264ce.ctex"
+uid="uid://casr3xkv8a0ov"
+path="res://.godot/imported/Tenedor.png-86ca0b511881b539277701e719e80213.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://minigames/esquivar obstáculos/Sarten.png"
-dest_files=["res://.godot/imported/Sarten.png-c61e07ed3df90810677bfaf373f264ce.ctex"]
+source_file="res://minigames/cuchina disastrosa/Tenedor.png"
+dest_files=["res://.godot/imported/Tenedor.png-86ca0b511881b539277701e719e80213.ctex"]
 
 [params]
 
