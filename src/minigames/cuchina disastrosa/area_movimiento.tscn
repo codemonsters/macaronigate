@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://bliluu1g5hxw2"]
 
 [ext_resource type="Script" path="res://minigames/esquivar obstáculos/area_movimiento.gd" id="1_711v1"]
-[ext_resource type="Texture2D" uid="uid://chh8ejqmdghce" path="res://minigames/esquivar obstáculos/fondo_cocina.png" id="1_rdlgb"]
+[ext_resource type="Texture2D" uid="uid://chh8ejqmdghce" path="res://minigames/cuchina disastrosa/fondo_cocina.png" id="1_rdlgb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_peit4"]
 

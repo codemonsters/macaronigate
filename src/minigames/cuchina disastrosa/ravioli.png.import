@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cwekshbx6xtcn"
-path="res://.godot/imported/ravioli.png-7b17046c7e81679530f598c433b03f4d.ctex"
+path="res://.godot/imported/ravioli.png-92a6d7319e2e336e7cd5c4d395545808.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://minigames/esquivar obstáculos/ravioli.png"
-dest_files=["res://.godot/imported/ravioli.png-7b17046c7e81679530f598c433b03f4d.ctex"]
+source_file="res://minigames/cuchina disastrosa/ravioli.png"
+dest_files=["res://.godot/imported/ravioli.png-92a6d7319e2e336e7cd5c4d395545808.ctex"]
 
 [params]
 

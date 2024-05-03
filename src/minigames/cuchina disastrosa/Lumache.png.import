@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cakyfkoxfc7vj"
-path="res://.godot/imported/Macarrones.png-c911c8331f1c260c47118f6ecb2f78bd.ctex"
+uid="uid://cgo8kerqymwer"
+path="res://.godot/imported/Lumache.png-0c383bfb49ce56a11e98cfba2761595d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://minigames/esquivar obstáculos/Macarrones.png"
-dest_files=["res://.godot/imported/Macarrones.png-c911c8331f1c260c47118f6ecb2f78bd.ctex"]
+source_file="res://minigames/cuchina disastrosa/Lumache.png"
+dest_files=["res://.godot/imported/Lumache.png-0c383bfb49ce56a11e98cfba2761595d.ctex"]
 
 [params]
 

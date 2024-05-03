@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://casr3xkv8a0ov"
-path="res://.godot/imported/Tenedor.png-c7bee216d4488f16d5506ca0cc245182.ctex"
+uid="uid://dbt66x3an2t4q"
+path="res://.godot/imported/Lasaña.png-5bacd785b05a920347f870ee651dab26.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://minigames/esquivar obstáculos/Tenedor.png"
-dest_files=["res://.godot/imported/Tenedor.png-c7bee216d4488f16d5506ca0cc245182.ctex"]
+source_file="res://minigames/cuchina disastrosa/Lasaña.png"
+dest_files=["res://.godot/imported/Lasaña.png-5bacd785b05a920347f870ee651dab26.ctex"]
 
 [params]
 

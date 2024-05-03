@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cytx4jpmyt5sp"
-path="res://.godot/imported/MonstruoCodeMonsters.png-2034c157d6e2b6216d663378b7b02248.ctex"
+path="res://.godot/imported/MonstruoCodeMonsters.png-9e2f87601216618437a13276a7252a53.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://minigames/esquivar obstáculos/MonstruoCodeMonsters.png"
-dest_files=["res://.godot/imported/MonstruoCodeMonsters.png-2034c157d6e2b6216d663378b7b02248.ctex"]
+source_file="res://minigames/cuchina disastrosa/MonstruoCodeMonsters.png"
+dest_files=["res://.godot/imported/MonstruoCodeMonsters.png-9e2f87601216618437a13276a7252a53.ctex"]
 
 [params]
 
