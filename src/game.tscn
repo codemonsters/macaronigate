@@ -108,4 +108,6 @@ libraries = {
 
 [node name="Line2D" type="Line2D" parent="."]
 
+[node name="elevatorPlaceholder" type="Node" parent="."]
+
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
