@@ -6,6 +6,7 @@ extends Node2D
 var game
 
 @export var pasta_max = 150	# maximum number of pasta instances to create
+@export var factor_gravedad = 1
 
 var conchiglie_factory = preload("res://menu/pasta/conchiglie.tscn")
 var farfale_factory = preload("res://menu/pasta/farfalle.tscn")
@@ -15,8 +16,12 @@ var macaroni_factory = preload("res://menu/pasta/macaroni.tscn")
 var penne_factory = preload("res://menu/pasta/penne.tscn")
 var pasta_num = 0	# number of pasta bodies instanciated
 var start_button_enabled	# flag to enable / disable the action 
+var angulo = 0
+var direction = Vector2(0,1)
 
 func _ready():
+	# $GamePicker.get_v_scroll_bar().custom_minimum_size.x = 16
+	# $GamePicker.get_v_scroll_bar().offset_right = 8
 	if get_parent().get_name() == "game":
 		game = get_parent()
 		for item in game.minigames:
@@ -61,7 +66,14 @@ func _on_pasta_constructor_timer_timeout():
 	pasta_num += 1
 
 
+func _process(delta):
+	angulo += Input.get_gyroscope().y*delta
+	direction = factor_gravedad * Vector2(sin(angulo),cos(angulo))
+	PhysicsServer2D.area_set_param(get_world_2d().space, PhysicsServer2D.AREA_PARAM_GRAVITY_VECTOR, direction)
+
+
 func _on_play_button_pressed():
+	PhysicsServer2D.area_set_param(get_world_2d().space, PhysicsServer2D.AREA_PARAM_GRAVITY_VECTOR, Vector2(0,1))
 	assert(game != null, "You must run the game (and not directly this scene) to start a match")
 	game.on_play_button_pressed()
 	

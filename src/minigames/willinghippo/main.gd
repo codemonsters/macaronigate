@@ -72,13 +72,13 @@ func jump():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	angulo += Input.get_gyroscope().x*delta
+	angulo += Input.get_gyroscope().y*delta #La x es eje arriba-abajo
 	aceleracion += Input.get_accelerometer()*delta
 	modulo_a = sqrt(aceleracion.x**2 + aceleracion.y**2 + aceleracion.z**2)
-	if angulo > 3.14/2 and angulo != 3.14:
-		direction = factor_gravedad * Vector2(sin(3.14/2),cos(3.14/2))
-	elif angulo < -3.14/2 and angulo != 3.14:
-		direction = factor_gravedad * Vector2(sin(-3.14/2),cos(-3.14/2))
+	if angulo > PI/2 and angulo != PI:
+		direction = factor_gravedad * Vector2(sin(PI/2),cos(PI/2))
+	elif angulo < -PI/2 and angulo != PI:
+		direction = factor_gravedad * Vector2(sin(-PI/2),cos(-PI/2))
 	else:
 		direction = factor_gravedad * Vector2(sin(angulo),cos(angulo))
 	if modulo_a > shake_threshold:

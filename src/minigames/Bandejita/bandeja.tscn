@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://dtoy1cftkt7pc"]
+
+[ext_resource type="Script" path="res://minigames/Bandejita/bandeja.gd" id="1_8lutm"]
+[ext_resource type="Texture2D" uid="uid://b52eoyscjvb0u" path="res://minigames/Bandejita/Untitled.png" id="2_mrqsl"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_etw1x"]
+rough = true
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_g1045"]
+
+[node name="Bandeja" type="StaticBody2D"]
+physics_material_override = SubResource("PhysicsMaterial_etw1x")
+script = ExtResource("1_8lutm")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+material = SubResource("CanvasItemMaterial_g1045")
+position = Vector2(5, 2)
+polygon = PackedVector2Array(-144, -295, -144, -280, 144, -276, 144, -297, 129, -297, 129, -284, -129, -284, -129, -295)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("2_mrqsl")

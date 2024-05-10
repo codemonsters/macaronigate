@@ -2,6 +2,8 @@ extends Node2D
 var Izq_scene = load("res://minigames/music ritmito/Izq.tscn")
 var Der_scene = load("res://minigames/music ritmito/Der.tscn")
 # Called when the node enters the scene tree for the first time.
+var puedes_pular = false
+
 func _ready():
 	pass # Replace with function body.
 
@@ -28,3 +30,16 @@ func _on_timer_timeout():
 		add_child(izq)
 		der.position.x = 540
 		add_child(der)
+
+
+
+
+
+func _on_area_2d_body_shape_entered(body_rid, body, body_shape_index, local_shape_index):
+	puedes_pular = true
+	print(puedes_pular)
+
+
+func _on_area_2d_body_shape_exited(body_rid, body, body_shape_index, local_shape_index):
+	puedes_pular = false
+	print(puedes_pular)
