@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://h1iyccyptr54"]
+
+[ext_resource type="Texture2D" uid="uid://cvq8e648e0i46" path="res://minigames/cuchina disastrosa/Cuchara.png" id="1_to2ds"]
+
+[node name="Cuchara" type="Node2D"]
+
+[node name="AnimatableBody2D" type="AnimatableBody2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="AnimatableBody2D"]
+scale = Vector2(0.35, 0.35)
+texture = ExtResource("1_to2ds")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="AnimatableBody2D"]
+polygon = PackedVector2Array(1, -190, 9, -188, 17, -184, 24, -174, 34, -159, 40, -139, 42, -111, 39, -94, 31, -80, 17, -67, 8, -54, 6, -41, 6, 78, 10, 119, 11, 128, 12, 136, 19, 173, 8, 189, -9, 189, -21, 174, -9, 113, -6, -42, -9, -58, -18, -68, -31, -82, -39, -99, -40, -131, -34, -151, -23, -175, -10, -186)

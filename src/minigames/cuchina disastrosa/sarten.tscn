@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://dvyvm4ttxct2v"]
+
+[ext_resource type="Texture2D" uid="uid://h1x77q357l3n" path="res://minigames/cuchina disastrosa/Sarten.png" id="1_hk5vr"]
+
+[node name="Sarten" type="Node2D"]
+
+[node name="AnimatableBody2D" type="AnimatableBody2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="AnimatableBody2D"]
+texture = ExtResource("1_hk5vr")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="AnimatableBody2D"]
+position = Vector2(0, 75)
+polygon = PackedVector2Array(4, -415, 13, -414, 18, -412, 22, -409, 26, -405, 29, -401, 32, -398, 33, -392, 33, -382, 29, -352, 25, -323, 25, -309, 25, -269, 28, -221, 35, -175, 41, -144, 41, -140, 37, -139, 37, -111, 70, -98, 91, -88, 112, -74, 135, -54, 144, -43, 160, -18, 172, 7, 182, 38, 185, 68, 186, 87, 182, 117, 171, 149, 155, 179, 132, 208, 106, 229, 72, 248, 37, 258, -1, 261, -43, 256, -75, 243, -111, 223, -133, 199, -161, 168, -181, 117, -183, 67, -183, 43, -175, 7, -143, -46, -92, -88, -55, -104, -29, -113, -29, -141, -33, -143, -22, -230, -19, -307, -20, -396, -17, -404, -11, -410, -4, -413)

@@ -1,0 +1,48 @@
+[gd_scene load_steps=9 format=3 uid="uid://8okscw02p0dw"]
+
+[ext_resource type="Script" path="res://minigames/cuchina disastrosa/main.gd" id="1_j2gs8"]
+[ext_resource type="PackedScene" uid="uid://d32f23hyaxgw3" path="res://minigames/cuchina disastrosa/jugador.tscn" id="2_2d736"]
+[ext_resource type="Texture2D" uid="uid://chh8ejqmdghce" path="res://minigames/cuchina disastrosa/fondo_cocina.png" id="3_8a4ba"]
+[ext_resource type="Texture2D" uid="uid://bpp6rvvxv50p1" path="res://minigames/cuchina disastrosa/bote_espaguetis.png" id="3_a3lwu"]
+[ext_resource type="Texture2D" uid="uid://cgo8kerqymwer" path="res://minigames/cuchina disastrosa/Lumache.png" id="4_mdvyd"]
+[ext_resource type="Texture2D" uid="uid://dbt66x3an2t4q" path="res://minigames/cuchina disastrosa/Lasaña.png" id="5_11y35"]
+[ext_resource type="Texture2D" uid="uid://cakyfkoxfc7vj" path="res://minigames/cuchina disastrosa/Macarrones.png" id="6_30325"]
+[ext_resource type="Texture2D" uid="uid://cwekshbx6xtcn" path="res://minigames/cuchina disastrosa/ravioli.png" id="7_vrsy1"]
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_j2gs8")
+
+[node name="Fondo cocina" type="Sprite2D" parent="."]
+position = Vector2(360, 640)
+scale = Vector2(3.14, 3.14)
+texture = ExtResource("3_8a4ba")
+
+[node name="Bote espaguetis" type="Sprite2D" parent="."]
+position = Vector2(316, 220)
+rotation = 1.5708
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("3_a3lwu")
+
+[node name="Lumache" type="Sprite2D" parent="."]
+position = Vector2(412, 790)
+scale = Vector2(0.22, 0.22)
+texture = ExtResource("4_mdvyd")
+
+[node name="Ravioli" type="Sprite2D" parent="."]
+position = Vector2(491, 791)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("7_vrsy1")
+
+[node name="Macarrones" type="Sprite2D" parent="."]
+position = Vector2(218, 785)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("6_30325")
+
+[node name="Lasaña" type="Sprite2D" parent="."]
+position = Vector2(546, 233)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("5_11y35")
+
+[node name="Jugador" parent="." instance=ExtResource("2_2d736")]
+position = Vector2(250, 889)
+scale = Vector2(0.5, 0.5)
