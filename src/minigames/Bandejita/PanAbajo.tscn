@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://chbx76gtavdlw"]
+
+[ext_resource type="Texture2D" uid="uid://bdeia1imgbqj7" path="res://minigames/Bandejita/PanAbajo.png" id="1_4oe8r"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_6f3xj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0sruf"]
+size = Vector2(250, 29)
+
+[node name="PanAbajo" type="RigidBody2D"]
+physics_material_override = SubResource("PhysicsMaterial_6f3xj")
+max_contacts_reported = 100
+contact_monitor = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(352, -24)
+texture = ExtResource("1_4oe8r")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(352, -23.5)
+shape = SubResource("RectangleShape2D_0sruf")
