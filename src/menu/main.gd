@@ -20,6 +20,8 @@ var angulo = 0
 var direction = Vector2(0,1)
 
 func _ready():
+	# $GamePicker.get_v_scroll_bar().custom_minimum_size.x = 16
+	# $GamePicker.get_v_scroll_bar().offset_right = 8
 	if get_parent().get_name() == "game":
 		game = get_parent()
 		for item in game.minigames:
