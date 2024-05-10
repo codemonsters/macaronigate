@@ -3,6 +3,8 @@
 [ext_resource type="Texture2D" uid="uid://cvq8e648e0i46" path="res://minigames/cuchina disastrosa/Cuchara.png" id="1_to2ds"]
 
 [node name="Cuchara" type="Node2D"]
+rotation = 1.5708
+scale = Vector2(0.5, 0.5)
 
 [node name="AnimatableBody2D" type="AnimatableBody2D" parent="."]
 

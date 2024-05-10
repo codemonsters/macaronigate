@@ -1,22 +1,14 @@
-[gd_scene load_steps=4 format=3 uid="uid://bliluu1g5hxw2"]
+[gd_scene load_steps=3 format=3 uid="uid://blgvjt4lt3h2p"]
 
-[ext_resource type="Script" path="res://minigames/esquivar obstáculos/area_movimiento.gd" id="1_711v1"]
-[ext_resource type="Texture2D" uid="uid://chh8ejqmdghce" path="res://minigames/cuchina disastrosa/fondo_cocina.png" id="1_rdlgb"]
+[ext_resource type="Script" path="res://minigames/cuchina disastrosa/area_movimiento.gd" id="1_ky60k"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_peit4"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_krmbx"]
+size = Vector2(100, 120)
 
 [node name="AreaMovimiento" type="Node2D"]
 
 [node name="Area2D" type="Area2D" parent="."]
-position = Vector2(0, -50)
-scale = Vector2(5, 6)
-script = ExtResource("1_711v1")
+script = ExtResource("1_ky60k")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-shape = SubResource("RectangleShape2D_peit4")
-
-[node name="Sprite2D" type="Sprite2D" parent="Area2D"]
-visible = false
-position = Vector2(-6.96125e-07, 9.53674e-07)
-scale = Vector2(0.0873362, 0.0490196)
-texture = ExtResource("1_rdlgb")
+shape = SubResource("RectangleShape2D_krmbx")

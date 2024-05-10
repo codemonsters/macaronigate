@@ -46,3 +46,8 @@ texture = ExtResource("5_11y35")
 [node name="Jugador" parent="." instance=ExtResource("2_2d736")]
 position = Vector2(250, 889)
 scale = Vector2(0.5, 0.5)
+
+[node name="Timer_cubiertos" type="Timer" parent="."]
+autostart = true
+
+[connection signal="timeout" from="Timer_cubiertos" to="." method="_on_timer_cubiertos_timeout"]

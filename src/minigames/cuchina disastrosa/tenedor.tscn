@@ -3,6 +3,8 @@
 [ext_resource type="Texture2D" uid="uid://casr3xkv8a0ov" path="res://minigames/cuchina disastrosa/Tenedor.png" id="1_msq5w"]
 
 [node name="Tenedor" type="Node2D"]
+rotation = 1.5708
+scale = Vector2(0.4, 0.4)
 
 [node name="AnimatableBody2D" type="AnimatableBody2D" parent="."]
 

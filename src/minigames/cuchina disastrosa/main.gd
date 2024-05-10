@@ -101,12 +101,7 @@ func _process(delta):
 	else:
 		player_pos = $Jugador/CharacterBody2D.position
 		$Jugador/CharacterBody2D.t = 0
-	#i = randi_range(0, len(obstaculos)-1)
-	#var obstaculo = obstaculos[i].instantiate()
-	#add_child(obstaculo)
-	#TODO Arreglar
 
-	
 
 func on_area_movimiento_mouse_touch(event):
 	if not jump:
@@ -126,3 +121,13 @@ func on_area_movimiento_mouse_touch(event):
 func on_game_timeout():
 	game_cleared.emit()
 	game_in_progress = false
+
+
+func _on_timer_cubiertos_timeout():
+	i = randi_range(0, len(obstaculos)-1)
+	var obstaculo = obstaculos[i].instantiate()
+	var sentido = randi_range(0,1)
+	obstaculo.position = Vector2(sentido*720,randi_range(1,5)*150+100)
+	obstaculo.rotate(PI*sentido)
+	obstaculo.get_child(0).constant_linear_velocity.x=10*(-1)**sentido #TODO: Arreglar
+	add_child(obstaculo)
