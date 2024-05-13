@@ -80,15 +80,43 @@ func _on_play_button_pressed():
 	
 func _on_picker_toggle_pressed():
 	if $GamePicker.is_visible():
+		$UpButton.hide()
+		$DownButton.hide()
 		$GamePicker.hide()
 		$GamePicker.deselect_all();
 		game.launch_minigame_directly = null
 		$PickerToggle.set_text("Pick Game")
 	else:
+		$GamePicker.select(0)
+		$GamePicker.ensure_current_is_visible()
+		_on_game_picker_item_selected(0)
 		$GamePicker.show()
+		$UpButton.show()
+		$DownButton.show()
 
 
 func _on_game_picker_item_selected(index):
 	game.launch_minigame_directly = game.minigames[index]
 	$PickerToggle.set_text("Selected: " + game.minigames[index])
 
+func _on_up_button_pressed():
+	var selected = $GamePicker.get_selected_items()[0]
+	var to_select
+	if selected == 0:
+		to_select = $GamePicker.get_item_count() - 1
+	else:
+		to_select = selected - 1
+	$GamePicker.select(to_select)
+	$GamePicker.ensure_current_is_visible()
+	_on_game_picker_item_selected(to_select)
+
+func _on_down_button_pressed():
+	var selected = $GamePicker.get_selected_items()[0]
+	var to_select
+	if selected == $GamePicker.get_item_count() - 1:
+		to_select = 0
+	else:
+		to_select = selected + 1
+	$GamePicker.select(to_select)
+	$GamePicker.ensure_current_is_visible()
+	_on_game_picker_item_selected(to_select)

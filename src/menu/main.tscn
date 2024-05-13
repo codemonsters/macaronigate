@@ -123,6 +123,22 @@ offset_right = 460.0
 offset_bottom = 940.0
 text = "Pick Game"
 
+[node name="UpButton" type="Button" parent="."]
+visible = false
+offset_left = 475.0
+offset_top = 950.0
+offset_right = 525.0
+offset_bottom = 1000.0
+text = "↑"
+
+[node name="DownButton" type="Button" parent="."]
+visible = false
+offset_left = 475.0
+offset_top = 1025.0
+offset_right = 525.0
+offset_bottom = 1075.0
+text = "↓"
+
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("9_pix86")
 autoplay = true
@@ -131,3 +147,5 @@ autoplay = true
 [connection signal="timeout" from="PastaConstructorTimer" to="." method="_on_pasta_constructor_timer_timeout"]
 [connection signal="item_selected" from="GamePicker" to="." method="_on_game_picker_item_selected"]
 [connection signal="pressed" from="PickerToggle" to="." method="_on_picker_toggle_pressed"]
+[connection signal="pressed" from="UpButton" to="." method="_on_up_button_pressed"]
+[connection signal="pressed" from="DownButton" to="." method="_on_down_button_pressed"]
