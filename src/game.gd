@@ -121,6 +121,7 @@ func on_game_cleared():
 		await get_tree().create_timer(1).timeout
 		$AnimationPlayer.play("fade_in_black")
 		await $AnimationPlayer.animation_finished
+		$HUD/Label.hide()
 		
 		if launch_minigame_directly == null:
 			if current_game_number < minigames_shuffled.size() - 1:
