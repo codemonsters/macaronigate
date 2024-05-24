@@ -20,6 +20,7 @@ var cuchillo = preload("res://minigames/cuchina disastrosa/cuchillo.tscn")
 var tenedor = preload("res://minigames/cuchina disastrosa/tenedor.tscn")
 var sarten = preload("res://minigames/cuchina disastrosa/sarten.tscn")
 var obstaculos = Array([cuchara, cuchillo, tenedor, sarten])
+var obstaculos_instanciados = Array([])
 var separacion = 100
 var i = 0
 var num_plataformas
@@ -61,6 +62,12 @@ func _ready():
 			mouse_touch.connect(Callable(area_movimiento2.get_node("Area2D"), "on_area_movimiento_mouse_touch"))
 
 func _process(delta):
+	for o in obstaculos_instanciados:
+		o[0].position.x += delta*200*(-1)**o[1]
+		if o[0].position.x > 820 or o[0].position.x < -100:
+			obstaculos_instanciados.erase(o)
+		if o[0].get_child(1).overlaps_body($Jugador/CharacterBody2D):
+			game_over.emit()
 	if jump:
 		if abs(num_plataforma.x - posicion_jugador.x) == 1 and num_plataforma.y - posicion_jugador.y == 0:
 				$Jugador/CharacterBody2D.jump(delta, Vector2(num_plataforma.x - posicion_jugador.x, 0))
@@ -122,12 +129,18 @@ func on_game_timeout():
 	game_cleared.emit()
 	game_in_progress = false
 
-
 func _on_timer_cubiertos_timeout():
 	i = randi_range(0, len(obstaculos)-1)
 	var obstaculo = obstaculos[i].instantiate()
-	var sentido = randi_range(0,1)
-	obstaculo.position = Vector2(sentido*720,randi_range(1,5)*150+100)
+	var sentido = 0
+	var a = true
+	while a:
+		sentido = randi_range(0,1)
+		obstaculo.position = Vector2(sentido*720,randi_range(0,5)*150+100)
+		a = false
+		for o in obstaculos_instanciados:
+			if o[0].position.y == obstaculo.position.y:
+				a = true
 	obstaculo.rotate(PI*sentido)
-	obstaculo.get_child(0).constant_linear_velocity.x=10*(-1)**sentido #TODO: Arreglar
 	add_child(obstaculo)
+	obstaculos_instanciados.append([obstaculo, sentido])

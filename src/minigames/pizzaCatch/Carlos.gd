@@ -21,16 +21,14 @@ func _process(delta):
 	position += velocity * delta
 	position = position.clamp(Vector2(50, 0), Vector2(670, 1280))
 
-func _on_left_button_up():
-	left = 0
-
-func _on_left_button_down():
-	left = 1
-
-
-func _on_right_button_down():
+func _on_right_button_pressed():
 	right = 1
 
-
-func _on_right_button_up():
+func _on_right_button_released():
 	right = 0
+
+func _on_left_button_pressed():
+	left = 1
+
+func _on_left_button_released():
+	left = 0

@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://cgm2qr3rcxcep"]
+
+[ext_resource type="Texture2D" uid="uid://fup0i8cw1sj3" path="res://minigames/explotar_globo/balloon_pieces/raton.png" id="1_uabcv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_12lto"]
+
+[node name="Raton" type="RigidBody2D"]
+
+[node name="Raton" type="Sprite2D" parent="."]
+position = Vector2(2, -2)
+scale = Vector2(0.116875, 0.122109)
+texture = ExtResource("1_uabcv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_12lto")
+disabled = true

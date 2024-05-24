@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://yj6ie0ukakwk"]
+[gd_scene load_steps=15 format=3 uid="uid://yj6ie0ukakwk"]
 
 [ext_resource type="Script" path="res://minigames/esquivar.coches/main.gd" id="1_g4jic"]
 [ext_resource type="Texture2D" uid="uid://6b8odl1d0wmt" path="res://minigames/esquivar.coches/road.png" id="1_gv78o"]
@@ -9,6 +9,12 @@
 [ext_resource type="Texture2D" uid="uid://0hsqyx43s610" path="res://minigames/esquivar.coches/car256.png" id="6_unngc"]
 [ext_resource type="Script" path="res://minigames/esquivar.coches/CollisionShape2D.gd" id="7_fkuc0"]
 [ext_resource type="AudioStream" uid="uid://bxyqefjys66bc" path="res://minigames/esquivar.coches/monsterwarecochesfinal_FINAL.ogg" id="8_4lffk"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5gai4"]
+size = Vector2(360, 1280)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lclmk"]
+size = Vector2(360, 1280)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_kwq60"]
 radius = 60.0
@@ -30,19 +36,17 @@ texture = ExtResource("1_gv78o")
 
 [node name="screenColliders" type="Node2D" parent="."]
 
-[node name="right" type="Button" parent="screenColliders"]
+[node name="right" type="TouchScreenButton" parent="screenColliders"]
 modulate = Color(0, 0, 0, 1)
-offset_left = 35.0
-offset_top = -641.0
-offset_right = 360.0
-offset_bottom = 638.0
+position = Vector2(180, 2.08165e-12)
+shape = SubResource("RectangleShape2D_5gai4")
+passby_press = true
 
-[node name="left" type="Button" parent="screenColliders"]
+[node name="left" type="TouchScreenButton" parent="screenColliders"]
 modulate = Color(0, 0, 0, 1)
-offset_left = -360.0
-offset_top = -641.0
-offset_right = -35.0
-offset_bottom = 638.0
+position = Vector2(-180, 2.08165e-12)
+shape = SubResource("RectangleShape2D_lclmk")
+passby_press = true
 
 [node name="player" type="CharacterBody2D" parent="."]
 script = ExtResource("2_l5ipx")
@@ -150,8 +154,8 @@ stream = ExtResource("8_4lffk")
 volume_db = 15.93
 autoplay = true
 
-[connection signal="button_down" from="screenColliders/right" to="player" method="_on_right_button_down"]
-[connection signal="button_down" from="screenColliders/left" to="player" method="_on_left_button_down"]
+[connection signal="pressed" from="screenColliders/right" to="player" method="_on_right_pressed"]
+[connection signal="pressed" from="screenColliders/left" to="player" method="_on_left_pressed"]
 [connection signal="body_entered" from="carSpawner/car" to="player" method="_on_car_body_entered"]
 [connection signal="body_entered" from="carSpawner/car2" to="player" method="_on_car_body_entered"]
 [connection signal="body_entered" from="carSpawner/car3" to="player" method="_on_car_body_entered"]
