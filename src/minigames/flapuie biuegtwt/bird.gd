@@ -20,14 +20,8 @@ func _process(delta):
 	if volando == true && anim.frame == 1:
 		anim.play("reposo")
 		volando = false
+		
 
 func _on_button_pressed():
-	
 	movement = true
-	
-	
-	
-	
-
-
-
+	$aleteo_pajaro.play()

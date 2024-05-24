@@ -3,6 +3,7 @@ signal game_over
 signal game_cleared
 
 # Flying Bird Character (for the credits) thanks to bevouliin.com (https://opengameart.org/content/bevouliin-free-flying-bird-game-character-sprite-sheets)
+#Sonido aleteo: Flapping Wings de Mike Koening https://soundbible.com/627-Flapping-Wings.html
 
 @export var game_brief = "Flappy bird"
 @export var needs_timer = true

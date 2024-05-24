@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://b8qku0rapfu75"
+path="res://.godot/imported/aleteo_pajaro.mp3-dfc198f52d438b87950578b2c94e0b97.mp3str"
+
+[deps]
+
+source_file="res://minigames/flapuie biuegtwt/images/bird/aleteo_pajaro.mp3"
+dest_files=["res://.godot/imported/aleteo_pajaro.mp3-dfc198f52d438b87950578b2c94e0b97.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

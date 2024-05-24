@@ -3,6 +3,8 @@ extends Node2D
 signal game_over
 signal game_cleared
 
+#Sonido rebote: Ball Bounce de Popul Pixels en https://soundbible.com/1626-Ball-Bounce.html
+
 @export var game_brief = "Stop the ball!!!"
 @export var game_controls = "touch_left_or_right"
 @export var needs_timer = true # False if your game doesn't need a countdown timer
@@ -73,3 +75,8 @@ func on_game_timeout():
 	playing = false
 	PhysicsServer2D.area_set_param(get_world_2d().space, PhysicsServer2D.AREA_PARAM_GRAVITY_VECTOR, previous_gravity_vector)
 	emit_signal("game_cleared")
+
+
+func _on_ball_body_entered(body):
+	print("boing!!!")
+	$BallReboundSound.play()

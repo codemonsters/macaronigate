@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://d1xpsnaqcgana"]
+[gd_scene load_steps=8 format=3 uid="uid://d1xpsnaqcgana"]
 
 [ext_resource type="Script" path="res://minigames/ñarkanoid/main.gd" id="1_742ob"]
 [ext_resource type="PackedScene" uid="uid://c1lc53oruu41p" path="res://minigames/ñarkanoid/paddle.tscn" id="2_c7miq"]
 [ext_resource type="PackedScene" uid="uid://guf6iegr8h74" path="res://minigames/ñarkanoid/ball.tscn" id="3_36e8n"]
 [ext_resource type="PackedScene" uid="uid://cixnu552immil" path="res://minigames/ñarkanoid/block.tscn" id="4_7ygdk"]
+[ext_resource type="AudioStream" uid="uid://dyfaxjf6y72om" path="res://minigames/ñarkanoid/sounds/sonido_rebote_pelota_.mp3" id="5_x36ya"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_215hd"]
 size = Vector2(50, 1280)
@@ -24,6 +25,8 @@ position = Vector2(360, 1000)
 
 [node name="ball" parent="." instance=ExtResource("3_36e8n")]
 position = Vector2(360, 500)
+max_contacts_reported = 1
+contact_monitor = true
 
 [node name="Block" parent="." instance=ExtResource("4_7ygdk")]
 position = Vector2(360, 32)
@@ -46,4 +49,8 @@ position = Vector2(360, 1305)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Floor"]
 shape = SubResource("RectangleShape2D_oofe0")
 
+[node name="BallReboundSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_x36ya")
+
+[connection signal="body_entered" from="ball" to="." method="_on_ball_body_entered"]
 [connection signal="body_entered" from="Floor" to="." method="_on_floor_body_entered"]

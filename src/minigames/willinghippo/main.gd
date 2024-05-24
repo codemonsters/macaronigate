@@ -14,6 +14,7 @@ signal game_cleared
 @export var timer_seconds = 10 # Only set if needs_timer = truen timer
 @export var factor_gravedad = 1.75
 @export var shake_threshold = 100
+@export var instruction_type = "tilt"
 
 var madera = preload("res://minigames/willinghippo/madera.tscn")
 var pared = preload("res://minigames/willinghippo/pared.tscn")

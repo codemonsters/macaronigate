@@ -3,6 +3,8 @@ signal game_over
 signal game_cleared
 
 # Juan https://ninjikin.itch.io/fruit
+#Sonido al cortar frutas: https://pixabay.com/sound-effects/search/sword/
+#Sonido al ganar en frutas: https://www.storyblocks.com/audio/stock/japanese-bonsai-garden-koto-348755635.html?preview=1
 
 @export var fruta_scene: PackedScene
 var fruta_num = 0
