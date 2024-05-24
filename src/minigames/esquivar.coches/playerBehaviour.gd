@@ -68,16 +68,13 @@ func _on_car_body_entered(body):
 		lose = true
 		emit_signal("game_over")
 
-
-func _on_right_button_down():
+func _on_right_pressed():
 	posicion_jugador = 1
 	$slidePlayer.play()
 
-
-func _on_left_button_down():
+func _on_left_pressed():
 	posicion_jugador = 0
 	$slidePlayer.play()
-
 
 func _on_area_2d_body_entered(body):
 	win = true
