@@ -168,18 +168,14 @@ func on_game_intro_finished():
 	load_game()
 	
 func on_play_button_pressed():
-	if signal_inhibit == true:
-		print("Play button signal inhibited!")
-		#assert(false, "Signal inhibited! Make sure the game does not send signals after game ends!")
+	print("Starting game!")
+	$AnimationPlayer.play("fade_in_black")
+	await $AnimationPlayer.animation_finished
+	remove_childs_in_group("menu")
+	if launch_minigame_directly == null:
+		load_game_intro()
 	else:
-		signal_inhibit = true
-		$AnimationPlayer.play("fade_in_black")
-		await $AnimationPlayer.animation_finished
-		remove_childs_in_group("menu")
-		if launch_minigame_directly == null:
-			load_game_intro()
-		else:
-			load_game()
+		load_game()
 
 func remove_childs_in_group(group):
 	for obj in get_children():	
