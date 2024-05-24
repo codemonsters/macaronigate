@@ -35,10 +35,10 @@ func _on_area_2d_body_entered(body):
 	if in_game == true:
 		emit_signal("game_over")
 		$Timer.stop()
+		$Carlos/StaticBody2D/Cesta2.show()
+		$Carlos/StaticBody2D/Cesta1.hide()
 	
 func on_game_timeout():
 	emit_signal("game_cleared")
 	$Timer.stop()
 	in_game = false
-	$Carlos/StaticBody2D/Cesta2.show()
-	$Carlos/StaticBody2D/Cesta1.hide()
