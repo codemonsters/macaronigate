@@ -11,6 +11,7 @@ config_version=5
 [application]
 
 config/name="Macaronigate"
+config/version="alpha"
 run/main_scene="res://game.tscn"
 config/features=PackedStringArray("4.2", "GL Compatibility")
 boot_splash/image="res://images/icon-nobg-1024px.png"

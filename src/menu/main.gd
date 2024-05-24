@@ -26,9 +26,15 @@ func _ready():
 		game = get_parent()
 		for item in game.minigames:
 			$GamePicker.add_item(item)
+
 		if game.launch_minigame_directly != null:
-			$PickerToggle.set_text("Selected: " + game.launch_minigame_directly)
+			var arrpos = game.minigames.find(game.launch_minigame_directly)
+			$GamePicker.select(arrpos)
+			$GamePicker.ensure_current_is_visible()
+			_on_game_picker_item_selected(arrpos)
 			$GamePicker.show()
+			$UpButton.show()
+			$DownButton.show()
 	else:
 		game = null
 	
