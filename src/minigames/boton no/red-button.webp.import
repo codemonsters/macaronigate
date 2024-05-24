@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://deturhdg3ocm7"
-path="res://.godot/imported/white-circle-free-png.webp-7a6e7d0bae27c10c700410a0a0feaf5d.ctex"
+uid="uid://dmuhx4xbswu2c"
+path="res://.godot/imported/red-button.webp-2048fffc3f73d1fec3587e7bf2f15e55.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://minigames/music ritmito/white-circle-free-png.webp"
-dest_files=["res://.godot/imported/white-circle-free-png.webp-7a6e7d0bae27c10c700410a0a0feaf5d.ctex"]
+source_file="res://minigames/boton no/red-button.webp"
+dest_files=["res://.godot/imported/red-button.webp-2048fffc3f73d1fec3587e7bf2f15e55.ctex"]
 
 [params]
 

@@ -4,6 +4,7 @@
 extends Node2D
 
 var game
+var start_pressed
 
 @export var pasta_max = 150	# maximum number of pasta instances to create
 @export var factor_gravedad = 1
@@ -20,15 +21,22 @@ var angulo = 0
 var direction = Vector2(0,1)
 
 func _ready():
+	start_pressed = false
 	# $GamePicker.get_v_scroll_bar().custom_minimum_size.x = 16
 	# $GamePicker.get_v_scroll_bar().offset_right = 8
 	if get_parent().get_name() == "game":
 		game = get_parent()
 		for item in game.minigames:
 			$GamePicker.add_item(item)
+
 		if game.launch_minigame_directly != null:
-			$PickerToggle.set_text("Selected: " + game.launch_minigame_directly)
+			var arrpos = game.minigames.find(game.launch_minigame_directly)
+			$GamePicker.select(arrpos)
+			$GamePicker.ensure_current_is_visible()
+			_on_game_picker_item_selected(arrpos)
 			$GamePicker.show()
+			$UpButton.show()
+			$DownButton.show()
 	else:
 		game = null
 	
@@ -75,7 +83,9 @@ func _process(delta):
 func _on_play_button_pressed():
 	PhysicsServer2D.area_set_param(get_world_2d().space, PhysicsServer2D.AREA_PARAM_GRAVITY_VECTOR, Vector2(0,1))
 	assert(game != null, "You must run the game (and not directly this scene) to start a match")
-	game.on_play_button_pressed()
+	if start_pressed == false:
+		start_pressed = true
+		game.on_play_button_pressed()
 	
 	
 func _on_picker_toggle_pressed():

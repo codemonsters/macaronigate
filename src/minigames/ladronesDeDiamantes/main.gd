@@ -14,9 +14,6 @@ var lostFlag = false
 func _ready():
 	game_over.connect(Callable(get_parent(), "on_game_over"))
 	game_cleared.connect(Callable(get_parent(), "on_game_cleared"))
-	
-
-
 
 func on_game_timeout():
 	if !lostFlag:

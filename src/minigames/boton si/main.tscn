@@ -1,8 +1,8 @@
 [gd_scene load_steps=4 format=3 uid="uid://mv5gqwk2ocqm"]
 
 [ext_resource type="Script" path="res://minigames/boton si/main.gd" id="1_fgjis"]
-[ext_resource type="Texture2D" uid="uid://ma5uktaaw0bi" path="res://minigames/boton si/red-button-isolate-backbround-3d-render-png (3).webp" id="2_h1tdv"]
-[ext_resource type="Texture2D" uid="uid://cdoox1cmylg8s" path="res://minigames/boton no/red-button-isolate-backbround-3d-render-png (2).tres" id="3_rdqom"]
+[ext_resource type="Texture2D" uid="uid://b6ig5xcrujguw" path="res://minigames/boton si/red-button.webp" id="2_h1tdv"]
+[ext_resource type="Texture2D" uid="uid://fr3rgcxbbcae" path="res://minigames/boton si/red-button-pressed.webp" id="3_82rhd"]
 
 [node name="Boton" type="Node2D"]
 position = Vector2(360, 640)
@@ -29,6 +29,6 @@ action_mode = 0
 flat = true
 
 [node name="Boton2" type="Sprite2D" parent="."]
-texture = ExtResource("3_rdqom")
+texture = ExtResource("3_82rhd")
 
 [connection signal="pressed" from="Colision" to="." method="_on_button_pressed"]

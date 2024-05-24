@@ -20,7 +20,7 @@ var piece_02_factory = preload("res://minigames/explotar_globo/balloon_pieces/pi
 var piece_03_factory = preload("res://minigames/explotar_globo/balloon_pieces/piece_03.tscn")
 var piece_04_factory = preload("res://minigames/explotar_globo/balloon_pieces/piece_04.tscn")
 var piece_05_factory = preload("res://minigames/explotar_globo/balloon_pieces/piece_05.tscn")
-
+var raton_factory = preload("res://minigames/explotar_globo/balloon_pieces/raton.tscn")
 
 func _ready():
 	game_over.connect(Callable(get_parent(), "on_game_over"))
@@ -70,7 +70,7 @@ func _on_white_light_timer_timeout():
 	tween.tween_property($splashColorRect, "color", Color(1, 1, 1, 0), 0.5)
 	
 	for i in range(30):
-		var balloon_piece = randi_range(1, 5)
+		var balloon_piece = randi_range(1, 6)
 		print(balloon_piece)
 		if balloon_piece == 1:
 			piece = piece_01_factory.instantiate()
@@ -80,8 +80,11 @@ func _on_white_light_timer_timeout():
 			piece = piece_03_factory.instantiate()
 		elif balloon_piece == 4:
 			piece = piece_04_factory.instantiate()
-		else:
+		elif balloon_piece == 5:
 			piece = piece_05_factory.instantiate()
+		else:
+			piece = raton_factory.instantiate()
+		
 		
 		piece.position = $globo.position
 		piece.scale = Vector2(randf_range(-1, 1), randf_range(-1, 1))

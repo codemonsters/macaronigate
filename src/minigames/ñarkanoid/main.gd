@@ -46,18 +46,7 @@ func _process(delta):
 	
 func _input(event):
 	if playing:
-		if event is InputEventScreenTouch:
-			if event.pressed == true:
-				if event.position[0] < get_viewport().get_visible_rect().size[0] / 2:
-					paddle_moving_left = true
-					paddle_moving_right = false
-				else:
-					paddle_moving_left = false
-					paddle_moving_right = true
-			else:
-				paddle_moving_left = false
-				paddle_moving_right = false
-		elif event.is_action_pressed("move_left"):
+		if event.is_action_pressed("move_left"):
 			paddle_moving_left = true
 		elif event.is_action_released("move_left"):
 			paddle_moving_left = false
@@ -77,6 +66,20 @@ func on_game_timeout():
 	emit_signal("game_cleared")
 
 
+
 func _on_ball_body_entered(body):
 	print("boing!!!")
 	$BallReboundSound.play()
+
+func _on_right_button_pressed():
+	paddle_moving_right = true
+
+func _on_right_button_released():
+	paddle_moving_right = false
+
+func _on_left_button_pressed():
+	paddle_moving_left = true
+
+func _on_left_button_released():
+	paddle_moving_left = false
+

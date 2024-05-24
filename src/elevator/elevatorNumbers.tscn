@@ -1,0 +1,57 @@
+[gd_scene load_steps=12 format=3 uid="uid://bsqqadxdgwqsd"]
+
+[ext_resource type="Texture2D" uid="uid://cb4n70kupu5jf" path="res://elevator/images/digits/digit_0.png" id="1_w4okb"]
+[ext_resource type="Texture2D" uid="uid://2dt1oqbgsluo" path="res://elevator/images/digits/digit_1.png" id="2_wtjio"]
+[ext_resource type="Texture2D" uid="uid://de2iwsroimo8y" path="res://elevator/images/digits/digit_2.png" id="3_i6s45"]
+[ext_resource type="Texture2D" uid="uid://bewl5dt08hga1" path="res://elevator/images/digits/digit_3.png" id="4_5hqn1"]
+[ext_resource type="Texture2D" uid="uid://c538i2p0tb1yg" path="res://elevator/images/digits/digit_4.png" id="5_aiui1"]
+[ext_resource type="Texture2D" uid="uid://cgg6jj3jm2qr4" path="res://elevator/images/digits/digit_5.png" id="6_lun4j"]
+[ext_resource type="Texture2D" uid="uid://4q0ovdlf5ema" path="res://elevator/images/digits/digit_6.png" id="7_ax21g"]
+[ext_resource type="Texture2D" uid="uid://yo76ukekjeec" path="res://elevator/images/digits/digit_7.png" id="8_d04vh"]
+[ext_resource type="Texture2D" uid="uid://bu4f7ed4qu6eo" path="res://elevator/images/digits/digit_8.png" id="9_34ker"]
+[ext_resource type="Texture2D" uid="uid://c1ykofnhxoiei" path="res://elevator/images/digits/digit_9.png" id="10_wuc7c"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vkkd2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_w4okb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_wtjio")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_i6s45")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_5hqn1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_aiui1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_lun4j")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_ax21g")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_d04vh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_34ker")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_wuc7c")
+}],
+"loop": true,
+"name": &"numbers",
+"speed": 0.0
+}]
+
+[node name="ElevatorNumbers" type="Node2D"]
+
+[node name="SecondDigit" type="AnimatedSprite2D" parent="."]
+position = Vector2(394, 216)
+sprite_frames = SubResource("SpriteFrames_vkkd2")
+animation = &"numbers"

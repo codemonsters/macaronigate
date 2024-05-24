@@ -100,8 +100,12 @@ func load_game(game_n = 0):
 
 # Carga elevator.tscn, y esta despues llamará a load_game(). 
 func enter_elevator():
+	$HUD/Label.set_text("")
 	elevator = load("res://elevator/main.tscn").instantiate()
+	
 	$elevatorPlaceholder.add_child(elevator)
+	elevator.set_starting_floor_number(current_game_number - 1)
+
 
 func on_elevator_exit():
 	elevator.queue_free()
@@ -121,6 +125,7 @@ func on_game_cleared():
 		await get_tree().create_timer(1).timeout
 		$AnimationPlayer.play("fade_in_black")
 		await $AnimationPlayer.animation_finished
+		$HUD/Label.hide()
 		
 		if launch_minigame_directly == null:
 			if current_game_number < minigames_shuffled.size() - 1:
@@ -167,18 +172,14 @@ func on_game_intro_finished():
 	load_game()
 	
 func on_play_button_pressed():
-	if signal_inhibit == true:
-		print("Play button signal inhibited!")
-		#assert(false, "Signal inhibited! Make sure the game does not send signals after game ends!")
+	print("Starting game!")
+	$AnimationPlayer.play("fade_in_black")
+	await $AnimationPlayer.animation_finished
+	remove_childs_in_group("menu")
+	if launch_minigame_directly == null:
+		load_game_intro()
 	else:
-		signal_inhibit = true
-		$AnimationPlayer.play("fade_in_black")
-		await $AnimationPlayer.animation_finished
-		remove_childs_in_group("menu")
-		if launch_minigame_directly == null:
-			load_game_intro()
-		else:
-			load_game()
+		load_game()
 
 func remove_childs_in_group(group):
 	for obj in get_children():	

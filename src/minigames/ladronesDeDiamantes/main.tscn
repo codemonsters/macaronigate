@@ -274,7 +274,7 @@ autostart = true
 
 [node name="MusicPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("17_vid4b")
-volume_db = 2.811
+volume_db = 14.991
 autoplay = true
 
 [connection signal="game_over" from="." to="luzPolicia" method="_on_main_game_over"]

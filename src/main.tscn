@@ -1,13 +1,10 @@
 [gd_scene load_steps=6 format=3 uid="uid://6nmc2ubx4fss"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_3s3ag"]
-load_path = "res://.godot/imported/piece-of-cheese-cheese-icon-cheese-realistic-food-3d-rendering-free-png.png-0dc32e505f0d560be31bdca490b08121.ctex"
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_46hk2"]
-load_path = "res://.godot/imported/raton2.jpg-72c7dc898aa7957fcde49e0bf7abd402.ctex"
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_lay0b"]
-load_path = "res://.godot/imported/pngtree-wooden-table-background-image_2281245.jpg-ef352e3d928064f795877cad8dfffe73.ctex"
 
 [sub_resource type="GDScript" id="GDScript_jkv34"]
 script/source = "extends CharacterBody2D
@@ -29,7 +26,6 @@ func fisics_process (delta):
 "
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_pbmwp"]
-load_path = "res://.godot/imported/pala-espatula-de-cocina-32-x-75-cm-enamel-home-f173145.jpg-2d722ede78038bbc4f873d0f30916195.ctex"
 
 [node name="Main" type="Node2D"]
 

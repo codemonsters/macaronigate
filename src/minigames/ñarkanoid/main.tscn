@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://d1xpsnaqcgana"]
+[gd_scene load_steps=10 format=3 uid="uid://d1xpsnaqcgana"]
 
 [ext_resource type="Script" path="res://minigames/ñarkanoid/main.gd" id="1_742ob"]
 [ext_resource type="PackedScene" uid="uid://c1lc53oruu41p" path="res://minigames/ñarkanoid/paddle.tscn" id="2_c7miq"]
@@ -11,6 +11,12 @@ size = Vector2(50, 1280)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_oofe0"]
 size = Vector2(820, 50)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_45spt"]
+size = Vector2(360, 1280)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0f51t"]
+size = Vector2(360, 1280)
 
 [node name="main" type="Node2D"]
 script = ExtResource("1_742ob")
@@ -52,5 +58,19 @@ shape = SubResource("RectangleShape2D_oofe0")
 [node name="BallReboundSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("5_x36ya")
 
+[node name="RightButton" type="TouchScreenButton" parent="."]
+position = Vector2(540, 640)
+shape = SubResource("RectangleShape2D_45spt")
+passby_press = true
+
+[node name="LeftButton" type="TouchScreenButton" parent="."]
+position = Vector2(180, 640)
+shape = SubResource("RectangleShape2D_0f51t")
+passby_press = true
+
 [connection signal="body_entered" from="ball" to="." method="_on_ball_body_entered"]
 [connection signal="body_entered" from="Floor" to="." method="_on_floor_body_entered"]
+[connection signal="pressed" from="RightButton" to="." method="_on_right_button_pressed"]
+[connection signal="released" from="RightButton" to="." method="_on_right_button_released"]
+[connection signal="pressed" from="LeftButton" to="." method="_on_left_button_pressed"]
+[connection signal="released" from="LeftButton" to="." method="_on_left_button_released"]
