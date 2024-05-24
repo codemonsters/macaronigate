@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://clnxg0filmhhm"]
+[gd_scene load_steps=9 format=3 uid="uid://clnxg0filmhhm"]
 
 [ext_resource type="Script" path="res://minigames/pizzaCatch/main.gd" id="1_etdbm"]
 [ext_resource type="PackedScene" uid="uid://be58n7lis21wr" path="res://minigames/pizzaCatch/Carlos.tscn" id="2_23qb4"]
@@ -13,6 +13,12 @@ point_count = 2
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_ux5k5"]
 b = Vector2(720, 0)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_13vw0"]
+size = Vector2(360, 1280)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_whwc4"]
+size = Vector2(360, 1280)
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_etdbm")
@@ -35,19 +41,6 @@ curve = SubResource("Curve2D_a1jsm")
 position = Vector2(0, 1280)
 shape = SubResource("SegmentShape2D_ux5k5")
 
-[node name="Left" type="Button" parent="."]
-modulate = Color(1, 1, 1, 0)
-self_modulate = Color(1, 1, 1, 0)
-offset_right = 360.0
-offset_bottom = 1280.0
-
-[node name="Right" type="Button" parent="."]
-modulate = Color(1, 1, 1, 0)
-self_modulate = Color(1, 1, 1, 0)
-offset_left = 360.0
-offset_right = 720.0
-offset_bottom = 1280.0
-
 [node name="Sprite2D" type="Sprite2D" parent="."]
 light_mask = 512
 visibility_layer = 512
@@ -59,9 +52,19 @@ stream = ExtResource("4_gh88t")
 volume_db = 9.37
 autoplay = true
 
+[node name="RightButton" type="TouchScreenButton" parent="."]
+position = Vector2(540, 640)
+shape = SubResource("RectangleShape2D_13vw0")
+passby_press = true
+
+[node name="LeftButton" type="TouchScreenButton" parent="."]
+position = Vector2(180, 640)
+shape = SubResource("RectangleShape2D_whwc4")
+passby_press = true
+
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
-[connection signal="button_down" from="Left" to="Carlos" method="_on_left_button_down"]
-[connection signal="button_up" from="Left" to="Carlos" method="_on_left_button_up"]
-[connection signal="button_down" from="Right" to="Carlos" method="_on_right_button_down"]
-[connection signal="button_up" from="Right" to="Carlos" method="_on_right_button_up"]
+[connection signal="pressed" from="RightButton" to="Carlos" method="_on_right_button_pressed"]
+[connection signal="released" from="RightButton" to="Carlos" method="_on_right_button_released"]
+[connection signal="pressed" from="LeftButton" to="Carlos" method="_on_left_button_pressed"]
+[connection signal="released" from="LeftButton" to="Carlos" method="_on_left_button_released"]
