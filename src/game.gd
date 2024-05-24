@@ -100,8 +100,12 @@ func load_game(game_n = 0):
 
 # Carga elevator.tscn, y esta despues llamará a load_game(). 
 func enter_elevator():
+	$HUD/Label.set_text("")
 	elevator = load("res://elevator/main.tscn").instantiate()
+	
 	$elevatorPlaceholder.add_child(elevator)
+	elevator.set_starting_floor_number(current_game_number - 1)
+
 
 func on_elevator_exit():
 	elevator.queue_free()

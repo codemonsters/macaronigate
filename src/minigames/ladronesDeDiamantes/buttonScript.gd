@@ -1,13 +1,10 @@
 extends Button
 
-
 var first_press = false
-
 
 func _process(delta):
 	if !first_press:
-		position.y = 930 + (10*sin(PI * $timer.time_left))
-
+		position.y = 930 + (12*sin(4*PI * $timer.time_left))
 
 func _on_button_down():
 	if !first_press:

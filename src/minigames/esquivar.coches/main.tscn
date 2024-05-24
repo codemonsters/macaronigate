@@ -147,7 +147,7 @@ script = ExtResource("7_fkuc0")
 
 [node name="musicPlayer" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("8_4lffk")
-volume_db = 1.875
+volume_db = 15.93
 autoplay = true
 
 [connection signal="button_down" from="screenColliders/right" to="player" method="_on_right_button_down"]
