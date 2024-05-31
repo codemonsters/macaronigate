@@ -69,7 +69,6 @@ func on_game_timeout():
 
 
 func _on_ball_body_entered(body):
-	print("boing!!!")
 	$BallReboundSound.play()
 
 func _on_right_button_pressed():

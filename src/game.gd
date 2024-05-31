@@ -19,6 +19,7 @@ var minigames = [
 	"boton no", "boton si", "esquivar.coches", "explotar_globo",
 	"flapuie biuegtwt", "frutas", "ladronesDeDiamantes",
 	"ñarkanoid", "pizzaCatch", "space", "totems", "willinghippo",
+	"cuchina disastrosa"
 	#"panelDeBotones", "pulsar_mucho"
 	]
 

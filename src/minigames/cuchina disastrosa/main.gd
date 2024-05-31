@@ -12,7 +12,7 @@ signal mouse_touch(event)
 @export var game_brief = "cuchina disastrosa"
 @export var needs_timer = true 
 @export var timer_seconds = 10
-@export var instruction_type = "touch_left_or_right"
+@export var instruction_type = "tap"
 
 var marmol = preload("res://minigames/cuchina disastrosa/marmol.tscn")
 var area_movimiento = preload("res://minigames/cuchina disastrosa/area_movimiento.tscn")
@@ -68,6 +68,7 @@ func _process(delta):
 		if o[0].position.x > 820 or o[0].position.x < -100:
 			obstaculos_instanciados.erase(o)
 		if o[0].get_child(1).overlaps_body($Jugador/CharacterBody2D):
+			$Jugador/CharacterBody2D.die(delta)
 			game_over.emit()
 	if jump:
 		if abs(num_plataforma.x - posicion_jugador.x) == 1 and num_plataforma.y - posicion_jugador.y == 0:

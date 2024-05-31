@@ -1,18 +1,312 @@
-[gd_scene load_steps=12 format=3 uid="uid://2vaye23jw03v"]
+[gd_scene load_steps=20 format=3 uid="uid://2vaye23jw03v"]
 
 [ext_resource type="Texture2D" uid="uid://dqp0f10xdsmii" path="res://intro_game/images/street.jpg" id="1_k2eu4"]
 [ext_resource type="Script" path="res://intro_game/main.gd" id="1_ykv00"]
 [ext_resource type="Texture2D" uid="uid://b6b7724pdus8j" path="res://intro_game/images/chef.png" id="2_qikef"]
+[ext_resource type="Texture2D" uid="uid://b43fobcxk58nt" path="res://intro_game/images/15_Kensinger_357_361_Canal_Street_DSC_7468.jpg" id="3_0mmq2"]
+[ext_resource type="Texture2D" uid="uid://cyr7d0t3x5ano" path="res://intro_game/images/street2.png" id="3_2qtn8"]
 [ext_resource type="Texture2D" uid="uid://cauwntvvye8m3" path="res://intro_game/images/hand.png" id="3_e5vrj"]
 [ext_resource type="Texture2D" uid="uid://6ugdmtchm01e" path="res://intro_game/images/macarrones.png" id="4_l5sxp"]
 [ext_resource type="Texture2D" uid="uid://d6ccg888oue3" path="res://intro_game/images/palo.png" id="5_34r83"]
 [ext_resource type="Texture2D" uid="uid://bfdgr0dfjfnmt" path="res://intro_game/images/thif.png" id="5_lathc"]
-[ext_resource type="Texture2D" uid="uid://dntn6qatfprem" path="res://intro_game/images/white_square.png" id="8_qtlcv"]
 [ext_resource type="AudioStream" uid="uid://bpuvnhrkv7dhv" path="res://intro_game/animacionFINAL.ogg" id="10_muiyr"]
+[ext_resource type="Texture2D" uid="uid://djk2xm3pleak1" path="res://intro_game/images/Building.png" id="12_vhnfn"]
+[ext_resource type="Texture2D" uid="uid://rft8f27sxhh1" path="res://intro_game/images/BuildingDoorLeft.png" id="13_bpwfh"]
+[ext_resource type="Texture2D" uid="uid://dq4lwfj7kr8rn" path="res://intro_game/images/BuildingDoorRight.png" id="14_wcj6a"]
+
+[sub_resource type="Animation" id="Animation_683dk"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Chef:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-269, 845)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Thief:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-146, 827)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Macarroni:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-257, 980)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Building/BuildingDoorLeft:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-103.571, 133.571)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Building/BuildingDoorRight:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(116.429, 133.571)]
+}
+
+[sub_resource type="Animation" id="Animation_ow185"]
+resource_name = "chase"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Chef:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.6, 0.9, 1.1, 1.2, 1.4, 1.6, 1.8, 2, 2.2, 2.4, 2.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-200, 850), Vector2(-200, 850), Vector2(-38, 823), Vector2(83, 870), Vector2(173, 866), Vector2(236, 913), Vector2(317, 895), Vector2(414, 929), Vector2(502, 893), Vector2(605, 859), Vector2(724, 911), Vector2(798, 882)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Macarroni:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Macarroni:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4, 1.6, 1.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-257, 980), Vector2(19, 951), Vector2(93, 1018), Vector2(212, 966), Vector2(331, 1049), Vector2(448, 1004), Vector2(567, 1035), Vector2(677, 1022), Vector2(753, 997), Vector2(816, 1040)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Thief:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4, 1.6, 1.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-146, 827), Vector2(130, 820), Vector2(202, 876), Vector2(319, 840), Vector2(433, 919), Vector2(559, 867), Vector2(676, 905), Vector2(788, 894), Vector2(860, 865), Vector2(923, 917)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Chef:rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 0.226893]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Background_Scene1:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Background_Scene2:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Background_Scene3:visible")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_6gvo4"]
+resource_name = "entrance"
+length = 4.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Chef:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 1.7, 1.9, 2.1, 2.2, 2.3, 2.5, 2.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-134, 872), Vector2(103, 856), Vector2(187, 922), Vector2(187, 922), Vector2(298, 842), Vector2(352, 911), Vector2(451, 876.5), Vector2(567, 928), Vector2(711, 862), Vector2(814, 887)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Chef:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.4, 0.6, 1.4, 1.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.0, -0.226893, -0.226893, 0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Background_Scene3:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Background_Scene2:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Background_Scene1:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Building:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Chef:z_index")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 2.4, 2.7),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [0, -4, 0]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Building/BuildingDoorLeft:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(1.7, 2.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-40, 133.571), Vector2(-103.571, 133.571)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Building/BuildingDoorRight:position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(1.7, 2.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(58.5714, 133.571), Vector2(116.429, 133.571)]
+}
+
+[sub_resource type="Animation" id="Animation_hk83m"]
+resource_name = "final"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Chef:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"update": 0,
+"values": []
+}
 
 [sub_resource type="Animation" id="Animation_g01ms"]
-resource_name = "walking1"
-length = 16.0
+resource_name = "walking"
+length = 10.5
 step = 0.05
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -21,7 +315,7 @@ tracks/0/path = NodePath("Chef:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 1, 1.5, 2, 2.5, 3, 3.5, 5, 11, 11.35, 11.65, 11.95, 12.3, 12.65, 13, 13.35, 13.65, 13.95, 14.3),
+"times": PackedFloat32Array(0, 0.3, 0.65, 1, 1.35, 1.75, 2.05, 2.95, 8.95, 9.1, 9.25, 9.4, 9.55, 9.7, 9.85, 10, 10.15, 10.3, 10.45),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 0,
 "values": [Vector2(-232, 887), Vector2(-66, 876), Vector2(80, 861), Vector2(131, 875), Vector2(185, 850), Vector2(252, 871), Vector2(307, 854), Vector2(352, 850), Vector2(352, 850), Vector2(398, 882), Vector2(440, 859), Vector2(463, 876), Vector2(500, 851), Vector2(533, 872), Vector2(579, 840), Vector2(633, 865), Vector2(707, 836), Vector2(763, 870), Vector2(827, 870)]
@@ -33,7 +327,7 @@ tracks/1/path = NodePath("Chef:rotation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 1, 1.5, 2, 2.5, 3, 3.5, 4),
+"times": PackedFloat32Array(0, 0.3, 0.65, 1, 1.35, 1.75, 2.05, 2.25),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
 "update": 0,
 "values": [0.0, 0.113446, -0.0872665, 0.0872665, -0.0872665, 0.0872665, -0.0872665, 0.0]
@@ -45,7 +339,7 @@ tracks/2/path = NodePath("Thief:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 4, 5, 5.3, 5.6, 5.9, 6.2, 6.5, 6.8, 7.1, 7.6, 7.9, 8.5, 8.8, 9.1, 9.4, 9.9, 10.3, 10.7),
+"times": PackedFloat32Array(0, 2.25, 2.95, 3.25, 3.55, 3.85, 4.15, 4.45, 4.75, 5.05, 5.55, 5.85, 6.45, 6.75, 7.05, 7.35, 7.85, 8.25, 8.65),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 0,
 "values": [Vector2(1076, 848), Vector2(1076, 848), Vector2(762, 863), Vector2(714, 830), Vector2(680, 858), Vector2(632, 830), Vector2(600, 850), Vector2(587, 820), Vector2(562, 853), Vector2(514, 862), Vector2(514, 862), Vector2(562, 853), Vector2(587, 820), Vector2(600, 850), Vector2(632, 830), Vector2(680, 858), Vector2(714, 830), Vector2(762, 863), Vector2(882, 873)]
@@ -57,27 +351,107 @@ tracks/3/path = NodePath("Macarroni:position")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.95, 1.45, 2.1, 2.6, 2.95, 3.45, 4.9, 7.6, 7.9, 8.55, 8.8, 9.05, 9.45, 9.95, 10.25, 10.7),
+"times": PackedFloat32Array(0, 0.25, 0.6, 1.1, 1.4, 1.7, 2, 2.85, 5.55, 5.85, 6.5, 6.75, 7, 7.4, 7.9, 8.2, 8.65),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 0,
 "values": [Vector2(-154, 1026), Vector2(9.99998, 1018), Vector2(148, 995), Vector2(206, 1020), Vector2(263, 977), Vector2(334, 1012), Vector2(381, 983), Vector2(428, 987), Vector2(428, 987), Vector2(467, 987), Vector2(496, 948), Vector2(507, 985), Vector2(536, 956), Vector2(585, 991), Vector2(629, 970), Vector2(658, 991), Vector2(788, 1007)]
 }
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Background_Scene1:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Background_Scene2:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Background_Scene3:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Building:visible")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_f0pwi"]
 _data = {
-"walking1": SubResource("Animation_g01ms")
+"RESET": SubResource("Animation_683dk"),
+"chase": SubResource("Animation_ow185"),
+"entrance": SubResource("Animation_6gvo4"),
+"final": SubResource("Animation_hk83m"),
+"walking": SubResource("Animation_g01ms")
 }
 
 [node name="IntroAnimation" type="Node2D"]
 script = ExtResource("1_ykv00")
 
-[node name="Street" type="Sprite2D" parent="."]
+[node name="TopFrame" type="ColorRect" parent="."]
+z_index = 100
+offset_right = 720.0
+offset_bottom = 409.0
+color = Color(0, 0, 0, 1)
+
+[node name="BottomFrame" type="ColorRect" parent="."]
+z_index = 100
+offset_top = 1007.0
+offset_right = 720.0
+offset_bottom = 1287.0
+color = Color(0, 0, 0, 1)
+
+[node name="Background_Scene1" type="Sprite2D" parent="."]
+z_index = -1
 position = Vector2(360, 711.75)
 scale = Vector2(0.636667, 0.902963)
 texture = ExtResource("1_k2eu4")
 
+[node name="Background_Scene2" type="Sprite2D" parent="."]
+visible = false
+z_index = -2
+position = Vector2(386.376, 708)
+scale = Vector2(0.722456, 0.746567)
+texture = ExtResource("3_0mmq2")
+
+[node name="Background_Scene3" type="Sprite2D" parent="."]
+visible = false
+z_index = -6
+position = Vector2(390, 705.5)
+scale = Vector2(1.47333, 1.5225)
+texture = ExtResource("3_2qtn8")
+
 [node name="Chef" type="Sprite2D" parent="."]
-position = Vector2(-232, 887)
+position = Vector2(-269, 845)
 texture = ExtResource("2_qikef")
 
 [node name="Hand" type="Sprite2D" parent="Chef"]
@@ -86,7 +460,7 @@ scale = Vector2(1.6, 1.6)
 texture = ExtResource("3_e5vrj")
 
 [node name="Thief" type="Sprite2D" parent="."]
-position = Vector2(1076, 848)
+position = Vector2(-146, 827)
 texture = ExtResource("5_lathc")
 
 [node name="Hand" type="Sprite2D" parent="Thief"]
@@ -95,7 +469,7 @@ scale = Vector2(-1.6, 1.6)
 texture = ExtResource("3_e5vrj")
 
 [node name="Macarroni" type="Sprite2D" parent="."]
-position = Vector2(-154, 1026)
+position = Vector2(-257, 980)
 scale = Vector2(0.290293, 0.601478)
 texture = ExtResource("5_34r83")
 
@@ -110,18 +484,6 @@ position = Vector2(3.44482, -309.238)
 scale = Vector2(0.344479, 0.166257)
 texture = ExtResource("4_l5sxp")
 
-[node name="topFrame" type="Sprite2D" parent="."]
-modulate = Color(0, 0, 0, 1)
-position = Vector2(394.5, 153)
-scale = Vector2(1.83789, 1)
-texture = ExtResource("8_qtlcv")
-
-[node name="bottomFrame" type="Sprite2D" parent="."]
-modulate = Color(0, 0, 0, 1)
-position = Vector2(394.5, 1263)
-scale = Vector2(1.83789, 1)
-texture = ExtResource("8_qtlcv")
-
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_f0pwi")
@@ -131,5 +493,37 @@ libraries = {
 stream = ExtResource("10_muiyr")
 volume_db = -0.937
 autoplay = true
+
+[node name="Building" type="Sprite2D" parent="."]
+visible = false
+z_index = -2
+position = Vector2(557, 655)
+scale = Vector2(1.4, 1.4)
+texture = ExtResource("12_vhnfn")
+
+[node name="BuildingDoorLeft" type="Sprite2D" parent="Building"]
+z_index = -1
+position = Vector2(-103.571, 133.571)
+texture = ExtResource("13_bpwfh")
+
+[node name="Macarroni" type="Sprite2D" parent="Building/BuildingDoorLeft"]
+z_index = -1
+position = Vector2(-17.1429, -287.142)
+scale = Vector2(0.290293, 0.601478)
+texture = ExtResource("5_34r83")
+
+[node name="ColorRect" type="ColorRect" parent="Building"]
+z_index = -5
+z_as_relative = false
+offset_left = -74.2857
+offset_right = -34.2857
+offset_bottom = 40.0
+scale = Vector2(4.2, 6.48571)
+color = Color(0, 0, 0, 1)
+
+[node name="BuildingDoorRight" type="Sprite2D" parent="Building"]
+z_index = -1
+position = Vector2(116.429, 133.571)
+texture = ExtResource("14_wcj6a")
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
