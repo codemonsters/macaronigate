@@ -75,7 +75,7 @@ func _on_pasta_constructor_timer_timeout():
 
 
 func _process(delta):
-	angulo += Input.get_gyroscope().y*delta
+	angulo += max(Input.get_gyroscope().y,Input.get_gyroscope().z)*delta
 	direction = factor_gravedad * Vector2(sin(angulo),cos(angulo))
 	PhysicsServer2D.area_set_param(get_world_2d().space, PhysicsServer2D.AREA_PARAM_GRAVITY_VECTOR, direction)
 
