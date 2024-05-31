@@ -18,3 +18,4 @@ func _on_input_event(viewport, event, shape_idx):
 
 func _on_mouse_entered():
 	$AnimatedSprite2D.set_frame_and_progress(1,1)
+	$Cortar_manzana.play()

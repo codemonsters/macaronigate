@@ -2,6 +2,8 @@ extends Node2D
 signal game_over
 signal game_cleared
 
+# Sonido botón: Fuzzy Beep de (sin nombre) en https://soundbible.com/291-Fuzzy-Beep.html
+
 # Required variables
 @export var game_brief = "Touch it!"
 @export var needs_timer = true # False if your game doesn't need a countdown timer
@@ -30,5 +32,6 @@ func on_game_timeout():
 
 func _on_button_pressed():
 	game_cleared.emit()
+	$Sonido_boton.play()
 	$Boton.hide()
 	$Boton2.show()
