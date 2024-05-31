@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://ew3a0uqcp4rv"
-path="res://.godot/imported/mobil.png-72214ab1564fe5895d5f85a7ab557b40.ctex"
+path="res://.godot/imported/mobil.png-a380080861565d046d131a821a894bfb.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://minigames_instructions/tilt/mobil.png"
-dest_files=["res://.godot/imported/mobil.png-72214ab1564fe5895d5f85a7ab557b40.ctex"]
+source_file="res://minigames_instructions/tilt_z/mobil.png"
+dest_files=["res://.godot/imported/mobil.png-a380080861565d046d131a821a894bfb.ctex"]
 
 [params]
 

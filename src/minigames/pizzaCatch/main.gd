@@ -7,6 +7,7 @@ var in_game = true
 @export var game_brief = "Catch the pizza!"
 @export var needs_timer = true # False if your game doesn't need a countdown timer
 @export var timer_seconds = 10 # Only set if needs_timer = true
+@export var instruction_type = "touch_left_or_right"
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

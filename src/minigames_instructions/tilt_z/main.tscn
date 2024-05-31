@@ -1,0 +1,38 @@
+[gd_scene load_steps=4 format=3 uid="uid://cejswxpf3i0ov"]
+
+[ext_resource type="Texture2D" uid="uid://ew3a0uqcp4rv" path="res://minigames_instructions/tilt_z/mobil.png" id="1_m0r8g"]
+
+[sub_resource type="Animation" id="Animation_rbow2"]
+resource_name = "tilt"
+length = 3.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:skew")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"update": 0,
+"values": []
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_autyd"]
+_data = {
+"tilt": SubResource("Animation_rbow2")
+}
+
+[node name="Main" type="Node2D"]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_autyd")
+}
+autoplay = "tilt"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(337, 861)
+scale = Vector2(0.620583, 0.728975)
+skew = -0.148353
+texture = ExtResource("1_m0r8g")

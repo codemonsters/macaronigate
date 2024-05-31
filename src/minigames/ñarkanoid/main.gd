@@ -9,6 +9,7 @@ signal game_cleared
 @export var game_controls = "touch_left_or_right"
 @export var needs_timer = true # False if your game doesn't need a countdown timer
 @export var timer_seconds = 5 # Only set if needs_timer = true
+@export var instruction_type = "touch_left_or_right"
 
 var paddle_moving_left = false
 var paddle_moving_right = false

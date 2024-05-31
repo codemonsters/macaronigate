@@ -12,6 +12,7 @@ signal mouse_touch(event)
 @export var game_brief = "cuchina disastrosa"
 @export var needs_timer = true 
 @export var timer_seconds = 10
+@export var instruction_type = "touch_left_or_right"
 
 var marmol = preload("res://minigames/cuchina disastrosa/marmol.tscn")
 var area_movimiento = preload("res://minigames/cuchina disastrosa/area_movimiento.tscn")

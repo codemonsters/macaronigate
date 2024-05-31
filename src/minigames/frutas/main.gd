@@ -14,7 +14,7 @@ var in_game = false
 @export var game_brief = "Cut the fruit!"
 @export var needs_timer = true
 @export var timer_seconds = 5
-@export var instruction_type = "touch_left_or_right"
+@export var instruction_type = "swipe"
 
 func _ready():
 	game_over.connect(Callable(get_parent(), "on_game_over"))
