@@ -2,6 +2,8 @@ extends Node2D
 signal game_over
 signal game_cleared
 
+#Sonido error: https://pixabay.com/sound-effects/buzzer-or-wrong-answer-20582/
+
 # Required variables
 @export var game_brief = "Don't touch it!"
 @export var needs_timer = true # False if your game doesn't need a countdown timer
@@ -31,5 +33,6 @@ func on_game_timeout():
 
 func _on_button_pressed():
 	game_over.emit()
+	$ErrorSound.play()
 	$Boton.hide()
 	$Boton2.show()
