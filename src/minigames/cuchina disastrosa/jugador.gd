@@ -10,6 +10,7 @@ var vy_side = -75
 var a_up = 675
 var a_down = 700
 var a_side = 200
+var dead = false
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -28,24 +29,29 @@ func jump(delta, direction):
 		jump_side(delta, direction)
 	
 func jump_up(delta, direction):
-	t += delta
-	velocity.x = vx*direction.x
-	velocity.y = vy_up + a_up*t
-	move_and_slide()
+	if not dead:
+		t += delta
+		velocity.x = vx*direction.x
+		velocity.y = vy_up + a_up*t
+		move_and_slide()
 
 func jump_down(delta, direction):
-	t += delta
-	velocity.x = vx*direction.x
-	velocity.y = vy_down + a_down*t
-	move_and_slide()
+	if not dead:
+		t += delta
+		velocity.x = vx*direction.x
+		velocity.y = vy_down + a_down*t
+		move_and_slide()
 	
 func jump_side(delta, direction):
-	t += delta
-	velocity.x = vx_side*direction.x
-	velocity.y = vy_side + a_side*t
-	move_and_slide()
+	if not dead:
+		t += delta
+		velocity.x = vx_side*direction.x
+		velocity.y = vy_side + a_side*t
+		move_and_slide()
 
 func die(delta):
+	dead = true
+	velocity = Vector2(0, 0)
 	$CollisionShape2D.free()
 	rotate(-1)
 	fall = true

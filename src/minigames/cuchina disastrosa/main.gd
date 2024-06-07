@@ -2,7 +2,6 @@ extends Node2D
 
 signal game_over
 signal game_cleared
-signal mouse_touch(event)
 
 # Sonido marmol: Rockslide small - Sound Explorer en soundbible.com/1987-Rockslide-Small.html
 # Sonido perder: Sad Trombone - Joe Lamb en soundbible.com/1830-Sad-Trombone.html
@@ -15,7 +14,6 @@ signal mouse_touch(event)
 @export var instruction_type = "tap"
 
 var marmol = preload("res://minigames/cuchina disastrosa/marmol.tscn")
-var area_movimiento = preload("res://minigames/cuchina disastrosa/area_movimiento.tscn")
 var cuchara = preload("res://minigames/cuchina disastrosa/cuchara.tscn")
 var cuchillo = preload("res://minigames/cuchina disastrosa/cuchillo.tscn")
 var tenedor = preload("res://minigames/cuchina disastrosa/tenedor.tscn")
@@ -46,21 +44,14 @@ func _ready():
 	for y in range(filas):
 		for x in range(num_plataformas+y%2):
 			var marmol2 = marmol.instantiate()
-			var area_movimiento2 = area_movimiento.instantiate()
 			add_child(marmol2)
-			add_child(area_movimiento2)
 			if y == filas-1 and x == num_plataformas+y%2-2:
 				marmol2.position=Vector2(2*59+separacion+marmol_anterior,200+150*y)
-				area_movimiento2.position=Vector2(2*59+separacion+marmol_anterior,200+150*y)
 			elif x == 0:
 				marmol2.position=Vector2((distancia+26)*((y+1)%2)+33,200+150*y)
-				area_movimiento2.position=Vector2((distancia+26)*((y+1)%2)+33,200+150*y)
 			else:
 				marmol2.position=Vector2(2*59+separacion+marmol_anterior,200+150*y)
-				area_movimiento2.position=Vector2(2*59+separacion+marmol_anterior,200+150*y)
 			marmol_anterior = marmol2.position.x
-			print(area_movimiento2.position)
-			mouse_touch.connect(Callable(area_movimiento2.get_node("Area2D"), "on_area_movimiento_mouse_touch"))
 
 func _process(delta):
 	for o in obstaculos_instanciados:
@@ -71,7 +62,9 @@ func _process(delta):
 			$Jugador/CharacterBody2D.die(delta)
 			game_over.emit()
 	if jump:
-		if abs(num_plataforma.x - posicion_jugador.x) == 1 and num_plataforma.y - posicion_jugador.y == 0:
+		if num_plataforma.y < 1 or num_plataforma.y > 6:
+			jump = false
+		elif abs(num_plataforma.x - posicion_jugador.x) == 1 and num_plataforma.y - posicion_jugador.y == 0:
 				$Jugador/CharacterBody2D.jump(delta, Vector2(num_plataforma.x - posicion_jugador.x, 0))
 				if abs($Jugador/CharacterBody2D.position.x - player_pos.x) > 436:
 					jump = false
@@ -112,20 +105,21 @@ func _process(delta):
 		$Jugador/CharacterBody2D.t = 0
 
 
-func on_area_movimiento_mouse_touch(event):
-	if not jump:
-		for y in range(7):
-			if event.position.y > (200+150*y-60) and event.position.y < (200+150*y+60):
-				num_plataforma.y = y + 1
-		if int(num_plataforma.y)%2 == 0:
-			for x in range(5):
-				if event.position.x > (33+218*x-50) and event.position.x < (33+218*x+50):
-					num_plataforma.x = x + 1
-		else:
-			for x in range(4):
-				if event.position.x > (142+218*x-50) and event.position.x < (142+218*x+50):
-					num_plataforma.x = x + 1
-		jump = true
+func _unhandled_input(event):
+	if event is InputEventScreenTouch:
+		if not jump:
+			for y in range(6):
+				if event.position.y > (200+150*y-60) and event.position.y < (200+150*y+60):
+					num_plataforma.y = y + 1
+			if int(num_plataforma.y)%2 == 0:
+				for x in range(5):
+					if event.position.x > (33+218*x-50) and event.position.x < (33+218*x+50):
+						num_plataforma.x = x + 1
+			else:
+				for x in range(4):
+					if event.position.x > (142+218*x-50) and event.position.x < (142+218*x+50):
+						num_plataforma.x = x + 1
+			jump = true
 
 func on_game_timeout():
 	game_cleared.emit()
