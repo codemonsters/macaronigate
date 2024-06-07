@@ -13,7 +13,7 @@ signal game_cleared
 var pipe_scene = load("res://minigames/flapuie biuegtwt/pipe.tscn")
 var randomGenerator = RandomNumberGenerator.new()
 var win = false
-var perder = false
+var in_game = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -24,11 +24,15 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	var pipes = $Pipes.get_children()
-	for pipe in pipes:
-		#pipe.position.x -= 200 * delta
-		pipe.position.x -= 200 * delta
+	if in_game:
+		var pipes = $Pipes.get_children()
+		for pipe in pipes:
+			pipe.position.x -= 200 * delta
 	
+func on_game_start():
+	in_game = true
+	$Bird.freeze = false
+	$NewPipesTimer.start()
 	
 func on_game_timeout():
 	game_cleared.emit()
@@ -53,4 +57,4 @@ func _on_new_pipes_timer_timeout():
 func _on_muerte_body_entered(body):
 	if body.name == "Bird" && win != true:
 		game_over.emit()
-		perder = true
+		

@@ -66,7 +66,7 @@ func _on_steal_button_up():
 	stealing = false
 
 
-func _on_main_game_over():
-	if !game_ended:
-		game_lose.emit()
-	game_ended = true
+# func _on_main_game_over():
+# 	if !game_ended:
+# 		game_lose.emit()
+# 	game_ended = true

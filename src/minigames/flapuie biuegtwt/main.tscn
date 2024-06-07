@@ -17,7 +17,6 @@ script = ExtResource("1_jkedp")
 
 [node name="NewPipesTimer" type="Timer" parent="."]
 wait_time = 3.0
-autostart = true
 
 [node name="Pipes" type="Node" parent="."]
 
