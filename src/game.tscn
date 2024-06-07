@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://bg4csm2v0xfph"]
+[gd_scene load_steps=8 format=3 uid="uid://bg4csm2v0xfph"]
 
 [ext_resource type="Script" path="res://game.gd" id="1_7b3rm"]
+[ext_resource type="FontFile" uid="uid://cw3bbguj41crq" path="res://font/SEBASTIAN_INFORMAL.otf" id="2_aqm0n"]
 
 [sub_resource type="Animation" id="Animation_dflws"]
 resource_name = "fade_in_black"
@@ -94,6 +95,7 @@ offset_left = -276.0
 offset_right = 277.0
 offset_bottom = 179.0
 grow_horizontal = 2
+theme_override_fonts/font = ExtResource("2_aqm0n")
 theme_override_font_sizes/font_size = 90
 text = "Game name!"
 horizontal_alignment = 1
