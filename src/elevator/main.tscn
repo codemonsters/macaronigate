@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://de7oqk3bkafe2" path="res://elevator/images/display_off.png" id="5_j0x55"]
 [ext_resource type="Texture2D" uid="uid://8vw6x1qepqci" path="res://elevator/images/display_up.png" id="6_ey06j"]
 [ext_resource type="Texture2D" uid="uid://sjdtmoce1jdu" path="res://elevator/images/display_idle.png" id="7_owomf"]
-[ext_resource type="AudioStream" uid="uid://dcmdad115anqu" path="res://elevator/elevatormusicBETTER.wav" id="9_nxeg6"]
+[ext_resource type="AudioStream" uid="uid://db66j21lafdrr" path="res://elevator/elevatormusicBETTER.ogg" id="9_fawop"]
 [ext_resource type="Texture2D" uid="uid://cb4n70kupu5jf" path="res://elevator/images/digits/digit_0.png" id="10_qy221"]
 [ext_resource type="Texture2D" uid="uid://2dt1oqbgsluo" path="res://elevator/images/digits/digit_1.png" id="11_l1ibl"]
 [ext_resource type="Texture2D" uid="uid://de2iwsroimo8y" path="res://elevator/images/digits/digit_2.png" id="12_73q3p"]
@@ -104,7 +104,7 @@ tracks/3/keys = {
 
 [sub_resource type="Animation" id="Animation_5qayg"]
 resource_name = "going_up"
-length = 4.5
+length = 3.25
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -112,7 +112,7 @@ tracks/0/path = NodePath("arrowLight:animation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 1.5, 4),
+"times": PackedFloat32Array(0, 0.8, 2.3),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [&"blink", &"idle_up", &"idle_stop"]
@@ -124,7 +124,7 @@ tracks/1/path = NodePath("Camera2D:offset")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 1.125, 1.225, 1.425, 1.6, 1.8, 3.6, 3.7, 3.9, 4.075, 4.275),
+"times": PackedFloat32Array(0, 0.4, 0.5, 0.7, 0.9, 1.1, 1.8, 2, 2.2, 2.4, 2.6),
 "transitions": PackedFloat32Array(1, 1, 0.329877, 0.329877, 0.329877, 0.287175, 1, 0.329877, 0.329877, 0.329877, 0.287175),
 "update": 0,
 "values": [Vector2(0, 0), Vector2(0, 0), Vector2(0, 6), Vector2(0, -6), Vector2(0, 6), Vector2(0, 0), Vector2(0, 0), Vector2(0, 6), Vector2(0, -6), Vector2(0, 6), Vector2(0, 0)]
@@ -214,7 +214,7 @@ offset_bottom = 1280.0
 size_flags_horizontal = 4
 
 [node name="musicPlayer" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("9_nxeg6")
+stream = ExtResource("9_fawop")
 volume_db = 16.74
 autoplay = true
 

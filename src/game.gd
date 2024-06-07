@@ -158,12 +158,19 @@ func on_game_over():
 		await $AnimationPlayer.animation_finished
 		_ready()
 
+
+func load_death_screen():
+	load("res://death_screen/main.tscn")
+	
+
+
 func _on_timer_timeout():
 	current_game_seconds_left -= 1
 	$HUD/Label.set_text(str(current_game_seconds_left))
 	if current_game_seconds_left <= 0:
 		$Timer.stop()
 		emit_signal("game_timeout")
+
 
 func on_game_intro_finished():
 	$AnimationPlayer.play("fade_in_black")

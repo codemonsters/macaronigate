@@ -1,11 +1,12 @@
 extends CollisionShape2D
 
+var main
 
-# Called when the node enters the scene tree for the first time.
+
 func _ready():
-	pass # Replace with function body.
+	main = get_parent().get_parent()
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	position.y = position.y + (1000*delta)
+	if (main.in_game == true):
+		position.y = position.y + (1000*delta)

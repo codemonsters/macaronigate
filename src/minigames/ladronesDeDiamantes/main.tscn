@@ -278,7 +278,6 @@ stream = ExtResource("17_vid4b")
 volume_db = 14.991
 autoplay = true
 
-[connection signal="game_over" from="." to="luzPolicia" method="_on_main_game_over"]
 [connection signal="button_down" from="Steal" to="Steal" method="_on_button_down"]
 [connection signal="button_down" from="Steal" to="luzPolicia" method="_on_steal_button_down"]
 [connection signal="button_up" from="Steal" to="Steal" method="_on_button_up"]

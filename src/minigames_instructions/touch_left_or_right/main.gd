@@ -22,6 +22,7 @@ func touch(pos: int, count: int = 1): # Nombre del marcador y cuántos círculos
 		scene_instance.position = nodo_posicion.position
 		
 		print(wave_delay * i)
+		print("aaa")
 		scene_instance.get_node("Timer").wait_time = wave_delay * i
 		scene_instance.get_node("Timer").start()
 	

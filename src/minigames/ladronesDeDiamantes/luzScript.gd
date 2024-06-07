@@ -6,6 +6,7 @@ var game_ended = false
 var flickering = false
 var progress = 100
 var stealing = false
+var main
 
 var max_dark_time = 2
 
@@ -16,6 +17,7 @@ signal game_win
 signal game_lose
 
 func _ready():
+	main = get_parent()
 	light_energy = 16
 
 
@@ -51,6 +53,7 @@ func _process(delta):
 			stealing = false
 		elif progress <= 0:
 			game_ended = true
+			print("lost")
 			game_lose.emit()
 			stealing = false
 	get_parent().get_child(1).size.x = progress # NO MOVER PROGRESSBAR

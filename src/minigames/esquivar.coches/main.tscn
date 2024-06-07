@@ -30,8 +30,6 @@ size = Vector2(809, 374)
 position = Vector2(100, 0)
 script = ExtResource("1_g4jic")
 
-[node name="Camera2D" type="Camera2D" parent="."]
-
 [node name="background" type="Sprite2D" parent="."]
 texture = ExtResource("1_gv78o")
 
@@ -65,7 +63,7 @@ volume_db = -3.962
 [node name="carSpawner" type="Node2D" parent="."]
 
 [node name="car" type="Area2D" parent="carSpawner"]
-position = Vector2(0, -800)
+position = Vector2(10, -800)
 script = ExtResource("5_sfcyr")
 
 [node name="carSprite" type="Sprite2D" parent="carSpawner/car"]
