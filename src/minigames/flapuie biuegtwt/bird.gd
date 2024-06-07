@@ -21,7 +21,8 @@ func _process(delta):
 		anim.play("reposo")
 		volando = false
 		
-
+		
+		
 func _on_button_pressed():
 	movement = true
 	$aleteo_pajaro.play()

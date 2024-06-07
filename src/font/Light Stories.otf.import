@@ -1,0 +1,33 @@
+[remap]
+
+importer="font_data_dynamic"
+type="FontFile"
+uid="uid://32lwfep8pphe"
+path="res://.godot/imported/Light Stories.otf-9661ae6579e3d86d1e5c550720933e01.fontdata"
+
+[deps]
+
+source_file="res://font/Light Stories.otf"
+dest_files=["res://.godot/imported/Light Stories.otf-9661ae6579e3d86d1e5c550720933e01.fontdata"]
+
+[params]
+
+Rendering=null
+antialiasing=1
+generate_mipmaps=false
+multichannel_signed_distance_field=false
+msdf_pixel_range=8
+msdf_size=48
+allow_system_fallback=true
+force_autohinter=false
+hinting=1
+subpixel_positioning=1
+oversampling=0.0
+Fallbacks=null
+fallbacks=[]
+Compress=null
+compress=true
+preload=[]
+language_support={}
+script_support={}
+opentype_features={}
