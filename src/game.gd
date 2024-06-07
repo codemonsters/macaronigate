@@ -182,6 +182,22 @@ func on_play_button_pressed():
 	else:
 		load_game()
 
+## TODO: Investigar
+
+# func on_play_button_pressed():
+# 	if signal_inhibit == true:
+# 		print("Play button signal inhibited!")
+# 		#assert(false, "Signal inhibited! Make sure the game does not send signals after game ends!")
+# 	else:
+# 		signal_inhibit = true
+# 		$AnimationPlayer.play("fade_in_black")
+# 		await $AnimationPlayer.animation_finished
+# 		remove_childs_in_group("menu")
+# 		if launch_minigame_directly == null:
+# 			load_game_intro()
+# 		else:
+# 			load_game()
+
 func remove_childs_in_group(group):
 	for obj in get_children():	
 		if obj.is_in_group(group):
