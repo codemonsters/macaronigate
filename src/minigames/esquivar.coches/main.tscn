@@ -27,6 +27,7 @@ size = Vector2(96.2733, 191.304)
 size = Vector2(809, 374)
 
 [node name="main" type="Node2D"]
+position = Vector2(100, 0)
 script = ExtResource("1_g4jic")
 
 [node name="Camera2D" type="Camera2D" parent="."]
@@ -150,6 +151,7 @@ debug_color = Color(0, 0.584314, 0.784314, 0.419608)
 script = ExtResource("7_fkuc0")
 
 [node name="musicPlayer" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(-360, -640)
 stream = ExtResource("8_4lffk")
 volume_db = 15.93
 autoplay = true

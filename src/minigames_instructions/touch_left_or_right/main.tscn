@@ -6,7 +6,6 @@
 
 [sub_resource type="Animation" id="Animation_a2k1d"]
 resource_name = "main"
-length = 3.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -14,7 +13,7 @@ tracks/0/path = NodePath("ThumbLeft:scale")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1, 1.2),
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
 "update": 0,
 "values": [Vector2(2, 2), Vector2(2, 1.8), Vector2(2, 2), Vector2(2, 1.8), Vector2(2, 2), Vector2(2, 1.8), Vector2(2, 2)]
@@ -26,7 +25,7 @@ tracks/1/path = NodePath("ThumbRight:scale")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4),
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
 "update": 0,
 "values": [Vector2(2, 2), Vector2(2, 2), Vector2(2, 1.8), Vector2(2, 2), Vector2(2, 1.8), Vector2(2, 2), Vector2(2, 1.8), Vector2(2, 2)]
