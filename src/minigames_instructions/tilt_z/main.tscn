@@ -34,5 +34,4 @@ autoplay = "tilt"
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(337, 861)
 scale = Vector2(0.620583, 0.728975)
-skew = -0.148353
 texture = ExtResource("1_m0r8g")

@@ -17,7 +17,6 @@ script = ExtResource("1_jkedp")
 
 [node name="NewPipesTimer" type="Timer" parent="."]
 wait_time = 3.0
-autostart = true
 
 [node name="Pipes" type="Node" parent="."]
 
@@ -74,6 +73,10 @@ shape = SubResource("RectangleShape2D_hcr0q")
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="muerte"]
 position = Vector2(381, 1673)
 shape = SubResource("RectangleShape2D_hcr0q")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="muerte"]
+position = Vector2(917, 685)
+shape = SubResource("RectangleShape2D_6y6v6")
 
 [connection signal="timeout" from="NewPipesTimer" to="." method="_on_new_pipes_timer_timeout"]
 [connection signal="pressed" from="Button" to="Bird" method="_on_button_pressed"]

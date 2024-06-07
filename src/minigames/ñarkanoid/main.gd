@@ -13,7 +13,7 @@ signal game_cleared
 
 var paddle_moving_left = false
 var paddle_moving_right = false
-var playing = true	# false cuando la partida ha finalizado
+var playing = false
 var previous_gravity_vector
 
 # Called when the node enters the scene tree for the first time.
@@ -23,7 +23,6 @@ func _ready():
 	
 	previous_gravity_vector = PhysicsServer2D.area_get_param(get_world_2d().space, PhysicsServer2D.AREA_PARAM_GRAVITY_VECTOR)
 	PhysicsServer2D.area_set_param(get_world_2d().space, PhysicsServer2D.AREA_PARAM_GRAVITY_VECTOR, Vector2(0, 0))	# Establecemos la dirección de la gravedad
-	$ball.set_axis_velocity(Vector2(randi_range(-300, 300), -1000));
 
 
 func _physics_process(delta):
@@ -31,7 +30,6 @@ func _physics_process(delta):
 		$ball.linear_velocity = $ball.linear_velocity.normalized() * 50000 * delta
 	else:
 		$ball.linear_velocity = Vector2(0, 0)
-	
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -44,7 +42,11 @@ func _process(delta):
 		
 		$Block.position.x = $ball.position.x	# la posición horizontal del bloque superior se corresponde siempre con el de la bola
 		
-	
+
+func on_game_start():
+	playing = true
+	$ball.set_axis_velocity(Vector2(randi_range(-300, 300), -1000));
+
 func _input(event):
 	if playing:
 		if event.is_action_pressed("move_left"):
@@ -65,8 +67,6 @@ func on_game_timeout():
 	playing = false
 	PhysicsServer2D.area_set_param(get_world_2d().space, PhysicsServer2D.AREA_PARAM_GRAVITY_VECTOR, previous_gravity_vector)
 	emit_signal("game_cleared")
-
-
 
 func _on_ball_body_entered(body):
 	$BallReboundSound.play()

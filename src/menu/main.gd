@@ -4,7 +4,8 @@
 extends Node2D
 
 var game
-var start_pressed
+var play_pressed
+signal play_button_pressed
 
 @export var pasta_max = 150	# maximum number of pasta instances to create
 @export var factor_gravedad = 1
@@ -21,7 +22,8 @@ var angulo = 0
 var direction = Vector2(0,1)
 
 func _ready():
-	start_pressed = false
+	play_pressed = false;
+	play_button_pressed.connect(Callable(get_parent(), "on_play_button_pressed"))
 	# $GamePicker.get_v_scroll_bar().custom_minimum_size.x = 16
 	# $GamePicker.get_v_scroll_bar().offset_right = 8
 	if get_parent().get_name() == "game":
@@ -83,9 +85,9 @@ func _process(delta):
 func _on_play_button_pressed():
 	PhysicsServer2D.area_set_param(get_world_2d().space, PhysicsServer2D.AREA_PARAM_GRAVITY_VECTOR, Vector2(0,1))
 	assert(game != null, "You must run the game (and not directly this scene) to start a match")
-	if start_pressed == false:
-		start_pressed = true
-		game.on_play_button_pressed()
+	if play_pressed == false:
+		play_pressed = true
+		play_button_pressed.emit()
 	
 	
 func _on_picker_toggle_pressed():

@@ -16,18 +16,18 @@ func _ready():
 	game_over.connect(Callable(get_parent(), "on_game_over"))
 	game_cleared.connect(Callable(get_parent(), "on_game_cleared"))
 
+func on_game_start():
+	$Steal.disabled = false
+
 func on_game_timeout():
 	if !lostFlag:
 		game_over.emit()
 	lostFlag = true
-	
-
 
 func _on_game_lose():
 	if !lostFlag:
 		game_over.emit()
 	lostFlag = true
-
 
 func _on_game_win():
 	if (!lostFlag):

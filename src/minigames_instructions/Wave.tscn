@@ -5,7 +5,6 @@
 
 [sub_resource type="Animation" id="Animation_qcv4w"]
 resource_name = "Wave"
-length = 3.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -13,7 +12,7 @@ tracks/0/path = NodePath(".:scale")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0.2, 1.7),
+"times": PackedFloat32Array(0.1, 0.9),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector2(0.1, 0.1), Vector2(0.4, 0.4)]
@@ -25,7 +24,7 @@ tracks/1/path = NodePath(".:modulate")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.4, 1.7),
+"times": PackedFloat32Array(0, 0.3, 0.8),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
@@ -49,9 +48,8 @@ _data = {
 }
 
 [node name="Wave" type="Sprite2D"]
-visible = false
-modulate = Color(1, 1, 1, 0.333333)
-scale = Vector2(0.3, 0.3)
+modulate = Color(1, 1, 1, 0)
+scale = Vector2(0.4, 0.4)
 texture = ExtResource("1_wo504")
 script = ExtResource("2_kmw3f")
 

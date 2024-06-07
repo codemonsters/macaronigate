@@ -46,6 +46,7 @@ animations = [{
 }]
 
 [node name="main" type="Node2D"]
+scale = Vector2(0.5, 0.5)
 script = ExtResource("1_qcm1e")
 
 [node name="Camera2D" type="Camera2D" parent="."]

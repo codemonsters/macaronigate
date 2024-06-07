@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://bg4csm2v0xfph"]
+[gd_scene load_steps=8 format=3 uid="uid://bg4csm2v0xfph"]
 
 [ext_resource type="Script" path="res://game.gd" id="1_7b3rm"]
+[ext_resource type="FontFile" uid="uid://32lwfep8pphe" path="res://font/Light Stories.otf" id="2_q1o2a"]
 
 [sub_resource type="Animation" id="Animation_dflws"]
 resource_name = "fade_in_black"
@@ -94,6 +95,10 @@ offset_left = -276.0
 offset_right = 277.0
 offset_bottom = 179.0
 grow_horizontal = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 20
+theme_override_fonts/font = ExtResource("2_q1o2a")
 theme_override_font_sizes/font_size = 90
 text = "Game name!"
 horizontal_alignment = 1

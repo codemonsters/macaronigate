@@ -3,9 +3,10 @@ extends RigidBody2D
 @onready var anim = $AnimatedSprite2D
 var movement = false
 var volando = false
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
+# var main
+# # Called when the node enters the scene tree for the first time.
+# func _ready():
+# 	main = get_parent()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -21,7 +22,8 @@ func _process(delta):
 		anim.play("reposo")
 		volando = false
 		
-
+		
+		
 func _on_button_pressed():
 	movement = true
 	$aleteo_pajaro.play()
