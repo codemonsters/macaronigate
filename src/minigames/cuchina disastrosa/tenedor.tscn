@@ -9,10 +9,12 @@ scale = Vector2(0.4, 0.4)
 [node name="AnimatableBody2D" type="AnimatableBody2D" parent="."]
 
 [node name="Sprite2D" type="Sprite2D" parent="AnimatableBody2D"]
+modulate = Color(0.423529, 0.423529, 0.423529, 1)
 scale = Vector2(0.3, 0.3)
 texture = ExtResource("1_msq5w")
 
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
+visible = false
 polygon = PackedVector2Array(-12.4995, 150, -7.49956, 120, -2.49974, 72.5, -0.00015385, -42.5, -5.0002, -55, -12.5002, -62.4999, -15.0003, -69.9999, -12.5006, -162.5, 19.9994, -167.5, 27.4997, -95.0001, 27.4997, -70.0001, 22.4998, -60.0001, 17.4998, -57.5001, 14.9998, -52.5, 12.4999, -40, 12.5001, 40, 12.5002, 67.4999, 17.5004, 115, 25.0005, 152.5, 12.5006, 165, -2.4994, 165)

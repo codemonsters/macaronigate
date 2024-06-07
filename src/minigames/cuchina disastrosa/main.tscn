@@ -48,6 +48,7 @@ position = Vector2(250, 889)
 scale = Vector2(0.5, 0.5)
 
 [node name="Timer_cubiertos" type="Timer" parent="."]
+wait_time = 0.8
 autostart = true
 
 [connection signal="timeout" from="Timer_cubiertos" to="." method="_on_timer_cubiertos_timeout"]

@@ -62,14 +62,14 @@ func _input(event):
 		angulo = .3
 	if Input.is_key_pressed(KEY_LEFT):
 		angulo = -.3
-	if Input.is_key_pressed(KEY_UP):
-		jump()
+#	if Input.is_key_pressed(KEY_UP):
+#		jump()
 
-func jump():
-	if angulo == 3.14:
-		angulo = 0
-	else:
-		angulo = 3.14
+#func jump():
+#	if angulo == 3.14:
+#		angulo = 0
+#	else:
+#		angulo = 3.14
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -82,8 +82,8 @@ func _process(delta):
 		direction = factor_gravedad * Vector2(sin(-PI/2),cos(-PI/2))
 	else:
 		direction = factor_gravedad * Vector2(sin(angulo),cos(angulo))
-	if modulo_a > shake_threshold:
-		jump()
+#	if modulo_a > shake_threshold:
+#		jump()
 	if (game_in_progress):
 		PhysicsServer2D.area_set_param(get_world_2d().space, PhysicsServer2D.AREA_PARAM_GRAVITY_VECTOR, direction)
 		if $Hipopotamo.overlaps_body($watermelon/RigidBody2D):
@@ -103,6 +103,5 @@ func on_game_timeout():
 	
 func eat():
 	$hippo_mouth.rotate(-1)
-	
-	
+	$watermelon.visible = false
 	
