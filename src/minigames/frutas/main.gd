@@ -50,4 +50,4 @@ func on_game_timeout():
 	$FrutaTimer.stop()
 	in_game = false
 	game_cleared.emit()
-	$Musica_victoria.play()
+	
