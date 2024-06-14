@@ -41,13 +41,26 @@ func _ready():
 	
 	print("Shuffled order: " + str(minigames_shuffled))
 	current_game_number = 0
-	remove_childs_in_group("current_game")
+	remove_children_in_group("current_game")
+	$HUD/Label.hide()
+	load_intro_developer()
+
+
+func load_intro_developer():
+	var intro_developer = load("res://intro_developer/main.tscn").instantiate()
+	intro_developer.add_to_group("intro_developer")
+	add_child(intro_developer)
+
+
+func on_intro_developer_finished():
+	$FadeRect.color = Color(0, 0, 0, 1)
+	remove_children_in_group("intro_developer")
 	load_menu()
+
 	
 func load_menu():
 	#print("Loading menu...")
 	$AnimationPlayer.play("fade_out_black")
-	$HUD/Label.hide()
 	var menu = load("res://menu/main.tscn").instantiate()
 	menu.add_to_group("menu")
 	add_child(menu)
@@ -108,7 +121,7 @@ func load_game(game_n = 0):
 		add_child(instructions)
 		
 		await instructions.get_node("AnimationPlayer").animation_finished
-		remove_childs_in_group("game_instructions")
+		remove_children_in_group("game_instructions")
 	
 	game_start.emit()
 	signal_inhibit = false
@@ -145,7 +158,7 @@ func on_game_cleared():
 		if launch_minigame_directly == null:
 			if current_game_number < minigames_shuffled.size() - 1:
 				current_game_number += 1
-				remove_childs_in_group("current_game")
+				remove_children_in_group("current_game")
 				enter_elevator() 
 				#load_game(current_game_number)
 			else:
@@ -196,7 +209,7 @@ func on_play_button_pressed():
 	print("Starting game!")
 	$AnimationPlayer.play("fade_in_black")
 	await $AnimationPlayer.animation_finished
-	remove_childs_in_group("menu")
+	remove_children_in_group("menu")
 	if launch_minigame_directly == null:
 		load_game_intro()
 	else:
@@ -211,13 +224,13 @@ func on_play_button_pressed():
 # 		signal_inhibit = true
 # 		$AnimationPlayer.play("fade_in_black")
 # 		await $AnimationPlayer.animation_finished
-# 		remove_childs_in_group("menu")
+# 		remove_children_in_group("menu")
 # 		if launch_minigame_directly == null:
 # 			load_game_intro()
 # 		else:
 # 			load_game()
 
-func remove_childs_in_group(group):
+func remove_children_in_group(group):
 	for obj in get_children():	
 		if obj.is_in_group(group):
 			destroy_children(obj)
