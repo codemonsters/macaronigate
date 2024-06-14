@@ -60,6 +60,7 @@ func _process(delta):
 			obstaculos_instanciados.erase(o)
 		if o[0].get_child(1).overlaps_body($Jugador/CharacterBody2D):
 			$Jugador/CharacterBody2D.die(delta)
+			$Sonido_perder.play()
 			game_over.emit()
 	if jump:
 		if num_plataforma.y < 1 or num_plataforma.y > 6:
@@ -130,6 +131,7 @@ func _on_timer_cubiertos_timeout():
 	var obstaculo = obstaculos[i].instantiate()
 	var sentido = 0
 	var a = true
+	$Sonido_proyectil.play()
 	while a:
 		sentido = randi_range(0,1)
 		obstaculo.position = Vector2(sentido*720,randi_range(0,5)*150+100)
@@ -140,3 +142,9 @@ func _on_timer_cubiertos_timeout():
 	obstaculo.rotate(PI*sentido)
 	add_child(obstaculo)
 	obstaculos_instanciados.append([obstaculo, sentido])
+	
+	#Añadir el sonido del marmol y sonido de salto
+	
+	if jump:
+		$Sonido_marmol.play()
+	

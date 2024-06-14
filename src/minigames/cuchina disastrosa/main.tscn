@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://8okscw02p0dw"]
+[gd_scene load_steps=13 format=3 uid="uid://8okscw02p0dw"]
 
 [ext_resource type="Script" path="res://minigames/cuchina disastrosa/main.gd" id="1_j2gs8"]
 [ext_resource type="PackedScene" uid="uid://d32f23hyaxgw3" path="res://minigames/cuchina disastrosa/jugador.tscn" id="2_2d736"]
@@ -8,6 +8,10 @@
 [ext_resource type="Texture2D" uid="uid://dbt66x3an2t4q" path="res://minigames/cuchina disastrosa/Lasaña.png" id="5_11y35"]
 [ext_resource type="Texture2D" uid="uid://cakyfkoxfc7vj" path="res://minigames/cuchina disastrosa/Macarrones.png" id="6_30325"]
 [ext_resource type="Texture2D" uid="uid://cwekshbx6xtcn" path="res://minigames/cuchina disastrosa/ravioli.png" id="7_vrsy1"]
+[ext_resource type="AudioStream" uid="uid://ba7ixm7tnv8ch" path="res://minigames/cuchina disastrosa/Sonido_proyectil.mp3" id="9_lwuto"]
+[ext_resource type="AudioStream" uid="uid://sam2l77k2102" path="res://minigames/cuchina disastrosa/Musica_perder.mp3" id="10_iyspl"]
+[ext_resource type="AudioStream" uid="uid://cbo0aw27hj535" path="res://minigames/cuchina disastrosa/Sonido_salto.mp3" id="11_4fykh"]
+[ext_resource type="AudioStream" uid="uid://bwc8tm51xof4i" path="res://minigames/cuchina disastrosa/Sonido_marmol.mp3" id="12_h1tsu"]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_j2gs8")
@@ -50,5 +54,19 @@ scale = Vector2(0.5, 0.5)
 [node name="Timer_cubiertos" type="Timer" parent="."]
 wait_time = 0.8
 autostart = true
+
+[node name="Sonido_proyectil" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("9_lwuto")
+volume_db = -10.0
+
+[node name="Sonido_perder" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("10_iyspl")
+volume_db = 1.0
+
+[node name="Sonido_salto" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("11_4fykh")
+
+[node name="Sonido_marmol" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("12_h1tsu")
 
 [connection signal="timeout" from="Timer_cubiertos" to="." method="_on_timer_cubiertos_timeout"]

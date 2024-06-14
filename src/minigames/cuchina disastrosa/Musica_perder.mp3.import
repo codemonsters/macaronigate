@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://sam2l77k2102"
+path="res://.godot/imported/Musica_perder.mp3-8702ebd90fab2b6da1774afe6122aacc.mp3str"
+
+[deps]
+
+source_file="res://minigames/cuchina disastrosa/Musica_perder.mp3"
+dest_files=["res://.godot/imported/Musica_perder.mp3-8702ebd90fab2b6da1774afe6122aacc.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
