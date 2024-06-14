@@ -118,9 +118,15 @@ func load_game(game_n = 0):
 	if scene.get("instructions_type") != null:
 		var instructions = load("res://minigames_instructions/" + scene.instructions_type + "/main.tscn").instantiate()
 		instructions.add_to_group("game_instructions")
-		add_child(instructions)
-		
-		await instructions.get_node("AnimationPlayer").animation_finished
+
+		if scene.get("instructions_tap_positions") != null:
+			instructions.positions = scene.instructions_tap_positions
+			add_child(instructions)
+			await instructions.instructions_finished
+		else:
+			add_child(instructions)
+			await instructions.get_node("AnimationPlayer").animation_finished
+
 		remove_children_in_group("game_instructions")
 	
 	game_start.emit()

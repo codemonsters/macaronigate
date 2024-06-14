@@ -11,6 +11,7 @@ var lostFlag = false
 @export var needs_timer = true
 @export var timer_seconds = 11
 @export var instructions_type = "tap"
+var instructions_tap_positions : Array[Vector2] = [ Vector2(360, 1050) ]
 
 func _ready():
 	game_over.connect(Callable(get_parent(), "on_game_over"))

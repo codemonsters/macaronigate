@@ -4,6 +4,7 @@ extends Node2D
 @export var needs_timer = true 
 @export var timer_seconds = 15
 @export var instructions_type = "tap"
+var instructions_tap_positions : Array[Vector2] = [ Vector2(160, 1010), Vector2(360, 1010), Vector2(560, 1010) ]
 
 signal chain_timeout
 

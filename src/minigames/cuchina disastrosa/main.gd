@@ -11,7 +11,7 @@ signal game_cleared
 @export var game_brief = "cuchina disastrosa"
 @export var needs_timer = true 
 @export var timer_seconds = 10
-@export var instructions_type = "tap"
+@export var instructions_type = "taps"
 
 var marmol = preload("res://minigames/cuchina disastrosa/marmol.tscn")
 var cuchara = preload("res://minigames/cuchina disastrosa/cuchara.tscn")

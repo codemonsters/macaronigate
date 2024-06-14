@@ -7,7 +7,7 @@ signal game_cleared
 @export var game_brief = "Destroy!"
 @export var needs_timer = true # False if your game doesn't need a countdown timer
 @export var timer_seconds = 10 # Only set if needs_timer = true
-@export var instructions_type = "tap"
+@export var instructions_type = "taps"
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
