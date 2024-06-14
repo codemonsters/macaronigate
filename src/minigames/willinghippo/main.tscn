@@ -1,10 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://dipwvh3mnxwrp"]
+[gd_scene load_steps=11 format=3 uid="uid://dipwvh3mnxwrp"]
 
 [ext_resource type="Script" path="res://minigames/willinghippo/main.gd" id="1_mca63"]
 [ext_resource type="PackedScene" uid="uid://bvpnrwu51kssf" path="res://minigames/willinghippo/watermelon.tscn" id="1_wyqtf"]
 [ext_resource type="Texture2D" uid="uid://cqobiivaisbl7" path="res://minigames/willinghippo/Happyhippo_sin_boca.png" id="4_5txqc"]
 [ext_resource type="Texture2D" uid="uid://b135iipjs4ds2" path="res://minigames/willinghippo/savanna.jpg" id="4_eibs5"]
 [ext_resource type="Texture2D" uid="uid://byjhfyqipq1kv" path="res://minigames/willinghippo/Happyhippo_boca.png" id="5_yldox"]
+[ext_resource type="AudioStream" uid="uid://bowc48fy80ovv" path="res://minigames/willinghippo/jungle.wav" id="6_jnm2s"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ym0m6"]
 size = Vector2(20, 1920)
@@ -71,3 +72,8 @@ polygon = PackedVector2Array(282, 1174, 285, 1152, 312, 1137, 320, 1145, 323, 11
 position = Vector2(360, 1225)
 scale = Vector2(0.3, 0.3)
 texture = ExtResource("5_yldox")
+
+[node name="MusicPlayer" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_jnm2s")
+volume_db = 16.518
+autoplay = true

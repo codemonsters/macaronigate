@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://ft08gk816ihy"]
+[gd_scene load_steps=10 format=3 uid="uid://ft08gk816ihy"]
 
 [ext_resource type="Script" path="res://minigames/frutas/main.gd" id="1_tld6u"]
 [ext_resource type="PackedScene" uid="uid://cfgluxwxqvwab" path="res://minigames/frutas/fruta.tscn" id="2_ussx5"]
 [ext_resource type="Texture2D" uid="uid://bpnqaokml3gi5" path="res://minigames/frutas/wood_plank_texture.png" id="3_fu106"]
+[ext_resource type="AudioStream" uid="uid://h8arcnyiouvk" path="res://minigames/frutas/ninjaMusic.wav" id="4_2uujv"]
 
 [sub_resource type="Curve2D" id="Curve2D_jqhvf"]
 _data = {
@@ -80,6 +81,11 @@ position = Vector2(361, 207.75)
 rotation = 3.14159
 scale = Vector2(0.715625, 0.76925)
 texture = ExtResource("3_fu106")
+
+[node name="MusicPlayer" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_2uujv")
+volume_db = 17.209
+autoplay = true
 
 [connection signal="timeout" from="FrutaTimer" to="." method="_on_fruta_timer_timeout"]
 [connection signal="body_entered" from="Killbox" to="." method="_on_killbox_body_entered"]

@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://mv5gqwk2ocqm"]
+[gd_scene load_steps=6 format=3 uid="uid://mv5gqwk2ocqm"]
 
 [ext_resource type="Script" path="res://minigames/boton no/main.gd" id="1_a3nue"]
 [ext_resource type="Texture2D" uid="uid://dmuhx4xbswu2c" path="res://minigames/boton no/red-button.webp" id="3_1ko4f"]
 [ext_resource type="Texture2D" uid="uid://bcmf55iv04bdx" path="res://minigames/boton no/red-button-pressed.webp" id="3_y0t2h"]
 [ext_resource type="AudioStream" uid="uid://brj8v4m2kho0g" path="res://minigames/boton no/sonido_error.mp3" id="4_m5wb6"]
+[ext_resource type="AudioStream" uid="uid://c5o5sdyw6s08a" path="res://minigames/boton no/botonsino.wav" id="5_rhw6r"]
 
 [node name="Boton" type="Node2D"]
 position = Vector2(360, 640)
@@ -34,5 +35,10 @@ flat = true
 
 [node name="ErrorSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("4_m5wb6")
+
+[node name="MusicPlayer" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_rhw6r")
+volume_db = 13.0
+autoplay = true
 
 [connection signal="pressed" from="Colision" to="." method="_on_button_pressed"]

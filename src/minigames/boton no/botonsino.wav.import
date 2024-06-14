@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://c5o5sdyw6s08a"
+path="res://.godot/imported/botonsino.wav-3d98b5a96c336e3b9ca9735d7d7ecf89.sample"
+
+[deps]
+
+source_file="res://minigames/boton no/botonsino.wav"
+dest_files=["res://.godot/imported/botonsino.wav-3d98b5a96c336e3b9ca9735d7d7ecf89.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0
