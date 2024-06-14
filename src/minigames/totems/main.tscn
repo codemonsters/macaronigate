@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://d7pds6ys2gwo"]
+[gd_scene load_steps=20 format=3 uid="uid://d7pds6ys2gwo"]
 
 [ext_resource type="Script" path="res://minigames/totems/main.gd" id="1_qcm1e"]
 [ext_resource type="Texture2D" uid="uid://bc601x3174vxd" path="res://minigames/totems/fondo.png" id="1_uv2t7"]
@@ -16,6 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://cgx8f4qdq23il" path="res://minigames/totems/PLAGA_GOD.png" id="11_gt51w"]
 [ext_resource type="Script" path="res://minigames/totems/botonVisualScript.gd" id="11_nik8q"]
 [ext_resource type="AudioStream" uid="uid://dm7m3cjd0d3n6" path="res://minigames/totems/bloquesTheme.ogg" id="14_2p84n"]
+[ext_resource type="Script" path="res://minigames/totems/MusicPlayer.gd" id="17_ft0nn"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_b35wq"]
 animations = [{
@@ -175,6 +176,7 @@ texture = ExtResource("11_gt51w")
 stream = ExtResource("14_2p84n")
 volume_db = 8.432
 autoplay = true
+script = ExtResource("17_ft0nn")
 
 [connection signal="chain_timeout" from="." to="Block_Spawner" method="_on_main_chain_timeout"]
 [connection signal="timeout" from="Camera2D/shakeTimer" to="Camera2D" method="_on_shake_timer_timeout"]
@@ -197,3 +199,4 @@ autoplay = true
 [connection signal="button_down" from="moradoBoton" to="Block_Spawner" method="_on_morado_boton_button_down"]
 [connection signal="button_down" from="rosaBoton" to="Block_Spawner" method="_on_rosa_boton_button_down"]
 [connection signal="button_down" from="naranjaBoton" to="Block_Spawner" method="_on_naranja_boton_button_down"]
+[connection signal="finished" from="MusicPlayer" to="MusicPlayer" method="_on_finished"]

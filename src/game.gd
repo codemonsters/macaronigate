@@ -78,6 +78,21 @@ func load_game(game_n = 0):
 	$HUD/Label.set_text(scene.game_brief)
 	$HUD/Label.show()
 	
+	$HUD/Label.scale = Vector2(1, 1)
+	$HUD/Label.rotation = 0
+	
+	var tweenScale = get_tree().create_tween().set_trans(Tween.TRANS_SINE)
+	var tweenRotation = get_tree().create_tween().set_trans(Tween.TRANS_SINE)
+	
+	for i in range(0, 2):
+		tweenScale.tween_property($HUD/Label, "scale", Vector2(1.4, 1.4), 0.5)
+		tweenRotation.tween_property($HUD/Label, "rotation", 0.10, 0.3)
+		
+		tweenScale.tween_property($HUD/Label, "scale", Vector2(1, 1), 0.5)
+		tweenRotation.tween_property($HUD/Label, "rotation", -0.10, 0.3)
+		
+	tweenRotation.tween_property($HUD/Label, "rotation", 0, 0.3)
+	
 	game_start.connect(Callable(scene, "on_game_start"))
 	if scene.needs_timer:
 		game_timeout.connect(Callable(scene, "on_game_timeout"))
