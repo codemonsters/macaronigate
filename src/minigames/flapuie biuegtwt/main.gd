@@ -8,7 +8,7 @@ signal game_cleared
 @export var game_brief = "Flappy bird"
 @export var needs_timer = true
 @export var timer_seconds = 10
-@export var instruction_type = "tap"
+@export var instructions_type = "tap"
 
 var pipe_scene = load("res://minigames/flapuie biuegtwt/pipe.tscn")
 var randomGenerator = RandomNumberGenerator.new()

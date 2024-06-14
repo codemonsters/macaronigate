@@ -87,8 +87,8 @@ func load_game(game_n = 0):
 	$AnimationPlayer.play("fade_out_black")
 	await $AnimationPlayer.animation_finished
 	
-	if scene.get("instruction_type") != null:
-		var instructions = load("res://minigames_instructions/" + scene.instruction_type + "/main.tscn").instantiate()
+	if scene.get("instructions_type") != null:
+		var instructions = load("res://minigames_instructions/" + scene.instructions_type + "/main.tscn").instantiate()
 		instructions.add_to_group("game_instructions")
 		add_child(instructions)
 		
@@ -111,7 +111,6 @@ func enter_elevator():
 func on_elevator_exit():
 	elevator.queue_free()
 	load_game(current_game_number)
-
 
 
 func on_game_cleared():
@@ -161,7 +160,6 @@ func on_game_over():
 
 func load_death_screen():
 	load("res://death_screen/main.tscn")
-	
 
 
 func _on_timer_timeout():
@@ -190,7 +188,6 @@ func on_play_button_pressed():
 		load_game()
 
 ## TODO: Investigar
-
 # func on_play_button_pressed():
 # 	if signal_inhibit == true:
 # 		print("Play button signal inhibited!")

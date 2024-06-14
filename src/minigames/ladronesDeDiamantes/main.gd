@@ -10,7 +10,7 @@ var lostFlag = false
 @export var game_brief = "Wait!"
 @export var needs_timer = true
 @export var timer_seconds = 11
-@export var instruction_type = "tap"
+@export var instructions_type = "tap"
 
 func _ready():
 	game_over.connect(Callable(get_parent(), "on_game_over"))

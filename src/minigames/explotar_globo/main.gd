@@ -9,7 +9,7 @@ var clicks_needed = randi_range(15, 25) 	# número de clicks necesarios para que
 @export var game_brief = "Blow up!"
 @export var needs_timer = true
 @export var timer_seconds = 6
-@export var instruction_type = "tap"
+@export var instructions_type = "tap"
 
 var balloon_popped
 var playing
