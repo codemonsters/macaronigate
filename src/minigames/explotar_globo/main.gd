@@ -72,7 +72,6 @@ func _on_white_light_timer_timeout():
 	
 	for i in range(30):
 		var balloon_piece = randi_range(1, 6)
-		print(balloon_piece)
 		if balloon_piece == 1:
 			piece = piece_01_factory.instantiate()
 		elif balloon_piece == 2:

@@ -53,7 +53,7 @@ func _process(delta):
 			stealing = false
 		elif progress <= 0:
 			game_ended = true
-			print("lost")
+			# print("lost")
 			game_lose.emit()
 			stealing = false
 	get_parent().get_child(1).size.x = progress # NO MOVER PROGRESSBAR
