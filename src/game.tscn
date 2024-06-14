@@ -104,6 +104,13 @@ text = "Game name!"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="SkipButton" type="Button" parent="HUD"]
+offset_left = 600.0
+offset_top = 20.0
+offset_right = 700.0
+offset_bottom = 70.0
+text = "Skip"
+
 [node name="Timer" type="Timer" parent="."]
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -115,4 +122,5 @@ libraries = {
 
 [node name="elevatorPlaceholder" type="Node" parent="."]
 
+[connection signal="pressed" from="HUD/SkipButton" to="." method="_on_skip_button_pressed"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

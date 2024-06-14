@@ -9,6 +9,7 @@ signal game_cleared
 @export var needs_timer = true
 @export var timer_seconds = 10
 @export var instructions_type = "tap"
+var instructions_tap_positions : Array[Vector2] = [ Vector2(360, 640) ]
 
 var pipe_scene = load("res://minigames/flapuie biuegtwt/pipe.tscn")
 var randomGenerator = RandomNumberGenerator.new()

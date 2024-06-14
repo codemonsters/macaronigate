@@ -3,4 +3,5 @@
 [ext_resource type="Script" path="res://minigames_instructions/tap/main.gd" id="1_7rtjp"]
 
 [node name="Main" type="Node2D"]
+top_level = true
 script = ExtResource("1_7rtjp")

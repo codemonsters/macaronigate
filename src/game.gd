@@ -27,15 +27,17 @@ var minigames_shuffled
 var current_game_number
 var current_game_seconds_left = 0
 var signal_inhibit = false
-
+var state
 var elevator
 
 func _ready():
+	state = null
 	#$AnimationPlayer.play("fade_out_black")
 	#await $AnimationPlayer.animation_finished
 	if minigames_order_override == null:
 		minigames_shuffled = minigames.duplicate()
 		minigames_shuffled.shuffle()
+		minigames_shuffled.resize(5)
 	else:
 		minigames_shuffled = minigames_order_override.duplicate()
 	
@@ -50,9 +52,12 @@ func load_intro_developer():
 	var intro_developer = load("res://intro_developer/main.tscn").instantiate()
 	intro_developer.add_to_group("intro_developer")
 	add_child(intro_developer)
+	state = "intro_developer"
 
 
 func on_intro_developer_finished():
+	state = null
+	$HUD/SkipButton.hide()
 	$FadeRect.color = Color(0, 0, 0, 1)
 	remove_children_in_group("intro_developer")
 	load_menu()
@@ -65,15 +70,15 @@ func load_menu():
 	menu.add_to_group("menu")
 	add_child(menu)
 	signal_inhibit = false
+	# state = "menu"
 
 func load_game_intro():
 	#print("Loading game intro...")
 	var scene = load("res://intro_game/main.tscn").instantiate()
-	game_start.connect(Callable(scene, "on_game_start"))
 	add_child(scene)
 	$AnimationPlayer.play("fade_out_black")
-	await $AnimationPlayer.animation_finished
-	game_start.emit()
+	state = "game_intro"
+	$HUD/SkipButton.show()
 	
 func load_game(game_n = 0):
 	if launch_minigame_directly != null:
@@ -132,17 +137,22 @@ func load_game(game_n = 0):
 	game_start.emit()
 	signal_inhibit = false
 	if scene.needs_timer: $Timer.start()
+	state = "game"
+	$HUD/SkipButton.show()
 
 # Carga elevator.tscn, y esta despues llamará a load_game(). 
 func enter_elevator():
 	$HUD/Label.set_text("")
 	elevator = load("res://elevator/main.tscn").instantiate()
-	
-	$elevatorPlaceholder.add_child(elevator)
 	elevator.set_starting_floor_number(current_game_number - 1)
+	$elevatorPlaceholder.add_child(elevator)
+	state = "elevator"
+	$HUD/SkipButton.show()
 
 
 func on_elevator_exit():
+	state = null
+	$HUD/SkipButton.hide()
 	elevator.queue_free()
 	load_game(current_game_number)
 
@@ -154,12 +164,13 @@ func on_game_cleared():
 		#assert(false, "Signal inhibited! Make sure the game does not send signals after game ends!")
 	else:
 		signal_inhibit = true
+		state = null
+		$HUD/SkipButton.hide()
 		$Timer.stop()
 		$HUD/Label.set_text("Game cleared!")
 		await get_tree().create_timer(1).timeout
 		$AnimationPlayer.play("fade_in_black")
 		await $AnimationPlayer.animation_finished
-		$HUD/Label.hide()
 		
 		if launch_minigame_directly == null:
 			if current_game_number < minigames_shuffled.size() - 1:
@@ -174,7 +185,7 @@ func on_game_cleared():
 
 func on_all_games_cleared():
 	$HUD/Label.set_text("All cleared!")
-	await get_tree().create_timer(2).timeout
+	await get_tree().create_timer(5).timeout
 	_ready()
 
 func on_game_over():
@@ -184,6 +195,8 @@ func on_game_over():
 		#assert(false, "Signal inhibited! Make sure the game does not send signals after game ends!")
 	else:
 		signal_inhibit = true
+		state = null
+		$HUD/SkipButton.hide()
 		$Timer.stop()
 		$HUD/Label.set_text("Game over!")
 		await get_tree().create_timer(2).timeout
@@ -205,6 +218,8 @@ func _on_timer_timeout():
 
 
 func on_game_intro_finished():
+	state = null
+	$HUD/SkipButton.hide()
 	$AnimationPlayer.play("fade_in_black")
 	await $AnimationPlayer.animation_finished
 	game_start.emit()
@@ -212,7 +227,7 @@ func on_game_intro_finished():
 	load_game()
 	
 func on_play_button_pressed():
-	print("Starting game!")
+	print("Play Button Pressed")
 	$AnimationPlayer.play("fade_in_black")
 	await $AnimationPlayer.animation_finished
 	remove_children_in_group("menu")
@@ -248,3 +263,17 @@ func destroy_children(parent):
 			child.queue_free()
 		else:
 			destroy_children(child)
+
+func _on_skip_button_pressed():
+	if state == "intro_developer":
+		on_intro_developer_finished()
+	elif state == "game_intro":
+		on_game_intro_finished()
+	elif state == "game":
+		on_game_cleared()
+	elif state == "elevator":
+		on_elevator_exit()
+		# instructions.instructions_finished.emit()
+
+	$HUD/SkipButton.hide()
+	state = null

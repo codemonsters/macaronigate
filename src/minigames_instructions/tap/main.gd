@@ -14,8 +14,6 @@ func _ready():
 		add_child(instance)
 		instances.append(instance)
 
-		print("Instanced scene at position: ", p)
-
 	for instance in instances:
 		instance.get_node("AnimationPlayer").play("main")
 		await get_tree().create_timer(0.5).timeout 

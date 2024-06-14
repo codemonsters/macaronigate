@@ -10,6 +10,7 @@ var clicks_needed = randi_range(15, 25) 	# número de clicks necesarios para que
 @export var needs_timer = true
 @export var timer_seconds = 6
 @export var instructions_type = "tap"
+var instructions_tap_positions : Array[Vector2] = [ Vector2(360, 640) ]
 
 var balloon_popped
 var playing
