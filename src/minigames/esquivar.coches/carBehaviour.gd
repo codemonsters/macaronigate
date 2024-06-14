@@ -7,7 +7,7 @@ func _ready():
 	
 	var rng = RandomNumberGenerator.new()
 	
-	var factor = null
+	var factor
 	var camino = rng.randi_range(0, 1)
 	
 	if camino == 0:
@@ -15,7 +15,7 @@ func _ready():
 	else:
 		factor = 1
 	
-	position.x = 165 * factor
+	position.x = 360 + 165 * factor
 
 
 func _process(delta):

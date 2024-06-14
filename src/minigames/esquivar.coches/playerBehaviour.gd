@@ -11,7 +11,7 @@ var lose = false
 var tamaño = true
 
 func _ready():
-	position = Vector2(-190, 417)
+	position = Vector2((360 - 165), (640 + 420))
 	
 	# Inicializar el HUD y conectar las señales con las funciones correspondientes
 	game_over.connect(Callable(get_parent().get_parent(), "on_game_over"))
@@ -28,10 +28,10 @@ func _input(event):
 func _process(delta):
 	if !win && !lose:
 		if posicion_jugador == 1:
-			if position.x < 170:
+			if position.x < (360 + 165):
 				position.x += 2000*delta
 		elif posicion_jugador == 0:
-			if position.x > -180:
+			if position.x > (360 - 165):
 				position.x += -2000*delta
 				
 	elif win == true:

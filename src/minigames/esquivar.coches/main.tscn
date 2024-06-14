@@ -27,23 +27,23 @@ size = Vector2(96.2733, 191.304)
 size = Vector2(809, 374)
 
 [node name="main" type="Node2D"]
-position = Vector2(100, 0)
 script = ExtResource("1_g4jic")
 
 [node name="background" type="Sprite2D" parent="."]
 texture = ExtResource("1_gv78o")
+centered = false
 
 [node name="screenColliders" type="Node2D" parent="."]
 
 [node name="right" type="TouchScreenButton" parent="screenColliders"]
 modulate = Color(0, 0, 0, 1)
-position = Vector2(180, 2.08165e-12)
+position = Vector2(540, 640)
 shape = SubResource("RectangleShape2D_5gai4")
 passby_press = true
 
 [node name="left" type="TouchScreenButton" parent="screenColliders"]
 modulate = Color(0, 0, 0, 1)
-position = Vector2(-180, 2.08165e-12)
+position = Vector2(180, 640)
 shape = SubResource("RectangleShape2D_lclmk")
 passby_press = true
 
@@ -63,7 +63,7 @@ volume_db = -3.962
 [node name="carSpawner" type="Node2D" parent="."]
 
 [node name="car" type="Area2D" parent="carSpawner"]
-position = Vector2(10, -800)
+position = Vector2(0, -800)
 script = ExtResource("5_sfcyr")
 
 [node name="carSprite" type="Sprite2D" parent="carSpawner/car"]
@@ -143,13 +143,12 @@ shape = SubResource("RectangleShape2D_icvbs")
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="Victory" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(-0.5, -6456)
+position = Vector2(360, -6456)
 shape = SubResource("RectangleShape2D_ei8as")
 debug_color = Color(0, 0.584314, 0.784314, 0.419608)
 script = ExtResource("7_fkuc0")
 
 [node name="musicPlayer" type="AudioStreamPlayer2D" parent="."]
-position = Vector2(-360, -640)
 stream = ExtResource("8_4lffk")
 volume_db = 15.93
 autoplay = true

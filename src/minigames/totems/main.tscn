@@ -46,12 +46,10 @@ animations = [{
 }]
 
 [node name="main" type="Node2D"]
-scale = Vector2(0.5, 0.5)
+position = Vector2(360, 640)
 script = ExtResource("1_qcm1e")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-anchor_mode = 0
-ignore_rotation = false
 script = ExtResource("2_yj5lu")
 
 [node name="shakeTimer" type="Timer" parent="Camera2D"]
@@ -59,8 +57,8 @@ wait_time = 0.3
 one_shot = true
 
 [node name="fondo" type="Sprite2D" parent="."]
-position = Vector2(1190.25, 1817.5)
-scale = Vector2(2.83154, 4.08691)
+position = Vector2(2, 42)
+scale = Vector2(1.9668, 3.03906)
 texture = ExtResource("1_uv2t7")
 
 [node name="Block_Spawner" type="Node2D" parent="."]
@@ -82,30 +80,36 @@ one_shot = true
 
 [node name="fondoBotones" type="Sprite2D" parent="."]
 modulate = Color(0.52549, 0.52549, 0.52549, 1)
-position = Vector2(371.5, 1068)
-scale = Vector2(1.22852, 0.738281)
+position = Vector2(0, 432)
+scale = Vector2(1.9668, 1)
 texture = ExtResource("7_ti7d8")
 
+[node name="tornillo" type="Sprite2D" parent="."]
+position = Vector2(324.5, 236)
+scale = Vector2(0.445312, 0.40625)
+texture = ExtResource("5_x2jwd")
+
 [node name="BordeGrande" type="AnimatedSprite2D" parent="."]
-position = Vector2(361.823, 1069.01)
+position = Vector2(3, 472.93)
 rotation = 3.14159
-scale = Vector2(1.08963, 0.635307)
+scale = Vector2(1.919, 0.952)
 sprite_frames = SubResource("SpriteFrames_b35wq")
-frame_progress = 0.395819
+frame_progress = 0.213962
 script = ExtResource("5_lthdy")
 
 [node name="moradoBoton" type="Button" parent="."]
 modulate = Color(0.376471, 0, 0.972549, 1)
-offset_left = 162.0
-offset_top = 960.0
-offset_right = 682.0
-offset_bottom = 1480.0
-scale = Vector2(0.17, 0.17)
+offset_left = -289.0
+offset_top = 282.0
+offset_right = 231.0
+offset_bottom = 802.0
+scale = Vector2(0.3, 0.3)
+disabled = true
 icon = ExtResource("7_ti7d8")
 script = ExtResource("11_nik8q")
 
 [node name="bordeBoton" type="AnimatedSprite2D" parent="moradoBoton"]
-position = Vector2(284.167, 258.382)
+position = Vector2(284.167, 252.5)
 scale = Vector2(2.41536, 2.35026)
 sprite_frames = SubResource("SpriteFrames_eblgm")
 frame_progress = 0.389588
@@ -113,11 +117,12 @@ script = ExtResource("5_lthdy")
 
 [node name="rosaBoton" type="Button" parent="."]
 modulate = Color(1, 0.501961, 1, 1)
-offset_left = 293.651
-offset_top = 958.272
-offset_right = 813.651
-offset_bottom = 1478.27
-scale = Vector2(0.17, 0.17)
+offset_left = -76.0
+offset_top = 282.0
+offset_right = 444.0
+offset_bottom = 802.0
+scale = Vector2(0.3, 0.3)
+disabled = true
 icon = ExtResource("7_ti7d8")
 script = ExtResource("11_nik8q")
 
@@ -130,11 +135,12 @@ script = ExtResource("5_lthdy")
 
 [node name="naranjaBoton" type="Button" parent="."]
 modulate = Color(1, 0.501961, 0, 1)
-offset_left = 421.651
-offset_top = 958.272
-offset_right = 941.651
-offset_bottom = 1478.27
-scale = Vector2(0.17, 0.17)
+offset_left = 140.0
+offset_top = 282.0
+offset_right = 660.0
+offset_bottom = 802.0
+scale = Vector2(0.3, 0.3)
+disabled = true
 icon = ExtResource("7_ti7d8")
 script = ExtResource("11_nik8q")
 
@@ -145,28 +151,23 @@ sprite_frames = SubResource("SpriteFrames_eblgm")
 frame_progress = 0.146533
 script = ExtResource("5_lthdy")
 
-[node name="tornillo" type="Sprite2D" parent="."]
-position = Vector2(580.25, 978)
-scale = Vector2(0.355468, 0.328125)
-texture = ExtResource("5_x2jwd")
-
 [node name="tornillo2" type="Sprite2D" parent="."]
-position = Vector2(590, 1187)
-scale = Vector2(0.324218, 0.328126)
+position = Vector2(324.5, 620)
+scale = Vector2(0.445312, 0.40625)
 texture = ExtResource("5_x2jwd")
 
 [node name="tornillo3" type="Sprite2D" parent="."]
-position = Vector2(114, 1183)
-scale = Vector2(0.347656, 0.312501)
+position = Vector2(-314.5, 620)
+scale = Vector2(0.445312, 0.40625)
 texture = ExtResource("5_x2jwd")
 
 [node name="tornillo4" type="Sprite2D" parent="."]
-position = Vector2(109, 965)
-scale = Vector2(0.332031, 0.289063)
+position = Vector2(-314.5, 248)
+scale = Vector2(0.445312, 0.40625)
 texture = ExtResource("5_x2jwd")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(362, 1161)
+position = Vector2(25, 571)
 scale = Vector2(1, 0.730469)
 texture = ExtResource("11_gt51w")
 
@@ -175,9 +176,8 @@ stream = ExtResource("14_2p84n")
 volume_db = 8.432
 autoplay = true
 
-[connection signal="game_timeout" from="." to="Block_Spawner" method="_on_game_timeout"]
+[connection signal="chain_timeout" from="." to="Block_Spawner" method="_on_main_chain_timeout"]
 [connection signal="timeout" from="Camera2D/shakeTimer" to="Camera2D" method="_on_shake_timer_timeout"]
-[connection signal="end_game" from="Block_Spawner" to="." method="_on_end_game"]
 [connection signal="stun_end" from="Block_Spawner" to="BordeGrande" method="_on_block_spawner_stun_end"]
 [connection signal="stun_end" from="Block_Spawner" to="moradoBoton" method="_on_stun_end"]
 [connection signal="stun_end" from="Block_Spawner" to="moradoBoton/bordeBoton" method="_on_block_spawner_stun_end"]
@@ -193,7 +193,6 @@ autoplay = true
 [connection signal="stun_start" from="Block_Spawner" to="rosaBoton/bordeBoton" method="_on_block_spawner_stun_start"]
 [connection signal="stun_start" from="Block_Spawner" to="naranjaBoton" method="_on_stun_start"]
 [connection signal="stun_start" from="Block_Spawner" to="naranjaBoton/bordeBoton" method="_on_block_spawner_stun_start"]
-[connection signal="win_game" from="Block_Spawner" to="." method="_on_win_game"]
 [connection signal="timeout" from="Block_Spawner/Timer" to="Block_Spawner" method="_on_timer_timeout"]
 [connection signal="button_down" from="moradoBoton" to="Block_Spawner" method="_on_morado_boton_button_down"]
 [connection signal="button_down" from="rosaBoton" to="Block_Spawner" method="_on_rosa_boton_button_down"]
