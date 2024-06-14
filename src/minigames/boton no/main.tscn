@@ -17,11 +17,11 @@ offset_right = 360.0
 offset_bottom = 640.0
 color = Color(0.784314, 0.784314, 0.784314, 1)
 
-[node name="Boton" type="Sprite2D" parent="."]
-texture = ExtResource("3_1ko4f")
-
 [node name="Boton2" type="Sprite2D" parent="."]
 texture = ExtResource("3_y0t2h")
+
+[node name="Boton" type="Sprite2D" parent="."]
+texture = ExtResource("3_1ko4f")
 
 [node name="Colision" type="Button" parent="."]
 modulate = Color(1, 1, 1, 0)
