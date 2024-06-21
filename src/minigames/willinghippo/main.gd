@@ -73,9 +73,13 @@ func _input(event):
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	angulo += Input.get_gyroscope().y*delta #La x es eje arriba-abajo
-	aceleracion += Input.get_accelerometer()*delta
-	modulo_a = sqrt(aceleracion.x**2 + aceleracion.y**2 + aceleracion.z**2)
+	#La x es eje arriba-abajo
+	if Input.get_gyroscope().y > 0 and Input.get_gyroscope().z < 0:
+		angulo += max(Input.get_gyroscope().y,-Input.get_gyroscope().z)*delta
+	elif Input.get_gyroscope().y < 0 and Input.get_gyroscope().z > 0:
+		angulo += min(Input.get_gyroscope().y,-Input.get_gyroscope().z)*delta
+#	aceleracion += Input.get_accelerometer()*delta
+#	modulo_a = sqrt(aceleracion.x**2 + aceleracion.y**2 + aceleracion.z**2)
 	if angulo > PI/2 and angulo != PI:
 		direction = factor_gravedad * Vector2(sin(PI/2),cos(PI/2))
 	elif angulo < -PI/2 and angulo != PI:
