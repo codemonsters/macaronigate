@@ -33,6 +33,7 @@ var marmol_anterior
 var posicion_jugador = Vector2(2, 6)
 
 var game_in_progress = true
+var game_started = false
 
 func _ready():
 	game_over.connect(Callable(get_parent(), "on_game_over"))
@@ -53,7 +54,15 @@ func _ready():
 				marmol2.position=Vector2(2*59+separacion+marmol_anterior,200+150*y)
 			marmol_anterior = marmol2.position.x
 
+
+func on_game_start():
+	game_started = true
+
+
 func _process(delta):
+	if !game_started:
+		return
+	
 	for o in obstaculos_instanciados:
 		o[0].position.x += delta*200*(-1)**o[1]
 		if o[0].position.x > 820 or o[0].position.x < -100:
@@ -127,6 +136,9 @@ func on_game_timeout():
 	game_in_progress = false
 
 func _on_timer_cubiertos_timeout():
+	if !game_started:
+		return
+	
 	i = randi_range(0, len(obstaculos)-1)
 	var obstaculo = obstaculos[i].instantiate()
 	var sentido = 0

@@ -1,0 +1,87 @@
+[gd_scene load_steps=8 format=3 uid="uid://dahwintxv0pcx"]
+
+[ext_resource type="Texture2D" uid="uid://6ugdmtchm01e" path="res://intro_game/images/macarrones.png" id="1_2gdcw"]
+[ext_resource type="Script" path="res://win_screen/main.gd" id="1_86icr"]
+[ext_resource type="Script" path="res://win_screen/CameraMovement.gd" id="1_khgeo"]
+[ext_resource type="Texture2D" uid="uid://cd3tny4c77p1e" path="res://win_screen/images/columna.png" id="2_jsfwa"]
+
+[sub_resource type="Environment" id="Environment_2n1ch"]
+background_energy_multiplier = 0.01
+ambient_light_source = 1
+ambient_light_color = Color(0.366166, 0.230449, 0, 1)
+fog_light_color = Color(0.00295154, 0.00357305, 0.00469317, 1)
+fog_light_energy = 0.0
+volumetric_fog_density = 0.6079
+volumetric_fog_emission = Color(1, 1, 1, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_cnk12"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dwsmy"]
+size = Vector2(720, 1280)
+
+[node name="Main" type="Node3D"]
+script = ExtResource("1_86icr")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_2n1ch")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.906308, 0.422618, 0, -0.422618, 0.906308, 0, 2.4, 3)
+fov = 65.3
+script = ExtResource("1_khgeo")
+
+[node name="floor" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+mesh = SubResource("PlaneMesh_cnk12")
+
+[node name="macarrones" type="Sprite3D" parent="."]
+transform = Transform3D(0.06, 0, 0, 0, 0.06, 0, 0, 0, 0.06, -0.05, 1.211, 0)
+shaded = true
+texture = ExtResource("1_2gdcw")
+
+[node name="columna" type="Sprite3D" parent="."]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, -0.032, 0)
+shaded = true
+texture = ExtResource("2_jsfwa")
+
+[node name="spotlights" type="Node3D" parent="."]
+
+[node name="light1" type="SpotLight3D" parent="spotlights"]
+transform = Transform3D(0.647974, -0.553264, 0.523477, 0.00826904, 0.692351, 0.721513, -0.761617, -0.463193, 0.453201, 2.221, 2.494, 3.479)
+spot_range = 6.22009
+spot_attenuation = 0.0563282
+spot_angle = 19.58
+
+[node name="light2" type="SpotLight3D" parent="spotlights"]
+transform = Transform3D(0.830562, -0.517064, -0.206909, 0.501053, 0.531566, 0.682922, -0.243129, -0.670882, 0.700576, -0.919, 3.466, 3.479)
+light_energy = 1.323
+spot_range = 6.22009
+spot_attenuation = 0.0563282
+spot_angle = 19.58
+
+[node name="light3" type="SpotLight3D" parent="spotlights"]
+transform = Transform3D(0.828809, -0.517064, 0.213825, 0.115131, 0.531566, 0.839156, -0.547559, -0.670882, 0.500097, 0.958, 3.743, 2.24)
+light_energy = 1.323
+spot_range = 6.22009
+spot_attenuation = 0.0563282
+spot_angle = 19.58
+
+[node name="light4" type="SpotLight3D" parent="spotlights"]
+transform = Transform3D(0.828809, -0.316672, -0.461297, 0.115131, -0.710275, 0.694445, -0.547559, -0.628672, -0.552223, -1.15764, 3.06593, -1.10469)
+light_energy = 1.323
+spot_range = 6.22009
+spot_attenuation = 0.0563282
+spot_angle = 19.58
+
+[node name="light5" type="SpotLight3D" parent="spotlights"]
+transform = Transform3D(0.953049, -0.287182, 0.0960417, -0.284144, -0.738465, 0.611499, -0.104688, -0.610079, -0.785395, 0.328102, 2.52768, -3.02267)
+light_energy = 1.323
+spot_range = 6.22009
+spot_attenuation = 0.0563282
+spot_angle = 19.58
+
+[node name="TouchScreenButton" type="TouchScreenButton" parent="."]
+position = Vector2(360, 640)
+shape = SubResource("RectangleShape2D_dwsmy")
+
+[connection signal="pressed" from="TouchScreenButton" to="." method="_on_touch_screen_button_pressed"]

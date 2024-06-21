@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://bfncwgh2sfxni"]
+[gd_scene load_steps=16 format=3 uid="uid://bfncwgh2sfxni"]
 
 [ext_resource type="Script" path="res://menu/main.gd" id="1_1774w"]
 [ext_resource type="Texture2D" uid="uid://drtxapnhgdl60" path="res://menu/images/Title.png" id="1_wht1s"]
@@ -8,7 +8,8 @@
 [ext_resource type="Texture2D" uid="uid://blsxkmgrjrefs" path="res://menu/images/start_button_03.png" id="4_ud5u0"]
 [ext_resource type="Texture2D" uid="uid://dgerce2rid8gc" path="res://menu/images/start_button_04.png" id="5_y88i2"]
 [ext_resource type="Texture2D" uid="uid://coj8blwa1ssw8" path="res://menu/images/copyright.png" id="6_jr4tu"]
-[ext_resource type="AudioStream" uid="uid://c8hb4kefw0nyv" path="res://menu/menuSongLoop.ogg" id="9_pix86"]
+[ext_resource type="AudioStream" uid="uid://b2buv2s5f21i" path="res://menu/menuSongFull.ogg" id="9_0kffj"]
+[ext_resource type="Script" path="res://menu/musicPlayer.gd" id="10_mnwj0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ntw0s"]
 size = Vector2(212, 89)
@@ -139,9 +140,10 @@ offset_right = 525.0
 offset_bottom = 1075.0
 text = "↓"
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("9_pix86")
+[node name="musicPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_0kffj")
 autoplay = true
+script = ExtResource("10_mnwj0")
 
 [connection signal="pressed" from="PlayButton" to="." method="_on_play_button_pressed"]
 [connection signal="timeout" from="PastaConstructorTimer" to="." method="_on_pasta_constructor_timer_timeout"]
@@ -149,3 +151,4 @@ autoplay = true
 [connection signal="pressed" from="PickerToggle" to="." method="_on_picker_toggle_pressed"]
 [connection signal="pressed" from="UpButton" to="." method="_on_up_button_pressed"]
 [connection signal="pressed" from="DownButton" to="." method="_on_down_button_pressed"]
+[connection signal="finished" from="musicPlayer" to="musicPlayer" method="_on_finished"]

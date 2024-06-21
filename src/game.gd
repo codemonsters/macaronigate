@@ -23,12 +23,16 @@ var minigames = [
 	#"panelDeBotones", "pulsar_mucho"
 	]
 
+var introDeveloperFlag = false
+
 var minigames_shuffled
 var current_game_number
 var current_game_seconds_left = 0
 var signal_inhibit = false
 var state
 var elevator
+var death_screen
+var win_screen
 
 func _ready():
 	state = null
@@ -37,7 +41,7 @@ func _ready():
 	if minigames_order_override == null:
 		minigames_shuffled = minigames.duplicate()
 		minigames_shuffled.shuffle()
-		minigames_shuffled.resize(5)
+		minigames_shuffled.resize(1)
 	else:
 		minigames_shuffled = minigames_order_override.duplicate()
 	
@@ -45,7 +49,12 @@ func _ready():
 	current_game_number = 0
 	remove_children_in_group("current_game")
 	$HUD/Label.hide()
-	load_intro_developer()
+	
+	if !introDeveloperFlag:
+		load_intro_developer()
+		introDeveloperFlag = true
+	else:
+		load_menu()
 
 
 func load_intro_developer():
@@ -185,8 +194,20 @@ func on_game_cleared():
 
 func on_all_games_cleared():
 	$HUD/Label.set_text("All cleared!")
-	await get_tree().create_timer(5).timeout
+	load_win_screen()
+	
+
+
+func load_win_screen():
+	remove_children_in_group("current_game")
+	win_screen = load("res://win_screen/main.tscn").instantiate()
+	$winScreenPlaceholder.add_child(win_screen)
+	$AnimationPlayer.play("fade_out_black")
+
+
+func leave_win_screen():
 	_ready()
+
 
 func on_game_over():
 	print("game_over signal received")
@@ -200,13 +221,22 @@ func on_game_over():
 		$Timer.stop()
 		$HUD/Label.set_text("Game over!")
 		await get_tree().create_timer(2).timeout
-		$AnimationPlayer.play("fade_in_black")
-		await $AnimationPlayer.animation_finished
-		_ready()
+		#$AnimationPlayer.play("fade_in_black")
+		#await $AnimationPlayer.animation_finished
+		
+		load_death_screen()
 
 
 func load_death_screen():
-	load("res://death_screen/main.tscn")
+	remove_children_in_group("current_game")
+	death_screen = load("res://death_screen/main.tscn").instantiate()
+	$deathScreenPlaceholder.add_child(death_screen)
+	
+	# _ready()
+
+func leave_death_screen():
+	death_screen.queue_free()
+	_ready()
 
 
 func _on_timer_timeout():
