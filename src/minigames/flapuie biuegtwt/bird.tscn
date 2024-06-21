@@ -43,9 +43,8 @@ animations = [{
 radius = 41.8449
 height = 83.6899
 
-[node name="Bird" type="RigidBody2D"]
+[node name="Bird" type="CharacterBody2D"]
 scale = Vector2(0.971284, 1.01224)
-freeze = true
 script = ExtResource("1_08dnw")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

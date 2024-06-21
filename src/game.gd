@@ -134,6 +134,7 @@ func load_game(game_n = 0):
 
 		remove_children_in_group("game_instructions")
 	
+	PhysicsServer2D.area_set_param(get_world_2d().space, PhysicsServer2D.AREA_PARAM_GRAVITY_VECTOR, Vector2(0,1))
 	game_start.emit()
 	signal_inhibit = false
 	if scene.needs_timer: $Timer.start()
