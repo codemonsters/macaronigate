@@ -3,12 +3,12 @@ extends Node2D
 var localFloorNumber
 
 func _ready():
+	$"../AnimationPlayer".play("fade_out_black")
+	# await $"../../AnimationPlayer".animation_finished
 	$AnimationPlayer.current_animation = "going_up"
 	$arrowLight.play()
 	$Dozens.animation = "numbers"
 	$Units.animation = "numbers"
-	
-	
 
 func _on_animation_player_animation_finished(anim_name):
 	if anim_name == "going_up":
@@ -20,7 +20,7 @@ func _on_animation_player_animation_finished(anim_name):
 		$Units.frame = localFloorNumber % 10
 		
 	elif anim_name == "exiting_elevator":
-		get_parent().get_parent().on_elevator_exit()
+		get_parent().on_elevator_exit()
 
 func set_starting_floor_number(floorNumber): # Llamar a esta función antes de que el ascensor se ponga en marcha
 	localFloorNumber = floorNumber

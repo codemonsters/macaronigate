@@ -19,6 +19,8 @@ var penne_factory = preload("res://menu/pasta/penne.tscn")
 var pasta_num = 0	# number of pasta bodies instanciated
 var start_button_enabled	# flag to enable / disable the action 
 var angulo = 0
+var angulo_y = 0
+var angulo_z = 0
 var direction = Vector2(0,1)
 
 func _ready():
@@ -77,8 +79,18 @@ func _on_pasta_constructor_timer_timeout():
 
 
 func _process(delta):
-	angulo += max(Input.get_gyroscope().y,Input.get_gyroscope().z)*delta
-	direction = factor_gravedad * Vector2(sin(angulo),cos(angulo))
+	angulo_y += Input.get_gyroscope().y*delta
+	angulo_z -= Input.get_gyroscope().z*delta
+	if angulo_y > 0 and angulo_z > 0:
+		angulo = max(angulo_y, angulo_z)
+	elif angulo_y < 0 and angulo_z < 0:
+		angulo = min(angulo_y, angulo_z)
+	if angulo > PI/2 and angulo != PI:
+		direction = factor_gravedad * Vector2(sin(PI/2),cos(PI/2))
+	elif angulo < -PI/2 and angulo != PI:
+		direction = factor_gravedad * Vector2(sin(-PI/2),cos(-PI/2))
+	else:
+		direction = factor_gravedad * Vector2(sin(angulo),cos(angulo))
 	PhysicsServer2D.area_set_param(get_world_2d().space, PhysicsServer2D.AREA_PARAM_GRAVITY_VECTOR, direction)
 
 

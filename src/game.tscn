@@ -120,8 +120,6 @@ libraries = {
 
 [node name="Line2D" type="Line2D" parent="."]
 
-[node name="elevatorPlaceholder" type="Node" parent="."]
-
 [node name="deathScreenPlaceholder" type="Node" parent="."]
 
 [node name="winScreenPlaceholder" type="Node" parent="."]

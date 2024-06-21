@@ -41,7 +41,7 @@ func _ready():
 	if minigames_order_override == null:
 		minigames_shuffled = minigames.duplicate()
 		minigames_shuffled.shuffle()
-		minigames_shuffled.resize(1)
+		# minigames_shuffled.resize(5)
 	else:
 		minigames_shuffled = minigames_order_override.duplicate()
 	
@@ -67,7 +67,7 @@ func load_intro_developer():
 func on_intro_developer_finished():
 	state = null
 	$HUD/SkipButton.hide()
-	$FadeRect.color = Color(0, 0, 0, 1)
+	$FadeRect.color = Color.BLACK
 	remove_children_in_group("intro_developer")
 	load_menu()
 
@@ -126,7 +126,10 @@ func load_game(game_n = 0):
 		current_game_seconds_left = scene.timer_seconds
 
 	add_child(scene)
-	$AnimationPlayer.play("fade_out_black")
+	if game_n == 0:
+		$AnimationPlayer.play("fade_out_black")
+	else:
+		$AnimationPlayer.play("fade_out_white")
 	await $AnimationPlayer.animation_finished
 	
 	if scene.get("instructions_type") != null:
@@ -143,6 +146,7 @@ func load_game(game_n = 0):
 
 		remove_children_in_group("game_instructions")
 	
+	PhysicsServer2D.area_set_param(get_world_2d().space, PhysicsServer2D.AREA_PARAM_GRAVITY_VECTOR, Vector2(0,1))
 	game_start.emit()
 	signal_inhibit = false
 	if scene.needs_timer: $Timer.start()
@@ -154,14 +158,14 @@ func enter_elevator():
 	$HUD/Label.set_text("")
 	elevator = load("res://elevator/main.tscn").instantiate()
 	elevator.set_starting_floor_number(current_game_number - 1)
-	$elevatorPlaceholder.add_child(elevator)
+	add_child(elevator)
 	state = "elevator"
 	$HUD/SkipButton.show()
-
 
 func on_elevator_exit():
 	state = null
 	$HUD/SkipButton.hide()
+	$FadeRect.color = Color.WHITE
 	elevator.queue_free()
 	load_game(current_game_number)
 

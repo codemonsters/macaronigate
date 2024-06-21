@@ -32,7 +32,7 @@ func _process(delta):
 	
 func on_game_start():
 	in_game = true
-	$Bird.freeze = false
+#	$Bird.freeze = false
 	$NewPipesTimer.start()
 	
 func on_game_timeout():

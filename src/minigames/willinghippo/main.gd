@@ -25,6 +25,8 @@ var direction = Vector2(0,1)
 var aceleracion = Vector3(0,0,0)
 var modulo_a = 0
 var angulo = 0
+var angulo_y = 0
+var angulo_z = 0
 var filas = 6
 var madera_anterior
 
@@ -73,9 +75,15 @@ func _input(event):
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	angulo += Input.get_gyroscope().y*delta #La x es eje arriba-abajo
-	aceleracion += Input.get_accelerometer()*delta
-	modulo_a = sqrt(aceleracion.x**2 + aceleracion.y**2 + aceleracion.z**2)
+	#La x es eje arriba-abajo
+	angulo_y += Input.get_gyroscope().y*delta
+	angulo_z -= Input.get_gyroscope().z*delta
+	if angulo_y > 0 and angulo_z > 0:
+		angulo = max(angulo_y, angulo_z)
+	elif angulo_y < 0 and angulo_z < 0:
+		angulo = min(angulo_y, angulo_z)
+#	aceleracion += Input.get_accelerometer()*delta
+#	modulo_a = sqrt(aceleracion.x**2 + aceleracion.y**2 + aceleracion.z**2)
 	if angulo > PI/2 and angulo != PI:
 		direction = factor_gravedad * Vector2(sin(PI/2),cos(PI/2))
 	elif angulo < -PI/2 and angulo != PI:

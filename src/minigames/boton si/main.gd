@@ -7,7 +7,7 @@ signal game_cleared
 # Required variables
 @export var game_brief = "Touch it!"
 @export var needs_timer = true # False if your game doesn't need a countdown timer
-@export var timer_seconds = 2 # Only set if needs_timer = true
+@export var timer_seconds = 3 # Only set if needs_timer = true
 
 
 # Called when the node enters the scene tree for the first time.
