@@ -32,6 +32,9 @@ func _ready():
 	click_count = 0
 	
 	$splashColorRect.visible = false
+	$ProgressBar.max_value = clicks_needed
+	$ProgressBar.value = 0
+	
 
 func on_game_timeout():
 	playing = false
@@ -50,6 +53,7 @@ func _on_button_pressed():
 	$globo.scale.y += 0.03
 	
 	click_count += 1
+	$ProgressBar.value = click_count
 	
 	if !balloon_popped:
 		$sfx/blowing.pitch_scale = 0.8 + (float(click_count) / float(clicks_needed))
