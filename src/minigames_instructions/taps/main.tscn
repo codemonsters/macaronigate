@@ -1,11 +1,11 @@
 [gd_scene load_steps=5 format=3 uid="uid://ehdv71ims2r5"]
 
-[ext_resource type="Texture2D" uid="uid://b7tanbtwpunev" path="res://minigames_instructions/tap/glow_circle.png" id="1_iggf2"]
-[ext_resource type="Texture2D" uid="uid://b544nd35ycty0" path="res://minigames_instructions/tap/finger.png" id="2_dhtll"]
+[ext_resource type="Texture2D" uid="uid://b7tanbtwpunev" path="res://minigames_instructions/taps/glow_circle.png" id="1_iggf2"]
+[ext_resource type="Texture2D" uid="uid://b544nd35ycty0" path="res://minigames_instructions/taps/finger.png" id="2_dhtll"]
 
 [sub_resource type="Animation" id="Animation_a2k1d"]
 resource_name = "main"
-length = 4.0
+length = 2.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -154,13 +154,13 @@ scale = Vector2(0.5, 0.5)
 texture = ExtResource("1_iggf2")
 
 [node name="GlowCircle3" type="Sprite2D" parent="."]
-modulate = Color(1, 1, 1, 0.675676)
+modulate = Color(1, 1, 1, 0)
 position = Vector2(568, 141)
-scale = Vector2(0.162838, 0.162838)
+scale = Vector2(0.5, 0.5)
 texture = ExtResource("1_iggf2")
 
 [node name="Finger" type="Sprite2D" parent="."]
-position = Vector2(923.356, 427.069)
+position = Vector2(924, 426)
 rotation = -0.90059
-scale = Vector2(0.3, 0.3)
+scale = Vector2(0.4, 0.4)
 texture = ExtResource("2_dhtll")
