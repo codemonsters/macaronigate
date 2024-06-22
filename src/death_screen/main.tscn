@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://couu5t78608vc"]
+[gd_scene load_steps=5 format=3 uid="uid://couu5t78608vc"]
 
 [ext_resource type="Script" path="res://death_screen/main.gd" id="1_nx4rt"]
 [ext_resource type="AudioStream" uid="uid://d22ny0kd27h15" path="res://death_screen/deathMusic/deathmusicNOTloop.mp3" id="2_chxfp"]
@@ -6,9 +6,6 @@
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ojkqx"]
 load_path = "res://.godot/imported/spilled_macaroni.png-65766e3971819843403b4a5562b10ed7.ctex"
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_2uxl7"]
-size = Vector2(720, 1280)
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_nx4rt")
@@ -31,9 +28,4 @@ volume_db = 2.811
 autoplay = true
 script = ExtResource("2_xq24u")
 
-[node name="TouchScreenButton" type="TouchScreenButton" parent="."]
-position = Vector2(360, 640)
-shape = SubResource("RectangleShape2D_2uxl7")
-
 [connection signal="finished" from="MusicPlayer" to="MusicPlayer" method="_on_finished"]
-[connection signal="pressed" from="TouchScreenButton" to="." method="_on_touch_screen_button_pressed"]

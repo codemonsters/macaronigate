@@ -118,11 +118,11 @@ offset_right = 460.0
 offset_bottom = 1150.0
 
 [node name="PickerToggle" type="Button" parent="."]
-offset_left = 260.0
-offset_top = 900.0
-offset_right = 460.0
-offset_bottom = 940.0
-text = "Pick Game"
+offset_left = 60.0
+offset_top = 1175.0
+offset_right = 260.0
+offset_bottom = 1225.0
+text = "Options"
 
 [node name="UpButton" type="Button" parent="."]
 visible = false

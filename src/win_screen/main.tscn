@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://dahwintxv0pcx"]
+[gd_scene load_steps=7 format=3 uid="uid://dahwintxv0pcx"]
 
 [ext_resource type="Texture2D" uid="uid://6ugdmtchm01e" path="res://intro_game/images/macarrones.png" id="1_2gdcw"]
 [ext_resource type="Script" path="res://win_screen/main.gd" id="1_86icr"]
@@ -15,9 +15,6 @@ volumetric_fog_density = 0.6079
 volumetric_fog_emission = Color(1, 1, 1, 1)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_cnk12"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_dwsmy"]
-size = Vector2(720, 1280)
 
 [node name="Main" type="Node3D"]
 script = ExtResource("1_86icr")
@@ -79,9 +76,3 @@ light_energy = 1.323
 spot_range = 6.22009
 spot_attenuation = 0.0563282
 spot_angle = 19.58
-
-[node name="TouchScreenButton" type="TouchScreenButton" parent="."]
-position = Vector2(360, 640)
-shape = SubResource("RectangleShape2D_dwsmy")
-
-[connection signal="pressed" from="TouchScreenButton" to="." method="_on_touch_screen_button_pressed"]

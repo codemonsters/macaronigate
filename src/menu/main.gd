@@ -93,14 +93,12 @@ func _process(delta):
 		direction = factor_gravedad * Vector2(sin(angulo),cos(angulo))
 	PhysicsServer2D.area_set_param(get_world_2d().space, PhysicsServer2D.AREA_PARAM_GRAVITY_VECTOR, direction)
 
-
 func _on_play_button_pressed():
 	PhysicsServer2D.area_set_param(get_world_2d().space, PhysicsServer2D.AREA_PARAM_GRAVITY_VECTOR, Vector2(0,1))
 	assert(game != null, "You must run the game (and not directly this scene) to start a match")
 	if play_pressed == false:
 		play_pressed = true
 		play_button_pressed.emit()
-	
 	
 func _on_picker_toggle_pressed():
 	if $GamePicker.is_visible():
@@ -109,7 +107,7 @@ func _on_picker_toggle_pressed():
 		$GamePicker.hide()
 		$GamePicker.deselect_all();
 		game.launch_minigame_directly = null
-		$PickerToggle.set_text("Pick Game")
+		$PickerToggle.set_text("Options")
 	else:
 		$GamePicker.select(0)
 		$GamePicker.ensure_current_is_visible()
@@ -117,7 +115,6 @@ func _on_picker_toggle_pressed():
 		$GamePicker.show()
 		$UpButton.show()
 		$DownButton.show()
-
 
 func _on_game_picker_item_selected(index):
 	game.launch_minigame_directly = game.minigames[index]

@@ -1,5 +1,7 @@
 extends Node2D
 
+##### DEBUG OPTIONS START #####
+
 # IMPORTANT: See README
 # For developing, inside the menu click "Pick Game" and pick your game
 # Alternatively, you can set "launch_minigame_directly" to the name of your
@@ -10,6 +12,11 @@ var launch_minigame_directly = null
 # If you want to launch specific minigames in a specific order
 # var minigames_order_override = ["ñarkanoid", "pizzaCatch"]
 var minigames_order_override = null
+
+# To limit the game length
+var limit_minigames_count = 5
+
+##### DEBUG OPTIONS END #####
 
 signal game_timeout
 signal game_start
@@ -23,8 +30,7 @@ var minigames = [
 	#"panelDeBotones", "pulsar_mucho"
 	]
 
-var introDeveloperFlag = false
-
+var first_run_flag = true
 var minigames_shuffled
 var current_game_number
 var current_game_seconds_left = 0
@@ -36,12 +42,11 @@ var win_screen
 
 func _ready():
 	state = null
-	#$AnimationPlayer.play("fade_out_black")
-	#await $AnimationPlayer.animation_finished
 	if minigames_order_override == null:
 		minigames_shuffled = minigames.duplicate()
 		minigames_shuffled.shuffle()
-		# minigames_shuffled.resize(5)
+		if limit_minigames_count != null:
+			minigames_shuffled.resize(limit_minigames_count)
 	else:
 		minigames_shuffled = minigames_order_override.duplicate()
 	
@@ -49,29 +54,26 @@ func _ready():
 	current_game_number = 0
 	remove_children_in_group("current_game")
 	$HUD/Label.hide()
-	
-	if !introDeveloperFlag:
-		load_intro_developer()
-		introDeveloperFlag = true
+
+	if first_run_flag:
+		if launch_minigame_directly == null:
+			load_intro_developer()
+		else:
+			load_game()
+		first_run_flag = false
 	else:
 		load_menu()
-
 
 func load_intro_developer():
 	var intro_developer = load("res://intro_developer/main.tscn").instantiate()
 	intro_developer.add_to_group("intro_developer")
 	add_child(intro_developer)
-	state = "intro_developer"
-
 
 func on_intro_developer_finished():
-	state = null
-	$HUD/SkipButton.hide()
 	$FadeRect.color = Color.BLACK
 	remove_children_in_group("intro_developer")
 	load_menu()
 
-	
 func load_menu():
 	#print("Loading menu...")
 	$AnimationPlayer.play("fade_out_black")
@@ -79,15 +81,12 @@ func load_menu():
 	menu.add_to_group("menu")
 	add_child(menu)
 	signal_inhibit = false
-	# state = "menu"
 
 func load_game_intro():
 	#print("Loading game intro...")
 	var scene = load("res://intro_game/main.tscn").instantiate()
 	add_child(scene)
 	$AnimationPlayer.play("fade_out_black")
-	state = "game_intro"
-	$HUD/SkipButton.show()
 	
 func load_game(game_n = 0):
 	if launch_minigame_directly != null:
@@ -169,7 +168,6 @@ func on_elevator_exit():
 	elevator.queue_free()
 	load_game(current_game_number)
 
-
 func on_game_cleared():
 	print("game_cleared signal received")
 	if signal_inhibit == true:
@@ -199,19 +197,18 @@ func on_game_cleared():
 func on_all_games_cleared():
 	$HUD/Label.set_text("All cleared!")
 	load_win_screen()
-	
-
 
 func load_win_screen():
 	remove_children_in_group("current_game")
 	win_screen = load("res://win_screen/main.tscn").instantiate()
-	$winScreenPlaceholder.add_child(win_screen)
+	add_child(win_screen)
 	$AnimationPlayer.play("fade_out_black")
 
-
 func leave_win_screen():
+	$AnimationPlayer.play("fade_in_black")
+	await $AnimationPlayer.animation_finished
+	win_screen.queue_free()
 	_ready()
-
 
 func on_game_over():
 	print("game_over signal received")
@@ -224,24 +221,28 @@ func on_game_over():
 		$HUD/SkipButton.hide()
 		$Timer.stop()
 		$HUD/Label.set_text("Game over!")
-		await get_tree().create_timer(2).timeout
-		#$AnimationPlayer.play("fade_in_black")
-		#await $AnimationPlayer.animation_finished
-		
-		load_death_screen()
-
+		if launch_minigame_directly == null:
+			await get_tree().create_timer(2).timeout
+			$AnimationPlayer.play("fade_in_black")
+			await $AnimationPlayer.animation_finished
+			load_death_screen()
+		else:
+			await get_tree().create_timer(1).timeout
+			$AnimationPlayer.play("fade_in_black")
+			await $AnimationPlayer.animation_finished
+			_ready()
 
 func load_death_screen():
 	remove_children_in_group("current_game")
 	death_screen = load("res://death_screen/main.tscn").instantiate()
-	$deathScreenPlaceholder.add_child(death_screen)
-	
-	# _ready()
+	add_child(death_screen)
+	$AnimationPlayer.play("fade_out_black")
 
 func leave_death_screen():
+	$AnimationPlayer.play("fade_in_black")
+	await $AnimationPlayer.animation_finished
 	death_screen.queue_free()
 	_ready()
-
 
 func _on_timer_timeout():
 	current_game_seconds_left -= 1
@@ -250,10 +251,7 @@ func _on_timer_timeout():
 		$Timer.stop()
 		emit_signal("game_timeout")
 
-
 func on_game_intro_finished():
-	state = null
-	$HUD/SkipButton.hide()
 	$AnimationPlayer.play("fade_in_black")
 	await $AnimationPlayer.animation_finished
 	game_start.emit()
@@ -299,11 +297,7 @@ func destroy_children(parent):
 			destroy_children(child)
 
 func _on_skip_button_pressed():
-	if state == "intro_developer":
-		on_intro_developer_finished()
-	elif state == "game_intro":
-		on_game_intro_finished()
-	elif state == "game":
+	if state == "game":
 		on_game_cleared()
 	elif state == "elevator":
 		on_elevator_exit()
