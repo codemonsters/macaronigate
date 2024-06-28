@@ -1,7 +1,18 @@
 [gd_scene load_steps=4 format=3 uid="uid://d22tvnmdq52dk"]
 
 [ext_resource type="Script" path="res://minigames/totems/CharacterBody2D.gd" id="1_f4kft"]
-[ext_resource type="Texture2D" uid="uid://drri71vghfe1d" path="res://minigames/totems/white_square.png" id="2_4o3eo"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nmsdh"]
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 9
+border_width_top = 9
+border_width_right = 9
+border_width_bottom = 9
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 25
+corner_radius_top_right = 25
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 25
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5nv87"]
 size = Vector2(509, 207.5)
@@ -11,11 +22,14 @@ size = Vector2(509, 207.5)
 [node name="Block" type="CharacterBody2D" parent="."]
 script = ExtResource("1_f4kft")
 
-[node name="Sprite2D" type="Sprite2D" parent="Block"]
-position = Vector2(1.99997, -1.5)
-scale = Vector2(0.984375, 0.396484)
-texture = ExtResource("2_4o3eo")
+[node name="Panel" type="Panel" parent="Block"]
+offset_left = -250.0
+offset_top = -103.0
+offset_right = 254.0
+offset_bottom = 100.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_nmsdh")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Block"]
+visible = false
 position = Vector2(1, -1)
 shape = SubResource("RectangleShape2D_5nv87")

@@ -36,6 +36,7 @@ func _on_naranja_boton_button_down():
 
 
 func comprobarInput(colorBoton):
+	get_parent().get_node("FlechasInstrucciones").visible = false
 	get_child(1).play()
 	if (game_in_progress):
 		if (len(array) > 1  and !stun):
@@ -48,6 +49,7 @@ func comprobarInput(colorBoton):
 				$Timer.start()
 				stun = true
 				stun_start.emit()
+				get_parent().get_node("FlechasInstrucciones").visible = true
 		elif (len(array) == 1):
 			get_child(0).play()
 			array[0].queue_free()

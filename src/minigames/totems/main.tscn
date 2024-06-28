@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://d7pds6ys2gwo"]
+[gd_scene load_steps=21 format=3 uid="uid://d7pds6ys2gwo"]
 
 [ext_resource type="Script" path="res://minigames/totems/main.gd" id="1_qcm1e"]
 [ext_resource type="Texture2D" uid="uid://bc601x3174vxd" path="res://minigames/totems/fondo.png" id="1_uv2t7"]
@@ -17,6 +17,7 @@
 [ext_resource type="Script" path="res://minigames/totems/botonVisualScript.gd" id="11_nik8q"]
 [ext_resource type="AudioStream" uid="uid://dm7m3cjd0d3n6" path="res://minigames/totems/bloquesTheme.ogg" id="14_2p84n"]
 [ext_resource type="Script" path="res://minigames/totems/MusicPlayer.gd" id="17_ft0nn"]
+[ext_resource type="Texture2D" uid="uid://bawxdwexliscs" path="res://minigames/totems/arrow.png" id="18_lflg4"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_b35wq"]
 animations = [{
@@ -177,6 +178,19 @@ stream = ExtResource("14_2p84n")
 volume_db = 8.432
 autoplay = true
 script = ExtResource("17_ft0nn")
+
+[node name="FlechasInstrucciones" type="Node2D" parent="."]
+
+[node name="FlechaIzq" type="Sprite2D" parent="FlechasInstrucciones"]
+position = Vector2(-308, 75)
+scale = Vector2(0.0292339, 0.0595463)
+texture = ExtResource("18_lflg4")
+
+[node name="FlechaDer" type="Sprite2D" parent="FlechasInstrucciones"]
+position = Vector2(308, 75)
+rotation = 3.14159
+scale = Vector2(0.0292339, 0.0595463)
+texture = ExtResource("18_lflg4")
 
 [connection signal="chain_timeout" from="." to="Block_Spawner" method="_on_main_chain_timeout"]
 [connection signal="timeout" from="Camera2D/shakeTimer" to="Camera2D" method="_on_shake_timer_timeout"]
