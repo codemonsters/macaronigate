@@ -5,7 +5,7 @@ extends Node2D
 signal game_over
 signal game_cleared
 
-var clicks_needed = randi_range(45, 50) 	# número de clicks necesarios para que el globo explote
+var clicks_needed = randi_range(42, 47) 	# número de clicks necesarios para que el globo explote
 @export var game_brief = "Blow up!"
 @export var needs_timer = true
 @export var timer_seconds = 6
