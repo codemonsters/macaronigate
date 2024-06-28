@@ -1,6 +1,7 @@
 extends Node2D
 var instances = 0
 var meteor_scene = load("res://minigames/space/meteor.tscn")
+var explosion_scene = load("res://minigames/space/explosion.tscn")
 signal game_over
 signal game_cleared
 
@@ -13,7 +14,6 @@ signal game_cleared
 func _ready():
 	game_over.connect(Callable(get_parent(), "on_game_over"))
 	game_cleared.connect(Callable(get_parent(), "on_game_cleared"))
-	$Destroy.play()
 
 func on_game_start():
 	$Timer.start()
@@ -40,6 +40,15 @@ func on_meteor_pressed(node):
 	remove_child(node)
 	node.queue_free()
 	$MeteorTouched.play()
+	
+	var mouse_pos = get_global_mouse_position()
+	var explosion = explosion_scene.instantiate()
+	explosion.position = mouse_pos
+	
+	add_child(explosion)
+	explosion.add_to_group("needDelete")
+	await get_tree().create_timer(1).timeout
+	explosion.hide()
 	
 func on_game_timeout():
 	game_cleared.emit()

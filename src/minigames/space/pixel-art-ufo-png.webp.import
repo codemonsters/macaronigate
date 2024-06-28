@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bnxgvf4f0lodh"
-path="res://.godot/imported/1945907.png-d3ec7d7d84d7135409c73d8d5d9f57b9.ctex"
+uid="uid://byqq056dhn0fk"
+path="res://.godot/imported/pixel-art-ufo-png.webp-d5bda8fe51e596ae7e64ad8fab264e2c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://minigames/space/1945907.png"
-dest_files=["res://.godot/imported/1945907.png-d3ec7d7d84d7135409c73d8d5d9f57b9.ctex"]
+source_file="res://minigames/space/pixel-art-ufo-png.webp"
+dest_files=["res://.godot/imported/pixel-art-ufo-png.webp-d5bda8fe51e596ae7e64ad8fab264e2c.ctex"]
 
 [params]
 
