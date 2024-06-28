@@ -1,9 +1,12 @@
 [gd_scene load_steps=2 format=3 uid="uid://bubwpbei0x08l"]
 
-[ext_resource type="Texture2D" uid="uid://bnxgvf4f0lodh" path="res://minigames/space/1945907.png" id="1_jkrxd"]
+[ext_resource type="Texture2D" uid="uid://byqq056dhn0fk" path="res://minigames/space/pixel-art-ufo-png.webp" id="1_u1som"]
 
 [node name="Nave" type="Node2D"]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.3, 0.3)
-texture = ExtResource("1_jkrxd")
+position = Vector2(0, 3.8147e-06)
+scale = Vector2(0.164583, 0.16875)
+texture = ExtResource("1_u1som")
+
+[node name="Timer" type="Timer" parent="."]
