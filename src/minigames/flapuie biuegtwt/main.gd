@@ -4,6 +4,7 @@ signal game_cleared
 
 # Flying Bird Character (for the credits) thanks to bevouliin.com (https://opengameart.org/content/bevouliin-free-flying-bird-game-character-sprite-sheets)
 #Sonido aleteo: Flapping Wings de Mike Koening https://soundbible.com/627-Flapping-Wings.html
+#Sonido caida: Falling Off https://soundbible.com/726-Falling-Off.html
 
 @export var game_brief = "Flappy bird"
 @export var needs_timer = true
@@ -48,7 +49,7 @@ func _on_new_pipes_timer_timeout():
 	$Pipes.add_child(new_lower_pipe_instance)
 		
 	var new_upper_pipe_instance = pipe_scene.instantiate()
-	new_upper_pipe_instance.set_position(Vector2(720 + new_upper_pipe_instance.get_width() / 2, new_lower_pipe_instance.get_position().y - 1200))
+	new_upper_pipe_instance.set_position(Vector2(720 + new_upper_pipe_instance.get_width() / 2, new_lower_pipe_instance.get_position().y - 1300))
 	new_upper_pipe_instance.rotate(PI)
 	$Pipes.add_child(new_upper_pipe_instance)
 	
@@ -56,5 +57,10 @@ func _on_new_pipes_timer_timeout():
 
 func _on_muerte_body_entered(body):
 	if body.name == "Bird" && win != true:
+		$Bird.die()
 		game_over.emit()
-		
+
+func _on_pipe_body_entered(body):
+	if body.name == "Bird" && win != true:
+		$Bird.die()
+		game_over.emit()

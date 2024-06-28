@@ -50,7 +50,7 @@ script = ExtResource("1_08dnw")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.206119, 0.205178)
 sprite_frames = SubResource("SpriteFrames_7q3o3")
-animation = &"flying"
+animation = &"dead"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(8.23652, -9.87906)

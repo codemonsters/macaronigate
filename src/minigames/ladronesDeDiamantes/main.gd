@@ -2,6 +2,7 @@ extends Node3D
 
 signal game_over
 signal game_cleared
+signal move_camera
 
 signal game_lose
 
@@ -22,13 +23,14 @@ func on_game_start():
 
 func on_game_timeout():
 	if !lostFlag:
+		lostFlag = true
 		game_over.emit()
-	lostFlag = true
+		move_camera.emit()
 
 func _on_game_lose():
 	if !lostFlag:
+		lostFlag = true
 		game_over.emit()
-	lostFlag = true
 
 func _on_game_win():
 	if (!lostFlag):
