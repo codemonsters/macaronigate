@@ -54,10 +54,8 @@ func _ready():
 				marmol2.position=Vector2(2*59+separacion+marmol_anterior,200+150*y)
 			marmol_anterior = marmol2.position.x
 
-
 func on_game_start():
 	game_started = true
-
 
 func _process(delta):
 	if !game_started:
@@ -114,7 +112,6 @@ func _process(delta):
 		player_pos = $Jugador/CharacterBody2D.position
 		$Jugador/CharacterBody2D.t = 0
 
-
 func _unhandled_input(event):
 	if event is InputEventScreenTouch:
 		if not jump:
@@ -155,8 +152,5 @@ func _on_timer_cubiertos_timeout():
 	add_child(obstaculo)
 	obstaculos_instanciados.append([obstaculo, sentido])
 	
-	#Añadir el sonido del marmol y sonido de salto
-	
 	if jump:
 		$Sonido_marmol.play()
-	
