@@ -22,14 +22,12 @@ func on_game_start():
 	$Steal.disabled = false
 
 func on_game_timeout():
-	print("tiempo")
 	if !lostFlag:
 		lostFlag = true
 		game_over.emit()
 		move_camera.emit()
 
 func _on_game_lose():
-	print("policia")
 	if !lostFlag:
 		lostFlag = true
 		game_over.emit()
