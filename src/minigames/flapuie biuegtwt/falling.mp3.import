@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bcx3e05ovedic"
+path="res://.godot/imported/falling.mp3-9f3a295afc115b03c2299d127a652027.mp3str"
+
+[deps]
+
+source_file="res://minigames/flapuie biuegtwt/falling.mp3"
+dest_files=["res://.godot/imported/falling.mp3-9f3a295afc115b03c2299d127a652027.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

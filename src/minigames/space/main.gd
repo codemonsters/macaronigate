@@ -47,7 +47,7 @@ func on_meteor_pressed(node):
 	
 	add_child(explosion)
 	explosion.add_to_group("needDelete")
-	await get_tree().create_timer(1).timeout
+	await get_tree().create_timer(0.5).timeout
 	explosion.hide()
 	
 func on_game_timeout():
