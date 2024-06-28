@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://deto0rrvkkw7u"]
+[gd_scene load_steps=9 format=3 uid="uid://deto0rrvkkw7u"]
 
 [ext_resource type="Script" path="res://minigames/flapuie biuegtwt/main.gd" id="1_jkedp"]
 [ext_resource type="PackedScene" uid="uid://cm488c5okjkb8" path="res://minigames/flapuie biuegtwt/bird.tscn" id="2_rq6ao"]
 [ext_resource type="Script" path="res://minigames/flapuie biuegtwt/muerte.gd" id="3_32d24"]
 [ext_resource type="Texture2D" uid="uid://cnf4q8x3st02k" path="res://minigames/flapuie biuegtwt/images/pinchos.png" id="4_dg5ae"]
 [ext_resource type="AudioStream" uid="uid://b8qku0rapfu75" path="res://minigames/flapuie biuegtwt/images/bird/aleteo_pajaro.mp3" id="5_qvgar"]
+[ext_resource type="AudioStream" uid="uid://bcx3e05ovedic" path="res://minigames/flapuie biuegtwt/falling.mp3" id="6_8n84u"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6y6v6"]
 size = Vector2(326.051, 2201)
@@ -19,16 +20,6 @@ script = ExtResource("1_jkedp")
 wait_time = 3.0
 
 [node name="Pipes" type="Node" parent="."]
-
-[node name="Bird" parent="." instance=ExtResource("2_rq6ao")]
-position = Vector2(160, 153)
-
-[node name="aleteo_pajaro" type="AudioStreamPlayer2D" parent="Bird"]
-position = Vector2(-164.73, -151.15)
-scale = Vector2(1.02956, 0.987908)
-stream = ExtResource("5_qvgar")
-volume_db = 1.814
-attenuation = 0.101531
 
 [node name="Button" type="Button" parent="."]
 modulate = Color(0, 0, 0, 1)
@@ -77,6 +68,20 @@ shape = SubResource("RectangleShape2D_hcr0q")
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="muerte"]
 position = Vector2(917, 685)
 shape = SubResource("RectangleShape2D_6y6v6")
+
+[node name="Bird" parent="." instance=ExtResource("2_rq6ao")]
+z_index = 1
+position = Vector2(160, 153)
+
+[node name="aleteo_pajaro" type="AudioStreamPlayer2D" parent="Bird"]
+position = Vector2(-164.73, -151.15)
+scale = Vector2(1.02956, 0.987908)
+stream = ExtResource("5_qvgar")
+volume_db = 1.814
+attenuation = 0.101531
+
+[node name="falling" type="AudioStreamPlayer2D" parent="Bird"]
+stream = ExtResource("6_8n84u")
 
 [connection signal="timeout" from="NewPipesTimer" to="." method="_on_new_pipes_timer_timeout"]
 [connection signal="pressed" from="Button" to="Bird" method="_on_button_pressed"]
