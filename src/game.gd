@@ -35,6 +35,7 @@ var minigames_shuffled
 var current_game_number
 var current_game_seconds_left = 0
 var signal_inhibit = false
+var skip_enabled = false
 var state
 var elevator
 var death_screen
@@ -150,7 +151,8 @@ func load_game(game_n = 0):
 	signal_inhibit = false
 	if scene.needs_timer: $Timer.start()
 	state = "game"
-	$HUD/SkipButton.show()
+	if skip_enabled == true:
+		$HUD/SkipButton.show()
 
 # Carga elevator.tscn, y esta despues llamará a load_game(). 
 func enter_elevator():
@@ -159,7 +161,8 @@ func enter_elevator():
 	elevator.set_starting_floor_number(current_game_number - 1)
 	add_child(elevator)
 	state = "elevator"
-	$HUD/SkipButton.show()
+	if skip_enabled == true:
+		$HUD/SkipButton.show()
 
 func on_elevator_exit():
 	state = null

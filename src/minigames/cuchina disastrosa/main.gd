@@ -66,7 +66,7 @@ func _process(delta):
 		if o[0].position.x > 820 or o[0].position.x < -100:
 			obstaculos_instanciados.erase(o)
 		if o[0].get_child(1).overlaps_body($Jugador/CharacterBody2D):
-			$Jugador/CharacterBody2D.die(delta)
+			$Jugador/CharacterBody2D.die()
 			$Sonido_perder.play()
 			game_over.emit()
 	if jump:

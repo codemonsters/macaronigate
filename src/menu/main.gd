@@ -30,6 +30,10 @@ func _ready():
 	# $GamePicker.get_v_scroll_bar().offset_right = 8
 	if get_parent().get_name() == "game":
 		game = get_parent()
+		
+		if game.skip_enabled == true:
+			$SkippingToggle.set_text("Disable skipping")
+
 		for item in game.minigames:
 			$GamePicker.add_item(item)
 
@@ -41,6 +45,7 @@ func _ready():
 			$GamePicker.show()
 			$UpButton.show()
 			$DownButton.show()
+			$SkippingToggle.show()
 	else:
 		game = null
 	
@@ -106,6 +111,7 @@ func _on_picker_toggle_pressed():
 		$DownButton.hide()
 		$GamePicker.hide()
 		$GamePicker.deselect_all();
+		$SkippingToggle.hide()
 		game.launch_minigame_directly = null
 		$PickerToggle.set_text("Options")
 	else:
@@ -115,6 +121,7 @@ func _on_picker_toggle_pressed():
 		$GamePicker.show()
 		$UpButton.show()
 		$DownButton.show()
+		$SkippingToggle.show()
 
 func _on_game_picker_item_selected(index):
 	game.launch_minigame_directly = game.minigames[index]
@@ -141,3 +148,11 @@ func _on_down_button_pressed():
 	$GamePicker.select(to_select)
 	$GamePicker.ensure_current_is_visible()
 	_on_game_picker_item_selected(to_select)
+
+func _on_skipping_toggle_pressed():
+	if $SkippingToggle.text == "Enable skipping":
+		game.skip_enabled = true
+		$SkippingToggle.set_text("Disable skipping")
+	else:
+		game.skip_enabled = false
+		$SkippingToggle.set_text("Enable skipping")
