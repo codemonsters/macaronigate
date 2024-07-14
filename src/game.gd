@@ -45,7 +45,7 @@ func _ready():
 	if minigames_order_override == null:
 		minigames_shuffled = minigames.duplicate()
 		minigames_shuffled.shuffle()
-		if limit_minigames_count != null:
+		if limit_minigames_count != null && minigames_shuffled.size() > limit_minigames_count:
 			minigames_shuffled.resize(limit_minigames_count)
 	else:
 		minigames_shuffled = minigames_order_override.duplicate()

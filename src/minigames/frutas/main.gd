@@ -33,7 +33,7 @@ func _on_fruta_timer_timeout():
 	fruta.rotation = randf_range(-PI / 4, PI / 4)
 	fruta.angular_velocity = randf_range(-50, 50)
 	
-	var velocity_x = (720 / 2 - fruta_spawn_location.position.x) * randf_range(0.7, 1.8)
+	var velocity_x = (720.0 / 2 - fruta_spawn_location.position.x) * randf_range(0.7, 1.8)
 	var velocity_y = randf_range(500, 800)
 	fruta.linear_velocity = Vector2(velocity_x, velocity_y)
 	

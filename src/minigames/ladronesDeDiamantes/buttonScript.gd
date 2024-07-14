@@ -2,7 +2,7 @@ extends Button
 
 var first_press = false
 
-func _process(delta):
+func _process(_delta):
 	if !first_press:
 		position.y = 930 + (12*sin(4*PI * $timer.time_left))
 

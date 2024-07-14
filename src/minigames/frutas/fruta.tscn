@@ -49,5 +49,11 @@ shape = SubResource("CircleShape2D_gx7bt")
 [node name="Cortar_manzana" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_3hpt1")
 
+[node name="TouchScreenButton" type="TouchScreenButton" parent="."]
+position = Vector2(2.08165e-12, 4)
+shape = SubResource("CircleShape2D_gx7bt")
+passby_press = true
+
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
-[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="input_event" from="." to="." method="_on_input_event"]
+[connection signal="pressed" from="TouchScreenButton" to="." method="_on_button_pressed"]

@@ -6,11 +6,5 @@ signal pizza_catched
 func _ready():
 	pizza_catched.connect(Callable(get_parent(), "on_pizza_catched"))
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
-
-
-func _on_rigid_body_2d_body_entered(body):
+func _on_rigid_body_2d_body_entered(_body):
 	emit_signal("pizza_catched", self)

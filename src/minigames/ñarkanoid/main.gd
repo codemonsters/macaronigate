@@ -68,7 +68,7 @@ func on_game_timeout():
 	PhysicsServer2D.area_set_param(get_world_2d().space, PhysicsServer2D.AREA_PARAM_GRAVITY_VECTOR, previous_gravity_vector)
 	emit_signal("game_cleared")
 
-func _on_ball_body_entered(body):
+func _on_ball_body_entered(_body):
 	$BallReboundSound.play()
 
 func _on_right_button_pressed():

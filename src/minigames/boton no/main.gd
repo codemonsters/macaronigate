@@ -20,10 +20,6 @@ func _ready():
 	$Boton.show()
 	$Boton2.hide()
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
-
 func on_game_start():
 	$Colision.disabled = false
 

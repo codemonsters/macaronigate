@@ -49,7 +49,7 @@ func jump_side(delta, direction):
 		velocity.y = vy_side + a_side*t
 		move_and_slide()
 
-func die(delta):
+func die():
 	dead = true
 	velocity = Vector2(0, 0)
 	$CollisionShape2D.free()

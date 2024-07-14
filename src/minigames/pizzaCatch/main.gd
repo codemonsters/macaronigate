@@ -14,10 +14,6 @@ func _ready():
 	game_over.connect(Callable(get_parent(), "on_game_over"))
 	game_cleared.connect(Callable(get_parent(), "on_game_cleared"))
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
-
 func on_game_start():
 	$Timer.start()
 
@@ -32,7 +28,7 @@ func _on_timer_timeout():
 func on_pizza_catched(node):
 	node.queue_free()
 
-func _on_area_2d_body_entered(body):
+func _on_area_2d_body_entered(_body):
 	if in_game == true:
 		emit_signal("game_over")
 		$Timer.stop()

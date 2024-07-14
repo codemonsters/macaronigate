@@ -17,7 +17,7 @@ func _ready():
 	game_over.connect(Callable(get_parent().get_parent(), "on_game_over"))
 	game_cleared.connect(Callable(get_parent().get_parent(), "on_game_cleared"))
 
-func _input(event):
+func _input(_event):
 	if Input.is_key_pressed(KEY_RIGHT):
 		posicion_jugador = 1
 		$slidePlayer.play()
@@ -63,7 +63,7 @@ func _process(delta):
 			if $playerSprite.scale < Vector2.ZERO:
 				queue_free()
 
-func _on_car_body_entered(body):
+func _on_car_body_entered(_body):
 	if not lose:
 		lose = true
 		emit_signal("game_over")
@@ -76,6 +76,6 @@ func _on_left_pressed():
 	posicion_jugador = 0
 	$slidePlayer.play()
 
-func _on_area_2d_body_entered(body):
+func _on_area_2d_body_entered(_body):
 	win = true
 	emit_signal("game_cleared")

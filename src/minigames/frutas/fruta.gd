@@ -4,18 +4,13 @@ extends RigidBody2D
 func _ready():
 	pass # Replace with function body.
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _on_input_event(_viewport, _event, _shape_idx):
 	pass
+	## print(event)
+	## if event == InputEventMouseMotion && event.button_mask == 1:
+	#$AnimatedSprite2D.set_frame_and_progress(1,1)
+	#$Cortar_manzana.play()
 
-func _on_input_event(viewport, event, shape_idx):
-	if event is InputEventMouseButton:
-#		if event.is_pressed():
-		# print(event)
-		$AnimatedSprite2D.set_frame_and_progress(1,1)
-
-
-func _on_mouse_entered():
+func _on_button_pressed():
 	$AnimatedSprite2D.set_frame_and_progress(1,1)
 	$Cortar_manzana.play()

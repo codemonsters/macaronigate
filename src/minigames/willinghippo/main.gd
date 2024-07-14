@@ -40,7 +40,7 @@ func _ready():
 	game_cleared.connect(Callable(get_parent(), "on_game_cleared"))
 	randomize()
 	PhysicsServer2D.area_set_param(get_world_2d().space, PhysicsServer2D.AREA_PARAM_GRAVITY_VECTOR, Vector2(0,-1))
-	num_plataformas = 720/(118+separacion)
+	num_plataformas = 720.0/(118+separacion)
 	num_plataformas = round(num_plataformas)
 	distancia = (720 - (118*num_plataformas+separacion*(num_plataformas-1)))/2
 	for y in range(filas):
@@ -59,7 +59,7 @@ func _ready():
 				pared2.position=madera2.position+Vector2(53,-48)
 			madera_anterior = madera2.position.x
 
-func _input(event):
+func _input(_event):
 	if Input.is_key_pressed(KEY_RIGHT):
 		angulo = .3
 	if Input.is_key_pressed(KEY_LEFT):
